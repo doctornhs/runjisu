@@ -88,5 +88,20 @@ ok('12km → 16km 는 +33% 중간 급증', Core.spike(12, 16).level === 2);
 ok('신발 430km 데일리 = 점검 시작', Core.shoeStatus('daily', 430).level === 1);
 ok('40세 최대심박 추정 180', Core.estMaxHr(40) === 180);
 
+// 기록 관문
+{
+  const g = Core.gate('full', 230);
+  ok('풀 3:50:00 → 서브4 통과, 다음 서브 3:45까지 5:01', g.passed === 240 && g.next === 225 && g.gapSec === 301 && g.passedLabel === '서브4' && g.nextLabel === '서브 3:45', JSON.stringify(g));
+  const t = Core.gate('10k', 50);
+  ok('10K 50:00 은 서브50 이 아니다', t.passed === 55 && t.next === 50 && t.gapSec === 1 && t.nextLabel === '서브50');
+  ok('10K 49:59 는 서브50', Core.gate('10k', 50 - 1 / 60).passed === 50);
+  ok('풀 6:40 은 첫 관문 전', Core.gate('full', 400).passed === null && Core.gate('full', 400).next === 360);
+  ok('5K 15:00 은 마지막 관문 통과', Core.gate('5k', 15).next === null && Core.gate('5k', 15).progress === 1);
+  ok('하프 1:59:59 → 서브2', Core.gate('half', 120 - 1 / 60).passedLabel === '서브2');
+  let bad = 0;
+  for (const id of Object.keys(Core.GATES)) for (let m = 12; m < 420; m += 0.37) { const x = Core.gate(id, m); if (!(x.progress >= 0 && x.progress <= 1) || (x.next && x.gapSec < 1)) bad++; }
+  ok('관문 진행률은 늘 0~1', bad === 0, bad);
+}
+
 console.log(fail ? `\n${fail}개 실패` : '\n전부 통과');
 process.exit(fail ? 1 : 0);

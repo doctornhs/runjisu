@@ -91,11 +91,23 @@
   /* ── 제휴 링크 ── */
   $$('.shop').forEach(a => { const u = SITE.partnerLinks[a.dataset.shop]; if (u) { a.href = u; a.rel = 'noopener sponsored'; } });
 
+  /** lower: 달리기 기록에서 나온 값. 실험실 VO2max보다 낮게 나오는 편이라 '적어도 이 순위'로 적는다 */
+  function pctText(pp, lower) {
+    const top = 100 - pp.pct;
+    if (pp.edge === 'high') return '상위 5% 이내';
+    if (pp.edge === 'low') return lower ? '하위 5% 근처' : '하위 5% 이내';
+    if (lower) return '상위 약 ' + Math.round(top) + '% 이내';
+    return top <= 50 ? '상위 약 ' + Math.round(top) + '%' : '하위 약 ' + Math.round(pp.pct) + '%';
+  }
+  const ageText = (fa, lower) => fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세' + (lower ? ' 이하' : '');
+  const LOWER_NOTE = '달리기 기록으로 구한 값은 실험실에서 잰 VO2max보다 낮게 나오는 편이라, 실제 체력 나이는 이보다 젊고 순위는 이보다 높을 가능성이 큽니다.';
+  const LONG_NOTE = ' 특히 하프·풀코스 기록에는 지구력과 보급까지 섞여 있어 5K·10K 기록으로 구한 값보다 더 낮게 나오기 쉽습니다. 5K나 10K를 힘껏 달린 기록이 있으면 그 기록으로 다시 계산해 보세요.';
+
   /* ───────── 런지수 ───────── */
   (function initHome() {
     const form = $('#f-home'); if (!form) return;
     const home = loadHome();
-    let lastIndex = null, lastSummary = '', shown = null, raf = 0;
+    let lastIndex = null, lastSummary = '', shown = null, raf = 0, lastData = null, shareFile = null;
 
     function fill() {
       check('dist', DIST_LABEL[home.dist] || home.dist === 'custom' ? home.dist : '10000');
@@ -144,6 +156,85 @@
       else { elPct.textContent = pctText(pp, true); elGroup.textContent = pp.decade + '대 ' + (sex === 'M' ? '남성' : '여성') + ' 기준'; }
       $('#peer-note').textContent = LOWER_NOTE + (long ? LONG_NOTE : '') + ' ' + base;
     }
+    function renderGates(pr) {
+      pr.forEach(p => {
+        const el = $('#gate-' + p.id); if (!el) return;
+        const g = Core.gate(p.id, p.minutes);
+        $('.k', el).textContent = p.label + ' ' + Core.fmtTime(p.minutes);
+        $('.big', el).textContent = g.passed ? g.passedLabel : '첫 관문 전';
+        $('.cap', el).textContent = g.next ? g.nextLabel + '까지 ' + Core.fmtTime(g.gapSec / 60) + ' 단축' : '가장 빠른 관문을 지났습니다';
+        $('.gbar i', el).style.setProperty('--w', (g.progress * 100).toFixed(0) + '%');
+      });
+    }
+    /* 공유 이미지: 배번표를 1080×1350 그림으로 그린다 */
+    const F_NUM = '"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif';
+    const F_BODY = '"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif';
+    const F_HEAD = '"Black Han Sans",' + F_BODY;
+    const LATIN = (($('.bib-top span') || {}).textContent || BRAND).trim();
+    const HOST = SITE.siteUrl ? SITE.siteUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : LATIN;
+    function fontsReady() {
+      if (!document.fonts || !document.fonts.load) return Promise.resolve();
+      const ko = BRAND + ' 훈련 페이스 예상 기록 기준 하프 풀 같은 수준으로 준비했을 때 하나로 아는 내 직접 입력';
+      const all = Promise.all([
+        document.fonts.load('800 100px "Barlow Condensed"', '0123456789.:~EMTIRK' + LATIN),
+        document.fonts.load('700 100px "Barlow Condensed"', '0123456789.:~EMTIRK' + LATIN + HOST),
+        document.fonts.load('400 60px "Black Han Sans"', BRAND),
+        document.fonts.load('600 30px "IBM Plex Sans KR"', ko), document.fonts.load('500 30px "IBM Plex Sans KR"', ko), document.fonts.load('700 30px "IBM Plex Sans KR"', ko),
+      ]).catch(() => { /* 기본 글꼴로 그린다 */ });
+      return Promise.race([all, new Promise(res => setTimeout(res, 2500))]);
+    }
+    function drawShare(d) {
+      const W = 1080, H = 1350, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      const x = cv.getContext('2d');
+      const INK = '#101a2b', SUB = '#51607a', LINE = '#c5ccd8', BAND = '#1f47e6', PAPER = '#fbfaf5';
+      const cx = 70, cy = 76, cw = W - 140, ch = 1112, mid = W / 2;
+      const box = (l, t, w, h, r) => { x.beginPath(); x.moveTo(l + r, t); x.arcTo(l + w, t, l + w, t + h, r); x.arcTo(l + w, t + h, l, t + h, r); x.arcTo(l, t + h, l, t, r); x.arcTo(l, t, l + w, t, r); x.closePath(); };
+      const sp = v => { if ('letterSpacing' in x) x.letterSpacing = v; };
+      const text = (s, px, py, font, color, align, max) => {
+        x.font = font;
+        if (max) { const w = x.measureText(s).width; if (w > max) x.font = font.replace(/(\d+)px/, (m0, n) => Math.floor(n * max / w) + 'px'); }
+        x.fillStyle = color; x.textAlign = align || 'center'; x.fillText(s, px, py);
+      };
+      const dash = (y, l, r) => { x.save(); x.setLineDash([14, 11]); x.strokeStyle = LINE; x.lineWidth = 3; x.beginPath(); x.moveTo(l, y); x.lineTo(r, y); x.stroke(); x.restore(); };
+      const vdash = (px, t, b) => { x.save(); x.setLineDash([10, 9]); x.strokeStyle = LINE; x.lineWidth = 3; x.beginPath(); x.moveTo(px, t); x.lineTo(px, b); x.stroke(); x.restore(); };
+      x.fillStyle = INK; x.fillRect(0, 0, W, H);
+      x.textBaseline = 'alphabetic';
+      box(cx, cy, cw, ch, 26); x.fillStyle = PAPER; x.fill();
+      x.save(); box(cx, cy, cw, ch, 26); x.clip(); x.fillStyle = BAND; x.fillRect(cx, cy, cw, 112); x.restore();
+      [[cx + 38, cy + 56], [cx + cw - 38, cy + 56], [cx + 38, cy + ch - 36], [cx + cw - 38, cy + ch - 36]].forEach(p => { x.beginPath(); x.arc(p[0], p[1], 11, 0, Math.PI * 2); x.fillStyle = INK; x.fill(); });
+      sp('7px'); text(LATIN, cx + 76, cy + 72, '700 46px ' + F_NUM, '#fff', 'left', cw * 0.4); sp('0px');
+      text(d.basis + ' 기준', cx + cw - 76, cy + 68, '600 30px ' + F_BODY, '#fff', 'right', cw * 0.42);
+      text(d.idx.toFixed(1), mid, cy + 500, '800 440px ' + F_NUM, INK, 'center', cw - 150);
+      text(BRAND, mid, cy + 592, '400 66px ' + F_HEAD, INK);
+      dash(cy + 640, cx + 40, cx + cw - 40);
+      text('같은 수준으로 준비했을 때 예상 기록', mid, cy + 692, '600 28px ' + F_BODY, SUB);
+      const pw = (cw - 80) / 4;
+      d.pr.forEach((p, i) => {
+        const px = cx + 40 + pw * i + pw / 2;
+        if (i) vdash(cx + 40 + pw * i, cy + 716, cy + 826);
+        text(p.label, px, cy + 748, '700 30px ' + F_BODY, SUB);
+        text(Core.fmtTime(p.minutes), px, cy + 818, '700 66px ' + F_NUM, INK, 'center', pw - 26);
+      });
+      dash(cy + 856, cx + 40, cx + cw - 40);
+      text('훈련 페이스 /km', mid, cy + 908, '600 28px ' + F_BODY, SUB);
+      const z = d.z, zones = [
+        ['E', '#0f8f68', range(z.eFast, z.eSlow, Core.fmtPace), 1.7], ['M', '#0b7fb3', Core.fmtPace(z.m), 1],
+        ['T', '#b57f00', Core.fmtPace(z.t), 1], ['I', '#dc5219', Core.fmtPace(z.i), 1], ['R', '#c81d57', Core.fmtPace(z.r), 1],
+      ];
+      const unit = (cw - 80) / zones.reduce((a, q) => a + q[3], 0);
+      let left = cx + 40;
+      zones.forEach(q => {
+        const w = unit * q[3], px = left + w / 2;
+        box(px - 30, cy + 932, 60, 50, 10); x.fillStyle = q[1]; x.fill();
+        text(q[0], px, cy + 971, '700 38px ' + F_NUM, '#fff');
+        text(q[2], px, cy + 1040, '700 54px ' + F_NUM, INK, 'center', w - 22);
+        left += w;
+      });
+      sp('4px'); text(HOST, cx + 6, cy + ch + 96, '700 46px ' + F_NUM, '#fff', 'left', cw * 0.48); sp('0px');
+      text('기록 하나로 아는 내 ' + BRAND, cx + cw - 6, cy + ch + 92, '500 30px ' + F_BODY, '#9aa8be', 'right', cw * 0.46);
+      return cv;
+    }
+    function hideShare() { const o = $('#share-out'); if (o) o.hidden = true; shareFile = null; }
     function render() {
       $('#custom-row').hidden = home.dist !== 'custom';
       $('#bib-ex').hidden = !home.example;
@@ -161,6 +252,8 @@
         ? '이 기록은 공식이 잘 맞는 범위(약 3분 30초~4시간)를 벗어나 오차가 클 수 있습니다.'
         : `${J(BRAND, '는')} 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다.`;
       renderPeer(idx);
+      renderGates(pr);
+      lastData = { idx, basis: r.basis, z, pr }; hideShare();
       lastSummary = [
         `내 ${BRAND} ${idx.toFixed(1)} (${r.basis} 기준)`,
         `훈련 페이스 /km  E ${range(z.eFast, z.eSlow, Core.fmtPace)} · M ${Core.fmtPace(z.m)} · T ${Core.fmtPace(z.t)} · I ${Core.fmtPace(z.i)} · R ${Core.fmtPace(z.r)}`,
@@ -175,21 +268,36 @@
     function onPeer() { read(); store.set('home', home); renderPeer(lastIndex); }
     ['age', 'sex-m', 'sex-f'].forEach(id => { const el = $('#' + id); el.addEventListener('input', onPeer); el.addEventListener('change', onPeer); });
     $('#copy-result').addEventListener('click', e => copyText(e.currentTarget, lastSummary));
+    const shareBtn = $('#share-img');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        if (!lastData) return;
+        const d = lastData, name = LATIN.toLowerCase().replace(/[^a-z0-9]+/g, '') + '-' + d.idx.toFixed(1) + '.png';
+        shareBtn.disabled = true;
+        fontsReady().then(() => {
+          const cv = drawShare(d), url = cv.toDataURL('image/png');
+          const pic = $('#share-pic'), save = $('#share-save'), send = $('#share-send'), out = $('#share-out');
+          pic.src = url; pic.alt = `내 ${BRAND} ${d.idx.toFixed(1)} 결과 이미지`;
+          save.href = url; save.download = name;
+          send.hidden = true; out.hidden = false; shareBtn.disabled = false;
+          if (out.scrollIntoView) out.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+          if (cv.toBlob && typeof File === 'function') cv.toBlob(b => {
+            if (!b || out.hidden) return;
+            try {
+              const f = new File([b], name, { type: 'image/png' });
+              if (navigator.canShare && navigator.canShare({ files: [f] })) { shareFile = f; send.hidden = false; }
+            } catch (e) { /* 공유 기능이 없는 브라우저는 저장만 */ }
+          }, 'image/png');
+        }).catch(() => { shareBtn.disabled = false; });
+      });
+      $('#share-send').addEventListener('click', () => {
+        if (shareFile && navigator.share) navigator.share({ files: [shareFile], title: `내 ${BRAND} ${lastData.idx.toFixed(1)}`, text: sourceLine() }).catch(() => { /* 닫으면 그대로 둔다 */ });
+      });
+    }
     refreshers.home = () => { Object.assign(home, loadHome()); fill(); render(); };
     fill(); render();
   })();
 
-  /** lower: 달리기 기록에서 나온 값. 실험실 VO2max보다 낮게 나오는 편이라 '적어도 이 순위'로 적는다 */
-  function pctText(pp, lower) {
-    const top = 100 - pp.pct;
-    if (pp.edge === 'high') return '상위 5% 이내';
-    if (pp.edge === 'low') return lower ? '하위 5% 근처' : '하위 5% 이내';
-    if (lower) return '상위 약 ' + Math.round(top) + '% 이내';
-    return top <= 50 ? '상위 약 ' + Math.round(top) + '%' : '하위 약 ' + Math.round(pp.pct) + '%';
-  }
-  const ageText = (fa, lower) => fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세' + (lower ? ' 이하' : '');
-  const LOWER_NOTE = '달리기 기록으로 구한 값은 실험실에서 잰 VO2max보다 낮게 나오는 편이라, 실제 체력 나이는 이보다 젊고 순위는 이보다 높을 가능성이 큽니다.';
-  const LONG_NOTE = ' 특히 하프·풀코스 기록에는 지구력과 보급까지 섞여 있어 5K·10K 기록으로 구한 값보다 더 낮게 나오기 쉽습니다. 5K나 10K를 힘껏 달린 기록이 있으면 그 기록으로 다시 계산해 보세요.';
 
   /* ───────── 목표 대회: 대회 일정에서 고르고 대회 계획에서 이어 쓴다 ───────── */
   const daysTo = d => Core.dayNum(d) - Core.dayNum(today());
@@ -768,8 +876,9 @@
 
   /* ───────── 보호: 복사·우클릭·끌기·인쇄 막기 (입력 칸과 메일 주소는 예외) ───────── */
   const isField = t => !!(t && t.closest && t.closest('input,textarea,select,a[href^="mailto:"]'));
-  document.addEventListener('contextmenu', e => { if (!isField(e.target)) e.preventDefault(); });
-  document.addEventListener('dragstart', e => e.preventDefault());
+  const savable = t => !!(t && t.closest && t.closest('.savable'));     // 저장하라고 만든 공유 이미지
+  document.addEventListener('contextmenu', e => { if (!isField(e.target) && !savable(e.target)) e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (!savable(e.target)) e.preventDefault(); });
   document.addEventListener('selectstart', e => { if (!isField(e.target)) e.preventDefault(); });
   document.addEventListener('copy', e => {
     if (isField(e.target)) return;

@@ -252,6 +252,29 @@ const Core = (() => {
   }
 
   /* ── 표시 형식 ── */
+  /** 러너들이 흔히 목표로 삼는 기록 기준선(분). 통계가 아니라 관용적으로 쓰는 관문이다 */
+  const GATES = {
+    '5k': [40, 35, 30, 25, 22, 20, 18, 16],
+    '10k': [80, 70, 60, 55, 50, 45, 40, 37, 35, 33],
+    half: [180, 150, 135, 120, 110, 100, 90, 80, 75],
+    full: [360, 330, 300, 270, 240, 225, 210, 200, 190, 180, 170, 160, 150],
+  };
+  const gateLabel = (id, m) => (id === '5k' || id === '10k') ? '서브' + m
+    : '서브' + (m % 60 ? ' ' + Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0') : Math.floor(m / 60));
+  /** 기록이 지난 관문과 다음 관문. 서브4는 4:00:00 "미만"이므로 다음 관문까지는 1초를 더 줄여야 한다 */
+  function gate(id, minutes) {
+    const list = GATES[id], sec = Math.round(minutes * 60);
+    const i = list.findIndex(m => sec >= m * 60);
+    const passed = i === -1 ? list[list.length - 1] : i > 0 ? list[i - 1] : null;
+    const next = i === -1 ? null : list[i];
+    return {
+      passed, next,
+      passedLabel: passed ? gateLabel(id, passed) : '', nextLabel: next ? gateLabel(id, next) : '',
+      gapSec: next ? sec - next * 60 + 1 : 0,
+      progress: !next ? 1 : passed ? (passed * 60 - sec) / ((passed - next) * 60) : 0,
+    };
+  }
+
   const pad = n => String(n).padStart(2, '0');
   function fmtPace(sec) { const s = Math.round(sec); return Math.floor(s / 60) + ':' + pad(s % 60); }
   function fmtTime(minutes) {
@@ -260,7 +283,7 @@ const Core = (() => {
   }
 
   return {
-    runIndex, raceMinutes, paces, predictions, RACES, kmh,
+    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate,
     splits, goalCheck, weekPlan,
     dayNum, weekIdx, dayLabel, logStats,
     FRIEND, peerRow, peerPercentile, fitnessAge, nextTier, cooper, rockport,

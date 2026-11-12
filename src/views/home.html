@@ -50,8 +50,17 @@
       </article>
       <div class="bib-actions">
         <button type="button" class="btn" id="copy-result">결과 복사</button>
+        <button type="button" class="btn ghost" id="share-img">공유 이미지 만들기</button>
         <p class="note" id="range-note">{{brand:는}} 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다.</p>
       </div>
+      <figure class="share" id="share-out" hidden>
+        <img id="share-pic" class="savable" alt="" width="1080" height="1350">
+        <figcaption>
+          <button type="button" class="btn small" id="share-send" hidden>공유하기</button>
+          <a class="btn small ghost" id="share-save">이미지 저장</a>
+          <span class="note">이미지를 길게 누르거나 마우스 오른쪽 버튼으로도 저장할 수 있습니다.</span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 
@@ -97,6 +106,17 @@
         <div class="lane-sub"><span>400m<b class="lap"></b></span><span>러닝머신<b class="kmh"></b></span><span>한 번에 주간 거리의 5% 이내</span></div>
       </li>
     </ol>
+  </section>
+
+  <section class="panel" aria-labelledby="gates-h">
+    <h2 id="gates-h">러너들의 관문, 어디까지 왔나</h2>
+    <div class="gates">
+      <div class="stat gate" id="gate-5k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-10k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-half"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-full"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+    </div>
+    <p class="note">서브4처럼 러너들이 흔히 목표로 삼는 기록 기준선입니다. 막대는 지난 관문에서 다음 관문까지 온 만큼 찹니다. 입력한 거리가 아닌 종목은 예상 기록이라, 그 거리를 제대로 준비했을 때의 값으로 보세요.</p>
   </section>
 
   <div class="two">

@@ -338,3 +338,18 @@ footer b{color:var(--ink)}
   body > *{display:none!important}
   body::before{content:"인쇄할 수 없습니다";display:block;padding:40px;font:700 20px var(--font-body);color:#000}
 }
+
+/* 기록 관문 */
+.gates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:720px){.gates{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.gate .k{font-size:13px;font-weight:700;color:var(--ink-2)}
+.gate .gbar{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:8px}
+.gate .gbar i{display:block;height:100%;width:var(--w,0%);background:var(--accent);border-radius:3px}
+
+/* 공유 이미지: 저장하라고 만든 그림이라 길게 누르기와 오른쪽 버튼을 열어 둔다 */
+.share{margin:0;display:grid;gap:10px}
+.share img{width:100%;max-width:340px;height:auto;justify-self:center;border-radius:12px;border:1px solid var(--line)}
+.share figcaption{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.share a.btn{display:inline-block;text-decoration:none;cursor:pointer}
+.share .note{flex:1 1 200px}
+.savable{-webkit-touch-callout:default;-webkit-user-select:auto;user-select:auto}
