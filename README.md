@@ -8,6 +8,7 @@
 |---|---|
 | `docs/` | **배포되는 사이트.** GitHub Pages가 이 폴더를 runjisu.com으로 내보냅니다. 직접 고치지 않고 빌드로 만듭니다 |
 | `src/` | 소스: `core.js`(계산), `app.js`(화면 동작), `styles.css`, `views/`(화면별 HTML), `pwa/`(아이콘, 서비스 워커) |
+| `src/static/` | 사이트 맨 위에 그대로 복사되는 파일(네이버 소유 확인 파일 등) |
 | `site.config.json` | 이름, 주소, 광고, 제휴 링크를 바꾸는 한 곳 |
 | `build.py` | 소스와 설정으로 `docs/`를 다시 만드는 스크립트 |
 | `test/core.test.js` | 계산 검산 (`node test/core.test.js`) |

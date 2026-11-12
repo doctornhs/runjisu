@@ -216,6 +216,12 @@ def build_site():
         write(os.path.join(site_dir, path, 'index.html'), page)
         pages.append(path)
 
+    # src/static/ 안의 파일은 그대로 사이트 맨 위에 복사한다(검색 엔진 소유 확인 파일 등)
+    static = os.path.join(SRC, 'static')
+    if os.path.isdir(static):
+        for name in sorted(os.listdir(static)):
+            shutil.copy(os.path.join(static, name), os.path.join(site_dir, name))
+
     # 설치형 웹앱
     manifest = {
         'name': f'{BRAND} 러닝 계산기', 'short_name': BRAND, 'description': VIEWS[0][4], 'lang': 'ko',
