@@ -75,7 +75,7 @@
     const h = loadHome();
     let r = evalHome(h), example = !!h.example;
     if (r.msg) { r = evalHome(HOME_DEFAULT); example = true; }
-    return { idx: r.idx, basis: r.basis, example };
+    return { idx: r.idx, basis: r.basis, example, long: r.meters >= 21000 };
   }
   /** 다른 도구 위에 놓이는 "지금 기준 런지수" 한 줄 */
   function renderBasis() {
@@ -131,17 +131,18 @@
     function renderPeer(idx) {
       const age = num(home.age), sex = home.sex;
       const elAge = $('#peer-age'), elPct = $('#peer-pct'), elGroup = $('#peer-group');
-      const base = `미국 성인 7,783명의 운동부하검사 자료(FRIEND, 2015)와 비교한 추정값이며, ${J(BRAND, '는')} 실험실 측정치와 다를 수 있습니다.`;
+      const base = '비교 기준은 미국 성인 7,783명의 운동부하검사 자료(FRIEND, 2015)입니다.';
       if (idx == null || !sex || !Number.isFinite(age)) {
         elAge.textContent = '–'; elPct.textContent = '–'; elGroup.textContent = '같은 연령대 기준';
         $('#peer-note').textContent = `나이와 성별을 넣으면 내 ${J(BRAND, '가')} 어느 연령대 평균과 같은지, 또래 가운데 어디쯤인지 보여 드립니다. ` + base;
         return;
       }
       const fa = Core.fitnessAge(idx, sex), pp = Core.peerPercentile(idx, sex, age);
-      elAge.textContent = fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세';
+      const r = evalHome(home), long = !r.msg && r.meters >= 21000;
+      elAge.textContent = ageText(fa, true);
       if (!pp) { elPct.textContent = '–'; elGroup.textContent = '20~79세만 비교할 수 있습니다'; }
-      else { elPct.textContent = pctText(pp); elGroup.textContent = pp.decade + '대 ' + (sex === 'M' ? '남성' : '여성') + ' 기준'; }
-      $('#peer-note').textContent = `체력 나이는 내 ${J(BRAND, '가')} 어느 연령대의 중앙값과 같은지를 뜻합니다. ` + base;
+      else { elPct.textContent = pctText(pp, true); elGroup.textContent = pp.decade + '대 ' + (sex === 'M' ? '남성' : '여성') + ' 기준'; }
+      $('#peer-note').textContent = LOWER_NOTE + (long ? LONG_NOTE : '') + ' ' + base;
     }
     function render() {
       $('#custom-row').hidden = home.dist !== 'custom';
@@ -178,10 +179,62 @@
     fill(); render();
   })();
 
-  function pctText(pp) {
+  /** lower: 달리기 기록에서 나온 값. 실험실 VO2max보다 낮게 나오는 편이라 '적어도 이 순위'로 적는다 */
+  function pctText(pp, lower) {
     const top = 100 - pp.pct;
-    return pp.edge === 'high' ? '상위 5% 이내' : pp.edge === 'low' ? '하위 5% 이내' : top <= 50 ? '상위 약 ' + Math.round(top) + '%' : '하위 약 ' + Math.round(pp.pct) + '%';
+    if (pp.edge === 'high') return '상위 5% 이내';
+    if (pp.edge === 'low') return lower ? '하위 5% 근처' : '하위 5% 이내';
+    if (lower) return '상위 약 ' + Math.round(top) + '% 이내';
+    return top <= 50 ? '상위 약 ' + Math.round(top) + '%' : '하위 약 ' + Math.round(pp.pct) + '%';
   }
+  const ageText = (fa, lower) => fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세' + (lower ? ' 이하' : '');
+  const LOWER_NOTE = '달리기 기록으로 구한 값은 실험실에서 잰 VO2max보다 낮게 나오는 편이라, 실제 체력 나이는 이보다 젊고 순위는 이보다 높을 가능성이 큽니다.';
+  const LONG_NOTE = ' 특히 하프·풀코스 기록에는 지구력과 보급까지 섞여 있어 5K·10K 기록으로 구한 값보다 더 낮게 나오기 쉽습니다. 5K나 10K를 힘껏 달린 기록이 있으면 그 기록으로 다시 계산해 보세요.';
+
+  /* ───────── 목표 대회: 대회 일정에서 고르고 대회 계획에서 이어 쓴다 ───────── */
+  const daysTo = d => Core.dayNum(d) - Core.dayNum(today());
+  const ddayText = n => n > 0 ? 'D-' + n : n === 0 ? 'D-DAY' : '종료';
+  const getGoal = () => { const g = store.get('goal', null); return g && g.date && daysTo(g.date) >= 0 ? g : null; };
+  function renderGoalLine() {
+    const el = $('#rc-goal'); if (!el) return;
+    const g = getGoal();
+    el.hidden = !g;
+    if (g) el.innerHTML = `목표 대회 <b>${ddayText(daysTo(g.date))}</b><span>${esc(g.name)}</span><a href="${href('calendar')}">대회 일정 →</a>`;
+  }
+
+  (function initCalendar() {
+    const box = $('#goal-box'); if (!box) return;
+    function render() {
+      const g = getGoal();
+      $$('.race').forEach(li => {
+        const d = li.dataset.date, pill = $('[data-dday]', li), btn = $('[data-goal]', li);
+        if (!d) return;
+        const n = daysTo(d), isGoal = !!g && g.id === li.dataset.id;
+        pill.textContent = ddayText(n); pill.hidden = false;
+        li.classList.toggle('past', n < 0);
+        li.classList.toggle('goal', isGoal);
+        if (btn) { btn.hidden = n < 0; btn.textContent = isGoal ? '목표 대회 해제' : '목표 대회로 정하기'; }
+      });
+      box.innerHTML = g
+        ? `내 목표 대회 <b>${ddayText(daysTo(g.date))}</b><span>${esc(g.name)}</span><a href="${href('race')}" id="goal-plan">구간표 만들기 →</a>`
+        : '<span>날짜가 확정된 대회에서 목표 대회를 정하면 남은 날을 세어 드리고, 대회 계획 화면에 이어서 보여 드립니다.</span>';
+    }
+    document.addEventListener('click', e => {
+      const btn = e.target.closest && e.target.closest('[data-goal]');
+      if (btn) {
+        const li = btn.closest('.race'), g = getGoal();
+        if (g && g.id === li.dataset.id) store.set('goal', null);
+        else {
+          store.set('goal', { id: li.dataset.id, name: li.dataset.name, date: li.dataset.date, dist: li.dataset.dist });
+          const rs = Object.assign({ dist: '42195', h: '', m: '', s: '', mode: 'even', auto: true }, store.get('race', null) || {});
+          if (['5000', '10000', '21097.5', '42195'].includes(li.dataset.dist) && rs.dist !== li.dataset.dist) { rs.dist = li.dataset.dist; rs.auto = true; store.set('race', rs); }
+        }
+        render();
+      }
+    });
+    refreshers.calendar = render;
+    render();
+  })();
 
   /* ───────── 대회 계획 ───────── */
   (function initRace() {
@@ -195,6 +248,7 @@
     function setTime(min) { const s = Math.round(min * 60); st.h = String(Math.floor(s / 3600)); st.m = pad(Math.floor(s % 3600 / 60)); st.s = pad(s % 60); }
     function fillTime() { $('#rg-h').value = st.h; $('#rg-m').value = st.m; $('#rg-s').value = st.s; }
     function render() {
+      renderGoalLine();
       const c = renderBasis(), meters = parseFloat(st.dist);
       if (st.auto) { setTime(Core.raceMinutes(c.idx, meters)); fillTime(); }
       $('#rc-ex').hidden = !(st.auto && c.example);
@@ -255,7 +309,7 @@
       i.addEventListener('change', () => { ck[i.dataset.ck] = i.checked; store.set('check', ck); });
     });
 
-    refreshers.race = render;
+    refreshers.race = () => { Object.assign(st, store.get('race', null) || {}); check('rdist', st.dist); check('rmode', st.mode === 'neg' ? 'neg' : 'even'); fillTime(); render(); };
     if (!NAME[st.dist]) st.dist = '42195';
     check('rdist', st.dist); check('rmode', st.mode === 'neg' ? 'neg' : 'even'); fillTime(); render();
   })();
@@ -633,7 +687,8 @@
       const isEx = st.example && !(h.age && h.sex && !c.example);
       $('#ft-ex').hidden = !isEx;
       const fa = Core.fitnessAge(v, sex), pp = Core.peerPercentile(v, sex, age), row = Core.peerRow(sex, age);
-      $('#ft-agebig').textContent = fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세';
+      const lower = st.method === 'index';
+      $('#ft-agebig').textContent = ageText(fa, lower);
       const pill = $('#ft-pill');
       let level = '', pillText = '';
       if (Number.isFinite(age)) {
@@ -646,7 +701,7 @@
       pill.textContent = pillText; pill.hidden = !pillText;
       $('#ft-vlab').textContent = st.method === 'index' ? BRAND : '추정 VO2max';
       $('#ft-v').textContent = v.toFixed(1);
-      $('#ft-pct').textContent = pp ? `${pp.decade}대 ${sex === 'M' ? '남성' : '여성'} ${pctText(pp)}` : '20~79세만 비교';
+      $('#ft-pct').textContent = pp ? `${pp.decade}대 ${sex === 'M' ? '남성' : '여성'} ${pctText(pp, lower)}` : '20~79세만 비교';
 
       const scale = $('#ft-scale');
       scale.hidden = !row;
@@ -670,7 +725,7 @@
         if (st.method !== 'walk') text += ` 5K 기록으로는 약 ${Core.fmtTime(Core.raceMinutes(nt.value, 5000))}에 해당합니다.`;
       }
       $('#ft-msg').textContent = text; $('#ft-msg').hidden = !text;
-      $('#ft-note').textContent = st.method === 'index' ? `${J(BRAND, '는')} 달리기 효율이 섞인 값이라 실험실에서 잰 VO2max와 다를 수 있습니다.`
+      $('#ft-note').textContent = st.method === 'index' ? LOWER_NOTE + (c.long ? LONG_NOTE : '')
         : st.method === 'cooper' ? '12분 달리기 식은 끝까지 힘을 다해 달렸을 때 맞습니다.'
         : '걷기 식의 오차는 4~6 정도입니다.' + ((age < 30 || age > 69) ? ' 30~69세 밖에서는 오차가 더 커질 수 있습니다.' : '');
     }

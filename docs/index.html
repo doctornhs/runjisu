@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=e7f4f3e4d9">
+<link rel="stylesheet" href="assets/site.css?v=d36c02959c">
 </head>
 <body>
 
@@ -43,6 +43,7 @@
     <nav class="nav" aria-label="도구">
       <a href="./" data-nav="home" aria-current="page">런지수</a>
       <a href="race-pace/" data-nav="race">대회 계획</a>
+      <a href="marathon-schedule/" data-nav="calendar">대회 일정</a>
       <a href="training-week/" data-nav="plan">주간 훈련표</a>
       <a href="log/" data-nav="log">달리기 기록</a>
       <a href="long-run-check/" data-nav="spike">거리 급증</a>
@@ -170,7 +171,7 @@
         </div>
       </div>
       <div class="peer-grid">
-        <div class="stat"><span class="big" id="peer-age">–</span><span class="cap">유산소 체력 나이</span></div>
+        <div class="stat"><span class="big" id="peer-age">–</span><span class="cap">유산소 체력 나이 · 낮춰 잡은 추정</span></div>
         <div class="stat"><span class="big" id="peer-pct">–</span><span class="cap" id="peer-group">같은 연령대 기준</span></div>
       </div>
       <p class="note" id="peer-note"></p>
@@ -180,7 +181,7 @@
     <section class="panel" aria-labelledby="read-h">
       <h2 id="read-h">결과 읽는 법</h2>
       <ul class="prose">
-        <li>런지수는 최대산소섭취량(VO2max)과 단위가 같지만 달리기 효율까지 섞인 값입니다. 실험실 측정치보다 높거나 낮게 나올 수 있습니다.</li>
+        <li>런지수는 최대산소섭취량(VO2max)과 단위가 같지만 달리기 효율까지 섞인 값입니다. 취미 러너는 실험실 측정치보다 낮게 나오는 경우가 많고, 하프·풀코스 기록으로 구하면 더 낮아집니다.</li>
         <li>예상 기록은 그 거리를 같은 수준으로 준비했을 때의 값입니다. 10K 기록만으로 본 풀코스 예상은 장거리 훈련이 부족하면 실제보다 빠르게 나옵니다.</li>
         <li>훈련 페이스는 지금 실력 기준입니다. 목표 기록이 아니라 최근 기록을 넣으세요.</li>
       </ul>
@@ -195,7 +196,7 @@
       <nav class="next three" aria-label="훈련 도구">
         <a href="training-week/"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a>
         <a href="race-pace/"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a>
-        <a href="heart-rate-zones/"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a>
+        <a href="marathon-schedule/"><b>다음 대회는 언제, 접수는 몇 월에</b><span>서울, 춘천, JTBC, 대구 등 주요 대회의 날짜와 접수 시기, 공식 사이트를 모았습니다.</span><i>대회 일정 →</i></a>
       </nav>
     </div>
     <div class="hub-group">
@@ -208,7 +209,8 @@
     </div>
     <div class="hub-group">
       <h3>달리기 너머</h3>
-      <nav class="next three" aria-label="그 밖의 도구">
+      <nav class="next" aria-label="그 밖의 도구">
+        <a href="heart-rate-zones/"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a>
         <a href="fitness-age/"><b>내 체력은 몇 살일까</b><span>달리기 기록이 없어도 12분 달리기나 1.6km 걷기로 알 수 있습니다.</span><i>체력 나이 →</i></a>
         <a href="pace-converter/"><b>러닝머신 10km/h는 km당 몇 분?</b><span>속도와 페이스, 거리별 완주 기록을 서로 바꿉니다.</span><i>페이스 변환 →</i></a>
         <a href="gear/"><b>장비는 제품보다 유형부터</b><span>어떤 러너에게 어떤 신발과 도구가 맞는지 정리했습니다.</span><i>장비 가이드 →</i></a>
@@ -228,8 +230,8 @@
     <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
   </div>
 </footer>
-<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","gear":"gear/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
-<script src="assets/core.js?v=e7f4f3e4d9" defer></script>
-<script src="assets/app.js?v=e7f4f3e4d9" defer></script>
+<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","gear":"gear/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
+<script src="assets/core.js?v=d36c02959c" defer></script>
+<script src="assets/app.js?v=d36c02959c" defer></script>
 </body>
 </html>

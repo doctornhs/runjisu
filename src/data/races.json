@@ -1,0 +1,31 @@
+{
+  "checked": "2026-11-12",
+  "races": [
+    {"id": "sonkeechung", "name": "손기정평화마라톤", "host": "손기정기념재단", "date": "2026-11-15", "events": "풀 · 하프 · 10km · 6km", "place": "경기 파주 임진각 평화누리공원", "dist": 42195,
+     "reg": "접수 마감", "url": "https://son.raceplan.co.kr/", "link": "공식 사이트"},
+    {"id": "mbn-seoul", "name": "MBN 서울마라톤", "host": "MBN · 매일경제", "date": "2026-11-15", "events": "하프 · 10km", "place": "서울 광화문광장 → 잠실종합운동장", "dist": 21097.5,
+     "reg": "접수 마감", "url": "https://www.mbn-seoulmarathon.com/", "link": "공식 사이트"},
+    {"id": "daegu", "name": "대구마라톤", "host": "대구광역시 · 대한육상연맹", "date": "2027-02-28", "last": "2026-02-22", "events": "풀 · 10km · 건강달리기", "place": "대구 국채보상운동기념공원 출발·도착 (2027년부터 도심 코스)", "dist": 42195,
+     "reg": "풀코스 2026년 10월 12~18일, 10km·건강달리기 10월 26일~11월 1일에 접수했습니다. 추가 접수는 공식 사이트에서 확인하세요.", "regMonth": "10월", "url": "https://daegumarathon.daegu.go.kr/", "link": "공식 사이트"},
+    {"id": "seoul", "name": "서울마라톤 겸 동아마라톤", "host": "동아일보 · 서울특별시", "date": "2027-03-21", "last": "2026-03-15", "events": "풀 · 10km", "place": "서울 광화문광장 → 잠실종합운동장 (10km는 잠실)", "dist": 42195,
+     "reg": "국내 참가자 본접수는 2026년 6월 1~2일에 끝났습니다. 풀코스는 그보다 앞선 4월 28일~5월 11일에 완주 기록을 먼저 제출해야 했습니다.", "regMonth": "4~6월", "url": "https://seoul-marathon.com/", "link": "공식 사이트"},
+    {"id": "incheon-half", "name": "인천국제하프마라톤", "host": "인천광역시", "last": "2026-03-22", "season": "3월 하순", "events": "하프 · 10km · 5km", "place": "인천 문학경기장", "dist": 21097.5,
+     "reg": "지난 대회는 1월 5일~2월 13일에 선착순으로 접수했습니다.", "regMonth": "1월", "url": "https://search.naver.com/search.naver?query=%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%ED%95%98%ED%94%84%EB%A7%88%EB%9D%BC%ED%86%A4", "link": "네이버에서 공식 사이트 찾기"},
+    {"id": "gyeongju-cherry", "name": "경주벚꽃마라톤", "host": "경주시", "last": "2026-04-04", "season": "4월 첫 토요일 무렵", "events": "하프 · 10km · 5km", "place": "경북 경주 보문관광단지", "dist": 21097.5,
+     "reg": "지난 대회는 2025년 12월 18일(하프·5km), 19일(10km) 오전 10시에 접수를 열었고 금방 마감됐습니다.", "regMonth": "12월", "url": "https://www.cherrymarathon.co.kr/", "link": "공식 사이트"},
+    {"id": "gunsan", "name": "군산새만금마라톤", "host": "군산시", "last": "2026-04-05", "season": "4월 초", "events": "풀 · 10km · 5km", "place": "전북 군산 월명종합운동장", "dist": 42195,
+     "reg": "지난 대회는 1월 5일 오전 10시부터 선착순으로 접수했습니다.", "regMonth": "1월", "url": "https://search.naver.com/search.naver?query=%EA%B5%B0%EC%82%B0%EC%83%88%EB%A7%8C%EA%B8%88%EB%A7%88%EB%9D%BC%ED%86%A4", "link": "네이버에서 공식 사이트 찾기"},
+    {"id": "seoul-half", "name": "서울하프마라톤", "host": "조선일보 · 서울특별시", "last": "2026-04-26", "season": "매년 4월 마지막 일요일", "events": "하프 · 10km", "place": "서울 광화문광장 → 상암 월드컵공원 (10km는 여의도공원)", "dist": 21097.5,
+     "reg": "지난 대회는 2025년 12월 16일(하프), 18일(10km) 오후 2시에 접수를 열었습니다.", "regMonth": "12월", "url": "https://www.seoulhalfmarathon.com/", "link": "공식 사이트"},
+    {"id": "gongju", "name": "공주백제마라톤", "host": "동아일보 · 공주시", "last": "2026-09-20", "season": "9월 하순", "events": "풀 · 32km · 하프 · 10km · 5km", "place": "충남 공주", "dist": 42195,
+     "reg": "지난 대회는 5월 14~21일에 접수했습니다. 동아마라톤 계열 대회는 동마클럽에서 접수합니다.", "regMonth": "5월", "url": "https://dongma.club/", "link": "접수처 동마클럽"},
+    {"id": "seoul-race", "name": "서울레이스", "host": "동아일보 · 서울특별시", "last": "2026-10-11", "season": "10월 둘째 일요일 무렵", "events": "하프 · 10km", "place": "서울 도심", "dist": 21097.5,
+     "reg": "동아마라톤 계열 대회는 동마클럽에서 접수합니다.", "url": "https://dongma.club/", "link": "접수처 동마클럽"},
+    {"id": "gyeongju", "name": "경주국제마라톤", "host": "동아일보 · 경상북도 · 경주시", "season": "매년 10월", "sort": "10-18", "events": "풀 · 하프 · 10km", "place": "경북 경주시민운동장 출발·도착", "dist": 42195,
+     "reg": "지난 대회 본접수는 5월 26일 오후 7시에 동마클럽에서 열렸습니다.", "regMonth": "5월", "url": "https://gyeongjumarathon.com/", "link": "공식 사이트"},
+    {"id": "chuncheon", "name": "춘천마라톤", "host": "조선일보 · 춘천시", "last": "2026-10-25", "season": "예년 10월 넷째 일요일", "events": "풀 · 10km", "place": "강원 춘천 공지천 · 의암호 순환", "dist": 42195,
+     "reg": "지난 대회는 7월 14일(풀), 16일(10km)에 선착순 접수를 열었습니다. 공식 사이트에서만 접수합니다.", "regMonth": "7월", "url": "https://chuncheonmarathon.com/", "link": "공식 사이트"},
+    {"id": "jtbc", "name": "JTBC 서울마라톤", "host": "JTBC · 대한육상연맹", "last": "2026-11-01", "season": "예년 11월 첫 일요일", "events": "풀 · 10km", "place": "서울 상암 월드컵공원 출발 → 올림픽공원 (10km는 여의도공원)", "dist": 42195,
+     "reg": "지난 대회 본접수는 4월 13~15일에 신청을 받아 추첨으로 뽑았습니다. 선착순이 아닙니다.", "regMonth": "4월", "url": "https://marathon.jtbc.com/", "link": "공식 사이트"}
+  ]
+}

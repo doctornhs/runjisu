@@ -4,7 +4,7 @@
   out/artifact/index.html  한 장짜리 미리보기(화면을 # 주소로 전환). 저장소에는 올리지 않는다
 설정은 site.config.json 한 곳에서 바꾼다.  실행: python3 build.py
 """
-import hashlib, html, json, os, re, shutil, subprocess, sys
+import datetime, hashlib, html, json, os, re, shutil, subprocess, sys
 from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -35,6 +35,8 @@ VIEWS = [
      f'5K, 10K, 하프, 풀코스 기록 하나를 넣으면 {BRAND}와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 정형외과 전문의가 만든 무료 러닝 계산기.'),
     ('race', 'race-pace', '대회 계획', '마라톤 페이스 계산기: 목표 기록 구간표',
      '목표 기록을 넣으면 km당 페이스와 5km 구간별 통과 시각을 계산합니다. 후반 가속 전략과, 목표가 지금 실력에 맞는지도 함께 확인하세요.'),
+    ('calendar', 'marathon-schedule', '대회 일정', '2026·2027 국내 마라톤 대회 일정: 서울·춘천·JTBC·대구 접수 시기와 공식 사이트',
+     '서울마라톤, 춘천마라톤, JTBC 서울마라톤, 대구마라톤 등 국내 주요 마라톤 대회의 2026~2027년 날짜와 접수 시기, 공식 사이트 링크를 정리했습니다.'),
     ('plan', 'training-week', '주간 훈련표', '주간 러닝 훈련표 만들기',
      '주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.'),
     ('log', 'log', '달리기 기록', '달리기 기록장: 주간 거리와 신발 누적 거리',
@@ -76,6 +78,46 @@ VARS = {
     'sourceName': f'{BRAND}, {host}' if host else BRAND,
 }
 
+# ───────── 대회 일정: src/data/races.json 을 화면으로 ─────────
+RACE_DATA = json.loads(read(SRC, 'data', 'races.json'))
+WD = '월화수목금토일'
+def kdate(d, year=True):
+    y, m, dd = map(int, d.split('-'))
+    return (f'{y}년 ' if year else '') + f'{m}월 {dd}일({WD[datetime.date(y, m, dd).weekday()]})'
+
+def race_card(r):
+    e = html.escape
+    if r.get('date'):
+        head = f'<div class="race-date"><b>{kdate(r["date"])}</b><span class="pill" data-dday hidden></span></div>'
+        attrs = f' data-date="{r["date"]}"'
+    else:
+        last = f' · 2026년은 {kdate(r["last"], False)}' if r.get('last') else ''
+        head = f'<div class="race-date tba"><b>{e(r["season"])}</b><span>2027년 날짜 미발표{last}</span></div>'
+        attrs = ''
+    goal = '<button type="button" class="btn ghost small" data-goal>목표 대회로 정하기</button>' if r.get('date') else ''
+    return (f'      <li class="race" data-id="{e(r["id"])}" data-name="{e(r["name"])}" data-dist="{r["dist"]}"{attrs}>\n'
+            f'        {head}\n'
+            f'        <h3>{e(r["name"])}</h3>\n'
+            f'        <p class="race-meta">{e(r["events"])} · {e(r["place"])}</p>\n'
+            f'        <p class="race-reg"><b>접수</b> {e(r["reg"])}</p>\n'
+            f'        <div class="acts"><a class="out" href="{e(r["url"])}" target="_blank" rel="noopener">{e(r["link"])} ↗</a>{goal}</div>\n'
+            f'      </li>')
+
+def race_blocks():
+    races = RACE_DATA['races']
+    fixed = sorted([r for r in races if r.get('date')], key=lambda r: r['date'])
+    tba = sorted([r for r in races if not r.get('date')], key=lambda r: r.get('sort') or r['last'][5:])
+    order = ['12월', '1월', '4월', '4~6월', '5월', '7월', '10월']
+    rows = []
+    for m in order:
+        names = [r['name'] + (' (추첨)' if r['id'] == 'jtbc' else ' (기록 제출 후 접수)' if r['id'] == 'seoul' else '') for r in races if r.get('regMonth') == m]
+        if names:
+            rows.append(f'            <tr><td>{m}</td><td>{html.escape(", ".join(names))}</td></tr>')
+    return {'race_fixed': '\n'.join(race_card(r) for r in fixed), 'race_tba': '\n'.join(race_card(r) for r in tba),
+            'race_reg_rows': '\n'.join(rows), 'racesChecked': kdate(RACE_DATA['checked'])}
+
+RAW_KEYS = ('head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows')
+
 def render(text, flags, extra=None):
     """<!--if:KEY-->…<!--endif:KEY--> 블록과 {{변수}}, {{brand:는}} 을 채운다."""
     def cond(m):
@@ -83,10 +125,10 @@ def render(text, flags, extra=None):
     text = re.sub(r'<!--if:(\w+)-->\n?(.*?)<!--endif:\1-->\n?', cond, text, flags=re.S)
     text = re.sub(r'\{\{brand:(.)\}\}', lambda m: html.escape(josa(BRAND, m.group(1))), text)
     v = dict(VARS); v.update(extra or {})
-    return re.sub(r'\{\{(\w+)\}\}', lambda m: v[m.group(1)] if m.group(1) in ('head_extra', 'styles', 'nav', 'views', 'scripts') else html.escape(str(v[m.group(1)])), text)
+    return re.sub(r'\{\{(\w+)\}\}', lambda m: v[m.group(1)] if m.group(1) in RAW_KEYS else html.escape(str(v[m.group(1)])), text)
 
 def view_html(vid, flags):
-    return render(read(SRC, 'views', vid + '.html'), flags).rstrip() + '\n'
+    return render(read(SRC, 'views', vid + '.html'), flags, race_blocks() if vid == 'calendar' else None).rstrip() + '\n'
 
 def nav_html(current=None):
     rows = []
@@ -191,7 +233,7 @@ def build_site():
         elif vid == 'about':
             ld = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
                 {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faq_items(body)]}
-        elif vid not in ('privacy', 'gear'):
+        elif vid not in ('privacy', 'gear', 'calendar'):
             ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': title, 'description': desc, 'inLanguage': 'ko',
                   'applicationCategory': 'HealthApplication', 'operatingSystem': 'All',
                   'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}}
@@ -231,7 +273,7 @@ def build_site():
             {'src': 'icons/icon-512.png', 'sizes': '512x512', 'type': 'image/png'},
             {'src': 'icons/maskable-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
         ],
-        'shortcuts': [{'name': v[2], 'url': v[1] + '/'} for v in VIEWS if v[0] in ('log', 'plan', 'spike')],
+        'shortcuts': [{'name': v[2], 'url': v[1] + '/'} for v in VIEWS if v[0] in ('log', 'plan', 'calendar')],
     }
     write(os.path.join(site_dir, 'manifest.webmanifest'), json.dumps(manifest, ensure_ascii=False, indent=2))
     precache = ['./'] + [p + '/' for p in pages if p] + [f'assets/site.css?v={ver}', f'assets/core.js?v={ver}', f'assets/app.js?v={ver}', 'manifest.webmanifest', 'icons/icon-192.png']

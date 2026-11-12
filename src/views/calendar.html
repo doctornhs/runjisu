@@ -1,0 +1,55 @@
+<section class="view" data-view="calendar" hidden>
+  <div class="view-head">
+    <h1>국내 마라톤<br>대회 일정</h1>
+    <p>2026~2027년 주요 대회의 날짜와 접수 시기, 공식 사이트를 한곳에 모았습니다. 날짜가 발표된 대회는 남은 날을 세어 드리고, 발표 전인 대회는 지난 회차 날짜를 함께 적었습니다.</p>
+  </div>
+  <p class="basis" id="goal-box"></p>
+
+  <section class="panel" aria-labelledby="cal-fixed-h">
+    <h2 id="cal-fixed-h">날짜가 확정된 대회</h2>
+    <ul class="races">
+{{race_fixed}}
+    </ul>
+  </section>
+
+  <section class="panel" aria-labelledby="cal-tba-h">
+    <h2 id="cal-tba-h">2027년 날짜 발표를 기다리는 대회</h2>
+    <p class="note">아래 대회는 {{racesChecked}} 기준으로 2027년 날짜가 발표되지 않았습니다. 열리는 순서대로 놓았고, 예년 시기와 2026년 개최일을 적었습니다.</p>
+    <ul class="races">
+{{race_tba}}
+    </ul>
+  </section>
+
+  <aside class="ad" data-ad="calendar-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="cal-reg-h">
+      <h2 id="cal-reg-h">접수는 몇 월에 열리나</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">접수 시기</th><th scope="col">대회</th></tr></thead>
+          <tbody>
+{{race_reg_rows}}
+          </tbody>
+        </table>
+      </div>
+      <p class="note">지난 회차 접수일을 기준으로 묶었습니다. 큰 대회는 대회 날보다 몇 달에서 길게는 열 달 앞서 접수가 끝납니다. 대회 날짜가 아니라 접수 날짜를 달력에 적어 두세요.</p>
+    </section>
+    <section class="panel" aria-labelledby="cal-use-h">
+      <h2 id="cal-use-h">대회를 정했다면</h2>
+      <ul class="prose">
+        <li>풀코스는 대회 16~20주 전, 하프는 10~12주 전부터 준비를 시작하는 것이 보통입니다.</li>
+        <li>서울마라톤 풀코스처럼 완주 기록을 먼저 내야 접수할 수 있는 대회가 있습니다. 목표 대회 한 해 전에 공인 기록을 만들어 두어야 합니다.</li>
+        <li>접수에 떨어졌다면 같은 시기의 다른 대회를 찾으세요. 훈련 계획은 그대로 쓸 수 있습니다.</li>
+      </ul>
+      <div class="cta"><span>목표 기록을 구간표로 바꾸기</span><a href="#race">대회 계획 →</a></div>
+      <div class="cta"><span>대회까지 한 주 훈련 짜기</span><a href="#plan">주간 훈련표 →</a></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="cal-more-h">
+    <h2 id="cal-more-h">이 표에 없는 대회</h2>
+    <p class="prose">전국에서 주말마다 열리는 작은 대회까지 보려면 일정만 모아 둔 사이트가 편합니다. <a href="https://www.kormarathon.com/" target="_blank" rel="noopener">코마라톤</a>, <a href="https://runningwikii.com/entry/marathon-schedule-hub/" target="_blank" rel="noopener">러닝위키 일정 모음</a>에서 월별·지역별로 찾을 수 있습니다.</p>
+    <p class="note">{{racesChecked}}에 각 대회 공식 안내와 보도를 확인해 정리했습니다. 날짜, 종목, 접수 방식은 주최 측 사정으로 바뀔 수 있으니 신청 전에 공식 사이트를 꼭 확인하세요. 이 사이트는 어느 대회와도 제휴 관계가 없습니다.</p>
+  </section>
+</section>

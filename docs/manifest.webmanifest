@@ -28,16 +28,16 @@
   ],
   "shortcuts": [
     {
+      "name": "대회 일정",
+      "url": "marathon-schedule/"
+    },
+    {
       "name": "주간 훈련표",
       "url": "training-week/"
     },
     {
       "name": "달리기 기록",
       "url": "log/"
-    },
-    {
-      "name": "거리 급증",
-      "url": "long-run-check/"
     }
   ]
 }
