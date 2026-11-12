@@ -1,0 +1,74 @@
+<section class="view" data-view="log" hidden>
+  <div class="view-head">
+    <h1>달린 날을<br>적어 두면</h1>
+    <p>날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다. 기록은 이 기기에만 저장됩니다.</p>
+  </div>
+
+  <section class="panel" aria-labelledby="log-sum-h">
+    <h2 id="log-sum-h">지금 상태 <span class="tag" id="lg-ex">예시</span></h2>
+    <div class="peer-grid three">
+      <div class="stat"><span class="big" id="lg-week">–</span><span class="cap" id="lg-week-cap">이번 주</span></div>
+      <div class="stat"><span class="big" id="lg-long">–</span><span class="cap">최근 30일 가장 길게 달린 거리</span></div>
+      <div class="stat"><span class="big" id="lg-cap">–</span><span class="cap">다음 장거리 권장 상한(최장 거리 + 10%)</span></div>
+    </div>
+    <div>
+      <div class="bars" id="lg-bars" role="img" aria-label="최근 8주 주간 거리"></div>
+      <div class="bar-labs" id="lg-bar-labs" aria-hidden="true"></div>
+    </div>
+    <p class="note">막대는 월요일부터 일요일까지 한 주 동안 달린 거리(km)입니다. 아래 날짜는 그 주의 월요일입니다.</p>
+    <div class="cta"><span>이번에 달릴 거리가 상한을 넘는다면</span><a href="#spike">거리 급증 체크 →</a></div>
+  </section>
+
+  <div class="two">
+    <form class="panel form" id="f-log" novalidate>
+      <h2>기록 추가</h2>
+      <div class="grid-2">
+        <div class="field"><label for="lg-date">날짜</label><input type="date" id="lg-date"></div>
+        <div class="field"><label for="lg-km">거리</label><div class="row"><input type="text" class="short" id="lg-km" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">km</span></div></div>
+      </div>
+      <div class="field">
+        <span class="lab" id="lab-lgt">걸린 시간 (선택)</span>
+        <div class="row time" role="group" aria-labelledby="lab-lgt">
+          <label class="sr" for="lg-min">분</label><input type="text" class="short" id="lg-min" inputmode="numeric" autocomplete="off" maxlength="3"><span class="unit">분</span>
+          <label class="sr" for="lg-sec">초</label><input type="text" class="short" id="lg-sec" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">초</span>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label for="lg-kind">종류</label>
+          <select id="lg-kind">
+            <option value="E">이지 런</option>
+            <option value="L">장거리</option>
+            <option value="T">역치 훈련</option>
+            <option value="I">인터벌·반복</option>
+            <option value="M">마라톤 페이스</option>
+            <option value="X">대회</option>
+          </select>
+        </div>
+        <div class="field"><label for="lg-shoe">신은 신발 (선택)</label><select id="lg-shoe"></select></div>
+      </div>
+      <p class="err" id="log-err" role="alert" hidden></p>
+      <div class="acts"><button type="submit" class="btn">기록 추가</button><span class="note" id="lg-shoe-note">신발을 고르면 그 신발의 누적 거리에 더해집니다.</span></div>
+    </form>
+
+    <section class="panel" aria-labelledby="log-list-h">
+      <h2 id="log-list-h">최근 기록</h2>
+      <ul class="runs" id="lg-list"></ul>
+      <div class="acts"><button type="button" class="btn ghost small" id="lg-more" hidden>더 보기</button></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="log-bk-h">
+    <h2 id="log-bk-h">기록 옮기기</h2>
+    <p class="note">기록은 브라우저에 저장되어 기기를 바꾸거나 브라우저 데이터를 지우면 사라집니다. 가끔 백업을 복사해 메모장에 붙여 두세요.</p>
+    <div class="acts"><button type="button" class="btn ghost small" id="lg-backup">달리기 기록과 신발장 백업 복사</button></div>
+    <details>
+      <summary>백업에서 되살리기</summary>
+      <div class="field">
+        <label for="lg-restore">복사해 둔 백업을 붙여 넣으세요</label>
+        <textarea id="lg-restore" autocomplete="off" spellcheck="false"></textarea>
+        <p class="err" id="restore-err" role="alert" hidden></p>
+        <div class="acts"><button type="button" class="btn small" id="lg-restore-btn">지금 기록을 이 백업으로 바꾸기</button></div>
+      </div>
+    </details>
+  </section>
+</section>

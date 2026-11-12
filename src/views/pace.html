@@ -1,0 +1,33 @@
+<section class="view" data-view="pace" hidden>
+  <div class="view-head">
+    <h1>페이스와 속도 바꾸기</h1>
+    <p>러닝머신 속도를 km당 페이스로, 페이스를 거리별 완주 기록으로 바꿉니다. 어느 칸을 고쳐도 나머지가 따라 바뀝니다.</p>
+  </div>
+  <div class="two">
+    <form class="panel form" id="f-pace" novalidate>
+      <div class="field">
+        <span class="lab" id="lab-pc">1km 페이스</span>
+        <div class="row time" role="group" aria-labelledby="lab-pc">
+          <label class="sr" for="pc-m">분</label><input type="text" class="short" id="pc-m" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">분</span>
+          <label class="sr" for="pc-s">초</label><input type="text" class="short" id="pc-s" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">초</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pc-kmh">러닝머신 속도</label>
+        <div class="row"><input type="text" class="short" id="pc-kmh" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">km/h</span></div>
+      </div>
+      <p class="err" id="pace-err" role="alert" hidden></p>
+      <p class="note">러닝머신은 바람 저항이 없어 같은 속도라도 조금 쉽게 느껴집니다. 경사를 1%로 두는 방법이 널리 쓰입니다.</p>
+    </form>
+    <section class="panel" aria-labelledby="pace-tbl-h">
+      <h2 id="pace-tbl-h">이 페이스로 끝까지 달리면</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">거리</th><th scope="col" class="n">기록</th></tr></thead>
+          <tbody id="pace-rows"></tbody>
+        </table>
+      </div>
+      <div class="cta"><span>목표 기록에서 거꾸로 구간표를 뽑으려면</span><a href="#race">대회 계획 →</a></div>
+    </section>
+  </div>
+</section>

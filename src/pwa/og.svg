@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#edf0f4"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#1f47e6"/>
+  <text x="80" y="250" font-family="Noto Sans CJK KR" font-weight="900" font-size="132" fill="#101a2b">{{brand}}</text>
+  <text x="84" y="340" font-family="Noto Sans CJK KR" font-weight="700" font-size="46" fill="#101a2b">기록 하나로 아는 내 훈련 페이스</text>
+  <text x="84" y="408" font-family="Noto Sans CJK KR" font-weight="500" font-size="32" fill="#51607a">훈련표 · 거리 급증 체크 · 신발 교체 · 체력 나이</text>
+  <text x="84" y="548" font-family="Noto Sans CJK KR" font-weight="700" font-size="28" fill="#1f47e6">정형외과 전문의가 만든 러닝 계산기</text>
+  <g transform="rotate(-4 940 320)">
+    <rect x="760" y="130" width="360" height="380" rx="18" fill="#fbfaf5" stroke="#d3dae5" stroke-width="2"/>
+    <rect x="760" y="130" width="360" height="62" rx="18" fill="#1f47e6"/><rect x="760" y="170" width="360" height="22" fill="#1f47e6"/>
+    <text x="940" y="172" text-anchor="middle" font-family="DejaVu Sans Condensed" font-weight="700" font-size="26" letter-spacing="6" fill="#ffffff">{{brandLatin}}</text>
+    <circle cx="786" cy="156" r="8" fill="#edf0f4"/><circle cx="1094" cy="156" r="8" fill="#edf0f4"/>
+    <text x="940" y="372" text-anchor="middle" font-family="DejaVu Sans Condensed" font-weight="700" font-size="170" fill="#101a2b">35.8</text>
+    <rect x="800" y="420" width="70" height="14" rx="7" fill="#0f8f68"/><rect x="800" y="444" width="130" height="14" rx="7" fill="#b57f00"/><rect x="800" y="468" width="200" height="14" rx="7" fill="#c81d57"/>
+  </g>
+</svg>

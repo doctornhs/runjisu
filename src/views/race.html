@@ -1,0 +1,84 @@
+<section class="view" data-view="race" hidden>
+  <div class="view-head">
+    <h1>목표 기록을<br>구간표로</h1>
+    <p>목표 기록을 넣으면 km당 페이스와 구간별 통과 시각이 나옵니다. 그 목표가 지금 실력에 맞는지도 {{brand:로}} 함께 확인합니다.</p>
+  </div>
+  <p class="basis" data-basis></p>
+  <div class="two">
+    <form class="panel form" id="f-race" novalidate>
+      <div class="field">
+        <span class="lab" id="lab-rdist">대회 거리</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lab-rdist">
+          <input type="radio" name="rdist" id="rd-5k" value="5000"><label for="rd-5k">5K</label>
+          <input type="radio" name="rdist" id="rd-10k" value="10000"><label for="rd-10k">10K</label>
+          <input type="radio" name="rdist" id="rd-half" value="21097.5"><label for="rd-half">하프</label>
+          <input type="radio" name="rdist" id="rd-full" value="42195"><label for="rd-full">풀</label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="lab" id="lab-goal">목표 기록</span>
+        <div class="row time" role="group" aria-labelledby="lab-goal">
+          <label class="sr" for="rg-h">시간</label><input type="text" class="short" id="rg-h" inputmode="numeric" autocomplete="off" placeholder="0" maxlength="2"><span class="unit">시간</span>
+          <label class="sr" for="rg-m">분</label><input type="text" class="short" id="rg-m" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="3"><span class="unit">분</span>
+          <label class="sr" for="rg-s">초</label><input type="text" class="short" id="rg-s" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="2"><span class="unit">초</span>
+        </div>
+        <div class="acts"><button type="button" class="btn ghost small" id="rg-fill">내 {{brand}} 예상 기록 넣기</button></div>
+      </div>
+      <div class="field">
+        <span class="lab" id="lab-mode">달리는 방식</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lab-mode">
+          <input type="radio" name="rmode" id="rm-even" value="even"><label for="rm-even">처음부터 끝까지 고르게</label>
+          <input type="radio" name="rmode" id="rm-neg" value="neg"><label for="rm-neg">전반 아끼고 후반 당기기</label>
+        </div>
+      </div>
+      <p class="err" id="race-err" role="alert" hidden></p>
+    </form>
+
+    <section class="panel result" id="race-res" data-level="0" aria-live="polite">
+      <div class="verdict"><span class="big" id="rc-pace">5:58<small>/km</small></span><span class="pill" id="rc-pill">지금 실력 안쪽</span><span class="tag" id="rc-ex">예시</span></div>
+      <div class="facts"><span>러닝머신<b id="rc-kmh"></b></span><span>400m<b id="rc-lap"></b></span><span>필요한 {{brand}}<b id="rc-need"></b></span></div>
+      <p id="rc-msg"></p>
+      <p class="note" id="rc-note"></p>
+    </section>
+  </div>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="split-h">
+      <h2 id="split-h">구간표</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">지점</th><th scope="col" class="n">구간 페이스</th><th scope="col" class="n">통과 시각</th></tr></thead>
+          <tbody id="split-rows"></tbody>
+        </table>
+      </div>
+      <div class="acts"><button type="button" class="btn ghost small" id="split-copy">구간표 복사</button><span class="note">손목이나 배번표 뒤에 적어 두면 편합니다.</span></div>
+    </section>
+
+    <section class="panel" aria-labelledby="chk-race-h">
+      <h2 id="chk-race-h">대회 전날 챙길 것</h2>
+      <div class="check" id="race-check">
+        <label><input type="checkbox" id="ck-1" data-ck="bib"><span>배번표, 기록칩, 옷핀이나 배번 벨트</span></label>
+        <label><input type="checkbox" id="ck-2" data-ck="shoes"><span>장거리를 한 번 이상 달려 본 신발과 양말. 새 신발은 대회 날 신지 않습니다.</span></label>
+        <label><input type="checkbox" id="ck-3" data-ck="chafe"><span>쓸리는 곳에 바를 바셀린이나 테이프(겨드랑이, 허벅지 안쪽, 젖꼭지)</span></label>
+        <label><input type="checkbox" id="ck-4" data-ck="fuel"><span>90분 넘게 달린다면 에너지젤. 탄수화물은 시간당 30~60g이 널리 쓰이는 기준이고, 훈련 때 먹어 본 제품만 씁니다.</span></label>
+        <label><input type="checkbox" id="ck-5" data-ck="warm"><span>출발 전에 입고 있다가 벗을 겉옷이나 우비</span></label>
+        <label><input type="checkbox" id="ck-6" data-ck="watch"><span>시계 충전, 구간표 메모</span></label>
+        <label><input type="checkbox" id="ck-7" data-ck="plan"><span>집결 시간, 물품 보관 마감, 화장실 위치 확인</span></label>
+      </div>
+      <p class="note">표시는 이 기기에 저장됩니다.</p>
+      <div class="cta"><span>신발과 장비를 유형별로 고르는 법</span><a href="#gear">장비 가이드 →</a></div>
+    </section>
+  </div>
+
+  <aside class="ad" data-ad="race-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+
+  <section class="panel" aria-labelledby="race-tip-h">
+    <h2 id="race-tip-h">구간표를 쓸 때</h2>
+    <ul class="prose">
+      <li>처음 2~3km는 몸이 가벼워 구간표보다 빨라지기 쉽습니다. 이때 번 시간은 후반에 몇 배로 잃습니다.</li>
+      <li>오르막에서는 페이스가 아니라 힘을 일정하게 두세요. 구간표는 평지 기준입니다.</li>
+      <li>기온이 높거나 습한 날은 같은 힘으로도 느려집니다. 목표를 낮추는 것이 완주 기록을 지키는 쪽입니다.</li>
+      <li>풀코스 구간표는 30km 이후를 버틸 장거리 훈련이 쌓였을 때만 맞습니다.</li>
+    </ul>
+  </section>
+</section>

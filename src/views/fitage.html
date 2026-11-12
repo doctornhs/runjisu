@@ -1,0 +1,92 @@
+<section class="view" data-view="fitage" hidden>
+  <div class="view-head">
+    <h1>내 체력은<br>몇 살일까</h1>
+    <p>유산소 체력은 오래 건강하게 움직이는 힘과 가장 가깝게 이어진 지표입니다. 달리기 기록이 없어도 12분 달리기나 1.6km 빨리 걷기로 추정할 수 있습니다.</p>
+  </div>
+  <div class="two">
+    <form class="panel form" id="f-fit" novalidate>
+      <div class="field">
+        <span class="lab" id="lab-fm">무엇으로 잴까요</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lab-fm">
+          <input type="radio" name="fmethod" id="fm-index" value="index"><label for="fm-index">달리기 기록({{brand}})</label>
+          <input type="radio" name="fmethod" id="fm-cooper" value="cooper"><label for="fm-cooper">12분 달리기</label>
+          <input type="radio" name="fmethod" id="fm-walk" value="walk"><label for="fm-walk">1.6km 빨리 걷기</label>
+        </div>
+      </div>
+      <div class="row">
+        <label class="sr" for="ft-age">나이</label>
+        <input type="text" class="short" id="ft-age" inputmode="numeric" autocomplete="off" placeholder="나이" maxlength="2"><span class="unit">세</span>
+        <div class="seg" role="radiogroup" aria-label="성별">
+          <input type="radio" name="fsex" id="fs-m" value="M"><label for="fs-m">남</label>
+          <input type="radio" name="fsex" id="fs-f" value="F"><label for="fs-f">여</label>
+        </div>
+      </div>
+      <div data-method="index">
+        <p class="basis" data-basis></p>
+      </div>
+      <div class="field" data-method="cooper" hidden>
+        <label for="ft-cm">12분 동안 달린 거리</label>
+        <div class="row"><input type="text" class="short mid" id="ft-cm" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="2000"><span class="unit">m</span></div>
+        <p class="note">트랙이나 평지에서 12분 동안 갈 수 있는 만큼 멀리 달립니다. 처음 2분에 힘을 다 쓰지 말고 고르게 달리세요. 400m 트랙이면 바퀴 수로 거리를 셉니다.</p>
+      </div>
+      <div data-method="walk" hidden class="stack" style="gap:18px">
+        <div class="field">
+          <span class="lab" id="lab-wt">1.6km를 걷는 데 걸린 시간</span>
+          <div class="row time" role="group" aria-labelledby="lab-wt">
+            <label class="sr" for="ft-wm">분</label><input type="text" class="short" id="ft-wm" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">분</span>
+            <label class="sr" for="ft-ws">초</label><input type="text" class="short" id="ft-ws" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">초</span>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label for="ft-hr">도착 직후 심박</label><div class="row"><input type="text" class="short" id="ft-hr" inputmode="numeric" autocomplete="off" maxlength="3"><span class="unit">회/분</span></div></div>
+          <div class="field"><label for="ft-kg">체중</label><div class="row"><input type="text" class="short" id="ft-kg" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">kg</span></div></div>
+        </div>
+        <p class="note">400m 트랙 네 바퀴(1.6km)를 뛰지 않고 걸을 수 있는 가장 빠른 속도로 걷습니다. 도착하자마자 15초 동안 맥박을 세어 4를 곱하거나 시계의 심박을 읽습니다.</p>
+      </div>
+      <p class="err" id="fit-err" role="alert" hidden></p>
+    </form>
+
+    <section class="panel result" id="fit-res" aria-live="polite">
+      <div class="verdict"><span class="big" id="ft-agebig">–</span><span class="pill" id="ft-pill"></span><span class="tag" id="ft-ex">예시</span></div>
+      <div class="facts"><span><span id="ft-vlab">추정 VO2max</span><b id="ft-v"></b></span><span>또래 위치<b id="ft-pct"></b></span></div>
+      <div class="pscale" id="ft-scale" hidden>
+        <div class="pscale-track"><div class="pscale-line"></div><div class="pscale-me" id="ft-me"><b></b><i></i></div></div>
+        <div class="pscale-ticks" id="ft-ticks"></div>
+        <p class="note" id="ft-scale-cap"></p>
+      </div>
+      <p id="ft-msg"></p>
+      <p class="note" id="ft-note"></p>
+    </section>
+  </div>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="why-h">
+      <h2 id="why-h">왜 체력 나이를 보나</h2>
+      <div class="prose">
+        <p>미국 클리블랜드 클리닉에서 운동부하검사를 받은 성인 122,007명을 추적한 연구에서, 유산소 체력이 높은 집단일수록 사망 위험이 낮았고 그 이득에 상한이 보이지 않았습니다. 체력이 가장 높은 집단은 가장 낮은 집단(하위 25%)보다 사망 위험이 80% 낮았습니다.</p>
+        <p>관찰 연구라서 체력을 올린 만큼 수명이 늘어난다는 뜻은 아닙니다. 다만 유산소 체력은 나이나 가족력과 달리 훈련으로 바꿀 수 있는 지표입니다.</p>
+        <p>잘 걷고 잘 움직이는 몸을 오래 지키는 것, 달리기는 그 목표로 가는 가장 손쉬운 길 가운데 하나입니다.</p>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="up-h">
+      <h2 id="up-h">체력 나이를 낮추려면</h2>
+      <ul class="prose">
+        <li>먼저 횟수입니다. 주 3회 이상, 대화가 되는 속도로 30분씩 꾸준히 움직이는 것이 출발점입니다. 걷기와 달리기를 섞어도 됩니다.</li>
+        <li>몇 달 쌓였다면 주 1회, 숨이 찬 강도를 3~5분씩 몇 번 넣습니다. 유산소 능력을 끌어올리는 데 가장 효율이 좋은 구간입니다.</li>
+        <li>8~12주마다 같은 방법으로 다시 재서 변화를 봅니다.</li>
+      </ul>
+      <div class="cta"><span>내 속도에 맞춘 한 주 계획</span><a href="#plan">주간 훈련표 →</a></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="fit-caveat-h">
+    <h2 id="fit-caveat-h">결과를 읽기 전에</h2>
+    <ul class="prose">
+      <li>비교 기준은 미국 성인 7,783명의 트레드밀 운동부하검사 자료(FRIEND, 2015)입니다. 한국인 기준과는 차이가 있을 수 있습니다.</li>
+      <li>달리기 기록과 12분 달리기는 끝까지 힘을 다했을 때만 맞습니다. 여유 있게 달린 기록을 넣으면 체력 나이가 실제보다 많게 나옵니다.</li>
+      <li>1.6km 걷기 식은 30~69세 성인을 대상으로 만들어졌고 오차가 4~6 정도 납니다. 달리기에 익숙한 사람은 걷기 검사로는 낮게 나올 수 있으니 달리기 기록을 쓰세요.</li>
+      <li>가슴 통증, 심한 숨참, 어지럼이 있거나 심장 질환이 있으면 힘을 다하는 검사를 하기 전에 의료진과 상의하세요.</li>
+    </ul>
+  </section>
+  <aside class="ad" data-ad="fitage-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+</section>

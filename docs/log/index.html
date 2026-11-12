@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>달리기 기록장: 주간 거리와 신발 누적 거리 | 런지수</title>
+<meta name="description" content="날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리를 계산합니다. 가입 없이 쓰고 기록은 내 기기에만 저장됩니다.">
+<link rel="canonical" href="https://runjisu.com/log/">
+<meta property="og:url" content="https://runjisu.com/log/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="달리기 기록장: 주간 거리와 신발 누적 거리 | 런지수">
+<meta property="og:description" content="날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리를 계산합니다. 가입 없이 쓰고 기록은 내 기기에만 저장됩니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="런지수">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="런지수">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"달리기 기록장: 주간 거리와 신발 누적 거리","description":"날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리를 계산합니다. 가입 없이 쓰고 기록은 내 기기에만 저장됩니다.","inLanguage":"ko","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"url":"https://runjisu.com/log/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=c9ede30399">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../" aria-label="런지수 첫 화면"><b>런지수</b><span>RUNJISU</span></a>
+    <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="도구">
+      <a href="../" data-nav="home">런지수</a>
+      <a href="../race-pace/" data-nav="race">대회 계획</a>
+      <a href="../training-week/" data-nav="plan">주간 훈련표</a>
+      <a href="../log/" data-nav="log" aria-current="page">달리기 기록</a>
+      <a href="../long-run-check/" data-nav="spike">거리 급증</a>
+      <a href="../shoe-mileage/" data-nav="shoes">신발</a>
+      <a href="../heart-rate-zones/" data-nav="heart">심박 존</a>
+      <a href="../pace-converter/" data-nav="pace">페이스 변환</a>
+      <a href="../fitness-age/" data-nav="fitage">체력 나이</a>
+      <a href="../gear/" data-nav="gear">장비</a>
+      <a href="../about/" data-nav="about">근거·FAQ</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="log">
+  <div class="view-head">
+    <h1>달린 날을<br>적어 두면</h1>
+    <p>날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다. 기록은 이 기기에만 저장됩니다.</p>
+  </div>
+
+  <section class="panel" aria-labelledby="log-sum-h">
+    <h2 id="log-sum-h">지금 상태 <span class="tag" id="lg-ex">예시</span></h2>
+    <div class="peer-grid three">
+      <div class="stat"><span class="big" id="lg-week">–</span><span class="cap" id="lg-week-cap">이번 주</span></div>
+      <div class="stat"><span class="big" id="lg-long">–</span><span class="cap">최근 30일 가장 길게 달린 거리</span></div>
+      <div class="stat"><span class="big" id="lg-cap">–</span><span class="cap">다음 장거리 권장 상한(최장 거리 + 10%)</span></div>
+    </div>
+    <div>
+      <div class="bars" id="lg-bars" role="img" aria-label="최근 8주 주간 거리"></div>
+      <div class="bar-labs" id="lg-bar-labs" aria-hidden="true"></div>
+    </div>
+    <p class="note">막대는 월요일부터 일요일까지 한 주 동안 달린 거리(km)입니다. 아래 날짜는 그 주의 월요일입니다.</p>
+    <div class="cta"><span>이번에 달릴 거리가 상한을 넘는다면</span><a href="../long-run-check/">거리 급증 체크 →</a></div>
+  </section>
+
+  <div class="two">
+    <form class="panel form" id="f-log" novalidate>
+      <h2>기록 추가</h2>
+      <div class="grid-2">
+        <div class="field"><label for="lg-date">날짜</label><input type="date" id="lg-date"></div>
+        <div class="field"><label for="lg-km">거리</label><div class="row"><input type="text" class="short" id="lg-km" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">km</span></div></div>
+      </div>
+      <div class="field">
+        <span class="lab" id="lab-lgt">걸린 시간 (선택)</span>
+        <div class="row time" role="group" aria-labelledby="lab-lgt">
+          <label class="sr" for="lg-min">분</label><input type="text" class="short" id="lg-min" inputmode="numeric" autocomplete="off" maxlength="3"><span class="unit">분</span>
+          <label class="sr" for="lg-sec">초</label><input type="text" class="short" id="lg-sec" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">초</span>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label for="lg-kind">종류</label>
+          <select id="lg-kind">
+            <option value="E">이지 런</option>
+            <option value="L">장거리</option>
+            <option value="T">역치 훈련</option>
+            <option value="I">인터벌·반복</option>
+            <option value="M">마라톤 페이스</option>
+            <option value="X">대회</option>
+          </select>
+        </div>
+        <div class="field"><label for="lg-shoe">신은 신발 (선택)</label><select id="lg-shoe"></select></div>
+      </div>
+      <p class="err" id="log-err" role="alert" hidden></p>
+      <div class="acts"><button type="submit" class="btn">기록 추가</button><span class="note" id="lg-shoe-note">신발을 고르면 그 신발의 누적 거리에 더해집니다.</span></div>
+    </form>
+
+    <section class="panel" aria-labelledby="log-list-h">
+      <h2 id="log-list-h">최근 기록</h2>
+      <ul class="runs" id="lg-list"></ul>
+      <div class="acts"><button type="button" class="btn ghost small" id="lg-more" hidden>더 보기</button></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="log-bk-h">
+    <h2 id="log-bk-h">기록 옮기기</h2>
+    <p class="note">기록은 브라우저에 저장되어 기기를 바꾸거나 브라우저 데이터를 지우면 사라집니다. 가끔 백업을 복사해 메모장에 붙여 두세요.</p>
+    <div class="acts"><button type="button" class="btn ghost small" id="lg-backup">달리기 기록과 신발장 백업 복사</button></div>
+    <details>
+      <summary>백업에서 되살리기</summary>
+      <div class="field">
+        <label for="lg-restore">복사해 둔 백업을 붙여 넣으세요</label>
+        <textarea id="lg-restore" autocomplete="off" spellcheck="false"></textarea>
+        <p class="err" id="restore-err" role="alert" hidden></p>
+        <div class="acts"><button type="button" class="btn small" id="lg-restore-btn">지금 기록을 이 백업으로 바꾸기</button></div>
+      </div>
+    </details>
+  </section>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>런지수</b> · 정형외과 전문의가 만든 러닝 계산기</p>
+    <p>이 사이트의 글과 계산 도구의 저작권은 런지수에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처(런지수, runjisu.com)를 밝혀 주세요.</p>
+    <p>계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.</p>
+    <p class="foot-links"><a href="../about/">계산 근거·FAQ</a><a href="../privacy/">개인정보처리방침</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
+  </div>
+</footer>
+<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../","race":"../race-pace/","plan":"../training-week/","log":"../log/","spike":"../long-run-check/","shoes":"../shoe-mileage/","heart":"../heart-rate-zones/","pace":"../pace-converter/","fitage":"../fitness-age/","gear":"../gear/","about":"../about/","privacy":"../privacy/"},"pwa":true,"sw":"../sw.js"};</script>
+<script src="../assets/core.js?v=c9ede30399" defer></script>
+<script src="../assets/app.js?v=c9ede30399" defer></script>
+</body>
+</html>

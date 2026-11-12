@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{head_extra}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+{{styles}}
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="#home" aria-label="{{brand}} 첫 화면"><b>{{brand}}</b><span>{{brandLatin}}</span></a>
+    <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="도구">
+{{nav}}
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+{{views}}
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>{{brand}}</b> · 정형외과 전문의가 만든 러닝 계산기</p>
+    <p>이 사이트의 글과 계산 도구의 저작권은 {{brand}}에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처({{sourceName}})를 밝혀 주세요.</p>
+    <p>계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.</p>
+<!--if:partners-->
+    <p>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+<!--endif:partners-->
+    <p class="foot-links"><a href="#about">계산 근거·FAQ</a><a href="#privacy">개인정보처리방침</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact--></p>
+<!--if:site-->
+    <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
+<!--endif:site-->
+  </div>
+</footer>
+{{scripts}}
+</body>
+</html>

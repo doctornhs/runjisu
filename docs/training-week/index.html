@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주간 러닝 훈련표 만들기 | 런지수</title>
+<meta name="description" content="주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.">
+<link rel="canonical" href="https://runjisu.com/training-week/">
+<meta property="og:url" content="https://runjisu.com/training-week/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="주간 러닝 훈련표 만들기 | 런지수">
+<meta property="og:description" content="주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="런지수">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="런지수">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"주간 러닝 훈련표 만들기","description":"주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.","inLanguage":"ko","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"url":"https://runjisu.com/training-week/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=c9ede30399">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../" aria-label="런지수 첫 화면"><b>런지수</b><span>RUNJISU</span></a>
+    <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="도구">
+      <a href="../" data-nav="home">런지수</a>
+      <a href="../race-pace/" data-nav="race">대회 계획</a>
+      <a href="../training-week/" data-nav="plan" aria-current="page">주간 훈련표</a>
+      <a href="../log/" data-nav="log">달리기 기록</a>
+      <a href="../long-run-check/" data-nav="spike">거리 급증</a>
+      <a href="../shoe-mileage/" data-nav="shoes">신발</a>
+      <a href="../heart-rate-zones/" data-nav="heart">심박 존</a>
+      <a href="../pace-converter/" data-nav="pace">페이스 변환</a>
+      <a href="../fitness-age/" data-nav="fitage">체력 나이</a>
+      <a href="../gear/" data-nav="gear">장비</a>
+      <a href="../about/" data-nav="about">근거·FAQ</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="plan">
+  <div class="view-head">
+    <h1>이번 주<br>훈련표 짜기</h1>
+    <p>주간 거리와 달리는 날 수, 목표를 고르면 요일별 훈련과 내 페이스를 채워 드립니다. 강도 훈련 분량은 다니엘스가 제시한 한 회 상한 안에서 잡습니다.</p>
+  </div>
+  <p class="basis" data-basis></p>
+  <div class="two">
+    <div class="stack">
+      <form class="panel form" id="f-plan" novalidate>
+        <div class="field">
+          <label for="pl-km">이번 주에 달릴 거리</label>
+          <div class="row"><input type="text" class="short" id="pl-km" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">km</span></div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-days">달리는 날</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-days">
+            <input type="radio" name="pdays" id="pd-3" value="3"><label for="pd-3">주 3일</label>
+            <input type="radio" name="pdays" id="pd-4" value="4"><label for="pd-4">주 4일</label>
+            <input type="radio" name="pdays" id="pd-5" value="5"><label for="pd-5">주 5일</label>
+            <input type="radio" name="pdays" id="pd-6" value="6"><label for="pd-6">주 6일</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-pgoal">목표</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-pgoal">
+            <input type="radio" name="pgoal" id="pg-base" value="base"><label for="pg-base">기초 체력</label>
+            <input type="radio" name="pgoal" id="pg-10k" value="10k"><label for="pg-10k">5K·10K</label>
+            <input type="radio" name="pgoal" id="pg-half" value="half"><label for="pg-half">하프</label>
+            <input type="radio" name="pgoal" id="pg-full" value="full"><label for="pg-full">풀</label>
+          </div>
+        </div>
+        <p class="err" id="plan-err" role="alert" hidden></p>
+        <p class="note">거리는 지난 몇 주 동안 실제로 달린 수준으로 넣으세요. 갑자기 늘린 거리로 표를 짜면 표가 부상 계획이 됩니다.</p>
+      </form>
+
+      <section class="panel" aria-labelledby="plan-rule-h">
+        <h2 id="plan-rule-h">표를 짠 원칙</h2>
+        <ul class="prose">
+          <li>힘든 날(강도 훈련, 장거리) 사이에는 쉬는 날이나 이지 런을 둡니다.</li>
+          <li>한 번에 달리는 강도 분량은 T는 주간 거리의 10%, I는 8%, M은 20% 안쪽으로 잡습니다.</li>
+          <li>장거리는 150분을 넘기지 않습니다. 주 3~4일만 달리면 장거리 비중이 커질 수밖에 없으니 거리보다 시간을 기준으로 보세요.</li>
+          <li>주 20km가 안 되면 강도 훈련 없이 이지 런으로 거리부터 쌓습니다.</li>
+          <li>표는 한 주 예시입니다. 몸이 무겁거나 아픈 날은 강도 훈련을 이지 런으로 바꾸는 것이 원칙에 맞습니다.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="stack">
+      <section class="panel" id="plan-res" aria-live="polite">
+        <h2>한 주 훈련표 <span class="tag" id="pl-ex">예시</span></h2>
+        <div class="peer-grid three">
+          <div class="stat"><span class="big" id="pl-total">30<small>km</small></span><span class="cap" id="pl-days-cap">주 4일</span></div>
+          <div class="stat"><span class="big" id="pl-easy">92<small>%</small></span><span class="cap">편한 속도로 달리는 비율</span></div>
+          <div class="stat"><span class="big" id="pl-long">10<small>km</small></span><span class="cap" id="pl-long-cap">장거리</span></div>
+        </div>
+        <ol class="week" id="plan-week"></ol>
+        <p class="note" id="plan-notes"></p>
+        <div class="acts"><button type="button" class="btn ghost small" id="plan-copy">훈련표 복사</button></div>
+      </section>
+      <div class="cta"><span>지난주보다 많이 늘린 주라면</span><a href="../long-run-check/">거리 급증 체크 →</a></div>
+    </div>
+  </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>런지수</b> · 정형외과 전문의가 만든 러닝 계산기</p>
+    <p>이 사이트의 글과 계산 도구의 저작권은 런지수에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처(런지수, runjisu.com)를 밝혀 주세요.</p>
+    <p>계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.</p>
+    <p class="foot-links"><a href="../about/">계산 근거·FAQ</a><a href="../privacy/">개인정보처리방침</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
+  </div>
+</footer>
+<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../","race":"../race-pace/","plan":"../training-week/","log":"../log/","spike":"../long-run-check/","shoes":"../shoe-mileage/","heart":"../heart-rate-zones/","pace":"../pace-converter/","fitage":"../fitness-age/","gear":"../gear/","about":"../about/","privacy":"../privacy/"},"pwa":true,"sw":"../sw.js"};</script>
+<script src="../assets/core.js?v=c9ede30399" defer></script>
+<script src="../assets/app.js?v=c9ede30399" defer></script>
+</body>
+</html>
