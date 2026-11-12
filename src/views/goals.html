@@ -1,0 +1,18 @@
+<section class="view" data-view="goals" hidden>
+  <div class="view-head">
+    <h1>목표 기록별 페이스표</h1>
+    <p>서브4, 하프 2시간, 10km 50분처럼 목표 기록을 정했다면 km당 몇 분에 달려야 하는지부터 확인하세요. 400m 트랙 한 바퀴 기록과 러닝머신 속도를 함께 적었습니다.</p>
+  </div>
+{{goal_tables}}
+  <section class="panel" aria-labelledby="gt-read">
+    <h2 id="gt-read">표 읽는 법</h2>
+    <ul class="prose">
+      <li>km당 페이스는 초 단위에서 내림한 값이라, 이 페이스로 고르게 달리면 목표 기록 안쪽으로 들어옵니다.</li>
+      <li>러닝머신 속도는 0.1km/h 단위로 올림한 값입니다. 이 속도 이상으로 맞추면 됩니다.</li>
+<!--if:site-->
+      <li>목표를 누르면 구간별 통과 시각, 같은 수준의 다른 거리 기록, 훈련 페이스를 볼 수 있습니다.</li>
+<!--endif:site-->
+    </ul>
+    <div class="cta"><span>표에 없는 목표 기록과 후반 가속 구간표는</span><a href="#race">대회 계획에서 계산 →</a></div>
+  </section>
+</section>
