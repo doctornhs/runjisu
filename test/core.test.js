@@ -103,5 +103,20 @@ ok('40세 최대심박 추정 180', Core.estMaxHr(40) === 180);
   ok('관문 진행률은 늘 0~1', bad === 0, bad);
 }
 
+// 날씨와 대기질
+{
+  ok('PM10 등급 경계 30·80·150', [30, 31, 80, 81, 150, 151].map(v => Core.pmGrade('pm10', v).level).join('') === '011223');
+  ok('PM2.5 등급 경계 15·35·75', [15, 16, 35, 36, 75, 76].map(v => Core.pmGrade('pm25', v).level).join('') === '011223');
+  ok('값이 없으면 등급도 없다', Core.pmGrade('pm10', null) === null && Core.pmGrade('pm25', NaN) === null && Core.pmGrade('pm10', undefined) === null);
+  const dm = Core.dailyMeans(['2026-11-13T00:00', '2026-11-13T01:00', '2026-11-14T00:00', '2026-11-14T01:00'], [10, 30, null, 50]);
+  ok('날짜별 평균(빈 값 제외)', dm.length === 2 && dm[0].mean === 20 && dm[1].mean === 50 && dm[1].n === 1);
+  ok('하늘 상태', Core.skyText(0) === '맑음' && Core.skyText(3) === '흐림' && Core.skyText(63) === '비' && Core.skyText(999) === '');
+  ok('초미세 나쁨이면 강한 훈련을 미루라고 한다', Core.runTip({ feels: 10, code: 0, pm10: 40, pm25: 40 }).level === 1);
+  ok('매우 나쁨이면 실내로', Core.runTip({ feels: 10, code: 0, pm10: 160, pm25: 20 }).level === 2);
+  ok('서늘하고 공기 좋으면 좋은 날씨', Core.runTip({ feels: 10, code: 1, pm10: 20, pm25: 10 }).level === 0);
+  ok('날씨가 없고 공기가 괜찮으면 한 줄을 내지 않는다', Core.runTip({ feels: NaN, code: NaN, pm10: 20, pm25: 10 }) === null);
+  ok('날씨가 없어도 공기가 나쁘면 알린다', Core.runTip({ feels: NaN, code: NaN, pm10: null, pm25: 50 }).level === 1);
+}
+
 console.log(fail ? `\n${fail}개 실패` : '\n전부 통과');
 process.exit(fail ? 1 : 0);

@@ -275,6 +275,60 @@ const Core = (() => {
     };
   }
 
+  /* ── 날씨와 대기질 ── */
+  const PM_LIMITS = { pm10: [30, 80, 150], pm25: [15, 35, 75] };   // 환경부 예보 등급 경계(㎍/㎥)
+  const PM_LABELS = ['좋음', '보통', '나쁨', '매우나쁨'];
+  function pmGrade(kind, v) {
+    if (v == null || !Number.isFinite(v) || v < 0) return null;
+    const x = Math.round(v), lim = PM_LIMITS[kind];
+    const level = x <= lim[0] ? 0 : x <= lim[1] ? 1 : x <= lim[2] ? 2 : 3;
+    return { level, label: PM_LABELS[level], value: x };
+  }
+  /** 시간별 값을 날짜별 평균으로. times 는 'YYYY-MM-DDTHH:MM', 빈 값은 뺀다 */
+  function dailyMeans(times, values) {
+    const days = [], by = {};
+    (times || []).forEach((t, i) => {
+      const v = values[i];
+      if (v == null || !Number.isFinite(v)) return;
+      const d = String(t).slice(0, 10);
+      if (!by[d]) { by[d] = { date: d, sum: 0, n: 0 }; days.push(by[d]); }
+      by[d].sum += v; by[d].n++;
+    });
+    return days.map(d => ({ date: d.date, mean: d.sum / d.n, n: d.n }));
+  }
+  /** WMO 날씨 코드 → 하늘 상태 */
+  function skyText(c) {
+    if (c === 0) return '맑음';
+    if (c === 1) return '대체로 맑음';
+    if (c === 2) return '구름 조금';
+    if (c === 3) return '흐림';
+    if (c === 45 || c === 48) return '안개';
+    if (c >= 51 && c <= 57) return '이슬비';
+    if (c >= 61 && c <= 67) return '비';
+    if (c >= 71 && c <= 77) return '눈';
+    if (c >= 80 && c <= 82) return '소나기';
+    if (c === 85 || c === 86) return '눈';
+    if (c >= 95 && c <= 99) return '뇌우';
+    return '';
+  }
+  /** 오늘 달리기 한 줄. level 0 무난, 1 조심, 2 미루기. 날씨도 없고 공기도 괜찮으면 null */
+  function runTip(w) {
+    const lv = k => { const g = pmGrade(k, w[k]); return g ? g.level : -1; };
+    const dust = Math.max(lv('pm10'), lv('pm25')), c = w.code, f = w.feels;
+    if (c >= 95 && c <= 99) return { level: 2, text: '천둥·번개가 치는 날씨입니다. 야외 달리기는 그친 뒤로 미루세요.' };
+    if (dust === 3) return { level: 2, text: '미세먼지가 매우 나쁩니다. 오늘 달리기는 실내로 옮기거나 쉬는 편이 좋습니다.' };
+    if (dust === 2) return { level: 1, text: '미세먼지가 나쁩니다. 인터벌 같은 강한 훈련은 미루고, 달린다면 짧고 가볍게 하세요.' };
+    if (!Number.isFinite(f)) return null;
+    if (f >= 31) return { level: 1, text: '무더운 날씨입니다. 평소보다 페이스를 낮추고 물을 챙기세요. 한낮은 피하는 편이 좋습니다.' };
+    if (f <= -10) return { level: 1, text: '매우 춥습니다. 얇게 여러 겹 입고 손과 귀를 가리세요. 얼어붙은 길은 피하세요.' };
+    if ((c >= 71 && c <= 77) || c === 85 || c === 86) return { level: 1, text: '눈이 옵니다. 미끄러운 길에서는 보폭을 줄이고 속도 욕심을 내려놓으세요.' };
+    if ((c >= 51 && c <= 67) || (c >= 80 && c <= 82)) return { level: 1, text: '비가 옵니다. 젖은 노면과 맨홀 뚜껑, 횡단보도 페인트가 미끄럽습니다.' };
+    if (f >= 25) return { level: 0, text: '더운 편입니다. 같은 페이스도 평소보다 힘들게 느껴질 수 있습니다. 물을 챙기세요.' };
+    if (f <= 0) return { level: 0, text: '쌀쌀합니다. 준비운동을 충분히 하고 처음 10분은 천천히 시작하세요.' };
+    if (f >= 5 && f <= 15) return { level: 0, text: '달리기 좋은 날씨입니다. 기록은 대체로 이런 서늘한 날에 잘 나옵니다.' };
+    return { level: 0, text: '달리기 무난한 날씨입니다.' };
+  }
+
   const pad = n => String(n).padStart(2, '0');
   function fmtPace(sec) { const s = Math.round(sec); return Math.floor(s / 60) + ':' + pad(s % 60); }
   function fmtTime(minutes) {
@@ -283,7 +337,7 @@ const Core = (() => {
   }
 
   return {
-    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate,
+    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate, pmGrade, dailyMeans, skyText, runTip,
     splits, goalCheck, weekPlan,
     dayNum, weekIdx, dayLabel, logStats,
     FRIEND, peerRow, peerPercentile, fitnessAge, nextTier, cooper, rockport,

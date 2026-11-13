@@ -1,4 +1,22 @@
 <section class="view" data-view="home">
+  <section class="panel wx" id="wx" aria-labelledby="wx-h">
+    <div class="wx-head">
+      <h2 id="wx-h">오늘 달리기 날씨</h2>
+      <div class="wx-pick">
+        <label class="sr" for="wx-city">지역</label>
+        <select id="wx-city"></select>
+        <button type="button" class="btn ghost small" id="wx-here">내 위치</button>
+      </div>
+    </div>
+    <div class="wx-now" aria-live="polite">
+      <div class="wx-temp"><span class="wx-t" id="wx-t">–</span><span class="wx-sky" id="wx-sky"></span></div>
+      <ul class="wx-facts" id="wx-facts"><li>불러오는 중…</li></ul>
+    </div>
+    <p class="wx-tip" id="wx-tip" hidden></p>
+    <div id="wx-air"></div>
+    <p class="note" id="wx-note"></p>
+  </section>
+
   <div class="hero">
     <div class="hero-copy">
       <div class="view-head">
@@ -108,6 +126,15 @@
     </ol>
   </section>
 
+  <section class="panel" aria-labelledby="hr-h">
+    <h2 id="hr-h">다가오는 대회</h2>
+    <ul class="hraces" id="home-races">
+{{race_next}}
+    </ul>
+    <p class="note" id="home-races-none" hidden>날짜가 확정된 대회가 지금은 없습니다. 접수 시기는 대회 일정에서 확인하세요.</p>
+    <div class="cta"><span>서울, 춘천, JTBC 등 주요 대회 날짜와 접수 시기</span><a href="#calendar">대회 일정 전체 →</a></div>
+  </section>
+
   <section class="panel" aria-labelledby="gates-h">
     <h2 id="gates-h">러너들의 관문, 어디까지 왔나</h2>
     <div class="gates">
@@ -151,32 +178,5 @@
 
   <aside class="ad" data-ad="home-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
 
-  <section class="hub" aria-labelledby="hub-h">
-    <h2 id="hub-h" class="sr">도구 모음</h2>
-    <div class="hub-group">
-      <h3>기록을 훈련으로</h3>
-      <nav class="next three" aria-label="훈련 도구">
-        <a href="#plan"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a>
-        <a href="#race"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a>
-        <a href="#calendar"><b>다음 대회는 언제, 접수는 몇 월에</b><span>서울, 춘천, JTBC, 대구 등 주요 대회의 날짜와 접수 시기, 공식 사이트를 모았습니다.</span><i>대회 일정 →</i></a>
-      </nav>
-    </div>
-    <div class="hub-group">
-      <h3>다치지 않고 오래</h3>
-      <nav class="next three" aria-label="부상 예방 도구">
-        <a href="#spike"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a>
-        <a href="#shoes"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a>
-        <a href="#log"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
-      </nav>
-    </div>
-    <div class="hub-group">
-      <h3>달리기 너머</h3>
-      <nav class="next" aria-label="그 밖의 도구">
-        <a href="#heart"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a>
-        <a href="#fitage"><b>내 체력은 몇 살일까</b><span>달리기 기록이 없어도 12분 달리기나 1.6km 걷기로 알 수 있습니다.</span><i>체력 나이 →</i></a>
-        <a href="#pace"><b>러닝머신 10km/h는 km당 몇 분?</b><span>속도와 페이스, 거리별 완주 기록을 서로 바꿉니다.</span><i>페이스 변환 →</i></a>
-        <a href="#gear"><b>장비는 제품보다 유형부터</b><span>어떤 러너에게 어떤 신발과 도구가 맞는지 정리했습니다.</span><i>장비 가이드 →</i></a>
-      </nav>
-    </div>
-  </section>
+{{hub}}
 </section>

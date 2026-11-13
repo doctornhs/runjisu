@@ -852,6 +852,136 @@
     sync(); fill(); render();
   })();
 
+  /* ───────── 오늘 달리기 날씨: 첫 화면. 날씨는 Open-Meteo, 대기질은 CAMS 예보 ───────── */
+  (function initWeather() {
+    const box = $('#wx'); if (!box) return;
+    const CITIES = [['서울', 37.57, 126.98], ['인천', 37.46, 126.71], ['수원', 37.26, 127.03], ['춘천', 37.88, 127.73], ['강릉', 37.75, 128.88], ['청주', 36.64, 127.49], ['대전', 36.35, 127.38], ['세종', 36.48, 127.29],
+      ['전주', 35.82, 127.15], ['광주', 35.16, 126.85], ['대구', 35.87, 128.6], ['포항', 36.02, 129.34], ['울산', 35.54, 129.31], ['부산', 35.18, 129.08], ['창원', 35.23, 128.68], ['제주', 33.5, 126.53]];
+    const WX = 'https://api.open-meteo.com/v1/forecast?', AQ = 'https://air-quality-api.open-meteo.com/v1/air-quality?';
+    const SRC_NOTE = '날씨 자료 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · 대기질 CAMS 예보. 미세먼지는 측정소 값이 아니라 예보 모델이 계산한 값이어서 <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">에어코리아</a> 실측과 다를 수 있습니다. 등급은 환경부 예보 기준이고, 예보 칸은 그날 평균(㎍/㎥)입니다.';
+    const sel = $('#wx-city'), hereBtn = $('#wx-here'), note = $('#wx-note');
+    const st = Object.assign({ city: '서울', here: false }, store.get('wx', null) || {});
+    const useHere = () => !!st.here && Number.isFinite(st.lat) && Number.isFinite(st.lon);
+    const place = () => {
+      if (useHere()) return { name: '내 위치', lat: st.lat, lon: st.lon };
+      const c = CITIES.find(x => x[0] === st.city) || CITIES[0];
+      return { name: c[0], lat: c[1], lon: c[2] };
+    };
+    function fillSel() {
+      sel.innerHTML = (useHere() ? '<option value="@">내 위치</option>' : '') + CITIES.map(c => `<option value="${c[0]}">${c[0]}</option>`).join('');
+      sel.value = useHere() ? '@' : place().name;
+    }
+    const hm = iso => (typeof iso === 'string' && iso.length >= 16) ? iso.slice(11, 16) : '–';
+    const one = v => Number.isFinite(v) ? v.toFixed(1) : '–';
+    const clock = at => { const d = new Date(at); return pad(d.getHours()) + ':' + pad(d.getMinutes()); };
+    function getJson(url) {
+      const ac = typeof AbortController === 'function' ? new AbortController() : null;
+      const timer = setTimeout(() => { if (ac) ac.abort(); }, 9000);
+      const done = x => { clearTimeout(timer); return x; };
+      return fetch(url, ac ? { signal: ac.signal } : {}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(done, e => { done(); throw e; });
+    }
+    function pack(w, a) {
+      const c = w && w.current, d = w && w.daily, ac = a && a.current, h = a && a.hourly;
+      return {
+        now: c && Number.isFinite(c.temperature_2m) ? { t: c.temperature_2m, feels: c.apparent_temperature, hum: c.relative_humidity_2m, wind: c.wind_speed_10m, code: c.weather_code,
+          rise: hm(d && d.sunrise && d.sunrise[0]), set: hm(d && d.sunset && d.sunset[0]) } : null,
+        air: h && Array.isArray(h.time) ? { pm10: ac ? ac.pm10 : null, pm25: ac ? ac.pm2_5 : null, d10: Core.dailyMeans(h.time, h.pm10 || []), d25: Core.dailyMeans(h.time, h.pm2_5 || []) } : null,
+      };
+    }
+    const chip = (kind, v) => { const g = Core.pmGrade(kind, v); return g ? `<span class="pmc" data-g="${g.level}"><b>${g.value}</b><i>${g.label}</i></span>` : '<span class="pmc"><b>–</b><i>없음</i></span>'; };
+    const nowTxt = (kind, v, name) => { const g = Core.pmGrade(kind, v); return g ? `<span>${name} <b>${g.value}</b><em data-g="${g.level}">${g.label}</em></span>` : ''; };
+    const dayHead = d => { const dt = new Date(d + 'T00:00:00'), wd = '<small>' + '일월화수목금토'[dt.getDay()] + '요일</small>'; return (d === today() ? '오늘' : (dt.getMonth() + 1) + '/' + dt.getDate()) + wd; };
+    function paint(data, at, stale) {
+      const n = data.now, a = data.air && data.air.d10 && data.air.d10.length ? data.air : null;
+      $('#wx-t').textContent = n ? n.t.toFixed(1) + '°' : '–';
+      $('#wx-sky').textContent = n ? Core.skyText(n.code) : '';
+      $('#wx-facts').innerHTML = n
+        ? [['체감', one(n.feels) + '°'], ['습도', Number.isFinite(n.hum) ? Math.round(n.hum) + '%' : '–'], ['바람', one(n.wind) + 'm/s'], ['일출', n.rise], ['일몰', n.set]].map(f => `<li>${f[0]}<b>${f[1]}</b></li>`).join('')
+        : '<li>기온을 불러오지 못했습니다.</li>';
+      const tip = $('#wx-tip'), t = Core.runTip({ feels: n ? n.feels : NaN, code: n ? n.code : NaN, pm10: a ? a.pm10 : null, pm25: a ? a.pm25 : null });
+      tip.hidden = !t;
+      if (t) { tip.textContent = t.text; tip.dataset.level = t.level; }
+      if (a) {
+        const days = a.d10.slice(0, 5), m25 = {};
+        a.d25.forEach(x => { m25[x.date] = x.mean; });
+        const nowLine = [nowTxt('pm10', a.pm10, '미세먼지'), nowTxt('pm25', a.pm25, '초미세먼지')].filter(Boolean).join('');
+        $('#wx-air').innerHTML = (nowLine ? `<p class="wx-airnow"><i>지금</i>${nowLine}</p>` : '') +
+          '<div class="tbl-wrap"><table class="pm"><caption class="sr">닷새 미세먼지 예보, 그날 평균</caption><thead><tr><th scope="col"><span class="sr">항목</span></th>' +
+          days.map(x => `<th scope="col">${dayHead(x.date)}</th>`).join('') + '</tr></thead><tbody>' +
+          `<tr><th scope="row">미세<small>PM10</small></th>${days.map(x => `<td>${chip('pm10', x.mean)}</td>`).join('')}</tr>` +
+          `<tr><th scope="row">초미세<small>PM2.5</small></th>${days.map(x => `<td>${chip('pm25', m25[x.date])}</td>`).join('')}</tr></tbody></table></div>`;
+      } else $('#wx-air').innerHTML = '<p class="note">미세먼지 예보를 불러오지 못했습니다.</p>';
+      note.innerHTML = clock(at) + ' 기준' + (stale ? ' · 새로 불러오지 못해 저장해 둔 값입니다' : '') + ' · ' + SRC_NOTE;
+    }
+    function fail() {
+      $('#wx-t').textContent = '–'; $('#wx-sky').textContent = ''; $('#wx-tip').hidden = true; $('#wx-air').innerHTML = '';
+      $('#wx-facts').innerHTML = '<li>' + (SITE.mode === 'site' ? '날씨를 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.' : '미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.') + '</li>';
+      note.innerHTML = SRC_NOTE;
+    }
+    let seq = 0;
+    function load() {
+      const p = place(), key = p.lat.toFixed(2) + ',' + p.lon.toFixed(2), hit = store.get('wxc', null), mine = ++seq;
+      const cached = hit && hit.key === key && hit.data ? hit : null;
+      if (cached && Date.now() - cached.at < 20 * 60000) { paint(cached.data, cached.at, false); return; }   // 20분 안에는 다시 묻지 않는다
+      if (typeof fetch !== 'function') { fail(); return; }
+      const q = 'latitude=' + p.lat + '&longitude=' + p.lon + '&timezone=Asia%2FSeoul';
+      Promise.all([
+        getJson(WX + q + '&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&daily=sunrise,sunset&wind_speed_unit=ms&forecast_days=1').catch(() => null),
+        getJson(AQ + q + '&current=pm10,pm2_5&hourly=pm10,pm2_5&forecast_days=5').catch(() => null),
+      ]).then(r => {
+        if (mine !== seq) return;
+        const data = pack(r[0], r[1]);
+        if (!data.now && !data.air) { if (cached) paint(cached.data, cached.at, true); else fail(); return; }
+        const at = Date.now();
+        store.set('wxc', { key, at, data });
+        paint(data, at, false);
+      }).catch(fail);
+    }
+    sel.addEventListener('change', () => {
+      if (sel.value === '@') return;
+      st.city = sel.value; st.here = false; store.set('wx', st); fillSel(); load();
+    });
+    if (!navigator.geolocation || SITE.mode !== 'site') hereBtn.hidden = true;
+    else hereBtn.addEventListener('click', () => {
+      hereBtn.disabled = true;
+      navigator.geolocation.getCurrentPosition(pos => {
+        hereBtn.disabled = false;
+        st.here = true; st.lat = Math.round(pos.coords.latitude * 10) / 10; st.lon = Math.round(pos.coords.longitude * 10) / 10;   // 약 10km 단위로만 쓴다
+        store.set('wx', st); fillSel(); load();
+      }, () => {
+        hereBtn.disabled = false; hereBtn.textContent = '위치를 가져오지 못했습니다';
+        setTimeout(() => { hereBtn.textContent = '내 위치'; }, 2500);
+      }, { maximumAge: 600000, timeout: 8000 });
+    });
+    fillSel(); load();
+  })();
+
+  /* ───────── 첫 화면: 다가오는 대회 세 개 ───────── */
+  (function initHomeRaces() {
+    const list = $('#home-races'); if (!list) return;
+    let shown = 0;
+    $$('li', list).forEach(li => {
+      const n = daysTo(li.dataset.date), on = n >= 0 && shown < 3;
+      li.hidden = !on;
+      if (on) { shown++; $('[data-dday]', li).textContent = ddayText(n); }
+    });
+    list.hidden = !shown;
+    $('#home-races-none').hidden = !!shown;
+  })();
+
+  /* ───────── 러닝 용어: 입력한 말로 거르기 ───────── */
+  (function initTerms() {
+    const q = $('#term-q'); if (!q) return;
+    const items = $$('[data-term]'), groups = $$('[data-term-group]');
+    q.addEventListener('input', () => {
+      const k = q.value.toLowerCase().replace(/[\s·]+/g, '');
+      let any = false;
+      items.forEach(el => { const hit = !k || el.dataset.term.includes(k); el.hidden = !hit; if (hit) any = true; });
+      groups.forEach(g => { g.hidden = !$$('[data-term]', g).some(el => !el.hidden); });
+      $('#term-none').hidden = any;
+    });
+  })();
+
   /* ───────── 화면 전환: 한 장에 여러 화면이 들어 있을 때만 ───────── */
   const views = $$('[data-view]');
   if (views.length > 1) {
@@ -861,7 +991,7 @@
       const h = location.hash.replace('#', ''), v = names.includes(h) ? h : 'home';
       views.forEach(s => { s.hidden = s.dataset.view !== v; });
       $$('[data-nav]').forEach(a => {
-        if (a.dataset.nav === v) { a.setAttribute('aria-current', 'page'); if (a.scrollIntoView && !first) a.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+        if (a.dataset.nav === v || (a.dataset.also || '').split(' ').includes(v)) { a.setAttribute('aria-current', 'page'); if (a.scrollIntoView && !first) a.scrollIntoView({ block: 'nearest', inline: 'center' }); }
         else a.removeAttribute('aria-current');
       });
       if (!first) { if (refreshers[v]) refreshers[v](); window.scrollTo(0, 0); }

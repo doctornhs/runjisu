@@ -31,8 +31,8 @@ BRAND = cfg['brand']
 
 # 화면 목록: id, 주소, 메뉴 이름(없으면 메뉴에 안 나옴), 제목, 설명
 VIEWS = [
-    ('home', '', BRAND, f'{BRAND} 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록',
-     f'5K, 10K, 하프, 풀코스 기록 하나를 넣으면 {BRAND}와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 정형외과 전문의가 만든 무료 러닝 계산기.'),
+    ('home', '', '홈', f'{BRAND} 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록',
+     f'5K, 10K, 하프, 풀코스 기록 하나를 넣으면 {BRAND}와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.'),
     ('race', 'race-pace', '대회 계획', '마라톤 페이스 계산기: 목표 기록 구간표',
      '목표 기록을 넣으면 km당 페이스와 5km 구간별 통과 시각을 계산합니다. 후반 가속 전략과, 목표가 지금 실력에 맞는지도 함께 확인하세요.'),
     ('goals', 'pace-chart', '목표 페이스', '마라톤 페이스표: 서브3·서브4, 하프 2시간, 10km 50분 목표별 km당 페이스',
@@ -53,8 +53,14 @@ VIEWS = [
      '러닝머신 속도(km/h)를 km당 페이스로, 페이스를 5K·10K·하프·풀코스 완주 기록으로 바꿉니다.'),
     ('fitage', 'fitness-age', '체력 나이', '체력 나이 계산기: 달리기와 걷기로 보는 VO2max',
      '달리기 기록, 12분 달리기, 1.6km 빨리 걷기로 유산소 체력(VO2max)을 추정하고 또래 가운데 어디쯤인지, 체력 나이가 몇 살인지 보여 드립니다.'),
+    ('injury', 'running-injuries', '러닝 부상', '러닝 부상 가이드: 무릎·정강이·발 통증, 부위별 원인과 대처',
+     '달릴 때 무릎 바깥쪽이 아픈 장경인대 증후군부터 정강이 통증, 족저근막염, 아킬레스건, 피로골절까지. 러너에게 흔한 부상의 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.'),
+    ('terms', 'running-terms', '러닝 용어', '러닝 용어 사전: LSD, 빌드업, 서브4, 케이던스 뜻 정리',
+     'LSD, 빌드업, 인터벌, 템포런, 네거티브 스플릿, 서브4, DNF, 케이던스, 힐 드롭까지. 달리기를 시작하면 만나는 러닝·마라톤 용어를 쉬운 말로 풀었습니다.'),
     ('gear', 'gear', '장비', '러닝 장비 고르는 법: 러닝화 유형과 폼롤러, 워치',
      '데일리 쿠션화, 안정화, 레이싱화는 어떤 러너에게 맞을까. 제품이 아니라 유형으로 고르는 러닝 장비 안내.'),
+    ('tools', 'tools', '전체 도구', '러닝 계산기와 안내 모음',
+     f'{BRAND}의 러닝 계산기와 부상·장비 안내를 한곳에 모았습니다. 훈련표, 구간표, 심박 존, 체력 나이, 신발 교체 시기까지 가입 없이 무료로 씁니다.'),
     ('about', 'about', '근거·FAQ', '계산 근거와 자주 묻는 질문',
      f'{BRAND}의 계산식과 참고한 연구, 자주 묻는 질문을 정리했습니다.'),
     ('privacy', 'privacy', None, '개인정보처리방침', f'{BRAND}가 저장하는 정보와 쿠키, 광고, 제휴 링크 안내.'),
@@ -322,7 +328,105 @@ def goal_page(g, prev, nxt):
             'title': f'{name} 페이스표: km당 {pace}, 구간별 통과 시각',
             'desc': f'{lead} 구간별 통과 시각과 러닝머신 속도, 같은 수준의 다른 거리 기록, 훈련 페이스까지 정리했습니다.'}
 
-RAW_KEYS = ('head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables')
+# ───────── 러닝 용어, 러닝 부상, 첫 화면의 다가오는 대회 ─────────
+TERMS = json.loads(read(SRC, 'data', 'terms.json'))
+INJURIES = json.loads(read(SRC, 'data', 'injuries.json'))
+def _b(text):
+    return text.replace('{brand}', BRAND)
+
+def terms_html():
+    e = html.escape; out = []
+    for g in TERMS:
+        rows = []
+        for t in g['items']:
+            name = _b(t['t'])
+            key = re.sub(r'[\s·]+', '', (name + t.get('en', '') + t.get('k', '')).lower())
+            en = f'<small>{e(t["en"])}</small>' if t.get('en') else ''
+            link = f' <a href="#{t["to"]}">{e(_b(t["toLabel"]))} →</a>' if t.get('to') else ''
+            rows.append(f'      <div data-term="{e(key)}"><dt>{e(name)}{en}</dt><dd>{e(_b(t["d"]))}{link}</dd></div>')
+        out.append(f'  <section class="panel" data-term-group aria-label="{e(g["group"])}">\n    <h2>{e(g["group"])}</h2>\n    <dl class="terms">\n' + '\n'.join(rows) + '\n    </dl>\n  </section>')
+    return '\n'.join(out)
+
+def view_lds(vid):
+    if vid == 'terms':
+        return [{'@context': 'https://schema.org', '@type': 'DefinedTermSet', 'name': '러닝 용어 사전', 'inLanguage': 'ko',
+                 'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': _b(t['t']), 'description': _b(t['d'])} for g in TERMS for t in g['items']]}]
+    return ()
+
+def injury_cards(site):
+    e = html.escape; out = []
+    for x in INJURIES:
+        inner = f'<span class="where">{e(x["area"])} · {e(x["where"])}</span><b>{e(x["name"])}</b><span>{e(x["tail"])}</span>'
+        out.append(f'    <a class="inj" href="{x["slug"]}/">{inner}<i>증상과 대처 보기 →</i></a>' if site else f'    <div class="inj">{inner}</div>')
+    return '\n'.join(out)
+
+def injury_page(x, others):
+    e = html.escape
+    def ul(items):
+        return '\n'.join(f'        <li>{e(t)}</li>' for t in items)
+    alias = f' · 다른 이름 {e(x["alias"])}' if x.get('alias') else ''
+    near = ''.join(f'<a href="../{o["slug"]}/"><b>{e(o["name"])}</b><span>{e(o["tail"])}</span><i>증상과 대처 →</i></a>' for o in others)
+    body = f'''<section class="view" data-view="injury-page">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(BRAND)}</a> › <a href="#injury">러닝 부상</a> › <span>{e(x["name"])}</span></nav>
+  <div class="view-head">
+    <h1>{e(x["name"])}</h1>
+    <p class="inj-where">아픈 곳 · {e(x["where"])}{alias}</p>
+    <p>{e(x["lead"])}</p>
+  </div>
+  <div class="two">
+    <section class="panel" aria-labelledby="ij-feel">
+      <h2 id="ij-feel">이런 느낌이면</h2>
+      <ul class="prose">
+{ul(x["feel"])}
+      </ul>
+    </section>
+    <section class="panel" aria-labelledby="ij-why">
+      <h2 id="ij-why">왜 생기나</h2>
+      <ul class="prose">
+{ul(x["why"])}
+      </ul>
+    </section>
+  </div>
+  <div class="two">
+    <section class="panel" aria-labelledby="ij-do">
+      <h2 id="ij-do">스스로 할 수 있는 것</h2>
+      <ul class="prose">
+{ul(x["do"])}
+      </ul>
+      <div class="cta"><span>다시 늘릴 때, 이번 거리는 괜찮을까</span><a href="#spike">거리 급증 체크 →</a></div>
+    </section>
+    <section class="panel warn" aria-labelledby="ij-see">
+      <h2 id="ij-see">이럴 때는 진료를</h2>
+      <ul class="prose">
+{ul(x["see"])}
+      </ul>
+    </section>
+  </div>
+  <p class="note">이 안내는 일반 정보이며 진단을 대신하지 않습니다. 같은 자리의 통증도 원인이 다를 수 있으니, 증상이 뚜렷하거나 오래가면 진료를 받으세요.</p>
+  <nav class="next three" aria-label="다른 부상">
+    {near}<a href="#injury"><b>러닝 부상 전체</b><span>무릎, 정강이, 발, 허벅지 부상을 한눈에 봅니다.</span><i>전체 보기 →</i></a>
+  </nav>
+</section>
+'''
+    path = 'running-injuries/' + x['slug']
+    lds = []
+    if cfg['siteUrl']:
+        lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': BRAND, 'item': cfg['siteUrl'] + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': '러닝 부상', 'item': cfg['siteUrl'] + '/running-injuries/'},
+            {'@type': 'ListItem', 'position': 3, 'name': x['name'], 'item': cfg['siteUrl'] + '/' + path + '/'}]})
+    return {'path': path, 'body': body, 'lds': lds, 'title': f'{x["name"]}: {x["tail"]}',
+            'desc': f'{x["lead"]} 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.'}
+
+def race_next():
+    e = html.escape
+    fixed = sorted([r for r in RACE_DATA['races'] if r.get('date')], key=lambda r: r['date'])
+    return '\n'.join(f'      <li data-date="{r["date"]}"><span class="dday" data-dday></span><div><b>{e(r["name"])}</b><span>{kdate(r["date"])} · {e(r["events"])} · {e(r["place"])}</span></div></li>' for r in fixed)
+
+def hub_html(flags):
+    return render(read(SRC, 'views', '_hub.html'), flags).rstrip()
+
+RAW_KEYS = ('head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def render(text, flags, extra=None):
     """<!--if:KEY-->…<!--endif:KEY--> 블록과 {{변수}}, {{brand:는}} 을 채운다."""
@@ -334,16 +438,26 @@ def render(text, flags, extra=None):
     return re.sub(r'\{\{(\w+)\}\}', lambda m: v[m.group(1)] if m.group(1) in RAW_KEYS else html.escape(str(v[m.group(1)])), text)
 
 def view_html(vid, flags):
-    extra = race_blocks() if vid == 'calendar' else {'goal_tables': goal_tables(flags.get('site'))} if vid == 'goals' else None
+    extra = None
+    if vid == 'calendar': extra = race_blocks()
+    elif vid == 'goals': extra = {'goal_tables': goal_tables(flags.get('site'))}
+    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next()}
+    elif vid == 'tools': extra = {'hub': hub_html(flags)}
+    elif vid == 'terms': extra = {'terms_html': terms_html()}
+    elif vid == 'injury': extra = {'injury_cards': injury_cards(flags.get('site'))}
     return render(read(SRC, 'views', vid + '.html'), flags, extra).rstrip() + '\n'
 
+# 메뉴에는 자주 쓰는 화면만 두고, 나머지는 '전체 도구'에 모은다
+PRIMARY = ['home', 'goals', 'calendar', 'plan', 'injury', 'terms', 'tools']
 def nav_html(current=None):
+    label = {v[0]: v[2] for v in VIEWS}
+    others = [v[0] for v in VIEWS if v[2] and v[0] not in PRIMARY]
+    cur = current if current in PRIMARY else 'tools' if current in others else None
     rows = []
-    for vid, _path, label, *_ in VIEWS:
-        if label is None:
-            continue
-        cur = ' aria-current="page"' if vid == current else ''
-        rows.append(f'      <a href="#{vid}" data-nav="{vid}"{cur}>{html.escape(label)}</a>')
+    for vid in PRIMARY:
+        also = f' data-also="{" ".join(others)}"' if vid == 'tools' else ''
+        on = ' aria-current="page"' if vid == cur else ''
+        rows.append(f'      <a href="#{vid}" data-nav="{vid}"{also}{on}>{html.escape(label[vid])}</a>')
     return '\n'.join(rows)
 
 FAVICON = "data:image/svg+xml," + (
@@ -441,7 +555,7 @@ def build_site():
         elif vid == 'about':
             ld = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
                 {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faq_items(body)]}
-        elif vid not in ('privacy', 'gear', 'calendar', 'goals', 'goal'):
+        elif vid in ('race', 'plan', 'log', 'spike', 'shoes', 'heart', 'pace', 'fitage'):
             ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': title, 'description': desc, 'inLanguage': 'ko',
                   'applicationCategory': 'HealthApplication', 'operatingSystem': 'All',
                   'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}}
@@ -469,13 +583,16 @@ def build_site():
         pages.append(path)
 
     for vid, path, _label, title, desc in VIEWS:
-        emit(vid, path, title, desc)
+        emit(vid, path, title, desc, lds=view_lds(vid))
     view_pages = list(pages)
     for dist in GOAL_DISTS:                      # 목표별 쪽: 같은 거리 안에서 앞뒤 목표를 잇는다
         group = [g for g in goals() if g['dist'] == dist]
         for i, g in enumerate(group):
             gp = goal_page(g, group[i + 1] if i + 1 < len(group) else None, group[i - 1] if i else None)
             emit('goal', gp['path'], gp['title'], gp['desc'], body=gp['body'], lds=gp['lds'], nav='goals')
+    for i, x in enumerate(INJURIES):             # 부상별 쪽
+        ip = injury_page(x, [INJURIES[(i + k) % len(INJURIES)] for k in (1, 2)])
+        emit('injury-page', ip['path'], ip['title'], ip['desc'], body=ip['body'], lds=ip['lds'], nav='injury')
 
     # src/static/ 안의 파일은 그대로 사이트 맨 위에 복사한다(검색 엔진 소유 확인 파일 등)
     static = os.path.join(SRC, 'static')

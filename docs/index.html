@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>런지수 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록</title>
-<meta name="description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 정형외과 전문의가 만든 무료 러닝 계산기.">
+<meta name="description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.">
 <link rel="canonical" href="https://runjisu.com/">
 <meta property="og:url" content="https://runjisu.com/">
 <meta property="og:image" content="https://runjisu.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="런지수 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록">
-<meta property="og:description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 정형외과 전문의가 만든 무료 러닝 계산기.">
+<meta property="og:description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="런지수">
 <meta property="og:locale" content="ko_KR">
@@ -22,7 +22,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="런지수">
 <meta name="naver-site-verification" content="bebba5acfcb67d2b0028eb0a13eb01652db9eadd">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"런지수","description":"5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 정형외과 전문의가 만든 무료 러닝 계산기.","inLanguage":"ko","url":"https://runjisu.com/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"런지수","description":"5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.","inLanguage":"ko","url":"https://runjisu.com/"}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=f4bc8ba163">
+<link rel="stylesheet" href="assets/site.css?v=04ce22bbee">
 </head>
 <body>
 
@@ -43,25 +43,37 @@
 <div class="nav-bar">
   <div class="wrap">
     <nav class="nav" aria-label="도구">
-      <a href="./" data-nav="home" aria-current="page">런지수</a>
-      <a href="race-pace/" data-nav="race">대회 계획</a>
+      <a href="./" data-nav="home" aria-current="page">홈</a>
       <a href="pace-chart/" data-nav="goals">목표 페이스</a>
       <a href="marathon-schedule/" data-nav="calendar">대회 일정</a>
       <a href="training-week/" data-nav="plan">주간 훈련표</a>
-      <a href="log/" data-nav="log">달리기 기록</a>
-      <a href="long-run-check/" data-nav="spike">거리 급증</a>
-      <a href="shoe-mileage/" data-nav="shoes">신발</a>
-      <a href="heart-rate-zones/" data-nav="heart">심박 존</a>
-      <a href="pace-converter/" data-nav="pace">페이스 변환</a>
-      <a href="fitness-age/" data-nav="fitage">체력 나이</a>
-      <a href="gear/" data-nav="gear">장비</a>
-      <a href="about/" data-nav="about">근거·FAQ</a>
+      <a href="running-injuries/" data-nav="injury">러닝 부상</a>
+      <a href="running-terms/" data-nav="terms">러닝 용어</a>
+      <a href="tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about">전체 도구</a>
     </nav>
   </div>
 </div>
 
 <main class="wrap">
 <section class="view" data-view="home">
+  <section class="panel wx" id="wx" aria-labelledby="wx-h">
+    <div class="wx-head">
+      <h2 id="wx-h">오늘 달리기 날씨</h2>
+      <div class="wx-pick">
+        <label class="sr" for="wx-city">지역</label>
+        <select id="wx-city"></select>
+        <button type="button" class="btn ghost small" id="wx-here">내 위치</button>
+      </div>
+    </div>
+    <div class="wx-now" aria-live="polite">
+      <div class="wx-temp"><span class="wx-t" id="wx-t">–</span><span class="wx-sky" id="wx-sky"></span></div>
+      <ul class="wx-facts" id="wx-facts"><li>불러오는 중…</li></ul>
+    </div>
+    <p class="wx-tip" id="wx-tip" hidden></p>
+    <div id="wx-air"></div>
+    <p class="note" id="wx-note"></p>
+  </section>
+
   <div class="hero">
     <div class="hero-copy">
       <div class="view-head">
@@ -171,6 +183,18 @@
     </ol>
   </section>
 
+  <section class="panel" aria-labelledby="hr-h">
+    <h2 id="hr-h">다가오는 대회</h2>
+    <ul class="hraces" id="home-races">
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b>손기정평화마라톤</b><span>2026년 11월 15일(일) · 풀 · 하프 · 10km · 6km · 경기 파주 임진각 평화누리공원</span></div></li>
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b>MBN 서울마라톤</b><span>2026년 11월 15일(일) · 하프 · 10km · 서울 광화문광장 → 잠실종합운동장</span></div></li>
+      <li data-date="2027-02-28"><span class="dday" data-dday></span><div><b>대구마라톤</b><span>2027년 2월 28일(일) · 풀 · 10km · 건강달리기 · 대구 국채보상운동기념공원 출발·도착 (2027년부터 도심 코스)</span></div></li>
+      <li data-date="2027-03-21"><span class="dday" data-dday></span><div><b>서울마라톤 겸 동아마라톤</b><span>2027년 3월 21일(일) · 풀 · 10km · 서울 광화문광장 → 잠실종합운동장 (10km는 잠실)</span></div></li>
+    </ul>
+    <p class="note" id="home-races-none" hidden>날짜가 확정된 대회가 지금은 없습니다. 접수 시기는 대회 일정에서 확인하세요.</p>
+    <div class="cta"><span>서울, 춘천, JTBC 등 주요 대회 날짜와 접수 시기</span><a href="marathon-schedule/">대회 일정 전체 →</a></div>
+  </section>
+
   <section class="panel" aria-labelledby="gates-h">
     <h2 id="gates-h">러너들의 관문, 어디까지 왔나</h2>
     <div class="gates">
@@ -213,19 +237,21 @@
   </div>
 
   
-  <section class="hub" aria-labelledby="hub-h">
-    <h2 id="hub-h" class="sr">도구 모음</h2>
+  <section class="hub" aria-label="도구 모음">
+    <h2 class="sr">도구 모음</h2>
     <div class="hub-group">
       <h3>기록을 훈련으로</h3>
-      <nav class="next three" aria-label="훈련 도구">
+      <nav class="next" aria-label="훈련 도구">
         <a href="training-week/"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a>
+        <a href="pace-chart/"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a>
         <a href="race-pace/"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a>
         <a href="marathon-schedule/"><b>다음 대회는 언제, 접수는 몇 월에</b><span>서울, 춘천, JTBC, 대구 등 주요 대회의 날짜와 접수 시기, 공식 사이트를 모았습니다.</span><i>대회 일정 →</i></a>
       </nav>
     </div>
     <div class="hub-group">
       <h3>다치지 않고 오래</h3>
-      <nav class="next three" aria-label="부상 예방 도구">
+      <nav class="next" aria-label="부상 예방 도구">
+        <a href="running-injuries/"><b>달릴 때 여기가 아프다면</b><span>무릎, 정강이, 발, 허벅지. 흔한 러닝 부상의 증상과 대처, 진료가 필요한 신호를 정리했습니다.</span><i>러닝 부상 →</i></a>
         <a href="long-run-check/"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a>
         <a href="shoe-mileage/"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a>
         <a href="log/"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
@@ -233,11 +259,13 @@
     </div>
     <div class="hub-group">
       <h3>달리기 너머</h3>
-      <nav class="next" aria-label="그 밖의 도구">
+      <nav class="next three" aria-label="그 밖의 도구">
         <a href="heart-rate-zones/"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a>
         <a href="fitness-age/"><b>내 체력은 몇 살일까</b><span>달리기 기록이 없어도 12분 달리기나 1.6km 걷기로 알 수 있습니다.</span><i>체력 나이 →</i></a>
         <a href="pace-converter/"><b>러닝머신 10km/h는 km당 몇 분?</b><span>속도와 페이스, 거리별 완주 기록을 서로 바꿉니다.</span><i>페이스 변환 →</i></a>
+        <a href="running-terms/"><b>LSD, 빌드업, 네거티브 스플릿</b><span>달리기를 시작하면 만나는 낯선 말을 쉬운 말로 풀었습니다.</span><i>러닝 용어 →</i></a>
         <a href="gear/"><b>장비는 제품보다 유형부터</b><span>어떤 러너에게 어떤 신발과 도구가 맞는지 정리했습니다.</span><i>장비 가이드 →</i></a>
+        <a href="about/"><b>이 숫자는 어디서 나왔나</b><span>계산식과 참고한 연구, 자주 묻는 질문을 모았습니다.</span><i>근거·FAQ →</i></a>
       </nav>
     </div>
   </section>
@@ -254,8 +282,8 @@
     <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
   </div>
 </footer>
-<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","gear":"gear/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
-<script src="assets/core.js?v=f4bc8ba163" defer></script>
-<script src="assets/app.js?v=f4bc8ba163" defer></script>
+<script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","injury":"running-injuries/","terms":"running-terms/","gear":"gear/","tools":"tools/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
+<script src="assets/core.js?v=04ce22bbee" defer></script>
+<script src="assets/app.js?v=04ce22bbee" defer></script>
 </body>
 </html>

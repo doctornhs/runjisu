@@ -362,3 +362,59 @@ footer b{color:var(--ink)}
 .goal-table th small,.panel h2 small{font-weight:600;color:var(--ink-2);font-size:.8em;margin-left:4px}
 .goal-table td{font-family:var(--font-num);font-size:18px;font-weight:600}
 .stat .k{font-size:13px;font-weight:700;color:var(--ink-2)}
+
+/* 오늘 달리기 날씨 */
+.wx{gap:14px}
+.wx > *{min-width:0}
+.wx-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.wx-pick{display:flex;gap:8px;align-items:center}
+.wx-pick select{width:auto;padding:8px 10px;font-size:15px}
+.wx-now{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px}
+.wx-temp{display:flex;align-items:baseline;gap:10px}
+.wx-t{font:800 64px/.9 var(--font-num);font-variant-numeric:tabular-nums}
+.wx-sky{font-weight:700}
+.wx-facts{display:flex;flex-wrap:wrap;gap:2px 16px;font-size:15px;color:var(--ink-2);margin:0;flex:1 1 220px}
+.wx-facts b{color:var(--ink);font-weight:700;margin-left:5px;font-variant-numeric:tabular-nums}
+.wx-tip{padding:12px 14px;border-radius:10px;background:var(--paper);font-weight:600;border-left:4px solid var(--e);line-height:1.55}
+.wx-tip[data-level="1"]{border-left-color:var(--t)}
+.wx-tip[data-level="2"]{border-left-color:var(--r)}
+.wx-airnow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:15px;margin-bottom:6px}
+.wx-airnow i{font-style:normal;font-weight:700;color:var(--ink-2);font-size:13px}
+.wx-airnow b{font:700 20px/1 var(--font-num);margin:0 5px 0 3px}
+.wx-airnow em{font-style:normal;font-weight:700;font-size:12px;padding:3px 8px;border-radius:999px;color:#fff}
+.pm th,.pm td{text-align:center;padding:8px 2px}
+.pm thead th{white-space:nowrap}
+.pm th[scope="row"]{text-align:left;white-space:nowrap;font-weight:700;padding-right:8px}
+.pm th small{display:block;font-weight:600;color:var(--ink-2);font-size:11px}
+.pmc{display:grid;justify-items:center;gap:2px;padding:7px 2px 6px;border-radius:8px;color:#fff;background:#6b778c;min-width:42px}
+.pmc b{font:700 20px/1 var(--font-num);font-variant-numeric:tabular-nums}
+.pmc i{font-style:normal;font-size:11px;font-weight:600;white-space:nowrap;line-height:1.2}
+[data-g="0"]{background:#1769c4}[data-g="1"]{background:#0b7a59}[data-g="2"]{background:#b9520b}[data-g="3"]{background:#c21a52}
+
+/* 첫 화면의 다가오는 대회 */
+.hraces{display:grid;gap:10px;margin:0}
+.hraces li{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:10px;background:var(--paper)}
+.hraces li div{display:grid;gap:1px;min-width:0}
+.hraces li div span{font-size:14px;color:var(--ink-2);line-height:1.5}
+.dday{flex:none;min-width:62px;text-align:center;font:700 17px/1 var(--font-num);padding:9px 6px;border-radius:8px;background:var(--ink);color:var(--paper)}
+
+/* 러닝 용어 */
+.terms{display:grid;gap:16px;margin:0}
+.terms div{display:grid;gap:2px}
+.terms dt{font-weight:700;font-size:17px}
+.terms dt small{font-weight:600;color:var(--ink-2);margin-left:8px;font-size:13px}
+.terms dd{margin:0;max-width:40em}
+.terms dd a{font-weight:700;white-space:nowrap}
+.term-find{max-width:420px}
+
+/* 러닝 부상 */
+.inj-grid{display:grid;gap:14px}
+@media (min-width:720px){.inj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.inj{display:grid;gap:4px;align-content:start;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none}
+a.inj:hover{border-color:var(--accent)}
+.inj .where,.inj-where{font-size:13px;font-weight:700;color:var(--accent)}
+.inj b{font-size:18px;line-height:1.35}
+.inj span{font-size:15px;color:var(--ink-2)}
+.inj i{font-style:normal;color:var(--accent);font-weight:700;font-size:14px}
+.panel.warn{border-color:var(--r)}
+.panel.warn h2{color:var(--r)}
