@@ -418,3 +418,4 @@ a.inj:hover{border-color:var(--accent)}
 .inj i{font-style:normal;color:var(--accent);font-weight:700;font-size:14px}
 .panel.warn{border-color:var(--r)}
 .panel.warn h2{color:var(--r)}
+.linkish{background:none;border:0;padding:0;margin-left:6px;color:var(--accent);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}

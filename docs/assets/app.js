@@ -876,14 +876,33 @@
     const clock = at => { const d = new Date(at); return pad(d.getHours()) + ':' + pad(d.getMinutes()); };
     function getJson(url) {
       const ac = typeof AbortController === 'function' ? new AbortController() : null;
-      const timer = setTimeout(() => { if (ac) ac.abort(); }, 9000);
+      const timer = setTimeout(() => { if (ac) ac.abort(); }, 12000);
       const done = x => { clearTimeout(timer); return x; };
-      return fetch(url, ac ? { signal: ac.signal } : {}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(done, e => { done(); throw e; });
+      return fetch(url, ac ? { signal: ac.signal } : {})
+        .then(r => r.ok ? r.json() : r.json().catch(() => ({})).then(j => { throw new Error('HTTP ' + r.status + (j && j.reason ? ' · ' + j.reason : '')); }))
+        .then(done, e => { done(); throw e; });
+    }
+    const wait = ms => new Promise(res => setTimeout(res, ms));
+    const why = e => (e && e.name === 'AbortError') ? '응답 시간 초과' : String((e && e.message) || e).slice(0, 140);
+    let wxErr = '';
+    /* 기온: 실패하면 잠깐 뒤 한 번 더, 그래도 안 되면 일출·일몰을 뺀 가장 단순한 요청으로 */
+    function getWeather(q) {
+      const cur = '&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code';
+      const full = WX + q + cur + '&daily=sunrise,sunset&wind_speed_unit=ms&forecast_days=1', lite = WX + q + cur;
+      wxErr = '';
+      return getJson(full)
+        .catch(e => /^HTTP 4/.test(e.message) ? getJson(lite) : wait(1200).then(() => getJson(full)).catch(() => getJson(lite)))
+        .catch(e => { wxErr = why(e); return null; });
+    }
+    function getAir(q) {
+      const u = AQ + q + '&current=pm10,pm2_5&hourly=pm10,pm2_5&forecast_days=5';
+      return getJson(u).catch(() => wait(1200).then(() => getJson(u))).catch(() => null);
     }
     function pack(w, a) {
       const c = w && w.current, d = w && w.daily, ac = a && a.current, h = a && a.hourly;
+      const kmh = !!(w && w.current_units && /km/.test(String(w.current_units.wind_speed_10m || '')));   // 단위를 못 정한 요청이면 km/h 로 온다
       return {
-        now: c && Number.isFinite(c.temperature_2m) ? { t: c.temperature_2m, feels: c.apparent_temperature, hum: c.relative_humidity_2m, wind: c.wind_speed_10m, code: c.weather_code,
+        now: c && Number.isFinite(c.temperature_2m) ? { t: c.temperature_2m, feels: c.apparent_temperature, hum: c.relative_humidity_2m, wind: kmh && Number.isFinite(c.wind_speed_10m) ? c.wind_speed_10m / 3.6 : c.wind_speed_10m, code: c.weather_code,
           rise: hm(d && d.sunrise && d.sunrise[0]), set: hm(d && d.sunset && d.sunset[0]) } : null,
         air: h && Array.isArray(h.time) ? { pm10: ac ? ac.pm10 : null, pm25: ac ? ac.pm2_5 : null, d10: Core.dailyMeans(h.time, h.pm10 || []), d25: Core.dailyMeans(h.time, h.pm2_5 || []) } : null,
       };
@@ -897,7 +916,7 @@
       $('#wx-sky').textContent = n ? Core.skyText(n.code) : '';
       $('#wx-facts').innerHTML = n
         ? [['체감', one(n.feels) + '°'], ['습도', Number.isFinite(n.hum) ? Math.round(n.hum) + '%' : '–'], ['바람', one(n.wind) + 'm/s'], ['일출', n.rise], ['일몰', n.set]].map(f => `<li>${f[0]}<b>${f[1]}</b></li>`).join('')
-        : '<li>기온을 불러오지 못했습니다.</li>';
+        : '<li>기온을 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button></li>';
       const tip = $('#wx-tip'), t = Core.runTip({ feels: n ? n.feels : NaN, code: n ? n.code : NaN, pm10: a ? a.pm10 : null, pm25: a ? a.pm25 : null });
       tip.hidden = !t;
       if (t) { tip.textContent = t.text; tip.dataset.level = t.level; }
@@ -911,32 +930,35 @@
           `<tr><th scope="row">미세<small>PM10</small></th>${days.map(x => `<td>${chip('pm10', x.mean)}</td>`).join('')}</tr>` +
           `<tr><th scope="row">초미세<small>PM2.5</small></th>${days.map(x => `<td>${chip('pm25', m25[x.date])}</td>`).join('')}</tr></tbody></table></div>`;
       } else $('#wx-air').innerHTML = '<p class="note">미세먼지 예보를 불러오지 못했습니다.</p>';
-      note.innerHTML = clock(at) + ' 기준' + (stale ? ' · 새로 불러오지 못해 저장해 둔 값입니다' : '') + ' · ' + SRC_NOTE;
+      note.innerHTML = clock(at) + ' 기준' + (stale ? ' · 새로 불러오지 못해 저장해 둔 값입니다' : '') + (!n && wxErr ? ' · 기온 오류: ' + esc(wxErr) : '') + ' · ' + SRC_NOTE;
     }
     function fail() {
       $('#wx-t').textContent = '–'; $('#wx-sky').textContent = ''; $('#wx-tip').hidden = true; $('#wx-air').innerHTML = '';
-      $('#wx-facts').innerHTML = '<li>' + (SITE.mode === 'site' ? '날씨를 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.' : '미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.') + '</li>';
-      note.innerHTML = SRC_NOTE;
+      $('#wx-facts').innerHTML = '<li>' + (SITE.mode === 'site' ? '날씨를 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button>' : '미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.') + '</li>';
+      note.innerHTML = (wxErr ? '오류: ' + esc(wxErr) + ' · ' : '') + SRC_NOTE;
     }
     let seq = 0;
-    function load() {
+    function load(force) {
       const p = place(), key = p.lat.toFixed(2) + ',' + p.lon.toFixed(2), hit = store.get('wxc', null), mine = ++seq;
       const cached = hit && hit.key === key && hit.data ? hit : null;
-      if (cached && Date.now() - cached.at < 20 * 60000) { paint(cached.data, cached.at, false); return; }   // 20분 안에는 다시 묻지 않는다
+      const fresh = !!cached && Date.now() - cached.at < 20 * 60000;
+      // 기온과 대기질을 둘 다 받아 둔 경우에만 20분 동안 다시 묻지 않는다. 한쪽이 비었으면 열 때마다 다시 받는다
+      if (!force && fresh && cached.data.now && cached.data.air) { paint(cached.data, cached.at, false); return; }
       if (typeof fetch !== 'function') { fail(); return; }
+      if (cached) paint(cached.data, cached.at, false);
+      if (force || !cached) $('#wx-facts').innerHTML = '<li>불러오는 중…</li>';
       const q = 'latitude=' + p.lat + '&longitude=' + p.lon + '&timezone=Asia%2FSeoul';
-      Promise.all([
-        getJson(WX + q + '&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&daily=sunrise,sunset&wind_speed_unit=ms&forecast_days=1').catch(() => null),
-        getJson(AQ + q + '&current=pm10,pm2_5&hourly=pm10,pm2_5&forecast_days=5').catch(() => null),
-      ]).then(r => {
+      Promise.all([getWeather(q), getAir(q)]).then(r => {
         if (mine !== seq) return;
-        const data = pack(r[0], r[1]);
+        const got = pack(r[0], r[1]), old = fresh ? cached.data : null;
+        const data = { now: got.now || (old && old.now) || null, air: got.air || (old && old.air) || null };
         if (!data.now && !data.air) { if (cached) paint(cached.data, cached.at, true); else fail(); return; }
         const at = Date.now();
         store.set('wxc', { key, at, data });
         paint(data, at, false);
       }).catch(fail);
     }
+    box.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-wx-retry]')) load(true); });
     sel.addEventListener('change', () => {
       if (sel.value === '@') return;
       st.city = sel.value; st.here = false; store.set('wx', st); fillSel(); load();
