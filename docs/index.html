@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>런지수 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록</title>
 <meta name="description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.">
 <link rel="canonical" href="https://runjisu.com/">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=5d6af59cf9">
+<link rel="stylesheet" href="assets/site.css?v=3b840e6a95">
 </head>
 <body>
 
@@ -188,11 +188,47 @@
     <ul class="hraces" id="home-races">
       <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b>손기정평화마라톤</b><span>2026년 11월 15일(일) · 풀 · 하프 · 10km · 6km · 경기 파주 임진각 평화누리공원</span></div></li>
       <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b>MBN 서울마라톤</b><span>2026년 11월 15일(일) · 하프 · 10km · 서울 광화문광장 → 잠실종합운동장</span></div></li>
-      <li data-date="2027-02-28"><span class="dday" data-dday></span><div><b>대구마라톤</b><span>2027년 2월 28일(일) · 풀 · 10km · 건강달리기 · 대구 국채보상운동기념공원 출발·도착 (2027년부터 도심 코스)</span></div></li>
-      <li data-date="2027-03-21"><span class="dday" data-dday></span><div><b>서울마라톤 겸 동아마라톤</b><span>2027년 3월 21일(일) · 풀 · 10km · 서울 광화문광장 → 잠실종합운동장 (10km는 잠실)</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b>2026 세정 가을바람 유러닝페스타</b><span>2026년 11월 21일(토) · 10K · 5K · 경기</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b>GIVE RUN 2026 부산</b><span>2026년 11월 21일(토) · 10K · 5K · 부산</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b>2026 아식스 서울신문 고프리런</b><span>2026년 11월 21일(토) · 하프 · 10K · 서울</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b>2026 전마협 보성녹차 Autumn 마라톤</b><span>2026년 11월 21일(토) · 풀 · 하프 · 10K · 5K · 전남</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b>런텐 JUST RUN10 대구</b><span>2026년 11월 21일(토) · 10K · 5K · 대구</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>2026 김대중마라톤대회</b><span>2026년 11월 22일(일) · 하프 · 10K · 5K · 전남</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>자이스 스마일 레이스</b><span>2026년 11월 22일(일) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>2026 평화의숲 마라톤</b><span>2026년 11월 22일(일) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>2026 서울 억새풀 마라톤대회</b><span>2026년 11월 22일(일) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>2026 인천마라톤</b><span>2026년 11월 22일(일) · 풀 · 10K · 5K · 인천</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>2026 무주반딧불평화마라톤</b><span>2026년 11월 22일(일) · 하프 · 10K · 5K · 전북</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>제6회 고용노동부장관배 직장인마라톤대회</b><span>2026년 11월 22일(일) · 10K · 5K · 경기</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b>제19회 대구광역시장기 생활체육 육상대회</b><span>2026년 11월 22일(일) · 10K · 대구</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b>2026 남원 춘향 전국 마라톤대회</b><span>2026년 11월 28일(토) · 풀 · 하프 · 10K · 5K · 전북</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b>목욕런 2026</b><span>2026년 11월 28일(토) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b>2026 평화런</b><span>2026년 11월 28일(토) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b>2026 착한서구 공부방 기부앤런</b><span>2026년 11월 28일(토) · 10K · 5K · 광주</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>제2회 천안독립기념관 마라톤대회</b><span>2026년 11월 29일(일) · 10K · 5K · 충남</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>가야왕도 김해 전국어울림 마라톤대회</b><span>2026년 11월 29일(일) · 하프 · 10K · 5K · 경남</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>2026 새한미디어 마라톤</b><span>2026년 11월 29일(일) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>2026 정읍공동체 프리마켓 마라톤</b><span>2026년 11월 29일(일) · 10K · 5K · 전북</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>2026 원주 치악마라톤</b><span>2026년 11월 29일(일) · 하프 · 10K · 5K · 강원</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b>2026 서울사랑마라톤</b><span>2026년 11월 29일(일) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b>제23회 한강시민마라톤</b><span>2026년 12월 5일(토) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b>2026 하남 미사 호수 에너지런</b><span>2026년 12월 5일(토) · 10K · 5K · 경기</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b>제4회 가든파이브 라이프 레이스</b><span>2026년 12월 5일(토) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b>2026 허그런</b><span>2026년 12월 5일(토) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b>2026 부산브릿지 마라톤</b><span>2026년 12월 6일(일) · 풀 · 10K · 부산</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b>2026 황영조 로드레이스</b><span>2026년 12월 6일(일) · 하프 · 10K · 인천</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b>제20회 양산전국하프마라톤대회</b><span>2026년 12월 6일(일) · 하프 · 10K · 5K · 경남</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b>2026 청춘런</b><span>2026년 12월 6일(일) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b>제1회 정읍 고향사랑기부마라톤</b><span>2026년 12월 6일(일) · 10K · 5K · 전북</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b>2026 소년소녀 가장 돕기 기부런</b><span>2026년 12월 12일(토) · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b>제3회 긍정의힘 마라톤</b><span>2026년 12월 12일(토) · 하프 · 10K · 5K · 서울</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b>2026 ONE MORE RUN</b><span>2026년 12월 12일(토) · 하프 · 10K · 5K · 인천</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b>2026 성남 헤리티지 런</b><span>2026년 12월 12일(토) · 10K · 5K · 경기</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b>화성레이스</b><span>2026년 12월 12일(토) · 10K · 5K · 경기</span></div></li>
+      <li data-date="2026-12-13"><span class="dday" data-dday></span><div><b>제36회 진주마라톤</b><span>2026년 12월 13일(일) · 풀 · 하프 · 10K · 5K · 경남</span></div></li>
     </ul>
     <p class="note" id="home-races-none" hidden>날짜가 확정된 대회가 지금은 없습니다. 접수 시기는 대회 일정에서 확인하세요.</p>
-    <div class="cta"><span>서울, 춘천, JTBC 등 주요 대회 날짜와 접수 시기</span><a href="marathon-schedule/">대회 일정 전체 →</a></div>
+    <div class="cta"><span>전국 대회를 종목·지역별로</span><a href="marathon-schedule/">대회 일정 전체 →</a></div>
   </section>
 
   <section class="panel" aria-labelledby="gates-h">
@@ -245,7 +281,7 @@
         <a href="training-week/"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a>
         <a href="pace-chart/"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a>
         <a href="race-pace/"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a>
-        <a href="marathon-schedule/"><b>다음 대회는 언제, 접수는 몇 월에</b><span>서울, 춘천, JTBC, 대구 등 주요 대회의 날짜와 접수 시기, 공식 사이트를 모았습니다.</span><i>대회 일정 →</i></a>
+        <a href="marathon-schedule/"><b>이번 주말엔 어디서 달릴까</b><span>전국 대회를 종목과 지역으로 골라 보고, 서울·춘천·JTBC 접수 시기도 확인합니다.</span><i>대회 일정 →</i></a>
       </nav>
     </div>
     <div class="hub-group">
@@ -282,8 +318,15 @@
     <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
   </div>
 </footer>
+<nav class="tabbar" aria-label="빠른 이동">
+    <a href="./" data-nav="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>홈</span></a>
+    <a href="marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>대회</span></a>
+    <a href="pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>페이스</span></a>
+    <a href="running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>부상</span></a>
+    <a href="tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>전체</span></a>
+</nav>
 <script>window.SITE={"mode":"site","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","injury":"running-injuries/","terms":"running-terms/","gear":"gear/","tools":"tools/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
-<script src="assets/core.js?v=5d6af59cf9" defer></script>
-<script src="assets/app.js?v=5d6af59cf9" defer></script>
+<script src="assets/core.js?v=3b840e6a95" defer></script>
+<script src="assets/app.js?v=3b840e6a95" defer></script>
 </body>
 </html>

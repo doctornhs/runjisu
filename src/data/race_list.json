@@ -1,0 +1,3407 @@
+{
+"checked": "2026-11-16",
+"source": "러닝위키(runningwikii.com) 전국 대회 일정과 각 대회 공지",
+"races": [
+{
+"d": "2026-11-21",
+"n": "2026 세정 가을바람 유러닝페스타",
+"ev": "10km · 5km · 커플런 · 단체전",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/sejung-autumn-wind-u-running-festa/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "2026 남해트레일레이스(가을)",
+"ev": "트레일 42km · 30km · 12km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/namhae-trail-race/",
+"f": [
+"trail"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "GIVE RUN 2026 부산",
+"ev": "10km · 5km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/give-run-busan/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "2026 아식스 서울신문 고프리런",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/asics-seoul-gofree-run/",
+"f": [
+"half",
+"10k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "2026 전마협 보성녹차 Autumn 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/boseong-green-tea-autumn-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "런텐 JUST RUN10 대구",
+"ev": "10km · 5km",
+"rg": "대구",
+"u": "https://runningwikii.com/entry/just-run10-daegu/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "K-거상 트레일 러닝 대회",
+"ev": "트레일 20km · 15km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/k-geosang-trail-running-2026/",
+"f": [
+"trail"
+],
+"k": "up"
+},
+{
+"d": "2026-11-21",
+"n": "2026 한강짐런",
+"ev": "짐런 레이스 · 쉬엄쉬엄 짐런",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-hangang-gymrun/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "2026 김대중마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/kim-dae-jung-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "자이스 스마일 레이스",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/zeiss-smile-race/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "2026 평화의숲 마라톤",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/peace-forest-marathon/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "2026 서울 억새풀 마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/seoul-eoksaepul-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "2026 인천마라톤",
+"ev": "풀 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/incheon-marathon/",
+"f": [
+"full",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "2026 무주반딧불평화마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/muju-bandipbul-peace-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "제6회 고용노동부장관배 직장인마라톤대회",
+"ev": "10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/workers-marathon-hanam/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "부산항일학생의거 86주년 기념 부산시민이어달리기",
+"ev": "이어달리기 16km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/86th-busan-anti-japanese-student-movement-citizens-relay-run-2026/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-11-22",
+"n": "제19회 대구광역시장기 생활체육 육상대회",
+"ev": "10km · 트랙",
+"rg": "대구",
+"u": "https://runningwikii.com/entry/daegu-mayor-cup-athletics-competition-2026/",
+"f": [
+"10k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-28",
+"n": "2026 남원 춘향 전국 마라톤대회",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/namwon-chunhyang-national-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-28",
+"n": "목욕런 2026",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/mokyokrun/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-28",
+"n": "2026 평화런",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/peace-run/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-28",
+"n": "2026 착한서구 공부방 기부앤런",
+"ev": "10km · 5km",
+"rg": "광주",
+"u": "https://runningwikii.com/entry/good-seogu-study-room-give-and-run-2026/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-28",
+"n": "2026 SPOTV NIGHT RUN",
+"ev": "7km · 3.5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/spotv-night-run-2026/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "제2회 천안독립기념관 마라톤대회",
+"ev": "10km · 5km · 3.56km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/cheonan-independence-hall-marathon/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "가야왕도 김해 전국어울림 마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/gimhae-national-eoullim-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "2026 새한미디어 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/saehan-media-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "2026 정읍공동체 프리마켓 마라톤",
+"ev": "10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/jeongeup-free-market-marathon/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "2026 원주 치악마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/wonju-chiak-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-11-29",
+"n": "2026 서울사랑마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/seoul-love-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "2026 전국마라톤협회 금산 골드런 마라톤",
+"ev": "12km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/geumsan-goldrun-marathon/",
+"f": [
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "제23회 한강시민마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/hangang-citizens-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "2026 하남 미사 호수 에너지런",
+"ev": "10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/hanam-misa-lake-energy-run/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "2026 월드 레코드 국제 마라톤 축제 with 사웨",
+"ev": "14km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/world-record-marathon-sawe/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "제4회 가든파이브 라이프 레이스",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/garden5-life-race/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "2026 허그런",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/hug-run-2026/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-05",
+"n": "2026 모악트레일런",
+"ev": "트레일 23km · 10km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/moaksan-trail-run-2026/",
+"f": [
+"trail"
+],
+"k": "up"
+},
+{
+"d": "2026-12-06",
+"n": "2026 부산브릿지 마라톤",
+"ev": "풀 · 10km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/busan-bridge-marathon/",
+"f": [
+"full",
+"10k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-06",
+"n": "2026 황영조 로드레이스",
+"ev": "하프 · 10km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/hwang-young-jo-road-race/",
+"f": [
+"half",
+"10k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-06",
+"n": "제20회 양산전국하프마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/yangsan-national-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-06",
+"n": "2026 청춘런",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/youth-run/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-06",
+"n": "제1회 정읍 고향사랑기부마라톤",
+"ev": "10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/1st-jeongeup-marathon-2026/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "2026 소년소녀 가장 돕기 기부런",
+"ev": "10km · 5km · 걷기",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/child-heads-of-household-support-run/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "제3회 긍정의힘 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/positive-power-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "2026 ONE MORE RUN",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/one-more-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "2026 연합뉴스 하남 국제 트레일런 페스티벌",
+"ev": "트레일 28km · 15km · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/yonhap-news-hanam-international-trail-run-festival-2026/",
+"f": [
+"trail"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "2026 성남 헤리티지 런",
+"ev": "10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/seongnam-heritage-run-2026/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "2026 평창 스노우런",
+"ev": "15km · 7.5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/pyeongchang-snow-run-2026/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-12-12",
+"n": "화성레이스",
+"ev": "10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/hwaseong-race/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-13",
+"n": "제36회 진주마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/jinju-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-13",
+"n": "제5회 밤섬 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/bamseom-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-13",
+"n": "제2회 일자산 트레일 러닝",
+"ev": "트레일 8km · 4km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/iljasan-trail-running-2026/",
+"f": [
+"trail"
+],
+"k": "up"
+},
+{
+"d": "2026-12-13",
+"n": "2026 시즌마감마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/season-closing-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-13",
+"n": "2026 이순신 런 페스타",
+"ev": "6.4km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/yisunsin-run-festa-2026/",
+"f": [],
+"k": "up"
+},
+{
+"d": "2026-12-19",
+"n": "제2회 청춘 릴레이 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/youth-relay-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-20",
+"n": "2026 슬로우런마라톤",
+"ev": "10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/slow-run-marathon-2026/",
+"f": [
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-26",
+"n": "2026 코리아 시즌 레이스",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/korea-season-race/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-12-28",
+"n": "2026 한강런",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/hangang-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "up"
+},
+{
+"d": "2026-01-04",
+"n": "전마협 새해 맞이 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-newyearsday-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-01-11",
+"n": "여수해양마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/20th-yeosu-marine-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-01-23",
+"n": "전마협 제주 4Full 마라톤",
+"ev": "풀(4일 연속)",
+"rg": "제주",
+"u": "https://runningwikii.com/entry/jeju-4full-marathon-2026/",
+"f": [
+"full"
+],
+"k": "last"
+},
+{
+"d": "2026-01-25",
+"n": "한강 서울 하프 마라톤(겨울)",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2nd-hanriver-seoul-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-01-31",
+"n": "화성 궁평항 동계 훈련 마라톤",
+"ev": "32km · 하프 · 10km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-hwasong-gungpyeongport-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-08",
+"n": "산들소리향기마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/3rd-sandeul-sound-scent-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-21",
+"n": "청춘릴레이 마라톤(봄)",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-youth-relay-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-21",
+"n": "전마협 청주 무심천 투데이 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/2026-cheongju-mushimcheon-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-21",
+"n": "희망드림 동계 국제 마라톤",
+"ev": "32km · 하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/23rd-winter-international-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-21",
+"n": "휴먼레이스",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/7th-human-race-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "제주MBC 국제평화마라톤",
+"ev": "하프 · 10km",
+"rg": "제주",
+"u": "https://runningwikii.com/entry/2026-jeju-mbc-international-peace-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "경기수원국제하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-gyeonggi-suwon-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "고구려 마라톤",
+"ev": "풀 · 32km · 하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-goguryo-marathon/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "챌린지 레이스",
+"ev": "풀 · 32km · 하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/challenge-race-2026/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "산불조심 한국서울마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/9th-korea-seoul-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-22",
+"n": "밀양아리랑마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/22nd-milyang-arirang-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-02-28",
+"n": "보스턴 영웅 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-boston-hero-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-01",
+"n": "머니투데이방송 삼일절 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-moneytoday-31-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-01",
+"n": "구미 박정희 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-gumi-parkjunghee-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-01",
+"n": "광주일보 3.1절 전국마라톤",
+"ev": "하프 · 10km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/61-gwangjuilbo-3-1-marathon-2026/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-01",
+"n": "3.1절 기념 단축 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/31-short-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-01",
+"n": "안중근 평화 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/13th-anjunggeun-peace-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-02",
+"n": "Run your way HALF RACE SEOUL",
+"ev": "하프",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-run-your-way-half-race-seoul/",
+"f": [
+"half"
+],
+"k": "last"
+},
+{
+"d": "2026-03-07",
+"n": "코리아오픈 레이스",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/4th-korea-open-race-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-07",
+"n": "서울경기육상연합 하프 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2nd-seoul-gyeonggi-half-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-08",
+"n": "성주참외 전국마라톤",
+"ev": "30km · 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-sungju-meron-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-08",
+"n": "MBN 블루레이스 거제",
+"ev": "하프 · 10km · 4km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/2026-mbn-blue-race-geoje/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-08",
+"n": "여의도 벚꽃 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/16th-yeouido-cherry-blossom-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-08",
+"n": "전국민 러닝크루 패밀리 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-national-running-crew-family-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-08",
+"n": "고양특례시 하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-goyangcity-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-14",
+"n": "창녕부곡 온천마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/20th-changnyeong-bugok-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-14",
+"n": "보은 보청천 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/1st-boeun-bocheongcheon-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-14",
+"n": "금산 인삼 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-geumsan-insam-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-21",
+"n": "내포마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-naepo-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-22",
+"n": "서울 K-마라톤대회",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-seoul-k-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-22",
+"n": "영광 광풍 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/2nd-yeonggwang-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-22",
+"n": "불패마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/3rd-bulpae-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-22",
+"n": "정읍동학마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/2026-jeongeup-donghak-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-28",
+"n": "태화강 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "울산",
+"u": "https://runningwikii.com/entry/23rd-taehwagang-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-28",
+"n": "봄바람 유러닝페스타",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-u-running-festa/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "합천벚꽃마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/25th-hapcheon-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "무주반딧불 하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/2026-muju-firefly-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "정남진장흥 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/20th-jeongnamjin-jangheung-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "한강벚꽃마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2nd-hangang-cherry-blossom-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "성북사랑 전국 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-seongbuk-sarang-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "김포한강마라톤",
+"ev": "풀 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/14th-gimpo-han-river-marathon/",
+"f": [
+"full",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-03-29",
+"n": "청라 하늘대교마라톤",
+"ev": "하프 · 10km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/cheongna-sky-bridge-marathon-2026/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-04",
+"n": "대한경제마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/17th-daehan-gyeongje-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-04",
+"n": "건양대학교 K-국방 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-k-defense-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "영주소백산마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-yeongju-sobaeksan-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "진주남강 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/2026-jinju-namgang-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "더레이스 서울 21K",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-the-race-seoul-21k/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "이천 도자기 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/27th-icheon-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "나주영산강마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/12th-naju-yeongsangang-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-05",
+"n": "예산윤봉길 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/22nd-yesan-yunbonggil-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-11",
+"n": "양천마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/15th-yangcheon-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-11",
+"n": "MBN 선셋마라톤 영종",
+"ev": "하프 · 10km · 3km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/2026-mbn-sunset-marathon-yeongjong/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-11",
+"n": "대청호 벚꽃길 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/daecheongho-cherry-blossom-road-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-11",
+"n": "행복한가게 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/15th-happy-shop-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-12",
+"n": "영남일보 국제 하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대구",
+"u": "https://runningwikii.com/entry/19th-yeongnamilbo-half-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-12",
+"n": "MBC섬진강꽃길마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/15th-mbc-seomjingang-flower-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-12",
+"n": "가든파이브 라이프 레이스(봄)",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/3rd-garden5-life-race/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-12",
+"n": "안양천 벚꽃 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-anyangcheon-cherryblossom-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-18",
+"n": "춘천호반마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/23rd-chuncheon-hoban-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "단양팔경 걷기 및 마라톤",
+"ev": "하프 · 10km · 5km · 3km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/20th-danyang-palgyeong-walk-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "부안해변마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/2026-buan-beach-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "오션뷰 기장바다마라톤",
+"ev": "하프 · 10km · 3km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/8th-oceanview-gijang-marathon-2026/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "아산 이순신 백의종군길 마라톤",
+"ev": "풀 · 하프 · 10km · 4km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/4th-asan-leesunsin-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "호남마라톤",
+"ev": "하프 · 10km",
+"rg": "광주",
+"u": "https://runningwikii.com/entry/23rd-honam-marathon-2026/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "DMZ평화마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-dmz-peace-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "마포 서윤복 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2nd-mapo-seoyoonbok-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "기적의마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/11th-miracle-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-19",
+"n": "경기마라톤대회",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/gyeonggi-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-25",
+"n": "삼척 황영조 국제 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/30th-samchuk-hwang-young-jo-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-26",
+"n": "통일기원 포항해변마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/24th-pohang-beach-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-26",
+"n": "송도 WALK & RUN(봄)",
+"ev": "하프 · 10km · 5km · 트레일 15km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/2026-songdo-walk-and-run/",
+"f": [
+"trail"
+],
+"k": "last"
+},
+{
+"d": "2026-04-26",
+"n": "반기문마라톤",
+"ev": "풀 · 하프 · 10km · 4.2km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/20th-bankimoon-marathon/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-04-26",
+"n": "패밀리 런 페스타",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-family-run-festa/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-02",
+"n": "보성 녹차 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/21st-bosung-green-tea-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-02",
+"n": "구례 지리산봄길 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/2026-gurye-jirisan-bomgil-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-03",
+"n": "전국의병 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/2026-jeonguk-uibyeong-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-05",
+"n": "화성효마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-hwaseong-hyo-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-09",
+"n": "보령머드임해마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/23rd-boryeong-mud-imhae-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-10",
+"n": "서울시민마라톤",
+"ev": "하프 · 10km · 5km · 3km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/23rd-seoul-citizens-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-10",
+"n": "대전 3대하천 마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/three-rivers-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-16",
+"n": "경기신문 씨사이드 마라톤(봄)",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/2026-gyeonggi-seaside-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-16",
+"n": "서울신문 하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-seoul-shinmun-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-17",
+"n": "식품안전 마라톤",
+"ev": "하프 · 10km · 4km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/2026-food-safety-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-17",
+"n": "인천시육상연맹배 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/2026-incheon-athletics-federation-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-23",
+"n": "바다의 날 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-ocean-day-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-23",
+"n": "안양천 장미 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-anyangcheon-rose-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-30",
+"n": "여명국제마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/18th-yeomyeong-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-30",
+"n": "강남하프레이스",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-gangnam-half-race/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-31",
+"n": "금산월드런마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-geumsan-worldrun-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-31",
+"n": "독도수호를 위한 동호인마라톤",
+"ev": "하프 · 10km · 혼성릴레이",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-dokdosuho-donghoin-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-31",
+"n": "백양산숲길건강달리기",
+"ev": "하프 · 10km · 6km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/2026-baegyangsan-forest-run/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-31",
+"n": "울산 고래마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "울산",
+"u": "https://runningwikii.com/entry/2026-ulsan-whale-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-05-31",
+"n": "여의도 밤섬 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-yeouido-bamseom-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-06",
+"n": "푸른하늘런",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-blue-sky-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-06",
+"n": "춘천봄내마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/2026-chuncheon-bomnae-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-06",
+"n": "양평이봉주마라톤",
+"ev": "하프 · 10km · 4km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/yangpyeong-leebongju-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-07",
+"n": "희망드림 새벽강변 국제마라톤",
+"ev": "하프 · 10km · 5km · 3km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/23rd-dawn-riverside-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-07",
+"n": "제주관광마라톤 축제",
+"ev": "풀 · 하프 · 10km",
+"rg": "제주",
+"u": "https://runningwikii.com/entry/30th-jeju-tourism-marathon-festival/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-07",
+"n": "IM뱅크 코리아오픈마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-korea-open-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-07",
+"n": "마인드 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/mind-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-13",
+"n": "시각장애인과 함께하는 어울림 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/12th-eoullim-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-13",
+"n": "운탄고도 스카이레이스",
+"ev": "트레일 풀 · 하프",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/2026-untangodo-sky-race/",
+"f": [
+"trail"
+],
+"k": "last"
+},
+{
+"d": "2026-06-13",
+"n": "컬처런",
+"ev": "하프 · 10km · 커플런",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/2026-culture-run/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-13",
+"n": "성남마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-seongnam-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-14",
+"n": "영덕 해변 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/22nd-yeongdeok-beach-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-14",
+"n": "김대중 평화 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/11th-kimdaejung-peace-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-14",
+"n": "울릉도전국마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/21st-ulleungdo-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-14",
+"n": "대전월드런마라톤축제",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/2026-daejeon-world-run-marathon-festival/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-14",
+"n": "김해숲길마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/2026-gimhae-forest-trail-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-20",
+"n": "충주마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/25th-chungju-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-20",
+"n": "국민행복마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/16th-kukmin-hangbok-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-20",
+"n": "희망 서울 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-hope-seoul-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-20",
+"n": "웰메이드런",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/wellmade-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-21",
+"n": "참행복나눔 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-cham-haengbok-nanum-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-27",
+"n": "큰별 나눔 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-big-star-sharing-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-06-28",
+"n": "서울런",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-seoul-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-07-11",
+"n": "전마협 무주 풀코스 마라톤",
+"ev": "풀 · 24km · 12km",
+"rg": "전북",
+"u": "https://runningwikii.com/entry/jeonmahyeop-muju-full-course-marathon/",
+"f": [
+"full"
+],
+"k": "last"
+},
+{
+"d": "2026-08-16",
+"n": "Happy700 평창대관령 전국하프마라톤",
+"ev": "하프 · 10km",
+"rg": "강원",
+"u": "http://www.ifunrunkorea.co.kr/sub0102",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-08-30",
+"n": "한강 서울 하프 마라톤(여름)",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/seoul-hangang-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-05",
+"n": "철원DMZ국제평화마라톤",
+"ev": "풀 · 하프 · 10km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/23rd-cheorwon-dmz-international-peace-marathon/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-06",
+"n": "봉화송이 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-bonghwasongi-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-12",
+"n": "초록우산 런웨이 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/green-umbrella-runway-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-12",
+"n": "양양 강변 전국 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/2026-yangyang-river-national-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-12",
+"n": "계란 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/egg-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-13",
+"n": "울진 금강송배 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/uljin-geumgangsongbae-marathon-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-13",
+"n": "스마일 런 페스티벌",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/smile-run-festival/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-13",
+"n": "강화해변마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/ganghwa-beach-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-13",
+"n": "런서울런",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "http://runseoulrun.com",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-13",
+"n": "포항 이차전지 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "http://energyrun.co.kr/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-19",
+"n": "금산인삼축제 마라톤",
+"ev": "하프 · 10km · 4km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/geumsan-ginseng-festival-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-19",
+"n": "사이버 영토 수호 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/cyber-territory-defense-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-19",
+"n": "안양천 하프 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/anyangcheon-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-19",
+"n": "경기신문 씨사이드 마라톤(가을)",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/kg-seaside-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-19",
+"n": "무한도전 Run in 경주",
+"ev": "하프 · 10km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/mudo-run-in-gyeongju/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-20",
+"n": "가평자라섬 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/2026-gapyeong-jarasum-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-20",
+"n": "선사마라톤 축제",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/seonsa-marathon-festival/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-20",
+"n": "동대문마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/dongdaemun-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-20",
+"n": "안산마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/ansan-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-09-20",
+"n": "인천송도국제하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/incheon-songdo-international-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-03",
+"n": "서산 코스모스 황금들녘 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-seosan-cosmos-golden-fields-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-03",
+"n": "마스터즈 하프 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/masters-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-03",
+"n": "춘천연합마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/chuncheon-united-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-04",
+"n": "S오일 감동의 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/s-oil-touching-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-04",
+"n": "달서하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대구",
+"u": "https://runningwikii.com/entry/dalseo-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-04",
+"n": "안동마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/andong-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-04",
+"n": "YTN 서울투어마라톤",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/ytn-seoul-tour-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-05",
+"n": "시흥시 전국하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/siheung-national-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-05",
+"n": "한경서울마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/hk-seoul-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-05",
+"n": "강남국제평화마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/gangnam-peace-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-09",
+"n": "홍성마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/2026-hongseong-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-09",
+"n": "고흥우주항공배 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/goheung-aerospace-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-10",
+"n": "무등산권 지오마라톤",
+"ev": "30km · 하프 · 10km · 5.18km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/2026-mudeungsan-geo-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-10",
+"n": "거제시장배 섬꽃 전국 마라톤",
+"ev": "하프 · 10km · 4km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/geoje-island-flower-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "가을철 산불조심마라톤",
+"ev": "풀 · 31km · 하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-autumn-wildfire-prevention-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "MBN 전국 나주 마라톤대회",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/mbn-naju-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "평택항마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "http://www.ptportmarathon.com/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "문경 오미자 하프마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/mungyeong-omija-half-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "울산마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "울산",
+"u": "https://runningwikii.com/entry/ulsan-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "천안 이봉주 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/cheonan-lee-bong-ju-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-11",
+"n": "당진황금들녘 건강마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/dangjin-golden-fields-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "경포마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/2026-gyeongpo-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "청원생명쌀대청호마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "충북",
+"u": "https://runningwikii.com/entry/24th-daecheongho-marathon-2026/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "경청마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/gyeongcheong-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "충청남도 태안 전국어울림마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/chungnam-taean-national-oullim-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "광주 남구청장배 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "광주",
+"u": "https://runningwikii.com/entry/gwangju-namgu-office-head-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-17",
+"n": "의정부시 물길마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/uijeongbu-waterway-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-18",
+"n": "아시아 오픈 마라톤",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/2026-asia-open-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-18",
+"n": "그린스텝",
+"ev": "하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/green-step/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-18",
+"n": "대청호마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "https://runningwikii.com/entry/daecheongho-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-18",
+"n": "여주 세종대왕 마라톤",
+"ev": "하프 · 10km · 4km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/yeoju-sejong-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-18",
+"n": "중랑구청장배 장미 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/jungnang-rose-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-24",
+"n": "SBS RUN&MUSIC FESTIVAL in 안동",
+"ev": "하프 · 10km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/run-and-music-festival-andong/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-24",
+"n": "뉴시스 바다마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/newsis-sea-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-25",
+"n": "청송사과트레일런",
+"ev": "트레일 하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/2026-cheongsong-apple-trail-run/",
+"f": [
+"trail"
+],
+"k": "last"
+},
+{
+"d": "2026-10-25",
+"n": "청도반시 전국마라톤",
+"ev": "하프 · 10km · 5.9km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/cheongdo-bansi-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-25",
+"n": "광명평화마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "http://gmrun.kr",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-25",
+"n": "울산 런 페스타 (U-RUN)",
+"ev": "하프 · 10km · 5km",
+"rg": "울산",
+"u": "https://runningwikii.com/entry/ulsan-run-festa-u-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-31",
+"n": "사천노을 마라톤대회",
+"ev": "하프 · 10km · 5km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/sacheon-sunset-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-31",
+"n": "중소기업 인 기살리기 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/sme-energizing-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-31",
+"n": "INCHEON NIGHT RACE",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/incheon-night-race-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-10-31",
+"n": "오티즘 레이스",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/autism-race/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-01",
+"n": "대전 신채호 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "대전",
+"u": "http://www.djmarathon.co.kr",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-01",
+"n": "DMZ OPEN 평화마라톤",
+"ev": "하프 · 10km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/dmz-open-peace-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-01",
+"n": "서울동행마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/seoul-donghaeng-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-07",
+"n": "영천댐 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/yeongcheondam-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-07",
+"n": "부여 굿뜨래 마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/buyeo-gudeurae-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-07",
+"n": "여수 일레븐브리지마라톤",
+"ev": "하프 · 10km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/yeosu-eleven-bridge-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "과천마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/gwacheon-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "경주시육상연맹회장배 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/gyeongju-athletics-federation-president-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "라운드랩 RUN",
+"ev": "하프 · 10km · 5km",
+"rg": "강원",
+"u": "https://runningwikii.com/entry/round-lab-run/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "아산 은행나무길 전국마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/asan-ginkgo-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "해남땅끝 전국마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/haenam-national-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "나주 금성산숲길마라톤",
+"ev": "하프 · 11km · 6km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/naju-geumsungsan-forest-trail-marathon/",
+"f": [
+"half"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "경상북도 신도시 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/gyeongbuk-newcity-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "경기화성 생태마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/gyeonggi-hwaseong-eco-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "청양군 칠갑마라톤",
+"ev": "하프 · 14km · 7km",
+"rg": "충남",
+"u": "https://runningwikii.com/entry/cheongyang-chilgap-marathon/",
+"f": [
+"half"
+],
+"k": "last"
+},
+{
+"d": "2026-11-08",
+"n": "강남하프마라톤",
+"ev": "하프 · 10km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/gangnam-half-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-14",
+"n": "순천 남승룡마라톤",
+"ev": "풀 · 하프 · 10km · 5km",
+"rg": "전남",
+"u": "https://runningwikii.com/entry/suncheon-namseungryong-marathon/",
+"f": [
+"full",
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-14",
+"n": "영종 하늘길 마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/yeongjong-skyway-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "상주 곶감 마라톤",
+"ev": "풀 · 하프 · 10km · 4.4km",
+"rg": "경북",
+"u": "https://runningwikii.com/entry/sangju-gotgom-marathon/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "가민런 코리아",
+"ev": "하프 · 10km",
+"rg": "경기",
+"u": "https://runningwikii.com/entry/garmin-run-korea/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "고창고인돌마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "전북",
+"u": "http://www.gcrun.com",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "제주감귤마라톤",
+"ev": "풀 · 하프 · 10km",
+"rg": "제주",
+"u": "https://runningwikii.com/entry/jeju-mandarin-marathon/",
+"f": [
+"full",
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "부산국제마라톤",
+"ev": "하프 · 10km · 5km",
+"rg": "부산",
+"u": "https://runningwikii.com/entry/busan-international-marathon/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "창원특례시장배 광려천마라톤",
+"ev": "하프 · 10km",
+"rg": "경남",
+"u": "https://runningwikii.com/entry/changwon-gwangryeocheon-marathon/",
+"f": [
+"half",
+"10k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "청춘레이스",
+"ev": "하프 · 10km · 5km",
+"rg": "서울",
+"u": "https://runningwikii.com/entry/youth-race-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+},
+{
+"d": "2026-11-15",
+"n": "연수구청장배 송도 WALK & RUN",
+"ev": "하프 · 10km · 5km",
+"rg": "인천",
+"u": "https://runningwikii.com/entry/yeonsu-gu-head-songdo-walk-and-run-2026/",
+"f": [
+"half",
+"10k",
+"5k"
+],
+"k": "last"
+}
+]
+}

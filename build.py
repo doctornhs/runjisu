@@ -37,8 +37,8 @@ VIEWS = [
      '목표 기록을 넣으면 km당 페이스와 5km 구간별 통과 시각을 계산합니다. 후반 가속 전략과, 목표가 지금 실력에 맞는지도 함께 확인하세요.'),
     ('goals', 'pace-chart', '목표 페이스', '마라톤 페이스표: 서브3·서브4, 하프 2시간, 10km 50분 목표별 km당 페이스',
      '풀코스 서브3·서브4, 하프 2시간, 10km 50분 등 목표 기록별로 km당 페이스와 400m 트랙 기록, 러닝머신 속도를 한 표에 정리했습니다. 목표마다 구간 통과 시각과 필요한 실력도 확인하세요.'),
-    ('calendar', 'marathon-schedule', '대회 일정', '2026·2027 국내 마라톤 대회 일정: 서울·춘천·JTBC·대구 접수 시기와 공식 사이트',
-     '서울마라톤, 춘천마라톤, JTBC 서울마라톤, 대구마라톤 등 국내 주요 마라톤 대회의 2026~2027년 날짜와 접수 시기, 공식 사이트 링크를 정리했습니다.'),
+    ('calendar', 'marathon-schedule', '대회 일정', '전국 마라톤 대회 일정 2026·2027: 이번 주 대회부터 서울·춘천·JTBC 접수까지',
+     '이번 주말 열리는 대회부터 2027년 봄·가을 대회까지, 전국 마라톤 대회 일정을 종목과 지역으로 골라 봅니다. 서울마라톤, 춘천마라톤, JTBC, 대구마라톤 등 주요 대회의 접수 시기와 공식 사이트도 함께 정리했습니다.'),
     ('plan', 'training-week', '주간 훈련표', '주간 러닝 훈련표 만들기',
      '주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.'),
     ('log', 'log', '달리기 기록', '달리기 기록장: 주간 거리와 신발 누적 거리',
@@ -111,6 +111,43 @@ def race_card(r):
             f'        <div class="acts"><a class="out" href="{e(r["url"])}" target="_blank" rel="noopener">{e(r["link"])} ↗</a>{goal}</div>\n'
             f'      </li>')
 
+RACE_LIST = json.loads(read(SRC, 'data', 'race_list.json'))
+REGIONS = ['서울', '경기', '인천', '강원', '충북', '충남', '대전', '세종', '전북', '전남', '광주', '경북', '경남', '대구', '울산', '부산', '제주']
+EV_LABEL = {'full': '풀', 'half': '하프', '10k': '10K', '5k': '5K', 'trail': '트레일'}
+EV_DIST = {'full': 42195, 'half': 21097.5, '10k': 10000, '5k': 5000}
+
+def rc_item(r, i):
+    """전국 대회 목록의 한 줄. 다가오는 대회는 남은 날과 '목표' 버튼, 작년 대회는 2026년 개최일"""
+    e = html.escape
+    y, m, d = map(int, r['d'].split('-'))
+    wd = WD[datetime.date(y, m, d).weekday()]
+    tags = ''.join(f'<i data-t="{f}">{EV_LABEL[f]}</i>' for f in r['f']) or '<i>기타</i>'
+    q = re.sub(r'\s+', '', (r['n'] + r['rg'] + r['ev']).lower())
+    common = f'data-ev="{" ".join(r["f"]) or "etc"}" data-region="{e(r["rg"])}" data-q="{e(q)}" data-m="{m}"'
+    link = f'<a class="rc-go" href="{e(r["u"])}" target="_blank" rel="noopener" aria-label="{e(r["n"])} 대회 정보(새 창)">정보 ↗</a>'
+    if r['k'] == 'up':
+        dist = max([EV_DIST[f] for f in r['f'] if f in EV_DIST] or [0])
+        goal = f'<button type="button" class="rc-goal" data-goal data-on="★ 목표" data-off="☆ 목표" aria-label="{e(r["n"])}을 목표 대회로">☆ 목표</button>' if dist else ''
+        return (f'      <li class="rc race" data-id="l{i}" data-name="{e(r["n"])}" data-dist="{dist}" data-date="{r["d"]}" {common}>'
+                f'<div class="rc-d"><b>{m}.{d}</b><span>{wd}</span></div>'
+                f'<div class="rc-b"><h3>{e(r["n"])}</h3><p><span class="rc-t">{tags}</span><span class="rc-rg">{e(r["rg"])}</span><span class="rc-ev">{e(r["ev"])}</span></p></div>'
+                f'<div class="rc-r"><span class="pill" data-dday hidden></span>{link}{goal}</div></li>')
+    return (f'      <li class="rc" {common}>'
+            f'<div class="rc-d last"><b>{m}.{d}</b><span>{wd}</span></div>'
+            f'<div class="rc-b"><h3>{e(r["n"])}</h3><p><span class="rc-t">{tags}</span><span class="rc-rg">{e(r["rg"])}</span><span class="rc-ev">2026년 {m}월 {d}일 · {e(r["ev"])}</span></p></div>'
+            f'<div class="rc-r">{link}</div></li>')
+
+def rc_list(kind):
+    rows, cur = [], None
+    items = sorted([(r, i) for i, r in enumerate(RACE_LIST['races']) if r['k'] == kind], key=lambda x: x[0]['d'])
+    for r, i in items:
+        mk = r['d'][:7]
+        if mk != cur:
+            cur = mk; y, m = map(int, mk.split('-'))
+            rows.append(f'      <li class="rc-m" data-month="{m}" aria-hidden="true">{y}년 {m}월</li>' if kind == 'up' else f'      <li class="rc-m" data-month="{m}" aria-hidden="true">{m}월 <small>2026년 개최</small></li>')
+        rows.append(rc_item(r, i))
+    return '\n'.join(rows)
+
 def race_blocks():
     races = RACE_DATA['races']
     fixed = sorted([r for r in races if r.get('date')], key=lambda r: r['date'])
@@ -121,8 +158,12 @@ def race_blocks():
         names = [r['name'] + (' (추첨)' if r['id'] == 'jtbc' else ' (기록 제출 후 접수)' if r['id'] == 'seoul' else '') for r in races if r.get('regMonth') == m]
         if names:
             rows.append(f'            <tr><td>{m}</td><td>{html.escape(", ".join(names))}</td></tr>')
+    regions = [g for g in REGIONS if any(r['rg'] == g for r in RACE_LIST['races'])]
     return {'race_fixed': '\n'.join(race_card(r) for r in fixed), 'race_tba': '\n'.join(race_card(r) for r in tba),
-            'race_reg_rows': '\n'.join(rows), 'racesChecked': kdate(RACE_DATA['checked'])}
+            'race_reg_rows': '\n'.join(rows), 'racesChecked': kdate(RACE_DATA['checked']),
+            'rl_up': rc_list('up'), 'rl_last': rc_list('last'), 'rlChecked': kdate(RACE_LIST['checked']),
+            'rl_regions': '\n'.join(f'          <option value="{g}">{g}</option>' for g in regions),
+            'rlTotal': str(len(RACE_LIST['races']) + len(RACE_DATA['races']))}
 
 # ───────── 목표 기록별 페이스: 검색으로 들어오는 입구. 숫자는 core.js 로 계산한다 ─────────
 GOAL_DISTS = {   # 이름, 거리(m), 짧은 이름, 구간표에 넣을 지점(km)
@@ -420,13 +461,16 @@ def injury_page(x, others):
 
 def race_next():
     e = html.escape
-    fixed = sorted([r for r in RACE_DATA['races'] if r.get('date')], key=lambda r: r['date'])
+    fixed = [{'date': r['date'], 'name': r['name'], 'events': r['events'], 'place': r['place']} for r in RACE_DATA['races'] if r.get('date')]
+    fixed += [{'date': r['d'], 'name': r['n'], 'events': ' · '.join(EV_LABEL[f] for f in r['f']) or r['ev'], 'place': r['rg']}
+              for r in RACE_LIST['races'] if r['k'] == 'up' and set(r['f']) & {'full', 'half', '10k'}]
+    fixed = sorted(fixed, key=lambda r: r['date'])[:40]
     return '\n'.join(f'      <li data-date="{r["date"]}"><span class="dday" data-dday></span><div><b>{e(r["name"])}</b><span>{kdate(r["date"])} · {e(r["events"])} · {e(r["place"])}</span></div></li>' for r in fixed)
 
 def hub_html(flags):
     return render(read(SRC, 'views', '_hub.html'), flags).rstrip()
 
-RAW_KEYS = ('head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
+RAW_KEYS = ('rl_up', 'rl_last', 'rl_regions', 'tabbar', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def render(text, flags, extra=None):
     """<!--if:KEY-->…<!--endif:KEY--> 블록과 {{변수}}, {{brand:는}} 을 채운다."""
@@ -449,6 +493,21 @@ def view_html(vid, flags):
 
 # 메뉴에는 자주 쓰는 화면만 두고, 나머지는 '전체 도구'에 모은다
 PRIMARY = ['home', 'goals', 'calendar', 'plan', 'injury', 'terms', 'tools']
+TABS = [('home', '홈', '<path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/>'),
+        ('calendar', '대회', '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'),
+        ('goals', '페이스', '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/>'),
+        ('injury', '부상', '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/>'),
+        ('tools', '전체', '<rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/>')]
+def tabbar_html(current=None):
+    ids = [t[0] for t in TABS]
+    others = [v[0] for v in VIEWS if v[2] and v[0] not in ids]
+    cur = current if current in ids else 'tools' if current in others else None
+    rows = []
+    for vid, label, icon in TABS:
+        also = f' data-also="{" ".join(others)}"' if vid == 'tools' else ''
+        on = ' aria-current="page"' if vid == cur else ''
+        rows.append(f'    <a href="#{vid}" data-nav="{vid}"{also}{on}><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg><span>{label}</span></a>')
+    return '\n'.join(rows)
 def nav_html(current=None):
     label = {v[0]: v[2] for v in VIEWS}
     others = [v[0] for v in VIEWS if v[2] and v[0] not in PRIMARY]
@@ -483,7 +542,7 @@ def build_artifact():
         'description': VIEWS[0][4],
         'head_extra': f'<link rel="icon" href="{FAVICON}">',
         'styles': '<style>\n' + css + '</style>',
-        'nav': nav_html(),
+        'nav': nav_html(), 'tabbar': tabbar_html(),
         'views': '\n'.join(view_html(v, flags) for v in IDS),
         'scripts': f'<script>window.SITE={site_json(site)};</script>\n<script>\n{core_js}</script>\n<script>\n{app_js}</script>',
     })
@@ -575,7 +634,7 @@ def build_site():
         page = render(shell, flags, {
             'title': full_title, 'description': desc, 'head_extra': '\n'.join(head),
             'styles': f'<link rel="stylesheet" href="{prefix}assets/site.css?v={ver}">',
-            'nav': nav_html(nav or vid), 'views': body,
+            'nav': nav_html(nav or vid), 'tabbar': tabbar_html(nav or vid), 'views': body,
             'scripts': f'<script>window.SITE={site_json(site)};</script>\n<script src="{prefix}assets/core.js?v={ver}" defer></script>\n<script src="{prefix}assets/app.js?v={ver}" defer></script>',
         })
         page = re.sub(r'href="#(' + '|'.join(IDS) + r')"', lambda m: f'href="{paths[m.group(1)]}"', page)

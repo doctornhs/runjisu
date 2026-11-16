@@ -1,19 +1,56 @@
 <section class="view" data-view="calendar" hidden>
   <div class="view-head">
-    <h1>국내 마라톤<br>대회 일정</h1>
-    <p>2026~2027년 주요 대회의 날짜와 접수 시기, 공식 사이트를 한곳에 모았습니다. 날짜가 발표된 대회는 남은 날을 세어 드리고, 발표 전인 대회는 지난 회차 날짜를 함께 적었습니다.</p>
+    <h1>전국 마라톤<br>대회 일정</h1>
+    <p>이번 주말 대회부터 2027년 봄·가을 대회까지 {{rlTotal}}개 대회를 모았습니다. 종목과 지역으로 고르고, 마음에 드는 대회를 목표로 정하면 남은 날을 세어 드립니다.</p>
   </div>
   <p class="basis" id="goal-box"></p>
 
+  <section class="panel rl" id="rl" aria-labelledby="rl-h">
+    <h2 id="rl-h" class="sr">대회 찾기</h2>
+    <div class="rl-tabs" role="tablist" aria-label="일정 종류">
+      <button type="button" role="tab" data-rl-tab="up" aria-selected="true">다가오는 대회 <b id="rl-n-up"></b></button>
+      <button type="button" role="tab" data-rl-tab="last" aria-selected="false">2027 예상 <b id="rl-n-last"></b></button>
+    </div>
+    <div class="rl-bar">
+      <div class="rl-chips" role="group" aria-label="종목">
+        <button type="button" data-rl-ev="all" aria-pressed="true">전체</button>
+        <button type="button" data-rl-ev="full" aria-pressed="false">풀</button>
+        <button type="button" data-rl-ev="half" aria-pressed="false">하프</button>
+        <button type="button" data-rl-ev="10k" aria-pressed="false">10K</button>
+        <button type="button" data-rl-ev="5k" aria-pressed="false">5K</button>
+        <button type="button" data-rl-ev="trail" aria-pressed="false">트레일</button>
+      </div>
+      <div class="rl-row">
+        <label class="sr" for="rl-region">지역</label>
+        <select id="rl-region">
+          <option value="all">전국</option>
+{{rl_regions}}
+        </select>
+        <label class="sr" for="rl-q">대회 이름 찾기</label>
+        <input type="text" id="rl-q" autocomplete="off" placeholder="대회 이름, 지역">
+      </div>
+    </div>
+    <p class="rl-count" id="rl-count" aria-live="polite"></p>
+    <p class="rl-hint" id="rl-hint-last" hidden>2027년 날짜가 아직 발표되지 않은 대회입니다. 대부분 해마다 비슷한 시기에 열리니, 2026년 개최일을 보고 목표 시기를 잡으세요. 날짜가 발표되면 다가오는 대회로 옮깁니다.</p>
+    <ul class="rl-list" id="rl-up" data-rl-list="up">
+{{rl_up}}
+    </ul>
+    <ul class="rl-list" id="rl-last" data-rl-list="last" hidden>
+{{rl_last}}
+    </ul>
+    <p class="note" id="rl-none" hidden>조건에 맞는 대회가 없습니다. 종목이나 지역을 바꿔 보세요.</p>
+    <p class="note">{{rlChecked}} 기준으로 러닝위키(runningwikii.com)의 전국 대회 일정과 각 대회 공지를 바탕으로 정리했습니다. '정보'를 누르면 접수 기간과 참가비를 볼 수 있는 대회 안내로 이동합니다. 일정은 주최 측 사정으로 바뀔 수 있으니 신청 전에 공식 공지를 꼭 확인하세요.</p>
+  </section>
+
   <section class="panel" aria-labelledby="cal-fixed-h">
-    <h2 id="cal-fixed-h">날짜가 확정된 대회</h2>
+    <h2 id="cal-fixed-h">주요 대회 <small>날짜 확정</small></h2>
     <ul class="races">
 {{race_fixed}}
     </ul>
   </section>
 
   <section class="panel" aria-labelledby="cal-tba-h">
-    <h2 id="cal-tba-h">2027년 날짜 발표를 기다리는 대회</h2>
+    <h2 id="cal-tba-h">주요 대회 <small>2027년 날짜 발표 전</small></h2>
     <p class="note">아래 대회는 {{racesChecked}} 기준으로 2027년 날짜가 발표되지 않았습니다. 열리는 순서대로 놓았고, 예년 시기와 2026년 개최일을 적었습니다.</p>
     <ul class="races">
 {{race_tba}}
@@ -47,9 +84,4 @@
     </section>
   </div>
 
-  <section class="panel" aria-labelledby="cal-more-h">
-    <h2 id="cal-more-h">이 표에 없는 대회</h2>
-    <p class="prose">전국에서 주말마다 열리는 작은 대회까지 보려면 일정만 모아 둔 사이트가 편합니다. <a href="https://www.kormarathon.com/" target="_blank" rel="noopener">코마라톤</a>, <a href="https://runningwikii.com/entry/marathon-schedule-hub/" target="_blank" rel="noopener">러닝위키 일정 모음</a>에서 월별·지역별로 찾을 수 있습니다.</p>
-    <p class="note">{{racesChecked}}에 각 대회 공식 안내와 보도를 확인해 정리했습니다. 날짜, 종목, 접수 방식은 주최 측 사정으로 바뀔 수 있으니 신청 전에 공식 사이트를 꼭 확인하세요. 이 사이트는 어느 대회와도 제휴 관계가 없습니다.</p>
-  </section>
 </section>

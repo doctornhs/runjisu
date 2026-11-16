@@ -321,11 +321,11 @@
         pill.textContent = ddayText(n); pill.hidden = false;
         li.classList.toggle('past', n < 0);
         li.classList.toggle('goal', isGoal);
-        if (btn) { btn.hidden = n < 0; btn.textContent = isGoal ? '목표 대회 해제' : '목표 대회로 정하기'; }
+        if (btn) { btn.hidden = n < 0; btn.textContent = isGoal ? (btn.dataset.on || '목표 대회 해제') : (btn.dataset.off || '목표 대회로 정하기'); btn.setAttribute('aria-pressed', isGoal ? 'true' : 'false'); }
       });
       box.innerHTML = g
         ? `내 목표 대회 <b>${ddayText(daysTo(g.date))}</b><span>${esc(g.name)}</span><a href="${href('race')}" id="goal-plan">구간표 만들기 →</a>`
-        : '<span>날짜가 확정된 대회에서 목표 대회를 정하면 남은 날을 세어 드리고, 대회 계획 화면에 이어서 보여 드립니다.</span>';
+        : '<span>대회 옆 ☆ 목표를 누르면 남은 날을 세어 드리고, 대회 계획 화면에 이어서 보여 드립니다.</span>';
     }
     document.addEventListener('click', e => {
       const btn = e.target.closest && e.target.closest('[data-goal]');
@@ -978,12 +978,56 @@
     fillSel(); load();
   })();
 
+  /* ───────── 전국 대회 목록: 다가오는 대회 / 2027 예상, 종목·지역·이름으로 거르기 ───────── */
+  (function initRaceList() {
+    const box = $('#rl'); if (!box) return;
+    const st = Object.assign({ tab: 'up', ev: 'all', region: 'all' }, store.get('rl', null) || {});
+    const lists = { up: $('#rl-up'), last: $('#rl-last') }, q = $('#rl-q'), sel = $('#rl-region');
+    if (!$$('option', sel).some(o => o.value === st.region)) st.region = 'all';
+    // 지난 대회는 처음부터 뺀다
+    $$('li.rc', lists.up).forEach(li => { if (daysTo(li.dataset.date) < 0) li.dataset.gone = '1'; });
+    const live = list => $$('li.rc', list).filter(li => !li.dataset.gone);
+    $('#rl-n-up').textContent = live(lists.up).length;
+    $('#rl-n-last').textContent = live(lists.last).length;
+    function apply() {
+      const k = (q.value || '').toLowerCase().replace(/\s+/g, '');
+      Object.keys(lists).forEach(t => { lists[t].hidden = t !== st.tab; });
+      $$('[data-rl-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.rlTab === st.tab ? 'true' : 'false'));
+      $$('[data-rl-ev]').forEach(b => b.setAttribute('aria-pressed', b.dataset.rlEv === st.ev ? 'true' : 'false'));
+      sel.value = st.region;
+      $('#rl-hint-last').hidden = st.tab !== 'last';
+      let n = 0, head = null, headHas = false;
+      const close = () => { if (head) head.hidden = !headHas; };
+      $$('li', lists[st.tab]).forEach(li => {
+        if (li.classList.contains('rc-m')) { close(); head = li; headHas = false; return; }
+        const ok = !li.dataset.gone && (st.ev === 'all' || li.dataset.ev.split(' ').includes(st.ev))
+          && (st.region === 'all' || li.dataset.region === st.region) && (!k || li.dataset.q.includes(k));
+        li.hidden = !ok;
+        if (ok) { n++; headHas = true; }
+      });
+      close();
+      $('#rl-count').textContent = n + '개 대회' + (st.tab === 'last' ? ' · 2026년 개최일 기준' : '');
+      $('#rl-none').hidden = n > 0;
+      store.set('rl', { tab: st.tab, ev: st.ev, region: st.region });
+    }
+    box.addEventListener('click', e => {
+      const t = e.target.closest && e.target.closest('[data-rl-tab],[data-rl-ev]');
+      if (!t) return;
+      if (t.dataset.rlTab) st.tab = t.dataset.rlTab; else st.ev = t.dataset.rlEv;
+      apply();
+    });
+    sel.addEventListener('change', () => { st.region = sel.value; apply(); });
+    q.addEventListener('input', apply);
+    refreshers.calendar = (prev => () => { if (prev) prev(); apply(); })(refreshers.calendar);
+    apply();
+  })();
+
   /* ───────── 첫 화면: 다가오는 대회 세 개 ───────── */
   (function initHomeRaces() {
     const list = $('#home-races'); if (!list) return;
     let shown = 0;
     $$('li', list).forEach(li => {
-      const n = daysTo(li.dataset.date), on = n >= 0 && shown < 3;
+      const n = daysTo(li.dataset.date), on = n >= 0 && shown < 4;
       li.hidden = !on;
       if (on) { shown++; $('[data-dday]', li).textContent = ddayText(n); }
     });
