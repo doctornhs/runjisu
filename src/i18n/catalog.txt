@@ -1,0 +1,1156 @@
+§587204e [view:_hub] 도구 모음
+§7803642 [view:_hub] 기록을 훈련으로
+§56e0806 [view:_hub] <a href="#plan"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a> <a href="#goals"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a> <a href="#race"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a> <a href="#calendar"><b>이번 주말엔 어디서 달릴까</b><span>전국 대회를 종목과 지역으로 골라 보고, 서울·춘천·JTBC 접수 시기도 확인합니다.</span><i>대회 일정 →</i></a>
+§49eefc8 [view:_hub] 다치지 않고 오래
+§3290a23 [view:_hub] <a href="#injury"><b>달릴 때 여기가 아프다면</b><span>무릎, 정강이, 발, 허벅지. 흔한 러닝 부상의 증상과 대처, 진료가 필요한 신호를 정리했습니다.</span><i>러닝 부상 →</i></a> <a href="#spike"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a> <a href="#shoes"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a> <a href="#log"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
+§0e4f2e7 [view:_hub] 달리기 너머
+§60dfb75 [view:_hub] <a href="#heart"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a> <a href="#fitage"><b>내 체력은 몇 살일까</b><span>달리기 기록이 없어도 12분 달리기나 1.6km 걷기로 알 수 있습니다.</span><i>체력 나이 →</i></a> <a href="#pace"><b>러닝머신 10km/h는 km당 몇 분?</b><span>속도와 페이스, 거리별 완주 기록을 서로 바꿉니다.</span><i>페이스 변환 →</i></a> <a href="#terms"><b>LSD, 빌드업, 네거티브 스플릿</b><span>달리기를 시작하면 만나는 낯선 말을 쉬운 말로 풀었습니다.</span><i>러닝 용어 →</i></a> <a href="#gear"><b>장비는 제품보다 유형부터</b><span>어떤 러너에게 어떤 신발과 도구가 맞는지 정리했습니다.</span><i>장비 가이드 →</i></a> <a href="#about"><b>이 숫자는 어디서 나왔나</b><span>계산식과 참고한 연구, 자주 묻는 질문을 모았습니다.</span><i>근거·FAQ →</i></a>
+§f48f6bf [view:_hub] 훈련 도구
+§62f12b8 [view:_hub] 부상 예방 도구
+§f2e63fe [view:_hub] 그 밖의 도구
+§f9360d4 [view:about] 계산 근거와<br>자주 묻는 질문
+§a8a2551 [view:about] 이 사이트의 숫자가 어디서 나오는지 밝혀 둡니다. 정형외과 전문의이자 달리기를 즐기는 러너가 만들고 내용을 감수합니다.
+§e0b6ed9 [view:about] 왜 만들었나
+§5b8e0f8 [view:about] 달리기는 수단이고, 목표는 오래 잘 걷고 잘 움직이는 몸입니다. 달리기 부상의 많은 수는 실력보다 빠르게, 준비보다 길게 달린 데서 시작합니다.
+§7414de3 [view:about] 그래서 이 사이트의 도구는 두 가지 일을 합니다. 지금 실력에 맞는 속도를 알려 주고, 거리와 장비가 몸보다 앞서 나가지 않게 살핍니다.
+§a776c33 [view:about] {{brand}} 계산식
+§c5210d6 [view:about] 운동생리학자 잭 다니엘스와 지미 길버트가 1979년에 발표한 두 식을 씁니다. 첫 식은 달리는 속도에 필요한 산소량을, 둘째 식은 그 강도를 얼마나 오래 버틸 수 있는지를 나타냅니다. 둘을 나눈 값이 {{brand}}입니다.
+§658be0c [view:about] 산소 요구량 = −4.60 + 0.182258·v + 0.000104·v² (v: 분속 m) 지속 비율 = 0.8 + 0.1894393·e^(−0.012778·t) + 0.2989558·e^(−0.1932605·t) (t: 분) {{brand}} = 산소 요구량 ÷ 지속 비율
+§6d471e8 [view:about] 강도
+§b8c6ef6 [view:about] 계산 기준
+§ea1d05b [view:about] E 이지
+§f50fe0a [view:about] {{brand}}의 62~70%에 해당하는 속도 (다니엘스의 E 범위 59~74% 안쪽)
+§906c101 [view:about] M 마라톤
+§8ca332b [view:about] 같은 {{brand:로}} 계산한 풀코스 예상 페이스
+§cab4b7a [view:about] T 역치
+§cbf44c7 [view:about] {{brand}}의 88%
+§8c8d2e6 [view:about] I 인터벌
+§7483c23 [view:about] {{brand}}의 97.5%
+§af11a09 [view:about] R 반복
+§d595c1a [view:about] I 페이스보다 400m당 6초 빠르게
+§bae987a [view:about] 약 3분 30초보다 짧거나 4시간을 넘는 기록에서는 오차가 커질 수 있습니다. 책의 표를 옮기지 않고 공개된 식으로 직접 계산하므로 표와 1~2초 차이가 날 수 있습니다.
+§8a4acd2 [view:about] 체력 나이 계산식
+§c96db01 [view:about] 12분 달리기 VO2max = (달린 거리 m − 504.9) ÷ 44.73 1.6km 걷기 VO2max = 132.853 − 0.0769·체중(lb) − 0.3877·나이 + 6.315·(남 1, 여 0) − 3.2649·시간(분) − 0.1565·직후 심박
+§8de2b5e [view:about] 체력 나이는 추정한 값이 FRIEND 자료에서 어느 연령대의 중앙값과 같은지를 연령대 사이를 이어서 구합니다.
+§5a729a4 [view:about] 참고한 자료
+§02d360f [view:about] <b>{{brand:와}} 훈련 강도</b> Daniels J, Gilbert J. Oxygen Power: Performance Tables for Distance Runners. 1979. / Daniels J. Daniels' Running Formula, 4th ed. Human Kinetics.
+§5211c2e [view:about] <b>또래 비교</b> Kaminsky LA, Arena R, Myers J. Reference Standards for Cardiorespiratory Fitness Measured With Cardiopulmonary Exercise Testing: Data From the FRIEND Registry. Mayo Clin Proc. 2015;90(11):1515-1523.
+§6f4670b [view:about] <b>런지수와 실측 VO2max의 차이</b> Scudamore EM, Barry VW, Coons JM. An Evaluation of Time-Trial-Based Predictions of VO2max and Recommended Training Paces for Collegiate and Recreational Runners. J Strength Cond Res. 2018;32(4):1137-1143.
+§06cee1a [view:about] <b>체력과 사망 위험</b> Mandsager K, Harb S, Cremer P, Phelan D, Nissen SE, Jaber W. Association of Cardiorespiratory Fitness With Long-term Mortality Among Adults Undergoing Exercise Treadmill Testing. JAMA Netw Open. 2018;1(6):e183605.
+§7f41d79 [view:about] <b>12분 달리기</b> Cooper KH. A means of assessing maximal oxygen intake. JAMA. 1968;203(3):201-204.
+§fda634f [view:about] <b>1.6km 걷기</b> Kline GM, et al. Estimation of VO2max from a one-mile track walk, gender, age, and body weight. Med Sci Sports Exerc. 1987;19(3):253-259.
+§fb3fe03 [view:about] <b>거리 급증</b> Schuster Brandt Frandsen J, et al. How much running is too much? Identifying high-risk running sessions in a 5200-person cohort study. Br J Sports Med. 2025;59(17):1203-1210.
+§b8fadd5 [view:about] <b>신발 쿠션</b> Cornwall MW, McPoil TG. Can runners perceive changes in heel cushioning as the shoe ages with increased mileage? Int J Sports Phys Ther. 2017;12(4):616-624.
+§ea2e1cf [view:about] <b>안정화</b> Malisoux L, et al. Injury risk in runners using standard or motion control shoes: a randomised controlled trial with participant and assessor blinding. Br J Sports Med. 2016;50(8):481-487.
+§c1a0049 [view:about] <b>최대심박 추정</b> Tanaka H, Monahan KD, Seals DR. Age-predicted maximal heart rate revisited. J Am Coll Cardiol. 2001;37(1):153-156.
+§bb81cf5 [view:about] <b>대회 중 탄수화물</b> Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance. Med Sci Sports Exerc. 2016;48(3):543-568.
+§ae2ce92 [view:about] 자주 묻는 질문
+§2ed2e7d [view:about] {{brand:는}} VO2max와 같은 건가요?
+§192bb05 [view:about] 단위는 같지만 같은 값은 아닙니다. VO2max는 실험실에서 호흡 가스를 재서 얻고, {{brand:는}} 레이스 기록에서 거꾸로 계산합니다. 같은 산소로 더 빨리 달리는 사람은 {{brand:가}} 실측 VO2max보다 높게 나오지만, 취미 러너는 대체로 반대로 낮게 나옵니다. 훈련 페이스를 정하는 데는 {{brand:가}} 더 쓸모 있습니다.
+§1e585cb [view:about] 또래 순위가 생각보다 낮게 나와요.
+§8e51bfd [view:about] 계산이 틀린 것이 아니라 비교 방식의 한계입니다. 또래 표는 실험실에서 잰 VO2max인데, 달리기 기록으로 구한 값은 그보다 낮게 나오는 편입니다. 풀코스 기록에는 지구력과 보급까지 섞여 차이가 더 벌어집니다. 그래서 순위를 "상위 몇 % 이내"처럼 적어도 이 정도라는 뜻으로 표시합니다. 5K나 10K를 힘껏 달린 기록, 또는 12분 달리기로 재면 실제에 더 가깝습니다.
+§c76bcaa [view:about] E 페이스가 너무 느리게 느껴져요.
+§c9248d4 [view:about] 정상입니다. 이지 러닝의 효과는 속도보다 달린 시간에서 나옵니다. 빠르게 달린다고 효과가 커지지 않고 회복만 늦어집니다. 대화가 끊기지 않는 속도면 충분합니다.
+§440de87 [view:about] 풀코스가 예상 기록보다 훨씬 느렸어요.
+§d0d2358 [view:about] 예상 기록은 유산소 능력만 봅니다. 30km 이후를 버티는 지구력, 보급, 날씨, 코스 고저는 반영하지 못합니다. 하프 기록으로 다시 계산하거나, 장거리 훈련이 충분했는지 돌아보세요.
+§6d8c712 [view:about] 대회 기록이 없으면 어떻게 하나요?
+§b19e057 [view:about] 트랙이나 평지에서 3km 또는 5km를 처음부터 끝까지 고르게, 낼 수 있는 힘을 다해 달린 기록을 넣으세요. 조깅 기록을 넣으면 {{brand:가}} 실제보다 낮게 나옵니다.
+§dc52c1a [view:about] 주간 훈련표대로만 하면 되나요?
+§23250b8 [view:about] 훈련표는 주간 거리와 페이스에 맞춘 한 주 예시입니다. 대회까지 몇 주가 남았는지, 지난 몇 달을 어떻게 달렸는지는 반영하지 않습니다. 틀로 삼되 몸 상태에 맞춰 줄이는 쪽으로 고치세요.
+§6cfe245 [view:about] 입력한 기록은 어디에 저장되나요?
+§70de8f5 [view:about] 지금 쓰는 기기의 브라우저에만 저장됩니다. 서버로 보내지 않습니다. 브라우저 데이터를 지우면 함께 사라지니 달리기 기록 화면에서 백업을 복사해 두세요.
+§82a2375 [view:about] 앱처럼 쓸 수 있나요?
+§e938c12 [view:about] 홈 화면에 추가하면 앱처럼 열리고, 한 번 연 뒤에는 인터넷이 없어도 계산됩니다. 아이폰 사파리는 공유 버튼에서 홈 화면에 추가를, 안드로이드 크롬은 메뉴에서 앱 설치 또는 홈 화면에 추가를 누르세요.
+§14d876b [view:about] 알려 드립니다
+§e5d0bbe [view:about] 이 사이트의 계산과 설명은 일반 정보이며 진단이나 치료를 대신하지 않습니다. 통증이 있거나 심장, 관절 질환이 있으면 운동 강도를 올리기 전에 의료진과 상의하세요.
+§f04b643 [view:calendar] 전국 마라톤<br>대회 일정
+§caea935 [view:calendar] 이번 주말 대회부터 2027년 봄·가을 대회까지 {{rlTotal}}개 대회를 모았습니다. 종목과 지역으로 고르고, 마음에 드는 대회를 목표로 정하면 남은 날을 세어 드립니다.
+§d817100 [view:calendar] 대회 찾기
+§a7a7aef [view:calendar] 다가오는 대회 <b id="rl-n-up"></b>
+§3935e65 [view:calendar] 2027 예상 <b id="rl-n-last"></b>
+§934dd25 [view:calendar] 전체
+§6c147ad [view:calendar] 풀
+§d0e44ab [view:calendar] 하프
+§ff82b53 [view:calendar] 트레일
+§70fec2b [view:calendar] 지역
+§21b80d7 [view:calendar] 전국
+§5ec0894 [view:calendar] 대회 이름 찾기
+§03149ff [view:calendar] 2027년 날짜가 아직 발표되지 않은 대회입니다. 대부분 해마다 비슷한 시기에 열리니, 2026년 개최일을 보고 목표 시기를 잡으세요. 날짜가 발표되면 다가오는 대회로 옮깁니다.
+§89be553 [view:calendar] 조건에 맞는 대회가 없습니다. 종목이나 지역을 바꿔 보세요.
+§e7a2a80 [view:calendar] {{rlChecked}} 기준으로 공개된 전국 대회 일정(러닝위키 일정 모음)과 각 대회 공지를 바탕으로 정리했습니다. '공식'은 대회 공식 사이트로, '검색'은 대회 이름의 네이버 검색 결과로 연결됩니다. 일정은 주최 측 사정으로 바뀔 수 있으니 신청 전에 공식 공지를 꼭 확인하세요.
+§7cb6aae [view:calendar] 주요 대회 <small>날짜 확정</small>
+§4e03486 [view:calendar] 주요 대회 <small>2027년 날짜 발표 전</small>
+§3229f19 [view:calendar] 아래 대회는 {{racesChecked}} 기준으로 2027년 날짜가 발표되지 않았습니다. 열리는 순서대로 놓았고, 예년 시기와 2026년 개최일을 적었습니다.
+§5022608 [view:calendar] 광고 자리 · 애드센스 승인 뒤 표시
+§8e117e2 [view:calendar] 접수는 몇 월에 열리나
+§fdc6db5 [view:calendar] 접수 시기
+§042b946 [view:calendar] 대회
+§346696d [view:calendar] 지난 회차 접수일을 기준으로 묶었습니다. 큰 대회는 대회 날보다 몇 달에서 길게는 열 달 앞서 접수가 끝납니다. 대회 날짜가 아니라 접수 날짜를 달력에 적어 두세요.
+§797357e [view:calendar] 대회를 정했다면
+§c91ce44 [view:calendar] 풀코스는 대회 16~20주 전, 하프는 10~12주 전부터 준비를 시작하는 것이 보통입니다.
+§e21f132 [view:calendar] 서울마라톤 풀코스처럼 완주 기록을 먼저 내야 접수할 수 있는 대회가 있습니다. 목표 대회 한 해 전에 공인 기록을 만들어 두어야 합니다.
+§cd21905 [view:calendar] 접수에 떨어졌다면 같은 시기의 다른 대회를 찾으세요. 훈련 계획은 그대로 쓸 수 있습니다.
+§c882a60 [view:calendar] <span>목표 기록을 구간표로 바꾸기</span><a href="#race">대회 계획 →</a>
+§cb446c2 [view:calendar] <span>대회까지 한 주 훈련 짜기</span><a href="#plan">주간 훈련표 →</a>
+§f923aaf [view:calendar] 일정 종류
+§dfa8d7c [view:calendar] 종목
+§d92c9fd [view:calendar] 대회 이름, 지역
+§565fe8f [view:fitage] 내 체력은<br>몇 살일까
+§2fe7125 [view:fitage] 유산소 체력은 오래 건강하게 움직이는 힘과 가장 가깝게 이어진 지표입니다. 달리기 기록이 없어도 12분 달리기나 1.6km 빨리 걷기로 추정할 수 있습니다.
+§298e196 [view:fitage] 달리기 기록({{brand}})
+§e51af41 [view:fitage] 12분 달리기
+§4ac13ad [view:fitage] 1.6km 빨리 걷기
+§6c620e5 [view:fitage] 나이
+§fd3f392 [view:fitage] 남
+§445287d [view:fitage] 여
+§1bd00c6 [view:fitage] 12분 동안 달린 거리
+§6d704d9 [view:fitage] 트랙이나 평지에서 12분 동안 갈 수 있는 만큼 멀리 달립니다. 처음 2분에 힘을 다 쓰지 말고 고르게 달리세요. 400m 트랙이면 바퀴 수로 거리를 셉니다.
+§0b877b7 [view:fitage] 분
+§3845248 [view:fitage] 초
+§7b76cd3 [view:fitage] 도착 직후 심박
+§ca60869 [view:fitage] 체중
+§8ba47d7 [view:fitage] 400m 트랙 네 바퀴(1.6km)를 뛰지 않고 걸을 수 있는 가장 빠른 속도로 걷습니다. 도착하자마자 15초 동안 맥박을 세어 4를 곱하거나 시계의 심박을 읽습니다.
+§5747a88 [view:fitage] <span class="big" id="ft-agebig">–</span><span class="pill" id="ft-pill"></span><span class="tag" id="ft-ex">예시</span>
+§f782b31 [view:fitage] <span><span id="ft-vlab">추정 VO2max</span><b id="ft-v"></b></span><span>또래 위치<b id="ft-pct"></b></span>
+§a1b8d81 [view:fitage] 왜 체력 나이를 보나
+§9dbaf40 [view:fitage] 미국 클리블랜드 클리닉에서 운동부하검사를 받은 성인 122,007명을 추적한 연구에서, 유산소 체력이 높은 집단일수록 사망 위험이 낮았고 그 이득에 상한이 보이지 않았습니다. 체력이 가장 높은 집단은 가장 낮은 집단(하위 25%)보다 사망 위험이 80% 낮았습니다.
+§105f439 [view:fitage] 관찰 연구라서 체력을 올린 만큼 수명이 늘어난다는 뜻은 아닙니다. 다만 유산소 체력은 나이나 가족력과 달리 훈련으로 바꿀 수 있는 지표입니다.
+§344b4bd [view:fitage] 잘 걷고 잘 움직이는 몸을 오래 지키는 것, 달리기는 그 목표로 가는 가장 손쉬운 길 가운데 하나입니다.
+§76ef6b3 [view:fitage] 체력 나이를 낮추려면
+§41dc6ef [view:fitage] 먼저 횟수입니다. 주 3회 이상, 대화가 되는 속도로 30분씩 꾸준히 움직이는 것이 출발점입니다. 걷기와 달리기를 섞어도 됩니다.
+§b58eba4 [view:fitage] 몇 달 쌓였다면 주 1회, 숨이 찬 강도를 3~5분씩 몇 번 넣습니다. 유산소 능력을 끌어올리는 데 가장 효율이 좋은 구간입니다.
+§f010c40 [view:fitage] 8~12주마다 같은 방법으로 다시 재서 변화를 봅니다.
+§d47a902 [view:fitage] <span>내 속도에 맞춘 한 주 계획</span><a href="#plan">주간 훈련표 →</a>
+§c4c3be1 [view:fitage] 결과를 읽기 전에
+§dab1328 [view:fitage] 비교 기준은 미국 성인 7,783명의 트레드밀 운동부하검사 자료(FRIEND, 2015)입니다. 한국인 기준과는 차이가 있을 수 있습니다.
+§745a7e5 [view:fitage] 달리기 기록으로 구한 값은 실험실 VO2max보다 낮게 나오는 편입니다. 5km 기록을 실측값과 비교한 연구에서 대학 선수와 취미 러너 모두 낮게 나왔고, 취미 러너에서 차이가 더 컸습니다. 그래서 달리기 기록으로 본 체력 나이와 순위는 "적어도 이 정도"로 읽으세요. 하프·풀코스 기록이면 더 그렇습니다.
+§fb12750 [view:fitage] 달리기 기록과 12분 달리기는 끝까지 힘을 다했을 때만 맞습니다. 여유 있게 달린 기록을 넣으면 체력 나이가 실제보다 많게 나옵니다.
+§73bc124 [view:fitage] 1.6km 걷기 식은 30~69세 성인을 대상으로 만들어졌고 오차가 4~6 정도 납니다. 달리기에 익숙한 사람은 걷기 검사로는 낮게 나올 수 있으니 달리기 기록을 쓰세요.
+§5473709 [view:fitage] 가슴 통증, 심한 숨참, 어지럼이 있거나 심장 질환이 있으면 힘을 다하는 검사를 하기 전에 의료진과 상의하세요.
+§7b158d4 [view:fitage] 무엇으로 잴까요
+§c5e4d00 [view:fitage] 세
+§ddbacd6 [view:fitage] 1.6km를 걷는 데 걸린 시간
+§b9fe65a [view:fitage] 회/분
+§77737fe [view:fitage] 성별
+§8b628b9 [view:gear] 장비는 제품보다<br>유형부터
+§616fedc [view:gear] 특정 제품을 권하지 않습니다. 어떤 러너에게 어떤 유형이 맞는지, 고를 때 무엇을 볼지만 정리했습니다. 신발은 신어 보고 편한 것이 지금까지 가장 믿을 만한 기준입니다.
+§f8a2d29 [view:gear] 이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 아래 버튼은 유형별 검색 결과로 이어지며 특정 제품을 추천하지 않습니다.
+§44db25a [view:gear] 데일리 쿠션화
+§dcfa208 [view:gear] 이런 러너에게
+§cc9998d [view:gear] 주 3회 이상, 대부분 E 페이스로 달리는 모든 러너의 첫 신발.
+§ae4f50d [view:gear] 고를 때
+§1b0fe13 [view:gear] 발이 붓는 저녁에 신어 보세요. 엄지 앞에 손톱 하나만큼 여유가 있고 뒤꿈치가 뜨지 않아야 합니다.
+§9f4d10a [view:gear] 안정화
+§76b41be [view:gear] 착지할 때 발목이 안쪽으로 많이 무너지고, 신던 신발의 안쪽 바닥이 유독 빨리 닳는 러너.
+§4b9ec78 [view:gear] 알아둘 것
+§d9c6d1a [view:gear] 아치 모양만 보고 안정화를 고르는 방식은 부상 예방 근거가 약합니다. 다만 발이 안쪽으로 기우는 러너에게서 부상이 줄었다는 무작위 연구가 있어 선택지로 둘 만합니다.
+§e20490d [view:gear] 경량·레이싱화
+§d83f5c9 [view:gear] T, I, R 훈련과 대회에 쓸 두 번째 신발을 찾는 러너.
+§bfcc5d5 [view:gear] 수명이 짧고 종아리와 아킬레스건에 걸리는 부담이 달라집니다. 짧은 훈련부터 신어 적응하세요.
+§84a6b6d [view:gear] 러닝 워치·심박계
+§975dd49 [view:gear] 거리와 페이스 기록을 쌓고 싶은 러너. 거리 급증 체크와 신발 누적 거리도 기록이 있어야 정확합니다.
+§ec186f8 [view:gear] GPS 정확도와 배터리를 먼저 보세요. 인터벌처럼 심박이 빠르게 변하는 훈련은 손목 센서보다 가슴 스트랩이 정확합니다.
+§612782b [view:gear] 폼롤러·마사지볼
+§894622a [view:gear] 달린 뒤 종아리와 허벅지가 뻐근한 러너.
+§7f05233 [view:gear] 뻐근함과 유연성에 단기 도움이 됩니다. 부상을 막아 준다는 근거는 확실하지 않습니다. 뼈 위나 아픈 한 점을 세게 누르지 마세요.
+§5c9cd04 [view:gear] 대회용 소품
+§76f767d [view:gear] 하프 이상 대회를 준비하는 러너. 배번 벨트, 에너지젤, 러닝 벨트나 조끼가 여기에 듭니다.
+§eb70f89 [view:gear] 대회 날 처음 쓰는 물건이 없어야 합니다. 젤은 장거리 훈련에서 먼저 먹어 보고 속이 편한 것으로 정하세요.
+§9d3ca46 [view:gear] 무릎·발목 보호대는 왜 구매 버튼이 없나
+§a74e9b9 [view:gear] 보호대는 통증의 원인을 고치지 않습니다. 진단을 받고 복귀하는 단계에서 불안정한 느낌이 남을 때 잠시 쓰는 도구이고, 2주 넘게 보호대 없이 달리기 어렵다면 진료가 먼저입니다. 보호대 가운데는 의료기기로 분류되는 제품이 있어, 의사가 만드는 이 사이트에서는 구매로 이어지는 안내를 하지 않습니다.
+§020c00c [view:gear] 쿠팡에서 쿠션 러닝화 보기
+§3971dfd [view:gear] 쿠팡에서 안정화 보기
+§b44cae2 [view:gear] 쿠팡에서 경량 레이싱화 보기
+§aee4327 [view:gear] 쿠팡에서 러닝 워치 보기
+§62bce46 [view:gear] 쿠팡에서 폼롤러 보기
+§af3aa1d [view:gear] 쿠팡에서 배번 벨트 보기
+§ac9e828 [view:goals] 목표 기록별 페이스표
+§7c3c85b [view:goals] 서브4, 하프 2시간, 10km 50분처럼 목표 기록을 정했다면 km당 몇 분에 달려야 하는지부터 확인하세요. 400m 트랙 한 바퀴 기록과 러닝머신 속도를 함께 적었습니다.
+§4baf0c7 [view:goals] 표 읽는 법
+§5dcb4e7 [view:goals] km당 페이스는 초 단위에서 내림한 값이라, 이 페이스로 고르게 달리면 목표 기록 안쪽으로 들어옵니다.
+§e6d0185 [view:goals] 러닝머신 속도는 0.1km/h 단위로 올림한 값입니다. 이 속도 이상으로 맞추면 됩니다.
+§6a699d6 [view:goals] 목표를 누르면 구간별 통과 시각, 같은 수준의 다른 거리 기록, 훈련 페이스를 볼 수 있습니다.
+§1dd5aa4 [view:goals] <span>표에 없는 목표 기록과 후반 가속 구간표는</span><a href="#race">대회 계획에서 계산 →</a>
+§3de8690 [view:heart] 강도별 심박 범위
+§9a01747 [view:heart] 시계에 뜨는 심박수가 어느 훈련 강도인지 알려 드립니다. 다니엘스가 제시한 강도별 최대심박 비율을 그대로 썼습니다.
+§805fda5 [view:heart] 실제로 잰 최대심박 (선택)
+§7745621 [view:heart] 내 심박 범위 <span class="tag" id="hr-ex">예시</span>
+§be8e8ce [view:heart] 최대심박 대비
+§28eaf1e [view:heart] 심박수(회/분)
+§0270d6b [view:heart] R(반복)은 2분 이내로 끝나 심박이 따라오지 못합니다. 심박이 아니라 페이스로 맞추세요.
+§68b144e [view:heart] 심박으로 훈련할 때
+§d8121d6 [view:heart] 더운 날, 잠이 모자란 날, 카페인을 마신 날은 같은 속도에서도 심박이 높게 나옵니다. 그런 날은 페이스보다 심박을 따르는 편이 안전합니다.
+§cb7ff76 [view:heart] 손목 센서는 인터벌처럼 심박이 빠르게 오르내리는 훈련에서 늦게 따라옵니다. 이지 런과 장거리에서 믿을 만합니다.
+§f9d68a5 [view:heart] 이지 런 심박이 E 범위를 계속 넘는다면 속도를 늦추세요. 걷기를 섞어도 됩니다.
+§302947e [view:heart] <span>심박 대신 페이스로 강도를 맞추려면</span><a href="#home">내 훈련 페이스 보기 →</a>
+§c113c92 [view:home] 오늘 달리기 날씨
+§69d3387 [view:home] 내 위치
+§c78656b [view:home] 불러오는 중…
+§ed126f7 [view:home] 기록 하나로 아는<br>내 {{brand}}
+§cd79a1b [view:home] 대회나 전력으로 달린 기록을 넣으면 {{brand:와}} 다섯 가지 훈련 페이스, 거리별 예상 기록이 바로 나옵니다. 다니엘스 공식으로 계산하고, 정형외과 전문의가 부상 관점을 더했습니다.
+§8ee38cf [view:home] 직접 입력
+§3b0ec8f [view:home] 거리(km)
+§6c35133 [view:home] 시간
+§4ea05ae [view:home] 숫자를 바꾸면 바로 다시 계산합니다. 평지에서 선선한 날 달린 최근 기록일수록 정확합니다.
+§2e1d696 [view:home] <span>{{brandLatin}}</span><span id="bib-basis">10K 55:00 기준</span>
+§af7dfe1 [view:home] <span>{{brand}}</span><span class="tag" id="bib-ex">예시</span>
+§2ef0be1 [view:home] 같은 수준으로 준비했을 때 예상 기록
+§48ff873 [view:home] <span class="k">하프</span><span class="v" id="pr-half">2:01:56</span>
+§29286d1 [view:home] <span class="k">풀</span><span class="v" id="pr-full">4:11:36</span>
+§ad411bd [view:home] 결과 복사
+§7af9165 [view:home] 공유 이미지 만들기
+§f153700 [view:home] {{brand:는}} 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다.
+§03b2f1d [view:home] 공유하기
+§4c8e0cb [view:home] 오늘 뛸 속도, 다섯 레인
+§79f8cff [view:home] 1레인이 가장 느리고 5레인이 가장 빠릅니다. 아래 색 띠 길이는 속도에 비례합니다.
+§e20aa63 [view:home] <span class="z">E</span>이지
+§b2f3253 [view:home] 옆 사람과 대화가 되는 속도. 한 주 달리기의 대부분을 여기서 채웁니다.
+§35556ef [view:home] <span>400m<b class="lap"></b></span><span>러닝머신<b class="kmh"></b></span>
+§2c7bf17 [view:home] <span class="z">M</span>마라톤
+§a795365 [view:home] 풀코스를 끝까지 유지할 목표 속도. 장거리 주 후반에 섞어 몸에 익힙니다.
+§432e8da [view:home] <span class="z">T</span>역치
+§ce5be33 [view:home] 편하게 힘든 속도. 20분 지속주나 5분 달리고 1분 쉬기 반복으로 합니다.
+§12bce8e [view:home] <span>400m<b class="lap"></b></span><span>러닝머신<b class="kmh"></b></span><span>한 번에 주간 거리의 10% 이내</span>
+§7adec8e [view:home] <span class="z">I</span>인터벌
+§63d2e08 [view:home] 3~5분 달리고 비슷한 시간 쉬기. 유산소 능력을 끌어올립니다.
+§798d19b [view:home] <span>400m<b class="lap"></b></span><span>러닝머신<b class="kmh"></b></span><span>한 번에 주간 거리의 8% 이내</span>
+§4663cf7 [view:home] <span class="z">R</span>반복
+§346e5ac [view:home] 2분 이내로 짧고 빠르게, 달린 시간의 2~3배를 쉽니다. 스피드와 달리기 효율을 다듬습니다.
+§2a24e7d [view:home] <span>400m<b class="lap"></b></span><span>러닝머신<b class="kmh"></b></span><span>한 번에 주간 거리의 5% 이내</span>
+§7f1b73b [view:home] 다가오는 대회
+§d84ecb4 [view:home] 날짜가 확정된 대회가 지금은 없습니다. 접수 시기는 대회 일정에서 확인하세요.
+§cf97c8c [view:home] <span>전국 대회를 종목·지역별로</span><a href="#calendar">대회 일정 전체 →</a>
+§e273e19 [view:home] 러너들의 관문, 어디까지 왔나
+§9fbcde2 [view:home] 서브4처럼 러너들이 흔히 목표로 삼는 기록 기준선입니다. 막대는 지난 관문에서 다음 관문까지 온 만큼 찹니다. 입력한 거리가 아닌 종목은 예상 기록이라, 그 거리를 제대로 준비했을 때의 값으로 보세요.
+§35c0d3f [view:home] <span>서브4, 하프 2시간 같은 목표의 km당 페이스와 구간 통과 시각</span><a href="#goals">목표 페이스표 →</a>
+§d74208c [view:home] 또래와 비교하기
+§dfcf611 [view:home] <span class="big" id="peer-age">–</span><span class="cap">유산소 체력 나이 · 낮춰 잡은 추정</span>
+§ce44f51 [view:home] <span class="big" id="peer-pct">–</span><span class="cap" id="peer-group">같은 연령대 기준</span>
+§3c6b8ea [view:home] <span>또래 눈금과 다음 단계까지 남은 거리</span><a href="#fitage">체력 나이 자세히 →</a>
+§19d4a56 [view:home] 결과 읽는 법
+§1e7360b [view:home] {{brand:는}} 최대산소섭취량(VO2max)과 단위가 같지만 달리기 효율까지 섞인 값입니다. 취미 러너는 실험실 측정치보다 낮게 나오는 경우가 많고, 하프·풀코스 기록으로 구하면 더 낮아집니다.
+§bcf0b39 [view:home] 예상 기록은 그 거리를 같은 수준으로 준비했을 때의 값입니다. 10K 기록만으로 본 풀코스 예상은 장거리 훈련이 부족하면 실제보다 빠르게 나옵니다.
+§eaf3319 [view:home] 훈련 페이스는 지금 실력 기준입니다. 목표 기록이 아니라 최근 기록을 넣으세요.
+§984916a [view:home] 달린 거리
+§d84b6f4 [view:home] 기록
+§94ab6d0 [view:home] 이미지 저장
+§d219bc9 [view:home] 이미지를 길게 누르거나 마우스 오른쪽 버튼으로도 저장할 수 있습니다.
+§16ddd5e [view:injury] 러닝 부상 가이드
+§4b4c43f [view:injury] 러너의 부상은 대부분 넘어져서가 아니라 반복된 부하가 쌓여서 생깁니다. 아픈 자리로 흔한 부상을 찾아보고, 스스로 조절할 수 있는 것과 진료가 필요한 신호를 구분하세요.
+§2ddf1df [view:injury] 이럴 때는 달리기를 멈추고 진료를
+§190c164 [view:injury] 뼈 위의 한 점이 아프고, 걷거나 쉴 때와 밤에도 아플 때
+§3f52063 [view:injury] 관절이 붓거나, 걸리고 잠기는 느낌이 있을 때
+§18e9851 [view:injury] '뚝' 하는 느낌 뒤에 힘이 들어가지 않거나 체중을 싣지 못할 때
+§b31985b [view:injury] 저리거나 감각이 둔해질 때
+§9b8808e [view:injury] 2~3주 양을 줄여도 나아지지 않을 때
+§850f71e [view:injury] 달려도 되는 통증, 멈춰야 하는 통증
+§489373f [view:injury] 달리는 중 통증이 가볍고(10점 만점에 3점 안팎까지) 다음 날 아침이면 가라앉는다면, 양을 줄여 이어 가도 되는 경우가 많습니다.
+§1424806 [view:injury] 달릴수록 심해지거나 걸음걸이가 달라질 정도라면 그날은 멈춥니다.
+§0b1939d [view:injury] 복귀할 때는 한 번에 달리는 거리부터 조금씩 늘리고, 빠른 훈련은 맨 나중에 되돌립니다.
+§788c0d1 [view:injury] <span>이번 장거리, 얼마까지 늘려도 될까</span><a href="#spike">거리 급증 체크 →</a>
+§8b1facc [view:injury] 이 안내는 일반 정보이며 진단을 대신하지 않습니다. 같은 자리의 통증도 원인이 다를 수 있으니, 증상이 뚜렷하거나 오래가면 진료를 받으세요.
+§232682b [view:log] 달린 날을<br>적어 두면
+§9d90a16 [view:log] 날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다. 기록은 이 기기에만 저장됩니다.
+§62fc342 [view:log] 지금 상태 <span class="tag" id="lg-ex">예시</span>
+§c9c381f [view:log] <span class="big" id="lg-week">–</span><span class="cap" id="lg-week-cap">이번 주</span>
+§f67fb25 [view:log] <span class="big" id="lg-long">–</span><span class="cap">최근 30일 가장 길게 달린 거리</span>
+§55e0a6c [view:log] <span class="big" id="lg-cap">–</span><span class="cap">다음 장거리 권장 상한(최장 거리 + 10%)</span>
+§2596a10 [view:log] 막대는 월요일부터 일요일까지 한 주 동안 달린 거리(km)입니다. 아래 날짜는 그 주의 월요일입니다.
+§63f7198 [view:log] <span>이번에 달릴 거리가 상한을 넘는다면</span><a href="#spike">거리 급증 체크 →</a>
+§364bb21 [view:log] 기록 추가
+§5caa75a [view:log] 날짜
+§8e04155 [view:log] 거리
+§29efb69 [view:log] 종류
+§87ab4a7 [view:log] 이지 런
+§0c2f700 [view:log] 장거리
+§2d3effa [view:log] 역치 훈련
+§dc131c5 [view:log] 인터벌·반복
+§9f17494 [view:log] 마라톤 페이스
+§720131d [view:log] 신은 신발 (선택)
+§4687011 [view:log] 최근 기록
+§dcd42d6 [view:log] 더 보기
+§83a9014 [view:log] 기록 옮기기
+§7b3a85d [view:log] 기록은 브라우저에 저장되어 기기를 바꾸거나 브라우저 데이터를 지우면 사라집니다. 가끔 백업을 복사해 메모장에 붙여 두세요.
+§a61c834 [view:log] 달리기 기록과 신발장 백업 복사
+§ec57c59 [view:log] 백업에서 되살리기
+§d0b856b [view:log] 복사해 둔 백업을 붙여 넣으세요
+§33c7230 [view:log] 지금 기록을 이 백업으로 바꾸기
+§d0db467 [view:log] 걸린 시간 (선택)
+§8e76976 [view:log] 신발을 고르면 그 신발의 누적 거리에 더해집니다.
+§9e9a7c5 [view:log] 최근 8주 주간 거리
+§58a0abc [view:pace] 페이스와 속도 바꾸기
+§2f9595c [view:pace] 러닝머신 속도를 km당 페이스로, 페이스를 거리별 완주 기록으로 바꿉니다. 어느 칸을 고쳐도 나머지가 따라 바뀝니다.
+§0ffcd1e [view:pace] 러닝머신 속도
+§4dfb6c0 [view:pace] 러닝머신은 바람 저항이 없어 같은 속도라도 조금 쉽게 느껴집니다. 경사를 1%로 두는 방법이 널리 쓰입니다.
+§8bb3b68 [view:pace] 이 페이스로 끝까지 달리면
+§65b2fd9 [view:pace] <span>목표 기록에서 거꾸로 구간표를 뽑으려면</span><a href="#race">대회 계획 →</a>
+§3104ee5 [view:pace] 1km 페이스
+§139df54 [view:plan] 이번 주<br>훈련표 짜기
+§6fdcbb6 [view:plan] 주간 거리와 달리는 날 수, 목표를 고르면 요일별 훈련과 내 페이스를 채워 드립니다. 강도 훈련 분량은 다니엘스가 제시한 한 회 상한 안에서 잡습니다.
+§39e47a3 [view:plan] 이번 주에 달릴 거리
+§5e07966 [view:plan] 주 3일
+§d66ab49 [view:plan] 주 4일
+§450173f [view:plan] 주 5일
+§a03f49c [view:plan] 주 6일
+§c1a30af [view:plan] 기초 체력
+§4b95da5 [view:plan] 거리는 지난 몇 주 동안 실제로 달린 수준으로 넣으세요. 갑자기 늘린 거리로 표를 짜면 표가 부상 계획이 됩니다.
+§bb22464 [view:plan] 표를 짠 원칙
+§855556a [view:plan] 힘든 날(강도 훈련, 장거리) 사이에는 쉬는 날이나 이지 런을 둡니다.
+§b5e0010 [view:plan] 한 번에 달리는 강도 분량은 T는 주간 거리의 10%, I는 8%, M은 20% 안쪽으로 잡습니다.
+§170b768 [view:plan] 장거리는 150분을 넘기지 않습니다. 주 3~4일만 달리면 장거리 비중이 커질 수밖에 없으니 거리보다 시간을 기준으로 보세요.
+§eb57575 [view:plan] 주 20km가 안 되면 강도 훈련 없이 이지 런으로 거리부터 쌓습니다.
+§cdc17bb [view:plan] 표는 한 주 예시입니다. 몸이 무겁거나 아픈 날은 강도 훈련을 이지 런으로 바꾸는 것이 원칙에 맞습니다.
+§7b6c548 [view:plan] 한 주 훈련표 <span class="tag" id="pl-ex">예시</span>
+§661a22e [view:plan] <span class="big" id="pl-total">30<small>km</small></span><span class="cap" id="pl-days-cap">주 4일</span>
+§36c2acb [view:plan] <span class="big" id="pl-easy">92<small>%</small></span><span class="cap">편한 속도로 달리는 비율</span>
+§fcef450 [view:plan] <span class="big" id="pl-long">10<small>km</small></span><span class="cap" id="pl-long-cap">장거리</span>
+§65ed93f [view:plan] 훈련표 복사
+§7ffaae8 [view:plan] <span>지난주보다 많이 늘린 주라면</span><a href="#spike">거리 급증 체크 →</a>
+§bca2ecb [view:plan] 달리는 날
+§2fbea43 [view:plan] 목표
+§339679c [view:privacy] 개인정보처리방침
+§c4175fc [view:privacy] {{brand:는}} 회원 가입 없이 쓰는 계산 도구입니다. 무엇이 어디에 저장되는지 적어 둡니다.
+§cb7187d [view:privacy] 입력한 내용
+§3bb2636 [view:privacy] 이름, 연락처, 계정 정보를 받지 않습니다. 도구에 입력한 기록, 나이, 성별, 체중, 심박, 달리기 기록, 신발 정보는 지금 쓰는 기기의 브라우저 저장소에만 저장되며 운영자의 서버로 전송되지 않습니다.
+§294b254 [view:privacy] 저장된 내용은 브라우저 설정에서 이 사이트의 데이터를 지우면 모두 사라집니다.
+§a0f9111 [view:privacy] 방문 통계, 광고, 제휴 링크
+§e732af5 [view:privacy] 지금은 방문 통계 도구와 광고, 제휴 링크를 쓰지 않습니다. 쓰기 시작하면 이 문서를 먼저 고칩니다.
+§4e4f732 [view:privacy] <b>방문 통계</b> Google Analytics로 방문 수와 많이 쓰는 화면을 집계합니다. 이 과정에서 Google이 쿠키와 기기 정보를 수집합니다. 도구에 입력한 값은 보내지 않습니다. 브라우저에서 쿠키를 차단하거나 Google 애널리틱스 차단 부가 기능으로 거부할 수 있습니다.
+§01ecf75 [view:privacy] <b>날씨와 미세먼지</b> 첫 화면의 날씨는 고른 지역의 좌표를 Open-Meteo에 보내 받아 옵니다. '내 위치'를 누른 경우에만 기기의 위치를 쓰며, 약 10km 단위로 뭉뚱그린 좌표만 보냅니다. 이 과정에서 접속 IP가 Open-Meteo 서버에 전달됩니다. 고른 지역과 받아 온 날씨는 내 기기에만 저장합니다.
+§dcd2420 [view:privacy] <b>광고</b> Google AdSense 광고를 싣습니다. Google과 협력사는 쿠키를 써서 이 사이트와 다른 사이트의 방문 기록을 바탕으로 광고를 보여 줄 수 있습니다. 맞춤 광고는 Google 광고 설정(adssettings.google.com)에서 끌 수 있습니다.
+§84ec35d [view:privacy] <b>제휴 링크</b> 장비 가이드의 구매 버튼은 쿠팡 파트너스 링크입니다. 버튼을 눌러 쿠팡으로 이동하면 쿠팡이 쿠키로 구매 여부를 확인하고, 구매가 이루어지면 운영자가 수수료를 받습니다. 구매 가격은 달라지지 않습니다.
+§ba2ba31 [view:privacy] 제3자 제공과 문의
+§a756653 [view:privacy] 운영자는 개인정보를 수집하지 않으므로 제3자에게 제공하는 정보도 없습니다.
+§19d4c98 [view:privacy] 문의: <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>
+§4e71573 [view:privacy] 시행일 {{privacyDate}}
+§5180a18 [view:race] 목표 기록을<br>구간표로
+§e9d4012 [view:race] 목표 기록을 넣으면 km당 페이스와 구간별 통과 시각이 나옵니다. 그 목표가 지금 실력에 맞는지도 {{brand:로}} 함께 확인합니다.
+§2ce3856 [view:race] 내 {{brand}} 예상 기록 넣기
+§d46157e [view:race] 처음부터 끝까지 고르게
+§63fdb66 [view:race] 전반 아끼고 후반 당기기
+§d08066d [view:race] <span class="big" id="rc-pace">5:58<small>/km</small></span><span class="pill" id="rc-pill">지금 실력 안쪽</span><span class="tag" id="rc-ex">예시</span>
+§69e4821 [view:race] <span>러닝머신<b id="rc-kmh"></b></span><span>400m<b id="rc-lap"></b></span><span>필요한 {{brand}}<b id="rc-need"></b></span>
+§bf951ff [view:race] 구간표
+§3c81ff5 [view:race] 지점
+§de2d187 [view:race] 구간 페이스
+§a0a639d [view:race] 통과 시각
+§3422f86 [view:race] 구간표 복사
+§a83a4a6 [view:race] 대회 전날 챙길 것
+§c1da8c9 [view:race] 표시는 이 기기에 저장됩니다.
+§27d6cee [view:race] <span>신발과 장비를 유형별로 고르는 법</span><a href="#gear">장비 가이드 →</a>
+§747b6b6 [view:race] <span>나갈 대회를 아직 못 정했다면</span><a href="#calendar">대회 일정 →</a>
+§06f9aba [view:race] 구간표를 쓸 때
+§bd6a20c [view:race] 처음 2~3km는 몸이 가벼워 구간표보다 빨라지기 쉽습니다. 이때 번 시간은 후반에 몇 배로 잃습니다.
+§b4c1fd5 [view:race] 오르막에서는 페이스가 아니라 힘을 일정하게 두세요. 구간표는 평지 기준입니다.
+§2d6f9b2 [view:race] 기온이 높거나 습한 날은 같은 힘으로도 느려집니다. 목표를 낮추는 것이 완주 기록을 지키는 쪽입니다.
+§fa42553 [view:race] 풀코스 구간표는 30km 이후를 버틸 장거리 훈련이 쌓였을 때만 맞습니다.
+§4ee0352 [view:race] 대회 거리
+§efdeb84 [view:race] 목표 기록
+§3258a1b [view:race] 달리는 방식
+§b910376 [view:race] 손목이나 배번표 뒤에 적어 두면 편합니다.
+§cd023f8 [view:race] 배번표, 기록칩, 옷핀이나 배번 벨트
+§f1273d3 [view:race] 장거리를 한 번 이상 달려 본 신발과 양말. 새 신발은 대회 날 신지 않습니다.
+§a4d83fe [view:race] 쓸리는 곳에 바를 바셀린이나 테이프(겨드랑이, 허벅지 안쪽, 젖꼭지)
+§a025645 [view:race] 90분 넘게 달린다면 에너지젤. 탄수화물은 시간당 30~60g이 널리 쓰이는 기준이고, 훈련 때 먹어 본 제품만 씁니다.
+§e823b6a [view:race] 출발 전에 입고 있다가 벗을 겉옷이나 우비
+§a61e46a [view:race] 시계 충전, 구간표 메모
+§e2ca678 [view:race] 집결 시간, 물품 보관 마감, 화장실 위치 확인
+§01b6afa [view:shoes] 러닝화,<br>몇 km 탔나요
+§8269695 [view:shoes] 러너가 실제로 신은 신발을 잰 연구에서 480km를 달린 뒤 뒤꿈치 쿠션이 16~33% 줄었는데, 숙련된 러너들은 640km를 달린 뒤에도 그 변화를 스스로 느끼지 못했습니다. 느낌보다 거리 기록이 필요한 이유입니다.
+§22bfed2 [view:shoes] 내 신발장
+§c0a479d [view:shoes] <span class="tag">예시</span> 아래는 예시 신발입니다. 내 신발을 추가하면 이 기기에 저장되고 예시는 사라집니다.
+§260c0e4 [view:shoes] <span>새 신발을 고를 차례라면</span><a href="#gear">유형별로 고르는 법 →</a>
+§f67cc02 [view:shoes] 신발 추가
+§9aa18e5 [view:shoes] 이름
+§e850d71 [view:shoes] 데일리 쿠션화·안정화 (500~800km)
+§80107a8 [view:shoes] 경량·레이싱화 (400~600km)
+§a5018ed [view:shoes] 트레일화 (500~800km)
+§4525294 [view:shoes] 지금까지 달린 거리
+§2d7d229 [view:shoes] 이 신발로 주당 (선택)
+§070dbfa [view:shoes] 신발장에 추가
+§51dd77f [view:shoes] 달리기 기록에서 신발을 골라 적으면 누적 거리가 자동으로 올라갑니다.
+§4524f05 [view:shoes] 거리와 함께 눈으로 확인할 것
+§93f01aa [view:shoes] 중창 옆면에 깊은 주름이 잡혀 펴지지 않는다
+§3b4f18c [view:shoes] 밑창 고무가 닳아 중창이 드러났다
+§ba18975 [view:shoes] 평평한 곳에 올려놓고 뒤에서 보면 한쪽으로 기운다
+§33da19b [view:shoes] 같은 코스인데 전에 없던 발바닥, 무릎 통증이 생겼다
+§f65a3f3 [view:shoes] 교체 기준, 어디까지 근거가 있나
+§9f7b084 [view:shoes] 500~800km는 제조사와 판매점이 널리 쓰는 기준입니다. 쿠션이 거리에 따라 줄어드는 것은 연구로 확인되지만, 낡은 신발이 부상을 늘린다는 직접 근거는 아직 부족합니다.
+§4cf1e5d [view:shoes] 그래서 이 도구는 거리를 교체 명령이 아니라 점검을 시작할 시점으로 씁니다. 체중이 많이 나가거나 거친 노면을 주로 달리면 범위의 앞쪽에서 점검하세요. 카본 플레이트 레이싱화는 수명 연구가 거의 없어 경량·레이싱화 범위를 적용했습니다.
+§774c41d [view:shoes] 예: 주말 장거리용
+§3138cc4 [view:spike] 이번 장거리,<br>얼마까지 늘려도 될까
+§72314d8 [view:spike] 러너 5,205명을 18개월 동안 추적한 연구에서, 부상은 주간 거리보다 한 번에 달린 거리와 더 뚜렷하게 이어졌습니다. 최근 30일 가장 길게 달린 거리보다 10% 넘게 더 달린 날 과사용 부상이 늘었습니다.
+§65e3a43 [view:spike] 최근 30일 동안 한 번에 가장 길게 달린 거리
+§91a6a1b [view:spike] 이번에 달릴 거리
+§02f3949 [view:spike] 달리기 기록에서 가져오기
+§0f89f4c [view:spike] <span class="big" id="sp-pct">+33%</span><span class="pill" id="sp-pill">중간 급증</span><span class="tag" id="sp-ex">예시</span>
+§0d44662 [view:spike] 10% 이하
+§4a16c03 [view:spike] 100% 초과
+§7c0b051 [view:spike] 주간 거리도 같이 보기
+§edf992d [view:spike] 지난주 달린 거리
+§b70eeef [view:spike] 이번 주 계획
+§91d6a5a [view:spike] 같은 연구에서 주간 증가율은 부상과 뚜렷한 관련이 없었습니다. 흔히 말하는 주 10% 규칙은 경험칙이니 참고로만 보세요.
+§5db6abb [view:spike] 거리보다 통증이 먼저인 경우
+§6f13d6c [view:spike] 정강이, 발등, 발뒤꿈치 뼈의 한 지점을 누르면 아프다
+§d40f2bc [view:spike] 달릴수록 심해지거나, 쉬는 날과 밤에도 아프다
+§1e81f04 [view:spike] 붓거나, 걸을 때 절뚝거린다
+§248e8a0 [view:spike] 하나라도 해당하면 달리기를 멈추고 진료를 받으세요. 피로골절 같은 문제는 일찍 쉴수록 빨리 낫습니다.
+§203d305 [view:spike] <span>달린 날을 적어 두면 최장 거리와 주간 거리를 따로 셀 필요가 없습니다</span><a href="#log">달리기 기록 →</a>
+§f178d5b [view:spike] 근거: Schuster Brandt Frandsen J 등, British Journal of Sports Medicine, 2025;59(17):1203-1210. 관찰 연구이며 부상은 참가자가 직접 보고했습니다. 배수는 위험률비(HRR)로, 10% 이하 구간과 비교한 값입니다.
+§9e70bb8 [view:terms] 러닝 용어 사전
+§b8c475a [view:terms] 달리기를 시작하면 만나는 낯선 말을 쉬운 말로 풀었습니다. 찾는 용어를 입력하면 바로 걸러 드립니다.
+§e23d820 [view:terms] 용어 찾기
+§0e72d85 [view:terms] 찾는 용어가 없습니다. 다른 말로 찾아보세요.
+§1231cb2 [view:terms] 예: LSD, 빌드업, 서브4
+§8be43c4 [view:tools] 전체 도구
+§66fce1a [view:tools] {{brand}}의 계산기와 안내를 한곳에 모았습니다. 가입 없이 쓰고, 입력한 값은 내 기기에만 저장됩니다.
+§2e71e1b [shell] <b>{{brand}}</b> · 정형외과 전문의가 만든 러닝 계산기
+§531a04a [shell] 이 사이트의 글과 계산 도구의 저작권은 {{brand}}에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처({{sourceName}})를 밝혀 주세요.
+§10fe4f2 [shell] 계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.
+§ed735a4 [shell] 이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+§a388e7b [shell] <a href="#about">계산 근거·FAQ</a><a href="#privacy">개인정보처리방침</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
+§be4ee98 [shell] 홈 화면에 앱으로 추가
+§a7aeb87 [shell] 정형외과 전문의가 만든 러닝 계산기
+§9d8ec3b [shell] {{brand}} 첫 화면
+§b80ec21 [shell] 도구
+§479926d [shell] 빠른 이동
+§1401b44 [core.js] 데일리 쿠션화·안정화
+§b98934b [core.js] 트레일화
+§b8afe0d [core.js] 서브{t}
+§f91d29a [core.js] 서브 {t}
+§5cd0d95 [core.js] 좋음
+§2179da2 [core.js] 보통
+§c89bafa [core.js] 나쁨
+§ff7a4d4 [core.js] 매우나쁨
+§9a7f95e [core.js] 맑음
+§c3e0a4a [core.js] 대체로 맑음
+§d77284a [core.js] 구름 조금
+§887f182 [core.js] 흐림
+§254e8d3 [core.js] 안개
+§59b3424 [core.js] 이슬비
+§d3b0e1a [core.js] 비
+§374a498 [core.js] 눈
+§5ed2015 [core.js] 소나기
+§d60d02b [core.js] 뇌우
+§a1a321f [core.js] 천둥·번개가 치는 날씨입니다. 야외 달리기는 그친 뒤로 미루세요.
+§b1865e8 [core.js] 미세먼지가 매우 나쁩니다. 오늘 달리기는 실내로 옮기거나 쉬는 편이 좋습니다.
+§4e0a5e0 [core.js] 미세먼지가 나쁩니다. 인터벌 같은 강한 훈련은 미루고, 달린다면 짧고 가볍게 하세요.
+§9cbd441 [core.js] 무더운 날씨입니다. 평소보다 페이스를 낮추고 물을 챙기세요. 한낮은 피하는 편이 좋습니다.
+§c39f722 [core.js] 매우 춥습니다. 얇게 여러 겹 입고 손과 귀를 가리세요. 얼어붙은 길은 피하세요.
+§4ce09b7 [core.js] 눈이 옵니다. 미끄러운 길에서는 보폭을 줄이고 속도 욕심을 내려놓으세요.
+§a07b3cc [core.js] 비가 옵니다. 젖은 노면과 맨홀 뚜껑, 횡단보도 페인트가 미끄럽습니다.
+§20069aa [core.js] 더운 편입니다. 같은 페이스도 평소보다 힘들게 느껴질 수 있습니다. 물을 챙기세요.
+§7a3122b [core.js] 쌀쌀합니다. 준비운동을 충분히 하고 처음 10분은 천천히 시작하세요.
+§3930a0e [core.js] 달리기 좋은 날씨입니다. 기록은 대체로 이런 서늘한 날에 잘 나옵니다.
+§aa6eb20 [core.js] 달리기 무난한 날씨입니다.
+§cf7b632 [app.js] 런지수
+§346df27 [app.js] 복사했습니다
+§5cb4c42 [app.js] 복사하지 못했습니다
+§a7b95bb [app.js] 달린 거리를 km로 입력해 주세요.
+§76d0893 [app.js] 거리는 0.8km에서 100km 사이로 입력해 주세요.
+§5a68f98 [app.js] 기록을 입력해 주세요.
+§3e160c1 [app.js] km당 2분보다 빠른 기록입니다. 거리와 시간을 확인해 주세요.
+§27e6cde [app.js] km당 15분보다 느린 기록은 계산할 수 없습니다. 거리와 시간을 확인해 주세요.
+§39b300c [app.js] 기준
+§2bf356a [app.js] · 예시 기록
+§c668c6a [app.js] 내 기록 넣기
+§85ebf74 [app.js] 기록 바꾸기
+§8b1e05f [app.js] 상위 5% 이내
+§f913c9d [app.js] 하위 5% 근처
+§5f35a51 [app.js] 하위 5% 이내
+§6e59e44 [app.js] 상위 약
+§20de86d [app.js] % 이내
+§76c5fdf [app.js] 하위 약
+§8c22045 [app.js] 20대 평균 이상
+§1b67856 [app.js] 70대 평균 이하
+§7cbe6f3 [app.js] 약 {n}세
+§dd2cd68 [app.js] 이하
+§cbc7666 [app.js] 달리기 기록으로 구한 값은 실험실에서 잰 VO2max보다 낮게 나오는 편이라, 실제 체력 나이는 이보다 젊고 순위는 이보다 높을 가능성이 큽니다.
+§728ad6f [app.js] 특히 하프·풀코스 기록에는 지구력과 보급까지 섞여 있어 5K·10K 기록으로 구한 값보다 더 낮게 나오기 쉽습니다. 5K나 10K를 힘껏 달린 기록이 있으면 그 기록으로 다시 계산해 보세요.
+§f3624f5 [app.js] 비교 기준은 미국 성인 7,783명의 운동부하검사 자료(FRIEND, 2015)입니다.
+§72c37a2 [app.js] 같은 연령대 기준
+§214c001 [app.js] 나이와 성별을 넣으면 내
+§a1fb7a8 [app.js] 어느 연령대 평균과 같은지, 또래 가운데 어디쯤인지 보여 드립니다.
+§733c4f5 [app.js] 20~79세만 비교할 수 있습니다
+§8cbb379 [app.js] 대
+§90667e9 [app.js] 남성
+§def5b68 [app.js] 여성
+§f805b68 [app.js] 첫 관문 전
+§305f73c [app.js] 까지
+§3b7ec6e [app.js] 단축
+§fd28efd [app.js] 가장 빠른 관문을 지났습니다
+§ea11b5d [app.js] 훈련 페이스 예상 기록 기준 하프 풀 같은 수준으로 준비했을 때 하나로 아는 내 직접 입력
+§4de6c2c [app.js] 훈련 페이스 /km
+§61ab97e [app.js] 기록 하나로 아는 내
+§58ee00d [app.js] 이 기록은 공식이 잘 맞는 범위(약 3분 30초~4시간)를 벗어나 오차가 클 수 있습니다.
+§12cbe25 [app.js] 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다.
+§4bae11e [app.js] 내
+§caa4e40 [app.js] 기준)
+§116ae2a [app.js] 훈련 페이스 /km E
+§1ce8eba [app.js] 예상 기록
+§7f1ae2d [app.js] 결과 이미지
+§cafdc61 [app.js] 종료
+§32b2e25 [app.js] 목표 대회 <b>
+§85df225 [app.js] ">대회 일정 →</a>
+§f251fe4 [app.js] 목표 대회 해제
+§9cd0269 [app.js] 목표 대회로 정하기
+§39e7f86 [app.js] 내 목표 대회 <b>
+§1b8b16b [app.js] " id="goal-plan">구간표 만들기 →</a>
+§fac93e1 [app.js] <span>대회 옆 ☆ 목표를 누르면 남은 날을 세어 드리고, 대회 계획 화면에 이어서 보여 드립니다.</span>
+§c16f421 [app.js] 풀코스
+§46cec0a [app.js] 지금 실력 안쪽
+§3097d32 [app.js] 도전적인 목표
+§2ca7236 [app.js] 지금은 빠른 목표
+§a257f9f [app.js] 목표 기록을 입력해 주세요.
+§2e34ce5 [app.js] km당 2분보다 빠른 목표입니다. 시간을 확인해 주세요.
+§f5bccb5 [app.js] km당 15분보다 느린 목표는 계산할 수 없습니다. 시간을 확인해 주세요.
+§de8f9df [app.js] 이 목표에 필요한
+§099aded [app.js] , 지금
+§d695104 [app.js] 입니다.
+§b801371 [app.js] 여유가 있는 목표입니다.
+§0f82c80 [app.js] 거의 같아서 준비가 맞으면 노려볼 만한 목표입니다.
+§27c8471 [app.js] 만큼 모자라지만 훈련이 몇 주 더 쌓이면 닿을 수 있는 범위입니다. 대회 날 처음 몇 km는 구간표보다 빠르게 가지 마세요.
+§2f3772e [app.js] 만큼 모자랍니다. 이 속도로 출발하면 후반에 크게 느려질 가능성이 높습니다. 지금
+§0b1a693 [app.js] 본
+§6618208 [app.js] 예상 기록은
+§ba4843e [app.js] 전반은 km당
+§c18e2a5 [app.js] , 후반은
+§34b8a7b [app.js] 로 나눴습니다. 평균보다 1.5%씩 느리고 빠른 속도입니다.
+§665c20a [app.js] 짧은 거리 기록에서 나온
+§08810b2 [app.js] 본 풀코스 목표는 30km 이상 장거리 훈련이 받쳐 줄 때만 맞습니다.
+§e552b16 [app.js] 골인
+§49449b4 [app.js] · 평균
+§7544869 [app.js] 월
+§adb4a28 [app.js] 화
+§c04eb2e [app.js] 수
+§5664a63 [app.js] 목
+§cf5632c [app.js] 금
+§b9e4066 [app.js] 토
+§06cf3e9 [app.js] 일
+§1ff7914 [app.js] 쉬는 날
+§e6904b0 [app.js] 걷기나 가벼운 스트레칭 정도만.
+§a928e40 [app.js] 대화가 되는 속도로.
+§06be2b7 [app.js] 끝나고 20초 가속주 4~6회(전력의 90%쯤, 사이에는 충분히 걷기).
+§6e9d564 [app.js] 약
+§511d424 [app.js] 분. E 범위의 느린 쪽에서 시작합니다.
+§0ea2b77 [app.js] 준비
+§e4633d1 [app.js] km 이지 → T 페이스로 1km ×
+§52b05e2 [app.js] 회, 사이마다 1분 걷기 → 마무리
+§bf2c119 [app.js] km 이지.
+§3b18e5a [app.js] 인터벌
+§dc6b97f [app.js] km 이지 → I 페이스로
+§0a941d6 [app.js] 회(한 번에 약
+§a4a6616 [app.js] ), 사이마다 달린 시간만큼 천천히 조깅 → 마무리
+§289be95 [app.js] 마라톤 페이스 런
+§e6a16a7 [app.js] km 이지 → M 페이스로
+§6487f88 [app.js] km 이어 달리기 → 마무리
+§d232057 [app.js] 주간 거리는 10km에서 160km 사이로 입력해 주세요.
+§fcb93c1 [app.js] 주 {n}일
+§ee1afd9 [app.js] 장거리 · 약
+§752244c [app.js] 주
+§6deaa54 [app.js] km를
+§f358076 [app.js] 일로 나누면 하루가 3km도 안 되어
+§28c4f93 [app.js] 일로 줄였습니다.
+§316d299 [app.js] 일에 달리면 평일 하루가 장거리보다 길어져
+§71a52ac [app.js] 일로 늘렸습니다.
+§13e8c58 [app.js] 이 페이스로 주
+§8024f26 [app.js] km는 6일로 나눠도 하루가 150분을 넘습니다. 하루 두 번으로 나누거나 주간 거리를 다시 확인하세요.
+§e599dfc [app.js] 장거리는 150분에서 끊었습니다. 그보다 길면 얻는 것보다 회복에 드는 시간이 커집니다.
+§06e8917 [app.js] 장거리가 주간 거리의
+§e842cd5 [app.js] %입니다. 달리는 날이 적어서 생기는 비중이니 150분 안쪽인지만 확인하세요.
+§44b993d [app.js] 주 20km가 안 되어 강도 훈련 없이 짰습니다. 거리가 쌓이면 다시 짜 보세요.
+§dce8c3e [app.js] 가벼운 날이 너무 짧아져 강도 훈련을 뺐습니다.
+§887d319 [app.js] 한 주 훈련표 · 주
+§16b8e37 [app.js] 데일리 러닝화
+§fa9c3c0 [app.js] <option value="">고르지 않음</option>
+§ba24a5f [app.js] 신발장에 신발을 넣어 두면 여기서 고를 수 있습니다. <a href="
+§3e92ce1 [app.js] ">신발 추가 →</a>
+§12dcd23 [app.js] 이번 주 지금까지 · 지난주
+§1b091b9 [app.js] <button type="button" class="btn ghost small" data-act="del">삭제</button>
+§529624f [app.js] 날짜를 골라 주세요.
+§065f89d [app.js] 오늘 이후 날짜는 기록할 수 없습니다.
+§0a08c7c [app.js] 거리는 0.1km에서 200km 사이로 입력해 주세요.
+§edac0df [app.js] 거리와 시간이 맞지 않습니다. km당 2분에서 25분 사이여야 합니다.
+§2151207 [app.js] 한 번 더
+§fc81e22 [app.js] 삭제
+§150299b [app.js] 백업 내용을 읽지 못했습니다. 복사한 글 전체를 그대로 붙여 넣었는지 확인해 주세요.
+§a730ba2 [app.js] 기준 범위
+§7536df8 [app.js] 최근 최장 거리를 넘지 않습니다. 연구에서 비교 기준이 된 구간입니다.
+§1ab649f [app.js] 최장 거리보다 10% 이내로 늘립니다. 연구에서 비교 기준이 된 구간입니다. 이 구간도 위험이 0은 아닙니다.
+§f34dc2f [app.js] 소폭 급증
+§b9682e5 [app.js] 이 구간에서 과사용 부상 발생률이 기준 구간의 약 1.6배였습니다.
+§1763cd7 [app.js] 중간 급증
+§7090914 [app.js] 이 구간에서 과사용 부상 발생률이 기준 구간의 약 1.5배였습니다.
+§7f076fb [app.js] 대폭 급증
+§0be6ffd [app.js] 최장 거리의 두 배를 넘습니다. 이 구간에서 과사용 부상 발생률이 기준 구간의 약 2.3배였습니다.
+§5a3d169 [app.js] 두 거리를 모두 0보다 큰 숫자로 입력해 주세요.
+§c61d60e [app.js] 이번에 권하는 상한은
+§5410420 [app.js] km입니다. 최근 최장 거리
+§f2d8b8a [app.js] km에 10%를 더한 값입니다.
+§b7aa830 [app.js] 지난주보다
+§7eda1c2 [app.js] %입니다.
+§7fb43b9 [app.js] 주 10% 규칙 안쪽입니다.
+§a1e2360 [app.js] 주 10% 규칙을 넘습니다. 늘어난 거리를 하루에 몰지 말고 나누세요.
+§af1c406 [app.js] 한 주에 30% 넘게 늘립니다. 늘어난 거리를 하루에 몰지 말고 나누세요.
+§047cb4b [app.js] 지난주 거리와 이번 주 계획을 넣으면 변화율을 보여 드립니다.
+§a0989ac [app.js] 최근 30일 최장
+§7aee421 [app.js] km, 지난주
+§b147a5d [app.js] 최근 30일 기록이 없습니다.
+§6d0ffa1 [app.js] 여유 있음
+§d2ec1dd [app.js] 점검 시작
+§0a4f03b [app.js] 교체 구간
+§70a5c40 [app.js] 교체 권장
+§0dc06a5 [app.js] 주당
+§033a780 [app.js] km 기준으로 약
+§5281487 [app.js] 주 뒤입니다.
+§a6fc9f3 [app.js] km를 더 달리면 교체 구간(
+§e2a959c [app.js] km)에 들어갑니다.
+§b562744 [app.js] 교체 구간까지
+§b0279ac [app.js] km 남았습니다. 지금부터 밑창과 중창을 살펴보세요.
+§0f957e1 [app.js] 교체 구간입니다. 아래 점검 항목에 하나라도 해당하면 바꾸세요. 상한
+§7e9f172 [app.js] km까지
+§8dfc231 [app.js] km 남았습니다.
+§df95b01 [app.js] km를 넘었습니다. 새 신발을 준비하세요.
+§6376e39 [app.js] · 누적<b>
+§8c05359 [app.js] ">달린 거리 더하기(km)</label><input type="text" id="add-
+§4eeb890 [app.js] " inputmode="decimal" autocomplete="off" maxlength="5" placeholder="오늘 달린 km"><button type="button" class="btn" data-act="add">더하기</button><button type="button" class="btn ghost" data-act="del">삭제</button></div>
+§c0c0af5 [app.js] 한 번 더 누르면 삭제
+§9a70f0f [app.js] 신발 이름을 입력해 주세요.
+§c3bc5a6 [app.js] 달린 거리는 0에서 5000km 사이로 입력해 주세요.
+§653c6e1 [app.js] 이지
+§47d4f1c [app.js] 마라톤
+§6868e6a [app.js] 역치
+§296393f [app.js] 최대심박은 120에서 230 사이로 입력해 주세요.
+§3243337 [app.js] 나이를 10에서 90 사이로 입력해 주세요.
+§71ccf2a [app.js] 직접 잰 최대심박
+§5d9cb8f [app.js] 회/분으로 계산했습니다.
+§48dbcd1 [app.js] 최대심박을
+§8fa189d [app.js] 회/분으로 추정했습니다(208 − 0.7 × 나이). 추정값은 사람에 따라 10회 안팎 차이가 납니다. 전력으로 달린 뒤 잰 값이 있으면 그 값을 넣으세요.
+§6515439 [app.js] 페이스는 km당 2분에서 20분 사이(시속 3~30km)로 입력해 주세요.
+§00d61f4 [app.js] 중앙
+§1bcd025 [app.js] 또래 하위 25% 선
+§699b3d8 [app.js] 또래 중앙값
+§0b88b61 [app.js] 또래 상위 25% 선
+§fb4de1a [app.js] 또래 상위 10% 선
+§7e3f4dc [app.js] 또래 상위 5% 선
+§5847cc3 [app.js] 12분 동안 달린 거리를 m로 입력해 주세요.
+§abe2029 [app.js] 달린 거리는 1000m에서 5000m 사이로 입력해 주세요.
+§f02b770 [app.js] 걸린 시간, 도착 직후 심박, 체중을 모두 입력해 주세요.
+§2933878 [app.js] 1.6km 걷기 시간은 8분에서 30분 사이로 입력해 주세요.
+§83f0160 [app.js] 심박은 60에서 220 사이로 입력해 주세요.
+§0e4cd4d [app.js] 체중은 30kg에서 200kg 사이로 입력해 주세요.
+§b6874ca [app.js] 걷기 검사는 나이와 성별이 있어야 계산됩니다.
+§569dc23 [app.js] 성별을 골라 주세요.
+§88bb057 [app.js] 입력한 값으로는 계산할 수 없습니다. 숫자를 다시 확인해 주세요.
+§f2dc6da [app.js] 실제 나이보다 젊음
+§09be4ca [app.js] 실제 나이보다 많음
+§9f43f72 [app.js] 실제 나이와 비슷
+§6915eca [app.js] 추정 VO2max
+§cdc2f8f [app.js] 20~79세만 비교
+§811e029 [app.js] 나
+§737e57f [app.js] 100명을 낮은 쪽부터 세웠을 때의 자리입니다. 큰 숫자는 그 자리의 VO2max(ml/kg/min)입니다.
+§eb8457c [app.js] 또래 상위 5% 선을 넘었습니다. 지금 수준을 지키는 것이 목표입니다.
+§38d20ff [app.js] 은
+§95b7b88 [app.js] 입니다. 지금보다
+§7774862 [app.js] 높습니다.
+§ebf1030 [app.js] 5K 기록으로는 약
+§880314d [app.js] 에 해당합니다.
+§fc0e5fb [app.js] 12분 달리기 식은 끝까지 힘을 다해 달렸을 때 맞습니다.
+§dffe8b8 [app.js] 걷기 식의 오차는 4~6 정도입니다.
+§a92ac86 [app.js] 30~69세 밖에서는 오차가 더 커질 수 있습니다.
+§ea9858e [app.js] 서울
+§41402f7 [app.js] 인천
+§08ccbbe [app.js] 수원
+§da0de68 [app.js] 춘천
+§3554358 [app.js] 강릉
+§d2f2130 [app.js] 청주
+§1e783cc [app.js] 대전
+§210a875 [app.js] 세종
+§64ada74 [app.js] 전주
+§ad0d7d4 [app.js] 광주
+§604f78d [app.js] 대구
+§a816492 [app.js] 포항
+§b90ae63 [app.js] 울산
+§25f016f [app.js] 부산
+§d517715 [app.js] 창원
+§b6966f6 [app.js] 제주
+§73e0668 [app.js] 날씨 자료 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · 대기질 CAMS 예보. 미세먼지는 측정소 값이 아니라 예보 모델이 계산한 값이어서 <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">에어코리아</a> 실측과 다를 수 있습니다. 등급은 환경부 예보 기준이고, 예보 칸은 그날 평균(㎍/㎥)입니다.
+§9d12f5a [app.js] <option value="@">내 위치</option>
+§7bb991b [app.js] 응답 시간 초과
+§fd7fdcc [app.js] <span class="pmc"><b>–</b><i>없음</i></span>
+§8cf82cc [app.js] 일,월,화,수,목,금,토
+§077364a [app.js] 요일</small>
+§2bdce5e [app.js] 오늘
+§7c42e0c [app.js] 체감
+§f78f10f [app.js] 습도
+§80440af [app.js] 바람
+§8cd4f83 [app.js] 일출
+§613dcff [app.js] 일몰
+§6aff186 [app.js] <li>기온을 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button></li>
+§2ffcbcd [app.js] 미세먼지
+§0d47b68 [app.js] 초미세먼지
+§d3683b7 [app.js] <p class="wx-airnow"><i>지금</i>
+§2ea36fb [app.js] <div class="tbl-wrap"><table class="pm"><caption class="sr">닷새 미세먼지 예보, 그날 평균</caption><thead><tr><th scope="col"><span class="sr">항목</span></th>
+§67f61e7 [app.js] <tr><th scope="row">미세<small>PM10</small></th>
+§171859c [app.js] <tr><th scope="row">초미세<small>PM2.5</small></th>
+§3c36898 [app.js] <p class="note">미세먼지 예보를 불러오지 못했습니다.</p>
+§7838870 [app.js] · 새로 불러오지 못해 저장해 둔 값입니다
+§8568ba1 [app.js] · 기온 오류:
+§5321ad0 [app.js] 날씨를 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button>
+§3768c36 [app.js] 미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.
+§af2dd61 [app.js] 오류:
+§340e2ef [app.js] <li>불러오는 중…</li>
+§7635d93 [app.js] 위치를 가져오지 못했습니다
+§0bb5626 [app.js] 개 대회
+§7a6d68f [app.js] · 2026년 개최일 기준
+§c969ad0 [app.js] \n\n출처:
+§e4eae20 [build] 2026년은 {date}
+§a029987 [build] 2027년 날짜 미발표
+§b2ef420 [build] 접수
+§44650a9 [build] 기타
+§cab754f [build] {name} 공식 사이트(새 창)
+§5e6a113 [build] 공식
+§8f6507e [build] {name} 검색(새 창)
+§4f5a3f6 [build] 검색
+§cd2131a [build] ★ 목표
+§5824b97 [build] ☆ 목표
+§87c5eb2 [build] 목표 대회로 정하기: {name}
+§600c183 [build] 2026년 개최
+§da64046 [build] (추첨)
+§15b0909 [build] (기록 제출 후 접수)
+§5fe2759 [build] 풀코스 {nick}
+§e1a3c30 [build] km당
+§a42afaa [build] 러닝머신
+§12be5fa [build] {course}를 {time}에 달리려면 km당 {pace} 페이스가 필요합니다.
+§6281409 [build] {course}를 {time} 안에 들어오려면 km당 {pace} 페이스가 필요합니다.
+§b619ecf [build] 이 페이스로 처음부터 끝까지 고르게 달리면 {finish}에 들어옵니다.
+§b6c4dca [build] {time} 벽을 깨려면 km당 1초씩만 더 당기면 됩니다.
+§0ed29ff [build] km당 페이스
+§06a8a19 [build] 이보다 느려지면 목표를 넘깁니다
+§f96106c [build] 400m 트랙
+§67d7840 [build] 한 바퀴 기록
+§3c177a4 [build] 이 속도 이상
+§daece43 [build] 필요한 {brand}
+§205d88e [build] 이 기록에 해당하는 수준
+§d43c6f0 [build] {label} 약 {time}
+§9e582b3 [build] {name} 목표라면 10km는 몇 분에 뛰어야 하나요?
+§00d7b5d [build] 같은 수준의 유산소 능력으로 보면 {others}입니다. 다만 짧은 거리 기록이 좋아도 장거리 훈련이 부족하면 후반에 페이스가 떨어집니다.
+§2e2ccc2 [build] {name} 기록이면 하프와 풀코스는 얼마나 나올까요?
+§6cc3ea4 [build] 같은 수준의 유산소 능력으로 보면 {others}입니다. 그 거리를 충분히 준비했을 때의 값이라, 장거리 훈련이 부족하면 이보다 느리게 나옵니다.
+§18da3b1 [build] {name} 페이스는 km당 몇 분인가요?
+§14542d9 [build] km당 {kpace}({pace})입니다. 이 페이스로 고르게 달리면 {finish}에 들어옵니다. 400m 트랙으로는 한 바퀴 {lap}입니다.
+§0353938 [build] 러닝머신으로는 시속 몇 km에 맞춰야 하나요?
+§0e19078 [build] 시속 {kmh}km 이상입니다. 러닝머신은 바람 저항이 없어 같은 속도라도 야외보다 조금 편하게 느껴질 수 있습니다.
+§28c3ef0 [build] km당 {pace} · 러닝머신 {kmh}km/h
+§2238865 [build] 현재 위치
+§16490c2 [build] 목표 페이스표
+§0c72df2 [build] {name} 페이스
+§bf611bf [build] km당 {pace}
+§9b1639a [build] 핵심 숫자
+§7b25a3e [build] 구간별 통과 시각
+§ffa2a1e [build] 전반을 아끼는 후반 가속 구간표는
+§f01e139 [build] 대회 계획에서 만들기
+§b2d0d6e [build] 이 목표, 지금 실력으로 될까
+§ca73272 [build] {name} 기록은 {brand} {idx} 수준입니다. 같은 수준이면 다른 거리에서는 아래 기록이 나옵니다. 최근 기록이 이보다 빠르면 사정권입니다.
+§9bb143d [build] 같은 수준의 기록
+§e4bd4fb [build] 내 기록으로 {brand} 확인
+§dd64b2e [build] 계산하기
+§bb17f39 [build] 이 기록을 내는 러너의 훈련 페이스
+§c08f037 [build] 훈련 페이스는 목표가 아니라 지금 기록에 맞춥니다. 아직 이 기록이 아니라면 최근 기록으로 계산한 페이스로 훈련하세요.
+§da382ed [build] 다치지 않고 준비하려면
+§3fb942d [build] 이번 장거리, 얼마까지 늘려도 될까
+§721edba [build] 거리 급증 체크
+§5544eb1 [build] 다른 목표
+§15b3e98 [build] 한 단계 위 목표
+§a43841c [build] 한 단계 아래 목표
+§1e4e536 [build] 풀코스, 하프, 10km, 5km 목표를 한 표에서 봅니다.
+§c2b6c00 [build] 전체 표
+§b829c2e [build] {name} 페이스표: km당 {pace}, 구간별 통과 시각
+§8b691a0 [build] 구간별 통과 시각과 러닝머신 속도, 같은 수준의 다른 거리 기록, 훈련 페이스까지 정리했습니다.
+§df58399 [build] 증상과 대처 보기
+§32ea49b [build] 다른 이름 {alias}
+§5d5a08c [build] 증상과 대처
+§4041d67 [build] 러닝 부상
+§a587464 [build] 아픈 곳 · {where}
+§b13b585 [build] 이런 느낌이면
+§cda87cc [build] 왜 생기나
+§6fbc983 [build] 스스로 할 수 있는 것
+§9f44973 [build] 다시 늘릴 때, 이번 거리는 괜찮을까
+§6cee8f3 [build] 이럴 때는 진료를
+§9c44762 [build] 다른 부상
+§4181ae6 [build] 러닝 부상 전체
+§44cf538 [build] 무릎, 정강이, 발, 허벅지 부상을 한눈에 봅니다.
+§1f9029e [build] 전체 보기
+§2649449 [build] 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.
+§323005f [build] {brand} 러닝 계산기
+§13a46f9 [views] 홈
+§edea14a [views] {brand} 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록
+§cab0f70 [views] 5K, 10K, 하프, 풀코스 기록 하나를 넣으면 {brand}와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.
+§fd8d61b [views] 대회 계획
+§4975b57 [views] 마라톤 페이스 계산기: 목표 기록 구간표
+§10e6e7a [views] 목표 기록을 넣으면 km당 페이스와 5km 구간별 통과 시각을 계산합니다. 후반 가속 전략과, 목표가 지금 실력에 맞는지도 함께 확인하세요.
+§9d3539f [views] 목표 페이스
+§4453c08 [views] 마라톤 페이스표: 서브3·서브4, 하프 2시간, 10km 50분 목표별 km당 페이스
+§2979377 [views] 풀코스 서브3·서브4, 하프 2시간, 10km 50분 등 목표 기록별로 km당 페이스와 400m 트랙 기록, 러닝머신 속도를 한 표에 정리했습니다. 목표마다 구간 통과 시각과 필요한 실력도 확인하세요.
+§7fb0fc9 [views] 대회 일정
+§3227dba [views] 전국 마라톤 대회 일정 2026·2027: 이번 주 대회부터 서울·춘천·JTBC 접수까지
+§d457a8e [views] 이번 주말 열리는 대회부터 2027년 봄·가을 대회까지, 전국 마라톤 대회 일정을 종목과 지역으로 골라 봅니다. 서울마라톤, 춘천마라톤, JTBC, 대구마라톤 등 주요 대회의 접수 시기와 공식 사이트도 함께 정리했습니다.
+§92f5cff [views] 주간 훈련표
+§81b894f [views] 주간 러닝 훈련표 만들기
+§c3fb4c2 [views] 주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.
+§549c9c9 [views] 달리기 기록
+§44877df [views] 달리기 기록장: 주간 거리와 신발 누적 거리
+§d1af0f3 [views] 날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리를 계산합니다. 가입 없이 쓰고 기록은 내 기기에만 저장됩니다.
+§abd0b04 [views] 거리 급증
+§75bce52 [views] 장거리 얼마까지 늘려도 될까: 러닝 부상 위험 체크
+§ec38497 [views] 최근 30일 최장 거리와 이번에 달릴 거리를 넣으면 과사용 부상이 늘어나는 구간인지 알려 드립니다. 러너 5,205명 추적 연구 기준.
+§7efeb2d [views] 신발
+§e63f2ff [views] 러닝화 교체 시기 계산기
+§5d8425e [views] 러닝화마다 누적 거리를 기록하고 교체 시기를 확인합니다. 쿠션화, 레이싱화, 트레일화별 교체 구간과 눈으로 확인할 점검 항목.
+§b9089b8 [views] 심박 존
+§c370139 [views] 러닝 심박 존 계산기
+§e67f8e0 [views] 나이나 실제 최대심박을 넣으면 이지, 마라톤, 역치, 인터벌 강도별 심박 범위를 계산합니다.
+§c0ba6ba [views] 페이스 변환
+§212c0b8 [views] 페이스 계산기: 러닝머신 속도와 km 페이스 변환
+§28e0c92 [views] 러닝머신 속도(km/h)를 km당 페이스로, 페이스를 5K·10K·하프·풀코스 완주 기록으로 바꿉니다.
+§bfb7192 [views] 체력 나이
+§35e15eb [views] 체력 나이 계산기: 달리기와 걷기로 보는 VO2max
+§b67c4f3 [views] 달리기 기록, 12분 달리기, 1.6km 빨리 걷기로 유산소 체력(VO2max)을 추정하고 또래 가운데 어디쯤인지, 체력 나이가 몇 살인지 보여 드립니다.
+§3311960 [views] 러닝 부상 가이드: 무릎·정강이·발 통증, 부위별 원인과 대처
+§384bcd0 [views] 달릴 때 무릎 바깥쪽이 아픈 장경인대 증후군부터 정강이 통증, 족저근막염, 아킬레스건, 피로골절까지. 러너에게 흔한 부상의 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.
+§a211a31 [views] 러닝 용어
+§ffe3a0a [views] 러닝 용어 사전: LSD, 빌드업, 서브4, 케이던스 뜻 정리
+§a94e52e [views] LSD, 빌드업, 인터벌, 템포런, 네거티브 스플릿, 서브4, DNF, 케이던스, 힐 드롭까지. 달리기를 시작하면 만나는 러닝·마라톤 용어를 쉬운 말로 풀었습니다.
+§e17b206 [views] 장비
+§bc71078 [views] 러닝 장비 고르는 법: 러닝화 유형과 폼롤러, 워치
+§0d7a12a [views] 데일리 쿠션화, 안정화, 레이싱화는 어떤 러너에게 맞을까. 제품이 아니라 유형으로 고르는 러닝 장비 안내.
+§1ab5908 [views] 러닝 계산기와 안내 모음
+§75be064 [views] {brand}의 러닝 계산기와 부상·장비 안내를 한곳에 모았습니다. 훈련표, 구간표, 심박 존, 체력 나이, 신발 교체 시기까지 가입 없이 무료로 씁니다.
+§417f524 [views] 근거·FAQ
+§f10b305 [views] 계산 근거와 자주 묻는 질문
+§79127a1 [views] {brand}의 계산식과 참고한 연구, 자주 묻는 질문을 정리했습니다.
+§c44c243 [views] {brand}가 저장하는 정보와 쿠키, 광고, 제휴 링크 안내.
+§d38d01a [tabs] 페이스
+§501fb80 [tabs] 부상
+§344528d [care] 풀코스 준비에서 부상은 대회 날보다 훈련 중에 생깁니다. 한 번에 달리는 거리를 최근 30일 최장 거리보다 10% 넘게 늘리면 과사용 부상이 늘어난다는 추적 연구가 있어, 장거리주는 조금씩 늘리는 편이 안전합니다.
+§acd9038 [care] 훈련 대부분은 옆 사람과 대화가 되는 이지 페이스로 채우고, 목표 페이스는 장거리주 후반에 일부만 넣습니다.
+§2586141 [care] 정강이나 발등처럼 뼈 위를 누르면 아프고 달릴수록 심해지는 통증은 쉬는 것이 먼저이고, 며칠 쉬어도 그대로면 진료가 필요합니다.
+§0f0fe2c [care] 하프는 주말 장거리주를 꾸준히 늘려야 후반이 버텨집니다. 한 번에 달리는 거리는 최근 30일 최장 거리보다 10% 넘게 늘리지 않는 편이 안전합니다.
+§160781e [care] 훈련 대부분은 대화가 되는 이지 페이스로 채우고, 역치 훈련은 한 번에 주간 거리의 10% 안쪽으로 둡니다.
+§5dbdc94 [care] 달리는 중에 한 지점이 콕 집어 아프고 달릴수록 심해지면 그날은 멈추는 것이 맞습니다.
+§d291e17 [care] 10km 기록을 당기려고 인터벌을 갑자기 늘리면 종아리와 아킬레스건에 부담이 몰립니다. 인터벌은 한 번에 주간 거리의 8% 안쪽으로 둡니다.
+§502ef93 [care] 빠른 훈련은 주 1~2회면 충분하고, 나머지는 대화가 되는 이지 페이스로 채웁니다.
+§295255d [care] 아침 첫걸음에 발꿈치나 아킬레스건이 뻣뻣하고 아픈 날이 이어지면 빠른 훈련부터 줄입니다.
+§59db733 [care] 5km 기록은 짧고 빠른 훈련으로 당기지만, 반복 훈련은 한 번에 주간 거리의 5% 안쪽으로 두고 달린 시간의 2~3배를 쉽니다.
+§089c4cd [care] 빠른 훈련 전에는 10~15분 가볍게 달려 몸을 덥힙니다. 주 1~2회면 충분하고, 나머지는 이지 페이스로 채웁니다.
+§0c9f34a [care] 허벅지 뒤나 종아리가 뜨끔하면 그날 빠른 훈련은 접는 것이 맞습니다.
+§7582bce [goal] 완주
+§a99d11c [terms] 기록과 대회
+§4ce4889 [terms] 개인 최고 기록입니다. 기록을 새로 썼을 때 'PB 했다'고 말합니다.
+§68962f7 [terms] 서브3 · 서브4
+§32c2fae [terms] 풀코스를 3시간, 4시간 안에 완주하는 것입니다. 서브4는 3시간 59분 59초까지를 말합니다. 하프나 10km에도 같은 식으로 씁니다.
+§794b364 [terms] 목표별 페이스표
+§5d87e4c [terms] 넷타임 · 건타임
+§6418bc1 [terms] 건타임은 출발 신호가 울린 순간부터, 넷타임은 내가 출발선을 밟은 순간부터 결승선까지 잰 기록입니다. 뒤쪽 그룹에서 출발하면 둘이 몇 분씩 차이 납니다. 내 실력을 볼 때는 넷타임을 씁니다.
+§67c3326 [terms] 배번
+§75aa08f [terms] 가슴에 다는 번호표입니다. 기록을 재는 칩이 뒷면에 붙어 있는 경우가 많아 접거나 구기지 않습니다.
+§8048ec0 [terms] DNS는 신청하고 출발하지 않은 것(Did Not Start), DNF는 출발했지만 완주하지 못한 것(Did Not Finish)입니다.
+§b2f6774 [terms] 컷오프
+§a304c1d [terms] 대회가 정한 제한 시간입니다. 풀코스는 대회에 따라 5~6시간 안팎이고, 구간마다 통과 제한 시간을 두기도 합니다. 대회 요강에서 확인합니다.
+§53f9816 [terms] 페이서
+§a301fe2 [terms] 목표 기록에 맞춰 일정한 속도로 달려 주는 주자입니다. 목표 시간이 적힌 풍선이나 깃발을 달고 뜁니다.
+§50325d6 [terms] 이븐 페이스
+§8181c57 [terms] 처음부터 끝까지 같은 속도로 달리는 것입니다.
+§1e03c7f [terms] 구간표 만들기
+§5520c0f [terms] 네거티브 스플릿
+§755edf9 [terms] 후반을 전반보다 빠르게 달리는 것입니다. 반대로 후반이 느려지면 포지티브 스플릿이라고 합니다.
+§b3b9201 [terms] 마라톤의 벽
+§7d42e32 [terms] 풀코스 30km 전후에서 갑자기 다리가 무거워지고 속도가 떨어지는 현상입니다. 몸에 저장된 탄수화물이 바닥나는 것이 주된 이유로 꼽힙니다.
+§252aedd [terms] 테이퍼링
+§2355fb5 [terms] 대회 앞 1~3주 동안 훈련량을 줄여 피로를 털어 내는 기간입니다.
+§b0edab5 [terms] 카보로딩
+§92037e9 [terms] 대회 전 2~3일 동안 탄수화물을 넉넉히 먹어 근육의 연료를 채우는 것입니다.
+§6c9264a [terms] 훈련
+§e826c71 [terms] 1km를 달리는 데 걸리는 시간입니다. 5분 30초 페이스는 5:30/km로 적습니다.
+§b05ac8c [terms] 옆 사람과 대화가 되는 편한 속도의 달리기입니다. 한 주 달리기의 대부분을 차지합니다.
+§4d27861 [terms] 내 이지 페이스 계산
+§11d0d5f [terms] 회복주
+§a40d647 [terms] 힘든 훈련이나 대회 다음 날, 피로를 풀려고 아주 가볍고 짧게 달리는 것입니다.
+§87aa470 [terms] 느린 속도로 오래 달리는 장거리 훈련입니다. 주말 장거리주를 흔히 이렇게 부릅니다.
+§15dda0f [terms] 지속주
+§1f257aa [terms] 정해 둔 속도로 쉬지 않고 이어 달리는 훈련입니다.
+§a054da3 [terms] 템포런 · 역치주
+§a3859fb [terms] '편하게 힘든' 속도로 20분 안팎을 이어 달리는 훈련입니다. 빠른 속도를 오래 버티는 힘을 기릅니다.
+§acfe61f [terms] 빠르게 달리기와 쉬기를 번갈아 반복하는 훈련입니다. 예를 들어 1km를 빠르게 달리고 2~3분 쉬기를 다섯 번 반복합니다.
+§09d631d [terms] 빌드업
+§93e3272 [terms] 느리게 시작해 구간마다 조금씩 속도를 올려 가는 달리기입니다.
+§20b329e [terms] 파틀렉
+§044524f [terms] 스웨덴어로 '속도 놀이'입니다. 정해진 틀 없이 빠르게와 느리게를 섞어 달립니다.
+§de1a8a5 [terms] 질주
+§84f8dcc [terms] 80~100m를 15~20초쯤, 빠르지만 힘을 빼고 달리는 짧은 가속 달리기입니다. 이지 런 끝에 몇 번 붙입니다.
+§38152bd [terms] 웜업 · 쿨다운
+§ae5ba42 [terms] 본 훈련 앞뒤로 가볍게 달려 몸을 덥히고 식히는 것입니다.
+§06f0027 [terms] 크로스 트레이닝
+§f33f0c3 [terms] 자전거, 수영처럼 달리기가 아닌 운동으로 체력을 기르는 것입니다. 부상으로 쉴 때 체력을 지키는 데 씁니다.
+§efc8f58 [terms] 주간 거리
+§7f699f7 [terms] 한 주 동안 달린 거리의 합입니다. 마일리지라고도 합니다.
+§108c4be [terms] 케이던스
+§fd0c466 [terms] 1분 동안의 발걸음 수입니다. 시계에는 spm으로 표시됩니다.
+§603c7ec [terms] 몸과 체력
+§a9370a0 [terms] 최대산소섭취량입니다. 운동할 때 몸이 1분 동안 쓸 수 있는 산소의 최대량으로, 유산소 체력을 나타내는 대표 지표입니다.
+§fd0f09c [terms] 내 체력 나이
+§70930fa [terms] 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다. 기록 하나로 훈련 페이스와 다른 거리의 예상 기록을 구하는 데 씁니다.
+§be9b0a5 [terms] 내 {brand} 계산
+§fe0f88b [terms] 젖산 역치
+§11f441f [terms] 운동 강도를 올리다 보면 피로 물질이 갑자기 쌓이기 시작하는 지점입니다. 이 근처 속도가 역치 페이스입니다.
+§f5c6a0d [terms] 러닝 이코노미
+§1ff24e6 [terms] 같은 속도를 얼마나 적은 에너지로 달리는지를 나타내는 효율입니다. VO2max가 같아도 이 효율이 좋으면 기록이 더 빠릅니다.
+§68ab598 [terms] 최대심박수 · 심박 존
+§cfaa7b1 [terms] 최대심박수는 심장이 1분에 뛸 수 있는 최대 횟수이고, 심박 존은 그 몇 %인지로 운동 강도를 나눈 구간입니다.
+§5475e16 [terms] 심박 존 계산
+§143a379 [terms] 글리코겐
+§4bd0a6e [terms] 근육과 간에 저장된 탄수화물입니다. 달리기의 주된 연료입니다.
+§db3e625 [terms] 지연성 근육통
+§64dd874 [terms] 운동한 지 하루 이틀 뒤에 나타나는 근육통입니다. 내리막을 달렸거나 평소보다 세게 운동한 뒤에 심합니다.
+§923d5ea [terms] 과사용 부상
+§271b422 [terms] 한 번의 사고가 아니라 반복된 부하가 쌓여 생기는 부상입니다. 러닝 부상의 대부분이 여기에 속합니다.
+§c88a7f6 [terms] 러너스 하이
+§96dc8f4 [terms] 오래 달릴 때 찾아오는 기분 좋고 가벼운 상태를 말합니다.
+§af123ae [terms] 힐 드롭
+§f8f3ec1 [terms] 신발 뒤꿈치와 앞꿈치의 높이 차이입니다. mm로 표시하며 오프셋이라고도 합니다.
+§5fa9f60 [terms] 스택 높이
+§ed2eb7e [terms] 발바닥 아래 밑창의 두께입니다.
+§2b0e106 [terms] 카본화
+§093825e [terms] 탄소 섬유 판과 반발이 좋은 폼을 넣은 레이싱화입니다. 슈퍼 슈즈라고도 합니다.
+§5e7af18 [terms] 러닝화 유형
+§170eb05 [terms] 착지할 때 발이 안쪽으로 지나치게 무너지는 것을 잡아 주는 구조가 들어간 신발입니다.
+§d8a0fdf [terms] 회내
+§de14f55 [terms] 착지할 때 발이 안쪽으로 살짝 구르는 자연스러운 움직임입니다. 프로네이션이라고도 합니다.
+§e739fca [terms] 에너지 젤
+§782e9bb [terms] 달리는 중에 먹는 탄수화물 보충제입니다. 하프 이상 거리에서 주로 씁니다.
+§8bf7ef5 [injury] 장경인대 증후군
+§fa894a2 [injury] IT 밴드 증후군
+§ee4b7b2 [injury] 무릎
+§87c9611 [injury] 무릎 바깥쪽
+§89722a4 [injury] 달릴 때 무릎 바깥쪽이 아프다면
+§df429af [injury] 달리다 보면 일정 거리부터 무릎 바깥쪽이 날카롭게 아파 오는 부상입니다. 허벅지 바깥을 따라 내려오는 장경인대가 무릎 바깥쪽 뼈 돌출부 근처에서 반복해서 자극받아 생깁니다.
+§902c507 [injury] 달리기 시작하고 일정 거리나 시간이 지나면 무릎 바깥쪽이 찌르듯 아픕니다.
+§98fdffe [injury] 내리막이나 계단을 내려갈 때 더 심합니다.
+§82648cd [injury] 쉬면 가라앉지만, 다시 달리면 비슷한 지점에서 또 아픕니다.
+§cf6f046 [injury] 무릎 바깥쪽 뼈가 튀어나온 부분을 누르면 아픕니다.
+§c6e9258 [injury] 주간 거리나 장거리주를 갑자기 늘렸을 때 흔합니다.
+§622f6c1 [injury] 내리막 달리기, 한쪽으로 기운 도로 가장자리, 트랙을 한 방향으로만 도는 훈련이 부담을 키웁니다.
+§a8780cf [injury] 엉덩이 바깥쪽 근육이 약하면 무릎이 안쪽으로 무너지면서 장경인대에 걸리는 긴장이 커집니다.
+§f7f6050 [injury] 통증이 시작되기 전 거리까지만 달리고, 내리막과 계단 훈련은 잠시 뺍니다.
+§1f80e88 [injury] 자전거나 수영처럼 아프지 않은 운동으로 체력을 유지합니다.
+§6fd87bd [injury] 옆으로 누워 다리 들기, 밴드 걸고 옆걸음처럼 엉덩이 바깥쪽 근육을 기르는 운동을 꾸준히 합니다.
+§bb09093 [injury] 걷기와 계단이 아프지 않게 되면 평지에서 짧게 시작해 조금씩 늘립니다.
+§0e3e7a0 [injury] 무릎이 붓거나, 걸리고 잠기는 느낌이 있을 때
+§2227122 [injury] 걷기만 해도 아프거나 밤에도 아플 때
+§b555a6a [injury] 슬개대퇴 통증 증후군
+§7e23415 [injury] 러너스 니
+§8d8dcd8 [injury] 무릎 앞쪽, 무릎뼈 주변
+§7edf8d7 [injury] 계단과 쪼그려 앉기에서 무릎 앞이 아프다면
+§e234552 [injury] 무릎뼈 주변이나 뒤쪽이 뻐근하게 아픈, 러너에게 가장 흔한 무릎 통증입니다. 무릎뼈와 허벅지뼈가 만나는 관절에 감당하기 어려운 부하가 반복될 때 생깁니다.
+§9a64358 [injury] 무릎 앞쪽이 넓게 뻐근하고, 정확히 한 점을 짚기 어렵습니다.
+§ae2eaf0 [injury] 계단 오르내리기, 쪼그려 앉기, 내리막 달리기에서 심해집니다.
+§a503a0e [injury] 영화관이나 차 안처럼 무릎을 굽히고 오래 앉아 있다가 일어날 때 아픕니다.
+§4d05d6a [injury] 달리는 거리나 횟수를 급하게 늘렸을 때 흔합니다.
+§e84d34d [injury] 허벅지 앞쪽 근육과 엉덩이 근육이 약하면 무릎뼈 관절에 실리는 부담이 커집니다.
+§71a4975 [injury] 내리막과 계단, 깊은 스쿼트는 이 관절에 걸리는 압력이 큽니다.
+§ece98d0 [injury] 아프게 만드는 동작(내리막, 계단 반복, 깊게 쪼그려 앉기)을 줄이고 평지 위주로 달립니다.
+§af30b30 [injury] 달리는 중 통증이 가벼운 수준을 넘으면 그날은 줄입니다.
+§867b6e5 [injury] 허벅지 앞쪽과 엉덩이 근력 운동을 통증 없는 범위에서 꾸준히 합니다.
+§7edf008 [injury] 보폭을 조금 줄이고 발걸음 수를 늘리면 무릎 부담이 줄어드는 경우가 많습니다.
+§d6c98df [injury] 무릎이 눈에 띄게 붓거나 열이 날 때
+§409ae07 [injury] 무릎이 갑자기 꺾이거나, 펴지지 않고 걸리는 느낌이 있을 때
+§3c2f951 [injury] 비틀리거나 넘어진 뒤부터 아프거나, 4주 넘게 조절해도 그대로일 때
+§68947f5 [injury] 신스플린트
+§437517c [injury] 내측 경골 스트레스 증후군
+§e1c430a [injury] 정강이
+§d9ed5fc [injury] 정강이 안쪽 아래
+§fdec1b6 [injury] 달릴 때 정강이 안쪽이 아프다면
+§4bdc4b5 [injury] 정강이뼈 안쪽 가장자리를 따라 넓게 아픈 부상으로, 달리기를 막 시작했거나 훈련량을 급하게 늘린 러너에게 흔합니다. 정강이뼈와 그 주변 조직이 반복 충격을 감당하지 못할 때 생깁니다.
+§b466c1c [injury] 정강이 안쪽 아래 절반쯤이 손바닥 너비 이상으로 넓게 아픕니다.
+§6bba014 [injury] 달리기 시작할 때 아프다가 몸이 풀리면 덜하고, 끝난 뒤 다시 뻐근해지는 경우가 많습니다.
+§d19d141 [injury] 정강이뼈 안쪽 가장자리를 따라 누르면 길게 아픕니다.
+§5740b7b [injury] 거리, 횟수, 속도를 한꺼번에 올렸을 때 흔합니다.
+§c09551a [injury] 딱딱한 노면과 수명이 다한 신발이 부담을 더합니다.
+§c44c413 [injury] 종아리 근력과 지구력이 부족하면 충격을 뼈가 더 많이 받습니다.
+§ab2cfea [injury] 아프지 않은 수준까지 달리는 양을 줄이고, 줄인 만큼은 자전거나 수영으로 채웁니다.
+§f22934d [injury] 종아리 들어 올리기로 종아리 근력을 기릅니다.
+§9896cdf [injury] 신발의 누적 거리를 확인합니다.
+§3f56f68 [injury] 통증이 가라앉으면 한 번에 달리는 거리를 조금씩만 늘립니다.
+§a906af0 [injury] 아픈 범위가 손가락 한두 마디로 좁고, 그 한 점을 누르면 심하게 아플 때(피로골절일 수 있습니다)
+§7de6274 [injury] 걷거나 쉴 때, 밤에도 아플 때
+§1c93f6b [injury] 피로골절
+§5e98fca [injury] 스트레스 골절
+§02938e0 [injury] 정강이·발
+§271e51b [injury] 정강이, 발등, 드물게 골반과 허벅지뼈
+§2d3e633 [injury] 한 점이 콕 집어 아프고 달릴수록 심해진다면
+§59c61a9 [injury] 뼈가 회복할 틈 없이 반복 충격을 받아 미세한 금이 가는 부상입니다. 초기에 멈추면 대개 잘 낫지만, 참고 달리면 완전히 부러질 수 있어 러닝 부상 가운데 가장 조심해야 합니다.
+§9ab542e [injury] 뼈 위의 한 지점이 콕 집어 아프고, 누르면 그 자리가 뚜렷하게 아픕니다.
+§385d0d0 [injury] 달릴수록 심해지고, 몸이 풀려도 나아지지 않습니다.
+§652924c [injury] 진행하면 걷거나 쉴 때, 밤에도 아픕니다.
+§b31a015 [injury] 발등이라면 붓기가 보이기도 합니다.
+§454bb5d [injury] 훈련량을 급격히 늘렸거나 쉬는 날 없이 달렸을 때 생깁니다.
+§647a6dc [injury] 먹는 양이 운동량에 비해 부족하면 뼈가 회복하지 못합니다. 체중을 급히 줄이는 시기에 특히 조심해야 합니다.
+§fc46b7c [injury] 생리가 불규칙해졌다면 에너지가 부족하다는 신호일 수 있습니다.
+§63d24d6 [injury] 이전에 피로골절을 겪었다면 다시 생길 위험이 높습니다.
+§47c962b [injury] 의심되면 달리기를 멈추는 것이 먼저입니다. 참고 달려서 나아지는 부상이 아닙니다.
+§57978be [injury] 진료 전까지는 통증이 없는 범위에서만 걷고, 뛰거나 점프하지 않습니다.
+§f61618b [injury] 초기에는 엑스레이에 보이지 않는 경우가 많아, 증상이 뚜렷하면 MRI로 확인합니다.
+§cad6cb3 [injury] 위 증상에 해당하면 미루지 말고 진료를 받으세요.
+§e73902a [injury] 사타구니나 엉덩이 깊은 곳이 아프고 체중을 실을 때 심해지면 허벅지뼈 목 부위일 수 있습니다. 이 자리는 체중을 싣지 말고 빨리 진료를 받아야 합니다.
+§960d28f [injury] 족저근막염
+§5379d7a [injury] 발
+§2c08929 [injury] 발뒤꿈치 바닥
+§2b7d461 [injury] 아침 첫걸음에 발뒤꿈치가 아프다면
+§a89ff48 [injury] 발뒤꿈치 바닥 안쪽이 찌르듯 아픈 부상입니다. 발바닥을 받치는 두꺼운 막(족저근막)이 뒤꿈치뼈에 붙는 자리에 반복 부하가 쌓여 생깁니다.
+§dd3cb4d [injury] 아침에 일어나 첫걸음을 디딜 때 뒤꿈치 바닥이 찌르듯 아픕니다.
+§da139cf [injury] 오래 앉아 있다가 일어설 때도 아프고, 몇 걸음 걸으면 덜해집니다.
+§6789c98 [injury] 오래 서 있거나 달린 뒤 저녁에 다시 뻐근해집니다.
+§d53d49c [injury] 달리는 양을 늘렸거나 오래 서서 일하는 생활이 겹칠 때 흔합니다.
+§0448959 [injury] 종아리 근육과 아킬레스건이 뻣뻣하면 족저근막에 걸리는 긴장이 커집니다.
+§de64c93 [injury] 쿠션이 꺼진 신발, 딱딱한 바닥을 맨발로 걷는 습관이 부담을 더합니다.
+§27f37a0 [injury] 벽을 짚고 하는 종아리 스트레칭과, 발가락을 젖혀 발바닥을 늘이는 스트레칭을 하루 여러 번 합니다.
+§9d359e1 [injury] 달리는 양을 줄이고, 집에서도 쿠션 있는 실내화를 신습니다.
+§24a1955 [injury] 뒤꿈치 들어 올리기 같은 발과 종아리 근력 운동을 천천히 더합니다.
+§05a0ca7 [injury] 대부분 좋아지지만 몇 달이 걸리는 일이 흔합니다. 조급하게 양을 되돌리지 않습니다.
+§05792b9 [injury] 6주 넘게 관리해도 그대로일 때
+§262cca1 [injury] 뒤꿈치뼈를 양옆에서 쥐었을 때 아프거나 밤에도 아플 때(뒤꿈치뼈 피로골절과 구분해야 합니다)
+§81f8735 [injury] 발바닥이 저리거나 화끈거릴 때
+§6560036 [injury] 아킬레스건병증
+§6813d11 [injury] 아킬레스건염
+§b88c34b [injury] 발목·종아리
+§8f19b74 [injury] 발뒤꿈치 위 아킬레스건
+§a2aff4b [injury] 아침에 아킬레스건이 뻣뻣하고 아프다면
+§bf328a6 [injury] 발뒤꿈치 위쪽 아킬레스건이 뻣뻣하고 아픈 부상입니다. 힘줄이 반복 부하를 감당하지 못해 생기는 변화여서, 쉬기만 하기보다 알맞은 부하로 힘줄을 다시 단련하는 것이 치료의 중심입니다.
+§5976e99 [injury] 아침 첫걸음이나 오래 앉았다 일어날 때 아킬레스건이 뻣뻣합니다.
+§db63192 [injury] 달리기 시작할 때 아프다가 몸이 풀리면 덜해지고, 다음 날 아침에 다시 뻣뻣합니다.
+§b437105 [injury] 뒤꿈치뼈에서 손가락 두세 마디 위가 도톰해지거나 누르면 아픕니다.
+§ecbf488 [injury] 인터벌, 오르막, 질주처럼 빠른 훈련을 갑자기 늘렸을 때 흔합니다.
+§3f7a887 [injury] 종아리 근력이 부족하면 힘줄이 받는 부담이 커집니다.
+§29d1478 [injury] 굽이 낮은 신발로 갑자기 바꾼 것이 계기가 되기도 합니다.
+§808a00d [injury] 빠른 훈련과 오르막을 먼저 빼고, 평지에서 편한 속도로만 달립니다.
+§00864bc [injury] 계단 끝에서 뒤꿈치를 천천히 올렸다 내리는 종아리 운동을 꾸준히 합니다. 보통 석 달 가까이 이어 가야 효과가 납니다.
+§dbd57e2 [injury] 운동 중 통증이 가볍고 다음 날 아침 뻣뻣함이 심해지지 않는 범위에서 부하를 올립니다.
+§4a22c6a [injury] 완전히 쉬기만 하면 힘줄이 약해져 복귀가 더뎌질 수 있습니다.
+§f8bb10d [injury] '뚝' 하는 느낌과 함께 갑자기 아프고 까치발로 서지 못할 때(파열일 수 있어 바로 진료가 필요합니다)
+§092e3f8 [injury] 힘줄이 눈에 띄게 붓거나 붉어지고 열이 날 때
+§11edd34 [injury] 6~8주 운동해도 나아지지 않을 때
+§ce39cc2 [injury] 햄스트링 손상
+§90b4d82 [injury] 허벅지 뒤 근육 손상
+§4d09f51 [injury] 허벅지
+§363ae3d [injury] 허벅지 뒤쪽
+§99a6d62 [injury] 질주하다 허벅지 뒤가 뜨끔했다면
+§f36e133 [injury] 빠르게 달리다 허벅지 뒤가 갑자기 뜨끔하는 근육 손상입니다. 장거리 러너에게는 갑작스러운 손상보다, 엉덩이 바로 아래가 서서히 뻐근해지는 힘줄 문제로 나타나는 경우도 많습니다.
+§5b5d1a9 [injury] 질주나 인터벌 중 허벅지 뒤가 갑자기 뜨끔하거나 당깁니다.
+§f672fed [injury] 다리를 앞으로 뻗거나 허리를 숙일 때 허벅지 뒤가 당기고 아픕니다.
+§9ea4060 [injury] 엉덩이 아래 깊은 곳이 오래 앉아 있거나 빠르게 달릴 때 뻐근하다면 힘줄 쪽 문제일 수 있습니다.
+§576497a [injury] 준비운동 없이 빠른 속도로 달렸을 때 생기기 쉽습니다.
+§56593f9 [injury] 피로가 쌓인 상태에서 하는 스피드 훈련이 흔한 계기입니다.
+§fbff717 [injury] 한 번 다친 햄스트링은 다시 다치기 쉽습니다.
+§6ade835 [injury] 뜨끔한 날은 빠른 달리기를 바로 멈춥니다.
+§ee94e8c [injury] 처음 며칠은 아프지 않은 범위에서 걷고, 통증을 참으며 세게 늘이는 스트레칭은 피합니다.
+§e7022de [injury] 통증이 가라앉으면 브리지 같은 근력 운동을 가볍게 시작해 강도를 올립니다.
+§9cf622c [injury] 편하게 달려도 아프지 않을 때까지 질주와 인터벌은 미룹니다.
+§d1b13b9 [injury] '뚝' 하는 느낌이 있었거나 허벅지 뒤에 멍이 넓게 들 때
+§e219a66 [injury] 걷기 어렵거나 다리에 힘이 들어가지 않을 때
+§40ecd2d [injury] 엉덩이 아래 통증이 한 달 넘게 이어질 때
+§a210761 [injury] 발목 염좌
+§61e9124 [injury] 발목 접질림
+§6c50dce [injury] 발목
+§78f43ad [injury] 발목 바깥쪽
+§e4eacbb [injury] 달리다 발목을 접질렸다면
+§f9a5f7f [injury] 울퉁불퉁한 길이나 턱에서 발목이 안쪽으로 꺾이며 바깥쪽 인대가 다치는 부상입니다. 흔하다고 가볍게 넘기면 자꾸 접질리는 발목이 되기 쉬워, 통증이 가라앉은 뒤의 균형 훈련이 중요합니다.
+§df8f4ab [injury] 접질린 직후 바깥쪽 복사뼈 앞과 아래가 붓고 아픕니다.
+§0bc7cd6 [injury] 하루 이틀 사이 멍이 들기도 합니다.
+§b9c307e [injury] 체중을 실을 때 아프고 발목이 불안하게 느껴집니다.
+§9266471 [injury] 트레일, 보도 턱, 어두운 길에서 발을 헛디딜 때 생깁니다.
+§4ceb113 [injury] 이전에 접질린 발목은 균형 감각이 떨어져 다시 접질리기 쉽습니다.
+§355d783 [injury] 피로가 쌓인 달리기 후반에 잘 생깁니다.
+§f2f5c69 [injury] 처음 며칠은 무리하지 않고, 붓기가 심하면 압박하고 다리를 올려 둡니다.
+§1492d65 [injury] 통증이 허락하는 범위에서 일찍부터 발목을 움직이고 체중을 싣는 것이 회복에 도움이 됩니다.
+§e0cf716 [injury] 한 발로 서기 같은 균형 훈련을 통증이 가라앉은 뒤에도 몇 주 이어 갑니다. 다시 접질리는 일을 줄여 줍니다.
+§3f8aeeb [injury] 한 발 까치발 서기와 제자리 뛰기가 아프지 않으면 평지부터 달리기를 시작합니다.
+§8aabac9 [injury] 다친 직후에도, 시간이 지나서도 네 걸음을 걷지 못할 때
+§e502fd7 [injury] 복사뼈 뒤쪽 가장자리나 발 바깥쪽 가운데 뼈를 누르면 아플 때(골절 확인이 필요합니다)
+§8e1f1a2 [injury] 붓기와 불안정한 느낌이 몇 주가 지나도 남을 때
+§958ce6f [races] 풀 · 하프 · 10km · 6km
+§26f6a42 [races] 경기 파주 임진각 평화누리공원
+§4d32e7a [races] 접수 마감
+§6463ed6 [races] 공식 사이트
+§2781589 [races] 하프 · 10km
+§6d5ab2c [races] 서울 광화문광장 → 잠실종합운동장
+§7338776 [races] 풀 · 10km · 건강달리기
+§4bfd446 [races] 대구 국채보상운동기념공원 출발·도착 (2027년부터 도심 코스)
+§b0af3db [races] 풀코스 2026년 10월 12~18일, 10km·건강달리기 10월 26일~11월 1일에 접수했습니다. 추가 접수는 공식 사이트에서 확인하세요.
+§27617ef [races] 풀 · 10km
+§5e78f75 [races] 서울 광화문광장 → 잠실종합운동장 (10km는 잠실)
+§4908dbb [races] 국내 참가자 본접수는 2026년 6월 1~2일에 끝났습니다. 풀코스는 그보다 앞선 4월 28일~5월 11일에 완주 기록을 먼저 제출해야 했습니다.
+§a47315f [races] 3월 하순
+§50e535f [races] 하프 · 10km · 5km
+§8cf69a0 [races] 인천 문학경기장
+§34d4826 [races] 지난 대회는 1월 5일~2월 13일에 선착순으로 접수했습니다.
+§de41d13 [races] 네이버에서 공식 사이트 찾기
+§4c62d67 [races] 4월 첫 토요일 무렵
+§86d86fa [races] 경북 경주 보문관광단지
+§2fb835d [races] 지난 대회는 2025년 12월 18일(하프·5km), 19일(10km) 오전 10시에 접수를 열었고 금방 마감됐습니다.
+§c521cea [races] 4월 초
+§e905e00 [races] 풀 · 10km · 5km
+§e443297 [races] 전북 군산 월명종합운동장
+§a31bb2f [races] 지난 대회는 1월 5일 오전 10시부터 선착순으로 접수했습니다.
+§b676054 [races] 매년 4월 마지막 일요일
+§1cc7404 [races] 서울 광화문광장 → 상암 월드컵공원 (10km는 여의도공원)
+§3cdf860 [races] 지난 대회는 2025년 12월 16일(하프), 18일(10km) 오후 2시에 접수를 열었습니다.
+§7ae17bf [races] 9월 하순
+§35dc59d [races] 풀 · 32km · 하프 · 10km · 5km
+§3421706 [races] 충남 공주
+§99d4af6 [races] 지난 대회는 5월 14~21일에 접수했습니다. 동아마라톤 계열 대회는 동마클럽에서 접수합니다.
+§690f24f [races] 접수처 동마클럽
+§4cec61a [races] 10월 둘째 일요일 무렵
+§783ddea [races] 서울 도심
+§3f525c8 [races] 동아마라톤 계열 대회는 동마클럽에서 접수합니다.
+§e2c4f40 [races] 매년 10월
+§d6896c4 [races] 풀 · 하프 · 10km
+§34ca4c7 [races] 경북 경주시민운동장 출발·도착
+§9756f2c [races] 지난 대회 본접수는 5월 26일 오후 7시에 동마클럽에서 열렸습니다.
+§265686a [races] 예년 10월 넷째 일요일
+§995acda [races] 강원 춘천 공지천 · 의암호 순환
+§3b7bbf9 [races] 지난 대회는 7월 14일(풀), 16일(10km)에 선착순 접수를 열었습니다. 공식 사이트에서만 접수합니다.
+§c9315d9 [races] 예년 11월 첫 일요일
+§d253c1c [races] 서울 상암 월드컵공원 출발 → 올림픽공원 (10km는 여의도공원)
+§b9e525f [races] 지난 대회 본접수는 4월 13~15일에 신청을 받아 추첨으로 뽑았습니다. 선착순이 아닙니다.
+§0cad285 [races] 12월
+§d20e595 [races] 1월
+§949b07e [races] 4월
+§9df5abb [races] 4~6월
+§731229a [races] 5월
+§ad9060d [races] 7월
+§bd81c06 [races] 10월
+§e0cee61 [races] 경기
+§e7e69e5 [races] 강원
+§36aff43 [races] 충북
+§6a824df [races] 충남
+§146e132 [races] 전북
+§e9425c0 [races] 전남
+§4fdb2a5 [races] 경북
+§7aeadd5 [races] 경남
+§fa3226c [races] 커플런
+§66fa11b [races] 단체전
+§2d9a757 [races] 트레일 42km
+§19d4c6c [races] 트레일 20km
+§924dd8a [races] 짐런 레이스
+§8b21c0d [races] 쉬엄쉬엄 짐런
+§2e2426e [races] 이어달리기 16km
+§6371e61 [races] 트랙
+§da798dc [races] 트레일 23km
+§365c8dc [races] 걷기
+§f35788a [races] 트레일 28km
+§6c3b12f [races] 트레일 8km
+§f062c3d [races] 풀(4일 연속)
+§0b0ba82 [races] 트레일 15km
+§a98bfcc [races] 혼성릴레이
+§b2c8359 [races] 트레일 풀
+§25f551e [races] 트레일 하프

@@ -1,0 +1,1156 @@
+§587204e Tools
+§7803642 Turn your record into training
+§56e0806 <a href="#plan"><b>Build this week's training plan</b><span>Set daily workouts and paces to match your weekly distance and running days.</span><i>Weekly plan →</i></a> <a href="#goals"><b>What pace is a sub-4?</b><span>Paces and treadmill speeds for full, half, 10K and 5K goal times in one table.</span><i>Goal pace chart →</i></a> <a href="#race"><b>When should you pass each split?</b><span>Get passing times every 5 km and check whether your goal fits your current fitness.</span><i>Race plan →</i></a> <a href="#calendar"><b>Where to race this weekend</b><span>Browse Korean races by distance and region, and check when Seoul, Chuncheon and JTBC open entries.</span><i>Race calendar →</i></a>
+§49eefc8 Run long, run injury-free
+§3290a23 <a href="#injury"><b>If it hurts here when you run</b><span>Knee, shin, foot, thigh: symptoms, what to do, and when to see a doctor for common running injuries.</span><i>Running injuries →</i></a> <a href="#spike"><b>How far can this long run go?</b><span>Compares it with your longest run of the last 30 days and flags the range where injuries rise.</span><i>Distance spike check →</i></a> <a href="#shoes"><b>How many km on your shoes?</b><span>Track mileage per pair and see when to replace them.</span><i>Shoe mileage →</i></a> <a href="#log"><b>Log your runs</b><span>Weekly distance, 30-day longest run and shoe mileage are worked out for you.</span><i>Run log →</i></a>
+§0e4f2e7 Beyond running
+§60dfb75 <a href="#heart"><b>Which zone is that heart rate?</b><span>Heart-rate ranges by intensity from your age or max heart rate.</span><i>Heart rate zones →</i></a> <a href="#fitage"><b>How old is your fitness?</b><span>No race result needed: a 12-minute run or a 1.6 km walk will do.</span><i>Fitness age →</i></a> <a href="#pace"><b>What pace is 10 km/h on a treadmill?</b><span>Convert between speed, pace and finish times by distance.</span><i>Pace converter →</i></a> <a href="#terms"><b>LSD, build-up, negative split</b><span>The unfamiliar words you meet as a new runner, in plain language.</span><i>Running glossary →</i></a> <a href="#gear"><b>Pick the type before the product</b><span>Which shoes and tools suit which runner.</span><i>Gear guide →</i></a> <a href="#about"><b>Where do these numbers come from?</b><span>Formulas, the research behind them, and FAQs.</span><i>Method &amp; FAQ →</i></a>
+§f48f6bf Training tools
+§62f12b8 Injury prevention tools
+§f2e63fe Other tools
+§f9360d4 Method and<br>FAQ
+§a8a2551 Here is where every number on this site comes from. It is built and reviewed by an orthopedic surgeon who also loves to run.
+§e0b6ed9 Why we built it
+§5b8e0f8 Running is the means; the goal is a body that walks and moves well for a long time. Many running injuries start from running faster than your fitness allows or longer than your preparation supports.
+§7414de3 So the tools here do two things: tell you the pace that fits your current fitness, and make sure distance and gear don't get ahead of your body.
+§a776c33 The {{brand}} formula
+§c5210d6 We use two equations published by exercise physiologists Jack Daniels and Jimmy Gilbert in 1979. The first gives the oxygen cost of a running speed; the second gives how long that intensity can be sustained. Dividing one by the other gives {{brand}}.
+§658be0c Oxygen cost = −4.60 + 0.182258·v + 0.000104·v² (v: meters per minute) Sustained fraction = 0.8 + 0.1894393·e^(−0.012778·t) + 0.2989558·e^(−0.1932605·t) (t: minutes) {{brand}} = oxygen cost ÷ sustained fraction
+§6d471e8 Intensity
+§b8c6ef6 How it's calculated
+§ea1d05b E Easy
+§f50fe0a Speed at 62–70% of {{brand}} (inside Daniels' E range of 59–74%)
+§906c101 M Marathon
+§8ca332b Predicted marathon pace from the same {{brand}}
+§cab4b7a T Threshold
+§cbf44c7 88% of {{brand}}
+§8c8d2e6 I Interval
+§7483c23 97.5% of {{brand}}
+§af11a09 R Repetition
+§d595c1a 6 seconds per 400 m faster than I pace
+§bae987a Errors can grow for results shorter than about 3:30 or longer than 4 hours. We calculate directly from the published equations rather than copying the book's tables, so results may differ from the tables by 1–2 seconds.
+§8a4acd2 Fitness age formulas
+§c96db01 12-minute run VO2max = (distance in m − 504.9) ÷ 44.73 1.6 km walk VO2max = 132.853 − 0.0769·weight (lb) − 0.3877·age + 6.315·(male 1, female 0) − 3.2649·time (min) − 0.1565·heart rate at finish
+§8de2b5e Fitness age is found by matching your estimate to the median of each age group in the FRIEND data and interpolating between groups.
+§5a729a4 References
+§02d360f <b>{{brand}} and training intensities</b> Daniels J, Gilbert J. Oxygen Power: Performance Tables for Distance Runners. 1979. / Daniels J. Daniels' Running Formula, 4th ed. Human Kinetics.
+§5211c2e <b>Peer comparison</b> Kaminsky LA, Arena R, Myers J. Reference Standards for Cardiorespiratory Fitness Measured With Cardiopulmonary Exercise Testing: Data From the FRIEND Registry. Mayo Clin Proc. 2015;90(11):1515-1523.
+§6f4670b <b>{{brand}} vs measured VO2max</b> Scudamore EM, Barry VW, Coons JM. An Evaluation of Time-Trial-Based Predictions of VO2max and Recommended Training Paces for Collegiate and Recreational Runners. J Strength Cond Res. 2018;32(4):1137-1143.
+§06cee1a <b>Fitness and mortality</b> Mandsager K, Harb S, Cremer P, Phelan D, Nissen SE, Jaber W. Association of Cardiorespiratory Fitness With Long-term Mortality Among Adults Undergoing Exercise Treadmill Testing. JAMA Netw Open. 2018;1(6):e183605.
+§7f41d79 <b>12-minute run</b> Cooper KH. A means of assessing maximal oxygen intake. JAMA. 1968;203(3):201-204.
+§fda634f <b>1.6 km walk</b> Kline GM, et al. Estimation of VO2max from a one-mile track walk, gender, age, and body weight. Med Sci Sports Exerc. 1987;19(3):253-259.
+§fb3fe03 <b>Distance spikes</b> Schuster Brandt Frandsen J, et al. How much running is too much? Identifying high-risk running sessions in a 5200-person cohort study. Br J Sports Med. 2025;59(17):1203-1210.
+§b8fadd5 <b>Shoe cushioning</b> Cornwall MW, McPoil TG. Can runners perceive changes in heel cushioning as the shoe ages with increased mileage? Int J Sports Phys Ther. 2017;12(4):616-624.
+§ea2e1cf <b>Stability shoes</b> Malisoux L, et al. Injury risk in runners using standard or motion control shoes: a randomised controlled trial with participant and assessor blinding. Br J Sports Med. 2016;50(8):481-487.
+§c1a0049 <b>Estimating max heart rate</b> Tanaka H, Monahan KD, Seals DR. Age-predicted maximal heart rate revisited. J Am Coll Cardiol. 2001;37(1):153-156.
+§bb81cf5 <b>Carbohydrate during races</b> Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance. Med Sci Sports Exerc. 2016;48(3):543-568.
+§ae2ce92 Frequently asked questions
+§2ed2e7d Is {{brand}} the same as VO2max?
+§192bb05 Same units, different values. VO2max is measured in a lab from your breathing gases; {{brand}} is worked backward from a race result. Runners who are more economical get a {{brand}} above their measured VO2max, while recreational runners usually get one below it. For setting training paces, {{brand}} is the more useful number.
+§1e585cb My peer ranking looks lower than I expected.
+§8e51bfd The math is right; it's a limit of the comparison. The peer table is lab-measured VO2max, and values from race results tend to come out lower. Marathon results also mix in endurance and fueling, which widens the gap. That's why we show rankings as "top X% or better", meaning at least this good. A hard 5K or 10K, or a 12-minute run, gets you closer to the true value.
+§c76bcaa My E pace feels too slow.
+§c9248d4 That's normal. Easy running works through time on your feet, not speed. Running it faster doesn't add benefit; it only slows recovery. If you can still hold a conversation, you're fine.
+§440de87 My marathon was much slower than predicted.
+§d0d2358 Predictions only reflect aerobic capacity. They can't account for the endurance to hold on after 30 km, fueling, weather or hills. Try recalculating from a half marathon result, or ask whether your long runs were enough.
+§6d8c712 What if I don't have a race result?
+§b19e057 Run 3 km or 5 km on a track or flat road at an even, all-out effort and enter that. A jogging time will give a {{brand}} lower than your real one.
+§dc52c1a Should I follow the weekly plan exactly?
+§23250b8 The plan is a sample week matched to your weekly distance and paces. It doesn't know how many weeks you have until race day or how you've run in recent months. Use it as a frame and adjust it downward to match how your body feels.
+§6cfe245 Where are my entries stored?
+§70de8f5 Only in the browser on this device. Nothing is sent to a server. Clearing browser data erases it, so copy a backup from the run log screen.
+§82a2375 Can I use it like an app?
+§e938c12 Add it to your home screen and it opens like an app; after the first visit it calculates even offline. On iPhone Safari, tap Share then Add to Home Screen; on Android Chrome, open the menu and choose Install app or Add to Home screen.
+§14d876b Please note
+§e5d0bbe The calculations and explanations on this site are general information and do not replace diagnosis or treatment. If you have pain or a heart or joint condition, talk to a medical professional before raising your training intensity.
+§f04b643 Korean marathon<br>race calendar
+§caea935 {{rlTotal}} races in Korea, from this weekend through spring and fall 2027. Filter by distance and region, and set a race as your goal to see a countdown.
+§d817100 Find a race
+§a7a7aef Upcoming <b id="rl-n-up"></b>
+§3935e65 2027 outlook <b id="rl-n-last"></b>
+§934dd25 All
+§6c147ad Full
+§d0e44ab Half
+§ff82b53 Trail
+§70fec2b Region
+§21b80d7 All Korea
+§5ec0894 Search race names
+§03149ff These races haven't announced their 2027 dates yet. Most are held around the same time every year, so use the 2026 date to plan your target season. We move them to Upcoming once the dates are announced.
+§89be553 No races match. Try another distance or region.
+§e7a2a80 Compiled as of {{rlChecked}} from public Korean race schedules (the Running Wiki listings) and each race's announcements. "Official" opens the race's official site; "Search" opens a web search for the race name. Schedules can change, so check the official notice before you enter. Race names are shown in Korean as announced.
+§7cb6aae Major races <small>dates confirmed</small>
+§4e03486 Major races <small>2027 dates not yet announced</small>
+§3229f19 As of {{racesChecked}}, these races haven't announced their 2027 dates. They're listed in running order with their usual season and 2026 date.
+§5022608 Ad space · shown after AdSense approval
+§8e117e2 When do entries open?
+§fdc6db5 Entry period
+§042b946 Race
+§346696d Grouped by last year's entry dates. Big races close entries months ahead, sometimes ten months before race day. Put the entry date, not the race date, on your calendar.
+§797357e Once you've picked a race
+§c91ce44 Marathon training usually starts 16–20 weeks out; half marathon training 10–12 weeks out.
+§e21f132 Some races, such as the Seoul Marathon full course, require a qualifying finish time to enter. Set a certified time the year before your goal race.
+§cd21905 If you miss the entry lottery, find another race in the same season. Your training plan still works.
+§c882a60 <span>Turn your goal time into splits</span><a href="#race">Race plan →</a>
+§cb446c2 <span>Plan a week of training for your race</span><a href="#plan">Weekly plan →</a>
+§f923aaf Schedule type
+§dfa8d7c Distance
+§d92c9fd Race name or region
+§565fe8f How old is<br>your fitness?
+§2fe7125 Aerobic fitness is the measure most closely tied to staying healthy and active for life. Even without a race result, you can estimate it from a 12-minute run or a brisk 1.6 km walk.
+§298e196 Race result ({{brand}})
+§e51af41 12-minute run
+§4ac13ad 1.6 km brisk walk
+§6c620e5 Age
+§fd3f392 Male
+§445287d Female
+§1bd00c6 Distance covered in 12 minutes
+§6d704d9 Run as far as you can in 12 minutes on a track or flat ground. Don't burn everything in the first 2 minutes; keep it even. On a 400 m track, count laps.
+§0b877b7 ␣min
+§3845248 sec
+§7b76cd3 Heart rate at finish
+§ca60869 Weight
+§8ba47d7 Walk four laps of a 400 m track (1.6 km) as fast as you can without running. At the finish, count your pulse for 15 seconds and multiply by 4, or read your watch.
+§5747a88 <span class="big" id="ft-agebig">–</span><span class="pill" id="ft-pill"></span><span class="tag" id="ft-ex">Example</span>
+§f782b31 <span><span id="ft-vlab">Estimated VO2max</span><b id="ft-v"></b></span><span>Among peers<b id="ft-pct"></b></span>
+§a1b8d81 Why fitness age matters
+§9dbaf40 A Cleveland Clinic study that followed 122,007 adults after treadmill stress tests found that the fitter the group, the lower the risk of death, with no upper limit to the benefit. The fittest group had an 80% lower risk of death than the least fit (bottom 25%).
+§105f439 It's an observational study, so it doesn't mean raising your fitness adds that many years. But unlike age or family history, aerobic fitness is something training can change.
+§344b4bd Keeping a body that walks and moves well for a long time is the goal, and running is one of the easiest ways to get there.
+§76ef6b3 To lower your fitness age
+§41dc6ef Frequency first. Three or more times a week, 30 minutes at a conversational pace is the starting point. Mixing walking and running is fine.
+§b58eba4 After a few months, add a weekly session with a few 3–5 minute efforts that leave you breathing hard. It's the most efficient zone for raising aerobic capacity.
+§f010c40 Retest the same way every 8–12 weeks to see the change.
+§d47a902 <span>A week planned around your pace</span><a href="#plan">Weekly plan →</a>
+§c4c3be1 Before you read the results
+§dab1328 The comparison uses treadmill stress-test data from 7,783 US adults (FRIEND, 2015). Values for other populations may differ.
+§745a7e5 Values from race results tend to come out lower than lab VO2max. A study comparing 5 km results with measured values found both collegiate and recreational runners came out lower, with a bigger gap in recreational runners. So read fitness age and ranking from race results as "at least this good", especially from half or full marathon results.
+§fb12750 Race results and the 12-minute run only work when you give it everything. An easy-effort time will make your fitness age look older than it is.
+§73bc124 The 1.6 km walk equation was built for adults aged 30–69 and has an error of about 4–6. Experienced runners may score low on the walk test, so use a race result instead.
+§5473709 If you have chest pain, severe shortness of breath or dizziness, or a heart condition, talk to a medical professional before doing an all-out test.
+§7b158d4 How do you want to measure?
+§c5e4d00 yrs
+§ddbacd6 Time to walk 1.6 km
+§b9fe65a bpm
+§77737fe Sex
+§8b628b9 Pick the type<br>before the product
+§616fedc We don't recommend specific products. We only cover which type suits which runner and what to look for. For shoes, the most reliable test so far is still what feels comfortable when you try them on.
+§f8a2d29 This page takes part in the Coupang Partners program and may earn a commission. The buttons below lead to search results by type and do not recommend specific products.
+§44db25a Daily cushioned shoes
+§dcfa208 For
+§cc9998d The first pair for any runner who runs three or more times a week, mostly at E pace.
+§ae4f50d How to choose
+§1b0fe13 Try them on in the evening when your feet are swollen. Leave a fingernail's width in front of your big toe, and your heel shouldn't lift.
+§9f4d10a Stability shoes
+§76b41be Runners whose ankles roll inward a lot on landing and whose shoes wear fastest on the inner sole.
+§4b9ec78 Good to know
+§d9c6d1a Choosing stability shoes by arch shape alone has weak evidence for preventing injury. Still, a randomized trial found fewer injuries in runners whose feet roll inward, so they're worth considering.
+§e20490d Lightweight and racing shoes
+§d83f5c9 Runners looking for a second pair for T, I and R sessions and races.
+§bfcc5d5 They wear out sooner and change the load on your calves and Achilles. Get used to them on short sessions first.
+§84a6b6d Running watches and heart-rate monitors
+§975dd49 Runners who want a record of distance and pace. The distance spike check and shoe mileage are only accurate with a log.
+§ec186f8 Check GPS accuracy and battery life first. For sessions where heart rate changes quickly, like intervals, a chest strap is more accurate than a wrist sensor.
+§612782b Foam rollers and massage balls
+§894622a Runners whose calves and thighs feel tight after runs.
+§7f05233 They help short-term with tightness and flexibility. Evidence that they prevent injury is not clear. Don't press hard on bone or on a single painful spot.
+§5c9cd04 Race-day accessories
+§76f767d Runners preparing for a half marathon or longer: race bib belts, energy gels, running belts or vests.
+§eb70f89 Use nothing new on race day. Try gels on long runs first and choose one that sits well in your stomach.
+§9d3ca46 Why there's no buy button for knee and ankle braces
+§a74e9b9 Braces don't fix the cause of pain. They're a short-term tool when some instability lingers as you return after a diagnosis; if you can't run without one for more than two weeks, see a doctor first. Some braces are classified as medical devices, so this doctor-made site doesn't link to purchases.
+§020c00c See cushioned running shoes on Coupang
+§3971dfd See stability shoes on Coupang
+§b44cae2 See lightweight racing shoes on Coupang
+§aee4327 See running watches on Coupang
+§62bce46 See foam rollers on Coupang
+§af3aa1d See race bib belts on Coupang
+§ac9e828 Pace chart by goal time
+§7c3c85b Set a goal like sub-4, a 2-hour half or a 50-minute 10K? Start with the pace per km you need. We also list the time per 400 m lap and the treadmill speed.
+§4baf0c7 How to read the table
+§5dcb4e7 Pace per km is rounded down to the second, so running it evenly brings you in under your goal.
+§e6d0185 Treadmill speed is rounded up to 0.1 km/h. Set it at or above this speed.
+§6a699d6 Tap a goal to see split times, equivalent times at other distances, and training paces.
+§1dd5aa4 <span>Goal times not in the table, and negative-split plans</span><a href="#race">Calculate in Race plan →</a>
+§3de8690 Heart-rate ranges by intensity
+§9a01747 Find out which training intensity the heart rate on your watch means. We use Daniels' percentages of max heart rate for each intensity.
+§805fda5 Measured max heart rate (optional)
+§7745621 Your heart-rate ranges <span class="tag" id="hr-ex">Example</span>
+§be8e8ce % of max HR
+§28eaf1e Heart rate (bpm)
+§0270d6b R (repetition) efforts end within 2 minutes, before heart rate catches up. Go by pace, not heart rate.
+§68b144e Training by heart rate
+§d8121d6 On hot days, short-sleep days or after caffeine, heart rate runs higher at the same pace. On those days it's safer to follow heart rate than pace.
+§cb7ff76 Wrist sensors lag behind in sessions where heart rate rises and falls quickly, like intervals. They're reliable for easy and long runs.
+§f9d68a5 If your easy-run heart rate keeps going above the E range, slow down. Walk breaks are fine.
+§302947e <span>To set intensity by pace instead of heart rate</span><a href="#home">See your training paces →</a>
+§c113c92 Today's running weather
+§69d3387 My location
+§c78656b Loading…
+§ed126f7 One race result,<br>your {{brand}}
+§cd79a1b Enter a race or all-out result and get your {{brand}}, five training paces and predicted times at other distances instantly. Calculated with the Daniels formula, with an orthopedic surgeon's view on injury added.
+§8ee38cf Custom
+§3b0ec8f Distance (km)
+§6c35133 Time
+§4ea05ae Results update as soon as you change a number. Recent results on flat courses in cool weather are the most accurate.
+§2e1d696 <span>{{brandLatin}}</span><span id="bib-basis">Based on 10K 55:00</span>
+§af7dfe1 <span>{{brand}}</span><span class="tag" id="bib-ex">Example</span>
+§2ef0be1 Predicted times with equal preparation
+§48ff873 <span class="k">Half</span><span class="v" id="pr-half">2:01:56</span>
+§29286d1 <span class="k">Full</span><span class="v" id="pr-full">4:11:36</span>
+§ad411bd Copy results
+§7af9165 Make a share image
+§f153700 {{brand}} is an aerobic fitness index worked backward from a race result.
+§03b2f1d Share
+§4c8e0cb Today's paces, five lanes
+§79f8cff Lane 1 is the slowest and lane 5 the fastest. The length of each color bar is proportional to speed.
+§e20aa63 <span class="z">E</span>Easy
+§b2f3253 A pace where you can talk with the person next to you. Most of your weekly running happens here.
+§35556ef <span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span>
+§2c7bf17 <span class="z">M</span>Marathon
+§a795365 The target pace to hold for a full marathon. Mix it into the second half of long runs to get used to it.
+§432e8da <span class="z">T</span>Threshold
+§ce5be33 Comfortably hard. Run it as a 20-minute tempo, or as 5 minutes on, 1 minute rest repeats.
+§12bce8e <span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 10% of weekly distance per session</span>
+§7adec8e <span class="z">I</span>Interval
+§63d2e08 Run 3–5 minutes, rest about as long. Raises aerobic capacity.
+§798d19b <span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 8% of weekly distance per session</span>
+§4663cf7 <span class="z">R</span>Repetition
+§346e5ac Short and fast, under 2 minutes, with 2–3 times as much rest. Sharpens speed and running economy.
+§2a24e7d <span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 5% of weekly distance per session</span>
+§7f1b73b Upcoming races
+§d84ecb4 No races with confirmed dates right now. Check entry periods on the race calendar.
+§cf97c8c <span>Korean races by distance and region</span><a href="#calendar">Full race calendar →</a>
+§e273e19 Runner milestones: how far have you come?
+§9fbcde2 Common target times like sub-4. Each bar fills by how far you've come from the last milestone to the next. Distances you didn't enter are predictions, so read them as what you'd run with proper preparation for that distance.
+§35c0d3f <span>Pace per km and split times for goals like sub-4 or a 2-hour half</span><a href="#goals">Goal pace chart →</a>
+§d74208c Compare with your peers
+§dfcf611 <span class="big" id="peer-age">–</span><span class="cap">Aerobic fitness age · conservative estimate</span>
+§ce44f51 <span class="big" id="peer-pct">–</span><span class="cap" id="peer-group">Your age group</span>
+§3c6b8ea <span>Peer scale and the distance to the next level</span><a href="#fitage">Fitness age in detail →</a>
+§19d4a56 How to read the results
+§1e7360b {{brand}} shares its units with maximal oxygen uptake (VO2max) but also reflects running economy. Recreational runners often score lower than lab measurements, and lower still when it's calculated from half or full marathon results.
+§bcf0b39 Predicted times assume equal preparation for that distance. A marathon prediction from a 10K result alone comes out faster than reality if your long runs fall short.
+§eaf3319 Training paces reflect your current fitness. Enter a recent result, not your goal time.
+§984916a Distance
+§d84b6f4 Time
+§94ab6d0 Save image
+§d219bc9 You can also save the image by long-pressing it or right-clicking.
+§16ddd5e Running injury guide
+§4b4c43f Most running injuries come not from falls but from repeated load building up. Find common injuries by where it hurts, and tell what you can manage yourself from the signs that need a doctor.
+§2ddf1df Stop running and see a doctor if
+§190c164 One spot on a bone hurts, including when walking, resting or at night
+§3f52063 A joint swells, catches or locks
+§18e9851 After a "pop" you lose strength or can't bear weight
+§b31985b You feel numbness or tingling
+§9b8808e It doesn't improve after 2–3 weeks of reduced running
+§850f71e Pain you can run through, pain that means stop
+§489373f If pain while running is mild (about 3 out of 10 or less) and settles by the next morning, you can often keep going with less volume.
+§1424806 If it worsens as you run or changes the way you move, stop for the day.
+§0b1939d When returning, increase the distance of single runs a little at a time, and bring back fast sessions last.
+§788c0d1 <span>How far can this long run go?</span><a href="#spike">Distance spike check →</a>
+§8b1facc This guide is general information and does not replace a diagnosis. Pain in the same spot can have different causes, so see a doctor if symptoms are clear or last.
+§232682b Log the days<br>you run
+§9d90a16 Just enter the date and distance, and weekly distance, your longest run in the last 30 days and shoe mileage are worked out for you. Your log is stored only on this device.
+§62fc342 Current status <span class="tag" id="lg-ex">Example</span>
+§c9c381f <span class="big" id="lg-week">–</span><span class="cap" id="lg-week-cap">This week</span>
+§f67fb25 <span class="big" id="lg-long">–</span><span class="cap">Longest run in the last 30 days</span>
+§55e0a6c <span class="big" id="lg-cap">–</span><span class="cap">Suggested cap for your next long run (longest + 10%)</span>
+§2596a10 Each bar is the distance (km) run in a Monday-to-Sunday week. The date below is that week's Monday.
+§63f7198 <span>If your next run goes over the cap</span><a href="#spike">Distance spike check →</a>
+§364bb21 Add a run
+§5caa75a Date
+§8e04155 Distance
+§29efb69 Type
+§87ab4a7 Easy run
+§0c2f700 Long run
+§2d3effa Threshold
+§dc131c5 Intervals · reps
+§9f17494 Marathon pace
+§720131d Shoes worn (optional)
+§4687011 Recent runs
+§dcd42d6 Show more
+§83a9014 Move your log
+§7b3a85d Your log lives in the browser and disappears if you switch devices or clear browser data. Copy a backup now and then and paste it into a note.
+§a61c834 Copy backup of runs and shoes
+§ec57c59 Restore from backup
+§d0b856b Paste the backup you copied
+§33c7230 Replace current log with this backup
+§d0db467 Time (optional)
+§8e76976 Pick a shoe to add this run to its mileage.
+§9e9a7c5 Weekly distance, last 8 weeks
+§58a0abc Convert pace and speed
+§2f9595c Turn treadmill speed into pace per km, and pace into finish times by distance. Edit any field and the rest follow.
+§0ffcd1e Treadmill speed
+§4dfb6c0 With no wind resistance, a treadmill feels a little easier at the same speed. A 1% incline is a widely used fix.
+§8bb3b68 Holding this pace to the finish
+§65b2fd9 <span>To work backward from a goal time to splits</span><a href="#race">Race plan →</a>
+§3104ee5 Pace per km
+§139df54 Build this week's<br>training plan
+§6fdcbb6 Choose your weekly distance, running days and goal, and we fill in daily sessions with your paces. Quality volume stays within Daniels' per-session limits.
+§39e47a3 Distance to run this week
+§5e07966 3 days
+§d66ab49 4 days
+§450173f 5 days
+§a03f49c 6 days
+§c1a30af Base fitness
+§4b95da5 Enter the distance you've actually been running over the past few weeks. A plan built on a sudden jump in distance becomes a plan for injury.
+§bb22464 How the plan is built
+§855556a Hard days (quality sessions and long runs) are separated by rest days or easy runs.
+§b5e0010 Quality volume per session stays within 10% of weekly distance for T, 8% for I and 20% for M.
+§170b768 Long runs stay under 150 minutes. Running only 3–4 days a week makes the long run a bigger share, so judge it by time rather than distance.
+§eb57575 Below 20 km a week, build distance with easy runs before adding quality sessions.
+§cdc17bb The plan is a sample week. On days you feel heavy or sore, swapping a quality session for an easy run is following the plan.
+§7b6c548 Weekly plan <span class="tag" id="pl-ex">Example</span>
+§661a22e <span class="big" id="pl-total">30<small>km</small></span><span class="cap" id="pl-days-cap">4 days a week</span>
+§36c2acb <span class="big" id="pl-easy">92<small>%</small></span><span class="cap">Share run at an easy pace</span>
+§fcef450 <span class="big" id="pl-long">10<small>km</small></span><span class="cap" id="pl-long-cap">Long run</span>
+§65ed93f Copy plan
+§7ffaae8 <span>If this week is a big jump from last week</span><a href="#spike">Distance spike check →</a>
+§bca2ecb Running days
+§2fbea43 Goal
+§339679c Privacy policy
+§c4175fc {{brand}} is a calculator you use without signing up. Here's what is stored and where.
+§cb7187d What you enter
+§3bb2636 We don't collect names, contact details or account information. Results, age, sex, weight, heart rate, run logs and shoe details you enter are stored only in your browser on this device and are never sent to our servers.
+§294b254 Everything stored is erased if you clear this site's data in your browser settings.
+§a0f9111 Analytics, ads and affiliate links
+§e732af5 We don't currently use analytics, ads or affiliate links. If we start, we'll update this page first.
+§4e4f732 <b>Analytics</b> We use Google Analytics to count visits and popular pages. In the process Google collects cookies and device information. Values you enter in the tools are not sent. You can opt out by blocking cookies or using the Google Analytics opt-out browser add-on.
+§01ecf75 <b>Weather and air quality</b> The home-screen weather is fetched by sending your chosen area's coordinates to Open-Meteo. Your device location is used only if you tap "My location", and only coordinates rounded to about 10 km are sent. Your IP address reaches Open-Meteo's servers in the process. Your chosen area and the weather data are stored only on your device.
+§dcd2420 <b>Ads</b> We show Google AdSense ads. Google and its partners may use cookies to show ads based on your visits to this and other sites. You can turn off personalized ads in Google Ad Settings (adssettings.google.com).
+§84ec35d <b>Affiliate links</b> Buy buttons in the gear guide are Coupang Partners links. When you go to Coupang through one, Coupang uses cookies to see whether you buy, and if you do, we earn a commission. Your price doesn't change.
+§ba2ba31 Third parties and contact
+§a756653 We don't collect personal information, so there is none to share with third parties.
+§19d4c98 Contact: <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>
+§4e71573 Effective {{privacyDate}}
+§5180a18 Turn your goal time<br>into splits
+§e9d4012 Enter a goal time to get pace per km and split times. {{brand}} also tells you whether that goal fits your current fitness.
+§2ce3856 Use my {{brand}} prediction
+§d46157e Even pace from start to finish
+§63fdb66 Save early, push late
+§d08066d <span class="big" id="rc-pace">5:58<small>/km</small></span><span class="pill" id="rc-pill">Within your fitness</span><span class="tag" id="rc-ex">Example</span>
+§69e4821 <span>Treadmill<b id="rc-kmh"></b></span><span>400m<b id="rc-lap"></b></span><span>{{brand}} needed<b id="rc-need"></b></span>
+§bf951ff Splits
+§3c81ff5 Point
+§de2d187 Split pace
+§a0a639d Passing time
+§3422f86 Copy splits
+§a83a4a6 Race-eve checklist
+§c1da8c9 Your ticks are saved on this device.
+§27d6cee <span>How to choose shoes and gear by type</span><a href="#gear">Gear guide →</a>
+§747b6b6 <span>Haven't picked a race yet?</span><a href="#calendar">Race calendar →</a>
+§06f9aba Using your splits
+§bd6a20c The first 2–3 km feel easy, so it's tempting to run faster than your splits. Time banked there gets paid back several times over later.
+§b4c1fd5 On climbs, keep your effort steady, not your pace. The splits assume a flat course.
+§2d6f9b2 Heat and humidity slow you down at the same effort. Lowering your goal is how you protect your finish time.
+§fa42553 Marathon splits only hold if you've built enough long-run training to last beyond 30 km.
+§4ee0352 Race distance
+§efdeb84 Goal time
+§3258a1b Pacing strategy
+§b910376 Write it on your wrist or the back of your race bib.
+§cd023f8 Race bib, timing chip, safety pins or a bib belt
+§f1273d3 Shoes and socks you've worn on at least one long run. Never wear new shoes on race day.
+§a4d83fe Vaseline or tape for chafing spots (underarms, inner thighs, nipples)
+§a025645 Energy gels if you'll run over 90 minutes. 30–60 g of carbohydrate per hour is a widely used guide; use only products you've tried in training.
+§e823b6a A throwaway layer or rain poncho to wear before the start
+§a61e46a Charge your watch, note your splits
+§e2ca678 Check assembly time, bag-drop deadline and toilet locations
+§01b6afa How many km<br>on your shoes?
+§8269695 A study that measured shoes runners actually wore found heel cushioning dropped 16–33% after 480 km, yet experienced runners couldn't feel the change even after 640 km. That's why you need a distance log, not a feeling.
+§22bfed2 My shoe rack
+§c0a479d <span class="tag">Example</span> These are example shoes. Add your own and they'll be saved on this device, replacing the examples.
+§260c0e4 <span>Time for a new pair?</span><a href="#gear">How to choose by type →</a>
+§f67cc02 Add a shoe
+§9aa18e5 Name
+§e850d71 Daily cushioned · stability (500–800 km)
+§80107a8 Lightweight · racing (400–600 km)
+§a5018ed Trail (500–800 km)
+§4525294 Distance so far
+§2d7d229 Weekly distance in these shoes (optional)
+§070dbfa Add to shoe rack
+§51dd77f Pick a shoe when logging a run and its mileage goes up automatically.
+§4524f05 Check with your eyes, not just the distance
+§93f01aa Deep creases on the side of the midsole that don't flatten out
+§3b4f18c The outsole rubber is worn through to the midsole
+§ba18975 Set on a flat surface and viewed from behind, they lean to one side
+§33da19b New foot or knee pain on the same route you always run
+§f65a3f3 How strong is the evidence for replacement rules?
+§9f7b084 500–800 km is the rule of thumb used by brands and retailers. Research confirms cushioning declines with distance, but direct evidence that worn shoes raise injury risk is still lacking.
+§4cf1e5d So this tool treats distance as the point to start checking, not an order to replace. If you're heavier or run mostly on rough surfaces, start checking at the low end of the range. Carbon-plated racing shoes have almost no lifespan research, so we apply the lightweight · racing range.
+§774c41d e.g. weekend long runs
+§3138cc4 How far can<br>this long run go?
+§72314d8 A study that followed 5,205 runners for 18 months found injuries were more clearly linked to the distance of a single run than to weekly distance. Overuse injuries rose on days runners went more than 10% beyond their longest run of the last 30 days.
+§65e3a43 Longest single run in the last 30 days
+§91a6a1b Distance of this run
+§02f3949 Pull from run log
+§0f89f4c <span class="big" id="sp-pct">+33%</span><span class="pill" id="sp-pill">Moderate spike</span><span class="tag" id="sp-ex">Example</span>
+§0d44662 10% or less
+§4a16c03 Over 100%
+§7c0b051 Check weekly distance too
+§edf992d Distance run last week
+§b70eeef Planned this week
+§91d6a5a In the same study, weekly increases weren't clearly linked to injury. The popular 10% weekly rule is a rule of thumb; treat it as a reference only.
+§5db6abb When pain matters more than distance
+§6f13d6c Pressing one spot on your shin, top of the foot or heel bone hurts
+§d40f2bc It worsens as you run, or hurts on rest days and at night
+§1e81f04 It's swollen, or you limp when walking
+§248e8a0 If any of these apply, stop running and see a doctor. Problems like stress fractures heal faster the earlier you rest.
+§203d305 <span>Log your runs and you won't need to track your longest run and weekly distance separately</span><a href="#log">Run log →</a>
+§f178d5b Source: Schuster Brandt Frandsen J, et al. British Journal of Sports Medicine. 2025;59(17):1203-1210. An observational study with self-reported injuries. Multipliers are hazard rate ratios (HRR) compared with the 10%-or-less range.
+§9e70bb8 Running glossary
+§b8c475a The unfamiliar words you meet as a new runner, in plain language. Type a term to filter instantly.
+§e23d820 Find a term
+§0e72d85 No matching term. Try another word.
+§1231cb2 e.g. LSD, build-up, sub-4
+§8be43c4 All tools
+§66fce1a All of {{brand}}'s calculators and guides in one place. No sign-up, and what you enter stays on your device.
+§2e71e1b <b>{{brand}}</b> · A running calculator made by an orthopedic surgeon
+§531a04a The text and calculation tools on this site are copyrighted by {{brand}}. Unauthorized copying and redistribution are prohibited. When quoting, please cite the source ({{sourceName}}).
+§10fe4f2 Results are general information and do not replace medical diagnosis or treatment.
+§ed735a4 This site participates in the Coupang Partners program and may earn a commission.
+§a388e7b <a href="#about">Method · FAQ</a><a href="#privacy">Privacy</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
+§be4ee98 Add to home screen
+§a7aeb87 A running calculator made by an orthopedic surgeon
+§9d8ec3b {{brand}} home
+§b80ec21 Tools
+§479926d Quick links
+§1401b44 Daily cushioned · stability
+§b98934b Trail
+§b8afe0d Sub-{t}
+§f91d29a Sub {t}
+§5cd0d95 Good
+§2179da2 Moderate
+§c89bafa Bad
+§ff7a4d4 Very bad
+§9a7f95e Clear
+§c3e0a4a Mostly clear
+§d77284a Partly cloudy
+§887f182 Cloudy
+§254e8d3 Fog
+§59b3424 Drizzle
+§d3b0e1a Rain
+§374a498 Snow
+§5ed2015 Showers
+§d60d02b Thunderstorm
+§a1a321f Thunder and lightning. Put off outdoor running until it passes.
+§b1865e8 Air quality is very bad. Move today's run indoors or take a rest day.
+§4e0a5e0 Air quality is bad. Skip hard sessions like intervals; if you run, keep it short and easy.
+§9cbd441 It's hot. Slow your pace and carry water. Avoid the middle of the day.
+§c39f722 It's very cold. Wear thin layers and cover your hands and ears. Avoid icy paths.
+§4ce09b7 It's snowing. Shorten your stride on slippery paths and let go of pace goals.
+§a07b3cc It's raining. Wet roads, manhole covers and crosswalk paint are slippery.
+§20069aa It's on the warm side. The same pace may feel harder than usual. Bring water.
+§7a3122b It's chilly. Warm up well and take the first 10 minutes slowly.
+§3930a0e Great running weather. Fast times usually come on cool days like this.
+§aa6eb20 Fine weather for running.
+§cf7b632 Runjisu
+§346df27 Copied
+§5cb4c42 Couldn't copy
+§a7b95bb Enter the distance in km.
+§76d0893 Enter a distance between 0.8 and 100 km.
+§5a68f98 Enter your time.
+§3e160c1 That's faster than 2 minutes per km. Check the distance and time.
+§27e6cde Times slower than 15 minutes per km can't be calculated. Check the distance and time.
+§39b300c 
+§2bf356a · example result
+§c668c6a Enter my result
+§85ebf74 Change result
+§8b1e05f Top 5% or better
+§f913c9d Around the bottom 5%
+§5f35a51 Bottom 5%
+§6e59e44 Top
+§20de86d % or better
+§76c5fdf Bottom
+§8c22045 Above the average for your 20s
+§1b67856 Below the average for your 70s
+§7cbe6f3 About {n}
+§dd2cd68 or younger
+§cbc7666 Values from race results tend to come out lower than lab-measured VO2max, so your true fitness age is likely younger and your ranking higher.
+§728ad6f Half and full marathon results in particular mix in endurance and fueling, so they tend to come out even lower than 5K or 10K results. If you have an all-out 5K or 10K, recalculate with that.
+§f3624f5 The comparison uses stress-test data from 7,783 US adults (FRIEND, 2015).
+§72c37a2 Your age group
+§214c001 Enter your age and sex to see which age group's average your
+§a1fb7a8 matches and where you stand among your peers.
+§733c4f5 Only ages 20–79 can be compared
+§8cbb379 s
+§90667e9 men
+§def5b68 women
+§f805b68 Before the first milestone
+§305f73c ␣needs
+§3b7ec6e off
+§fd28efd Past the fastest milestone
+§ea11b5d Training paces Predicted times Half Full Custom With equal preparation One result, your
+§4de6c2c Training paces /km
+§61ab97e One result, your
+§58ee00d This result is outside the range where the formula works well (about 3:30 to 4 hours), so errors may be large.
+§12cbe25 is an aerobic fitness index worked backward from a race result.
+§4bae11e My
+§caa4e40 )
+§116ae2a Training paces /km  E
+§1ce8eba Predicted times
+§7f1ae2d result image
+§cafdc61 Ended
+§32b2e25 Goal race <b>
+§85df225 ">Race calendar →</a>
+§f251fe4 Remove goal race
+§9cd0269 Set as goal race
+§39e7f86 My goal race <b>
+§1b8b16b " id="goal-plan">Make splits →</a>
+§fac93e1 <span>Tap ☆ Goal next to a race to start a countdown and carry it over to the race plan.</span>
+§c16f421 Marathon
+§46cec0a Within your fitness
+§3097d32 Challenging goal
+§2ca7236 Too fast for now
+§a257f9f Enter a goal time.
+§2e34ce5 That goal is faster than 2 minutes per km. Check the time.
+§f5bccb5 Goals slower than 15 minutes per km can't be calculated. Check the time.
+§de8f9df This goal needs
+§099aded ; you have
+§d695104 .
+§b801371 It's a goal with room to spare.
+§0f82c80 They're nearly equal, so it's worth going for if your preparation is right.
+§27c8471 ␣short, but a few more weeks of training could close the gap. On race day, don't run the first few km faster than your splits.
+§2f3772e ␣short. Starting at this pace, you're likely to slow down badly in the second half. Your current
+§0b1a693 ␣gives a
+§6618208 ␣prediction of
+§ba4843e First half
+§c18e2a5 /km, second half
+§34b8a7b /km: 1.5% slower and 1.5% faster than your average pace.
+§665c20a A marathon goal based on
+§08810b2 ␣from a short-race result only holds if it's backed by long runs of 30 km or more.
+§e552b16 Finish
+§49449b4 · avg
+§7544869 Mon
+§adb4a28 Tue
+§c04eb2e Wed
+§5664a63 Thu
+§cf5632c Fri
+§b9e4066 Sat
+§06cf3e9 Sun
+§1ff7914 Rest day
+§e6904b0 Just walking or light stretching.
+§a928e40 At a conversational pace.
+§06be2b7 Finish with 4–6 × 20-second strides (about 90% effort, walk fully between).
+§6e9d564 About
+§511d424 ␣min. Start at the slow end of the E range.
+§0ea2b77 Warm-up
+§e4633d1 km easy → T pace 1 km ×
+§52b05e2 ␣reps, 1-min walk between → cool-down
+§bf2c119 km easy.
+§3b18e5a Intervals
+§dc6b97f km easy → I pace
+§0a941d6 ␣reps (about
+§a4a6616 ␣each), jog slowly for as long as each rep between → cool-down
+§289be95 Marathon-pace run
+§e6a16a7 km easy → M pace
+§6487f88 km continuous → cool-down
+§d232057 Enter a weekly distance between 10 and 160 km.
+§fcb93c1 {n} days a week
+§ee1afd9 Long run · about
+§752244c Splitting
+§6deaa54 km a week into
+§f358076 ␣days leaves under 3 km a day, so we reduced it to
+§28c4f93 ␣days.
+§316d299 ␣days would make a weekday run longer than the long run, so we increased it to
+§71a52ac ␣days.
+§13e8c58 At this pace,
+§8024f26 km a week is over 150 minutes a day even across 6 days. Split into two runs a day or recheck your weekly distance.
+§e599dfc Long run capped at 150 minutes. Beyond that, recovery costs more than you gain.
+§06e8917 The long run is
+§e842cd5 % of weekly distance. That comes from having few running days, so just make sure it stays under 150 minutes.
+§44b993d Under 20 km a week, so the plan has no quality sessions. Rebuild it as your distance grows.
+§dce8c3e Easy days were getting too short, so the quality session was dropped.
+§887d319 Weekly plan ·
+§16b8e37 Daily trainer
+§fa9c3c0 <option value="">None</option>
+§ba24a5f Add shoes to your shoe rack to pick them here. <a href="
+§3e92ce1 ">Add a shoe →</a>
+§12dcd23 This week so far · Last week
+§1b091b9 <button type="button" class="btn ghost small" data-act="del">Delete</button>
+§529624f Pick a date.
+§065f89d You can't log a future date.
+§0a08c7c Enter a distance between 0.1 and 200 km.
+§edac0df Distance and time don't match. Pace must be between 2 and 25 minutes per km.
+§2151207 Once more
+§fc81e22 Delete
+§150299b Couldn't read the backup. Make sure you pasted the whole copied text.
+§a730ba2 Reference range
+§7536df8 Doesn't exceed your recent longest run. This is the reference range in the study.
+§1ab649f Up to 10% beyond your longest run. This is the reference range in the study, though the risk here isn't zero either.
+§f34dc2f Small spike
+§b9682e5 In this range, the overuse injury rate was about 1.6× the reference range.
+§1763cd7 Moderate spike
+§7090914 In this range, the overuse injury rate was about 1.5× the reference range.
+§7f076fb Large spike
+§0be6ffd More than double your longest run. In this range, the overuse injury rate was about 2.3× the reference range.
+§5a3d169 Enter both distances as numbers greater than 0.
+§c61d60e The suggested cap for this run is
+§5410420 km: your recent longest run of
+§f2d8b8a km plus 10%.
+§b7aa830 Change from last week:
+§7eda1c2 %.
+§7fb43b9 Within the 10% weekly rule.
+§a1e2360 Over the 10% weekly rule. Spread the extra distance instead of piling it into one day.
+§af1c406 That's more than 30% in a week. Spread the extra distance instead of piling it into one day.
+§047cb4b Enter last week's distance and this week's plan to see the change.
+§a0989ac Longest in 30 days
+§7aee421 km, last week
+§b147a5d No runs in the last 30 days.
+§6d0ffa1 Plenty left
+§d2ec1dd Start checking
+§0a4f03b Replacement range
+§70a5c40 Replace now
+§0dc06a5 At
+§033a780 km a week, that's about
+§5281487 ␣weeks away.
+§a6fc9f3 km more puts them in the replacement range (
+§e2a959c km).
+§b562744 Replacement range in
+§b0279ac km. Start checking the outsole and midsole now.
+§0f957e1 In the replacement range. Replace them if any item below applies. The upper limit of
+§7e9f172 km is
+§8dfc231 km away.
+§df95b01 km exceeded. Get a new pair ready.
+§6376e39 · Total<b>
+§8c05359 ">Add distance (km)</label><input type="text" id="add-
+§4eeb890 " inputmode="decimal" autocomplete="off" maxlength="5" placeholder="km run today"><button type="button" class="btn" data-act="add">Add</button><button type="button" class="btn ghost" data-act="del">Delete</button></div>
+§c0c0af5 Tap again to delete
+§9a70f0f Enter a shoe name.
+§c3bc5a6 Enter a distance between 0 and 5000 km.
+§653c6e1 Easy
+§47d4f1c Marathon
+§6868e6a Threshold
+§296393f Enter a max heart rate between 120 and 230.
+§3243337 Enter an age between 10 and 90.
+§71ccf2a Calculated from your measured max heart rate of
+§5d9cb8f ␣bpm.
+§48dbcd1 Max heart rate estimated at
+§8fa189d ␣bpm (208 − 0.7 × age). Estimates vary by about 10 beats from person to person. If you have a value measured after an all-out run, enter it.
+§6515439 Enter a pace between 2 and 20 minutes per km (3–30 km/h).
+§00d61f4 Mid
+§1bcd025 The peer bottom-25% mark
+§699b3d8 The peer median
+§0b88b61 The peer top-25% mark
+§fb4de1a The peer top-10% mark
+§7e3f4dc The peer top-5% mark
+§5847cc3 Enter the distance covered in 12 minutes, in meters.
+§abe2029 Enter a distance between 1000 and 5000 m.
+§f02b770 Enter your time, finish heart rate and weight.
+§2933878 Enter a 1.6 km walk time between 8 and 30 minutes.
+§83f0160 Enter a heart rate between 60 and 220.
+§0e4cd4d Enter a weight between 30 and 200 kg.
+§b6874ca The walk test needs your age and sex.
+§569dc23 Select your sex.
+§88bb057 Can't calculate with these values. Please check the numbers.
+§f2dc6da Younger than your age
+§09be4ca Older than your age
+§9f43f72 Close to your age
+§6915eca Estimated VO2max
+§cdc2f8f Ages 20–79 only
+§811e029 You
+§737e57f — where you'd stand among 100 people lined up from lowest. Large numbers are the VO2max (ml/kg/min) at each point.
+§eb8457c You're above the peer top-5% mark. Your goal now is to keep it.
+§38d20ff ␣is
+§95b7b88 . That's
+§7774862 higher than you are now.
+§ebf1030 In 5K terms that's about
+§880314d .
+§fc0e5fb The 12-minute run equation only holds for an all-out effort.
+§dffe8b8 The walk equation has an error of about 4–6.
+§a92ac86 Errors may be larger outside ages 30–69.
+§ea9858e Seoul
+§41402f7 Incheon
+§08ccbbe Suwon
+§da0de68 Chuncheon
+§3554358 Gangneung
+§d2f2130 Cheongju
+§1e783cc Daejeon
+§210a875 Sejong
+§64ada74 Jeonju
+§ad0d7d4 Gwangju
+§604f78d Daegu
+§a816492 Pohang
+§b90ae63 Ulsan
+§25f016f Busan
+§d517715 Changwon
+§b6966f6 Jeju
+§73e0668 Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · Air quality from CAMS forecasts. Particulate values are model forecasts, not station readings, so they may differ from <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">AirKorea</a> measurements. Grades follow Korea's Ministry of Environment forecast standard; forecast cells show the daily average (㎍/㎥).
+§9d12f5a <option value="@">My location</option>
+§7bb991b Request timed out
+§fd7fdcc <span class="pmc"><b>–</b><i>N/A</i></span>
+§8cf82cc Sun,Mon,Tue,Wed,Thu,Fri,Sat
+§077364a </small>
+§2bdce5e Today
+§7c42e0c Feels like
+§f78f10f Humidity
+§80440af Wind
+§8cd4f83 Sunrise
+§613dcff Sunset
+§6aff186 <li>Couldn't load the temperature. <button type="button" class="linkish" data-wx-retry>Try again</button></li>
+§2ffcbcd PM10
+§0d47b68 PM2.5
+§d3683b7 <p class="wx-airnow"><i>Now</i>
+§2ea36fb <div class="tbl-wrap"><table class="pm"><caption class="sr">Five-day particulate forecast, daily average</caption><thead><tr><th scope="col"><span class="sr">Item</span></th>
+§67f61e7 <tr><th scope="row">Fine dust<small>PM10</small></th>
+§171859c <tr><th scope="row">Ultrafine<small>PM2.5</small></th>
+§3c36898 <p class="note">Couldn't load the particulate forecast.</p>
+§7838870 · Couldn't refresh; showing saved values
+§8568ba1 · Temperature error:
+§5321ad0 Couldn't load the weather. <button type="button" class="linkish" data-wx-retry>Try again</button>
+§3768c36 Weather can't load in this preview. It appears on the published site.
+§af2dd61 Error:
+§340e2ef <li>Loading…</li>
+§7635d93 Couldn't get your location
+§0bb5626 ␣races
+§7a6d68f · by 2026 race date
+§c969ad0 \n\nSource:
+§e4eae20 2026: {date}
+§a029987 2027 date not yet announced
+§b2ef420 Entry
+§44650a9 Other
+§cab754f {name} official site (new window)
+§5e6a113 Official
+§8f6507e Search for {name} (new window)
+§4f5a3f6 Search
+§cd2131a ★ Goal
+§5824b97 ☆ Goal
+§87c5eb2 Set as goal race: {name}
+§600c183 held in 2026
+§da64046 (lottery)
+§15b0909 (qualifying time required)
+§5fe2759 Marathon {nick}
+§e1a3c30 Per km
+§a42afaa Treadmill
+§12be5fa To run {course} in {time}, you need a pace of {pace} per km.
+§6281409 To finish {course} under {time}, you need a pace of {pace} per km.
+§b619ecf Run this pace evenly from start to finish and you'll come in at {finish}.
+§b6c4dca To break the {time} barrier, run just 1 second per km faster.
+§0ed29ff Pace per km
+§06a8a19 Any slower and you miss your goal
+§f96106c 400 m track
+§67d7840 Time per lap
+§3c177a4 This speed or faster
+§daece43 {brand} needed
+§205d88e The level this time requires
+§d43c6f0 {label} about {time}
+§9e582b3 For a {name} goal, what 10K time should I be able to run?
+§00d7b5d At the same aerobic level: {others}. But even with good short-race times, your pace will fade late in the race if your long runs fall short.
+§2e2ccc2 If I can run {name}, what can I expect in the half and full marathon?
+§6cc3ea4 At the same aerobic level: {others}. These assume proper preparation for each distance; without enough long runs, expect slower times.
+§18da3b1 What pace per km is {name}?
+§14542d9 {pace} per km. Run it evenly and you'll finish in {finish}. On a 400 m track, that's {lap} per lap.
+§0353938 What speed should I set on a treadmill?
+§0e19078 {kmh} km/h or faster. With no wind resistance, a treadmill can feel a little easier than outdoors at the same speed.
+§28c3ef0 {pace}/km · treadmill {kmh} km/h
+§2238865 You are here
+§16490c2 Goal pace chart
+§0c72df2 {name} pace
+§bf611bf {pace} per km
+§9b1639a Key numbers
+§7b25a3e Split times
+§ffa2a1e For a negative-split plan that saves energy early,
+§f01e139 build it in Race plan
+§b2d0d6e Is this goal realistic for you now?
+§ca73272 A {name} time corresponds to {brand} {idx}. At that level, you'd run the times below at other distances. If your recent results are faster, the goal is within reach.
+§9bb143d Equivalent time
+§e4bd4fb Check your {brand} from your own result
+§dd64b2e Calculate
+§bb17f39 Training paces of runners at this level
+§c08f037 Set training paces from your current result, not your goal. If you're not at this level yet, train at the paces calculated from your recent result.
+§da382ed Preparing without injury
+§3fb942d How far can this long run go?
+§721edba Distance spike check
+§5544eb1 Other goals
+§15b3e98 One step up
+§a43841c One step down
+§1e4e536 Marathon, half, 10K and 5K goals in one table.
+§c2b6c00 Full table
+§b829c2e {name} pace chart: {pace} per km and split times
+§8b691a0 Includes split times, treadmill speed, equivalent times at other distances and training paces.
+§df58399 Symptoms and what to do
+§32ea49b Also called {alias}
+§5d5a08c Symptoms and care
+§4041d67 Running injuries
+§a587464 Where it hurts · {where}
+§b13b585 If it feels like this
+§cda87cc Why it happens
+§6fbc983 What you can do yourself
+§9f44973 Ramping back up: is this distance OK?
+§6cee8f3 See a doctor if
+§9c44762 Other injuries
+§4181ae6 All running injuries
+§44cf538 Knee, shin, foot and thigh injuries at a glance.
+§1f9029e See all
+§2649449 Covers symptoms, causes, self-care and the signs that need a doctor.
+§323005f {brand} running calculator
+§13a46f9 Home
+§edea14a {brand} running calculator: training paces and race predictions from one result
+§cab0f70 Enter one 5K, 10K, half or full marathon result to get your {brand}, E·M·T·I·R training paces and predicted times at other distances. Check today's running weather, air quality and upcoming races on the same screen. A free running calculator made by an orthopedic surgeon.
+§fd8d61b Race plan
+§4975b57 Marathon pace calculator: splits for your goal time
+§10e6e7a Enter a goal time to get pace per km and passing times every 5 km. Try a negative-split strategy and check whether the goal fits your current fitness.
+§9d3539f Goal paces
+§4453c08 Marathon pace chart: pace per km for sub-3, sub-4, 2-hour half and 50-minute 10K
+§2979377 Pace per km, 400 m lap time and treadmill speed for goal times like a sub-3 or sub-4 marathon, a 2-hour half and a 50-minute 10K, in one table. Each goal also shows split times and the fitness you need.
+§7fb0fc9 Races
+§3227dba Korea marathon calendar 2026–2027: from this week's races to Seoul, Chuncheon and JTBC entries
+§d457a8e Korean marathons from this weekend through spring and fall 2027, filtered by distance and region. Includes entry periods and official sites for major races such as the Seoul, Chuncheon, JTBC and Daegu marathons.
+§92f5cff Weekly plan
+§81b894f Weekly running plan builder
+§c3fb4c2 Choose your weekly distance, running days and goal, and get a day-by-day plan set to your paces: easy runs, threshold, intervals and long-run volume.
+§549c9c9 Run log
+§44877df Running log: weekly distance and shoe mileage
+§d1af0f3 Enter just the date and distance to track weekly distance, your longest run in the last 30 days and shoe mileage. No sign-up; your log stays on your device.
+§abd0b04 Distance spike
+§75bce52 How far can your long run go? Running injury risk check
+§ec38497 Enter your longest run in the last 30 days and the distance you plan to run, and see whether you're in the range where overuse injuries rise. Based on a study following 5,205 runners.
+§7efeb2d Shoes
+§e63f2ff Running shoe replacement calculator
+§5d8425e Track mileage for each pair of running shoes and see when to replace them. Replacement ranges for cushioned, racing and trail shoes, plus what to check by eye.
+§b9089b8 HR zones
+§c370139 Running heart rate zone calculator
+§e67f8e0 Enter your age or measured max heart rate to get heart-rate ranges for easy, marathon, threshold and interval intensities.
+§c0ba6ba Pace converter
+§212c0b8 Pace calculator: convert treadmill speed and pace per km
+§28e0c92 Convert treadmill speed (km/h) to pace per km, and pace to 5K, 10K, half and full marathon finish times.
+§bfb7192 Fitness age
+§35e15eb Fitness age calculator: VO2max from running and walking
+§b67c4f3 Estimate your aerobic fitness (VO2max) from a race result, a 12-minute run or a brisk 1.6 km walk, and see where you stand among your peers and how old your fitness is.
+§3311960 Running injury guide: knee, shin and foot pain, causes and care by area
+§384bcd0 From IT band syndrome on the outside of the knee to shin pain, plantar fasciitis, Achilles problems and stress fractures: symptoms, causes, self-care and the signs that need a doctor for common running injuries.
+§a211a31 Glossary
+§ffe3a0a Running glossary: LSD, build-up, sub-4, cadence explained
+§a94e52e LSD, build-up, intervals, tempo runs, negative splits, sub-4, DNF, cadence and heel drop: running and marathon terms you meet as a new runner, in plain language.
+§e17b206 Gear
+§bc71078 How to choose running gear: shoe types, foam rollers and watches
+§0d7a12a Daily cushioned, stability or racing shoes: which runner suits which? A guide to choosing running gear by type, not product.
+§1ab5908 Running calculators and guides
+§75be064 All of {brand}'s running calculators and injury and gear guides in one place: training plans, splits, heart-rate zones, fitness age and shoe replacement, free and with no sign-up.
+§417f524 Method · FAQ
+§f10b305 Method and frequently asked questions
+§79127a1 The formulas behind {brand}, the research we drew on and frequently asked questions.
+§c44c243 What {brand} stores, plus cookies, ads and affiliate links.
+§d38d01a Pace
+§501fb80 Injury
+§344528d When preparing for a marathon, injuries happen in training more than on race day. A cohort study found overuse injuries rise when a single run goes more than 10% beyond your longest run of the last 30 days, so build your long runs gradually.
+§acd9038 Fill most of your training with an easy, conversational pace, and add goal pace only in part of the second half of long runs.
+§2586141 Pain on bone, like the shin or top of the foot, that hurts when pressed and worsens as you run means rest first; if it's unchanged after a few days of rest, see a doctor.
+§0f0fe2c For a half marathon, steadily building your weekend long run is what holds up the second half. It's safest not to go more than 10% beyond your longest run of the last 30 days.
+§160781e Fill most of your training with an easy, conversational pace, and keep threshold work under 10% of weekly distance per session.
+§5dbdc94 If one specific spot hurts while running and worsens as you go, stop for the day.
+§d291e17 Ramping up intervals to chase a 10K time loads your calves and Achilles. Keep intervals under 8% of weekly distance per session.
+§502ef93 One or two fast sessions a week is enough; fill the rest with an easy, conversational pace.
+§295255d If your heel or Achilles is stiff and sore on your first steps in the morning for several days, cut fast sessions first.
+§59db733 Short, fast sessions bring down your 5K time, but keep reps under 5% of weekly distance per session and rest 2–3 times as long as you ran.
+§089c4cd Before fast sessions, jog 10–15 minutes to warm up. One or two a week is enough; fill the rest with easy running.
+§0c9f34a If you feel a twinge in your hamstring or calf, call off fast running for the day.
+§7582bce Finish
+§a99d11c Times and races
+§4ce4889 Your best-ever time. When you set a new one, you "got a PB".
+§68962f7 Sub-3 · sub-4
+§32c2fae Finishing a marathon in under 3 or 4 hours. Sub-4 means up to 3:59:59. Used the same way for the half and 10K.
+§794b364 Goal pace chart
+§5d87e4c Net time · gun time
+§6418bc1 Gun time runs from the start signal; net time runs from the moment you cross the start line to the finish. Starting from a back corral, the two can differ by several minutes. Use net time to judge your fitness.
+§67c3326 Race bib
+§75aa08f The number you pin to your chest. The timing chip is often on the back, so don't fold or crumple it.
+§8048ec0 DNS means you entered but didn't start (Did Not Start); DNF means you started but didn't finish (Did Not Finish).
+§b2f6774 Cutoff
+§a304c1d The time limit set by the race. For a marathon it's around 5–6 hours depending on the race, and some set cutoffs at checkpoints too. Check the race guide.
+§53f9816 Pacer
+§a301fe2 A runner who holds a steady pace for a target time. They carry a balloon or flag showing the time.
+§50325d6 Even pace
+§8181c57 Running the same speed from start to finish.
+§1e03c7f Make splits
+§5520c0f Negative split
+§755edf9 Running the second half faster than the first. When the second half is slower, it's a positive split.
+§b3b9201 Hitting the wall
+§7d42e32 Around 30 km in a marathon, your legs suddenly feel heavy and your pace drops. Running out of stored carbohydrate is considered the main cause.
+§252aedd Tapering
+§2355fb5 The 1–3 weeks before a race when you cut training volume to shed fatigue.
+§b0edab5 Carb loading
+§92037e9 Eating plenty of carbohydrate for 2–3 days before a race to fill your muscles' fuel stores.
+§6c9264a Training
+§e826c71 The time it takes to run 1 km. A 5 minutes 30 seconds pace is written 5:30/km.
+§b05ac8c Running at a comfortable pace where you can talk with the person next to you. It makes up most of your weekly running.
+§4d27861 Calculate my easy pace
+§11d0d5f Recovery run
+§a40d647 A very light, short run the day after a hard session or race to shake off fatigue.
+§87aa470 A long run at a slow pace. The weekend long run is often called this.
+§15dda0f Steady run
+§1f257aa A continuous run at a set pace without breaks.
+§a054da3 Tempo run · threshold run
+§a3859fb A continuous run of about 20 minutes at a "comfortably hard" pace. Builds the ability to hold a fast pace for longer.
+§acfe61f Alternating fast running and rest. For example, run 1 km fast and rest 2–3 minutes, five times.
+§09d631d Build-up run
+§93e3272 A run that starts slow and gets a little faster each section.
+§20b329e Fartlek
+§044524f Swedish for "speed play": mixing fast and slow running without a fixed structure.
+§de1a8a5 Strides
+§84f8dcc Short accelerations of 80–100 m for about 15–20 seconds, fast but relaxed. Add a few at the end of an easy run.
+§38152bd Warm-up · cool-down
+§ae5ba42 Easy running before and after the main session to warm up and cool down.
+§06f0027 Cross-training
+§f33f0c3 Building fitness with exercise other than running, like cycling or swimming. Used to maintain fitness when injured.
+§efc8f58 Weekly distance
+§7f699f7 The total distance you run in a week. Also called mileage.
+§108c4be Cadence
+§fd0c466 Steps per minute. Watches show it as spm.
+§603c7ec Body and fitness
+§a9370a0 Maximal oxygen uptake: the most oxygen your body can use per minute during exercise. The standard measure of aerobic fitness.
+§fd0f09c My fitness age
+§70930fa An aerobic fitness index worked backward from a race result. From one result it gives training paces and predicted times at other distances.
+§be9b0a5 Calculate my {brand}
+§fe0f88b Lactate threshold
+§11f441f The point where, as intensity rises, fatigue byproducts suddenly start to build up. Speeds near it are your threshold pace.
+§f5c6a0d Running economy
+§1ff24e6 How little energy you use to run at a given speed. With the same VO2max, better economy means faster times.
+§68ab598 Max heart rate · heart-rate zones
+§cfaa7b1 Max heart rate is the most times your heart can beat in a minute; heart-rate zones divide intensity by percentage of it.
+§5475e16 Calculate heart-rate zones
+§143a379 Glycogen
+§4bd0a6e Carbohydrate stored in your muscles and liver; the main fuel for running.
+§db3e625 Delayed-onset muscle soreness
+§64dd874 Muscle soreness that shows up a day or two after exercise. Worse after downhill running or a harder-than-usual workout.
+§923d5ea Overuse injury
+§271b422 An injury that comes not from a single accident but from repeated load building up. Most running injuries fall into this group.
+§c88a7f6 Runner's high
+§96dc8f4 The good, light feeling that comes during a long run.
+§af123ae Heel drop
+§f8f3ec1 The height difference between a shoe's heel and forefoot. Given in mm; also called offset.
+§5fa9f60 Stack height
+§ed2eb7e The thickness of the sole under your foot.
+§2b0e106 Carbon-plated shoes
+§093825e Racing shoes with a carbon-fiber plate and highly responsive foam. Also called super shoes.
+§5e7af18 Running shoe types
+§170eb05 Shoes with structure that limits the foot from rolling too far inward on landing.
+§d8a0fdf Pronation
+§de14f55 The natural slight inward roll of the foot on landing.
+§e739fca Energy gel
+§782e9bb A carbohydrate supplement you take while running, mostly for half marathons and longer.
+§8bf7ef5 IT band syndrome
+§fa894a2 Iliotibial band syndrome
+§ee4b7b2 Knee
+§87c9611 Outside of the knee
+§89722a4 If the outside of your knee hurts when you run
+§df429af A sharp pain on the outside of the knee that starts after a certain distance. It comes from the iliotibial band, which runs down the outer thigh, being repeatedly irritated near the bony bump on the outside of the knee.
+§902c507 After a certain distance or time into a run, the outside of your knee hurts with a stabbing pain.
+§98fdffe It's worse going downhill or down stairs.
+§82648cd It settles with rest but comes back at about the same point when you run again.
+§cf6f046 Pressing the bony bump on the outside of the knee hurts.
+§c6e9258 Common after a sudden increase in weekly distance or long-run length.
+§622f6c1 Downhill running, sloped road edges and always running the track in one direction add load.
+§a8780cf Weak outer hip muscles let the knee collapse inward, increasing tension on the IT band.
+§f7f6050 Run only as far as before the pain starts, and drop downhill and stair sessions for a while.
+§1f80e88 Keep your fitness with pain-free exercise like cycling or swimming.
+§6fd87bd Keep doing outer-hip strengthening such as side-lying leg raises and banded side steps.
+§bb09093 Once walking and stairs are pain-free, start with short runs on flat ground and build gradually.
+§0e3e7a0 Your knee swells, catches or locks
+§2227122 It hurts just walking, or at night
+§b555a6a Patellofemoral pain syndrome
+§7e23415 Runner's knee
+§8d8dcd8 Front of the knee, around the kneecap
+§7edf8d7 If the front of your knee hurts on stairs and squats
+§e234552 A dull ache around or behind the kneecap, the most common knee pain in runners. It develops when the joint between the kneecap and thighbone takes more repeated load than it can handle.
+§9a64358 A broad ache at the front of the knee that's hard to pin to one spot.
+§ae2eaf0 Worse climbing or descending stairs, squatting and running downhill.
+§a503a0e It hurts when you stand after sitting a long time with bent knees, as in a cinema or car.
+§4d05d6a Common after quickly increasing running distance or frequency.
+§e84d34d Weak thigh and hip muscles increase the load on the kneecap joint.
+§71a4975 Downhills, stairs and deep squats put high pressure on this joint.
+§ece98d0 Cut back on aggravating movements (downhills, repeated stairs, deep squats) and run mostly on flat ground.
+§af30b30 If pain while running goes beyond mild, cut back for the day.
+§867b6e5 Keep up thigh and hip strengthening within a pain-free range.
+§7edf008 Shortening your stride a little and taking more steps per minute often reduces load on the knee.
+§d6c98df Your knee is visibly swollen or warm
+§409ae07 Your knee suddenly gives way, or catches and won't straighten
+§3c2f951 Pain began after a twist or fall, or hasn't changed after more than 4 weeks of adjusting
+§68947f5 Shin splints
+§437517c Medial tibial stress syndrome
+§e1c430a Shin
+§d9ed5fc Lower inner shin
+§fdec1b6 If the inside of your shin hurts when you run
+§4bdc4b5 Pain spread along the inner edge of the shinbone, common in runners who've just started or ramped up training quickly. It develops when the shinbone and surrounding tissue can't handle repeated impact.
+§b466c1c Pain spread over the lower half of the inner shin, a palm's width or more.
+§6bba014 Often it hurts at the start, eases as you warm up, then aches again after the run.
+§d19d141 Pressing along the inner edge of the shinbone hurts over a long stretch.
+§5740b7b Common after raising distance, frequency and speed all at once.
+§c09551a Hard surfaces and worn-out shoes add load.
+§c44c413 When calf strength and endurance fall short, the bone absorbs more of the impact.
+§ab2cfea Cut running back to a pain-free level, and make up the difference with cycling or swimming.
+§f22934d Build calf strength with calf raises.
+§9896cdf Check your shoe mileage.
+§3f56f68 Once the pain settles, increase the distance of single runs only a little at a time.
+§a906af0 The painful area is small, one or two finger-widths, and pressing that spot hurts a lot (it may be a stress fracture)
+§7de6274 It hurts when walking, resting or at night
+§1c93f6b Stress fracture
+§5e98fca Bone stress injury
+§02938e0 Shin · foot
+§271e51b Shin, top of the foot, rarely the pelvis or thighbone
+§2d3e633 If one spot hurts sharply and worsens as you run
+§59c61a9 Tiny cracks that form when bone takes repeated impact with no time to recover. Stopping early usually means good healing, but running through it can lead to a complete break, so it's the running injury to be most careful about.
+§9ab542e One spot on the bone hurts sharply, and pressing that spot clearly hurts.
+§385d0d0 It worsens as you run and doesn't ease as you warm up.
+§652924c As it progresses, it hurts when walking, resting and at night.
+§b31a015 On the top of the foot, there may be visible swelling.
+§454bb5d It happens after a sharp jump in training or running without rest days.
+§647a6dc If you eat too little for your training, bone can't recover. Be especially careful when losing weight quickly.
+§fc46b7c Irregular periods can be a sign of low energy availability.
+§63d24d6 If you've had a stress fracture before, the risk of another is higher.
+§47c962b If you suspect one, stop running first. This isn't an injury that improves by running through it.
+§57978be Until you see a doctor, only walk within a pain-free range; don't run or jump.
+§f61618b Early on it often doesn't show on X-rays, so if symptoms are clear it's confirmed with MRI.
+§cad6cb3 If the symptoms above apply, see a doctor without delay.
+§e73902a Pain deep in the groin or hip that worsens with weight-bearing may be the neck of the thighbone. Don't bear weight on it and see a doctor quickly.
+§960d28f Plantar fasciitis
+§5379d7a Foot
+§2c08929 Bottom of the heel
+§2b7d461 If your heel hurts on your first steps in the morning
+§a89ff48 A stabbing pain on the inner bottom of the heel. It develops from repeated load where the thick band supporting the sole (the plantar fascia) attaches to the heel bone.
+§dd3cb4d Your heel stabs with pain on your first steps after getting up.
+§da139cf It also hurts when you stand after sitting a while, and eases after a few steps.
+§6789c98 It aches again in the evening after long standing or running.
+§d53d49c Common when more running coincides with a job that keeps you on your feet.
+§0448959 Tight calves and Achilles increase tension on the plantar fascia.
+§de64c93 Shoes with flattened cushioning and walking barefoot on hard floors add load.
+§27f37a0 Several times a day, do a wall calf stretch and a stretch that bends your toes back to lengthen the sole.
+§9d359e1 Cut back on running, and wear cushioned slippers at home.
+§24a1955 Slowly add foot and calf strengthening such as heel raises.
+§05a0ca7 Most cases improve, but it often takes months. Don't rush back to full volume.
+§05792b9 It's unchanged after more than 6 weeks of care
+§262cca1 Squeezing the heel bone from both sides hurts, or it hurts at night (this needs to be told apart from a heel stress fracture)
+§81f8735 The sole feels numb or burning
+§6560036 Achilles tendinopathy
+§6813d11 Achilles tendinitis
+§b88c34b Ankle · calf
+§8f19b74 Achilles tendon above the heel
+§a2aff4b If your Achilles is stiff and sore in the morning
+§bf328a6 Stiffness and pain in the Achilles tendon above the heel. It's a change in the tendon from repeated load it couldn't handle, so treatment centers on retraining the tendon with the right load rather than rest alone.
+§5976e99 The Achilles is stiff on your first steps in the morning or after sitting a while.
+§db63192 It hurts at the start of a run, eases as you warm up, and is stiff again the next morning.
+§b437105 Two or three finger-widths above the heel bone it feels thickened or hurts when pressed.
+§ecbf488 Common after a sudden increase in fast training like intervals, hills and strides.
+§3f7a887 Weak calves increase the load on the tendon.
+§29d1478 A sudden switch to low-drop shoes can also trigger it.
+§808a00d Drop fast sessions and hills first, and run only on flat ground at an easy pace.
+§00864bc Keep doing calf raises off the edge of a step, lowering the heel slowly. It usually takes close to three months to work.
+§dbd57e2 Increase load as long as pain during exercise is mild and next-morning stiffness doesn't get worse.
+§4a22c6a Complete rest alone can weaken the tendon and slow your return.
+§f8bb10d Sudden pain with a "pop" and you can't stand on tiptoe (it may be a rupture and needs immediate care)
+§092e3f8 The tendon is visibly swollen, red or warm
+§11edd34 It hasn't improved after 6–8 weeks of exercise
+§ce39cc2 Hamstring strain
+§90b4d82 Back-of-thigh muscle injury
+§4d09f51 Thigh
+§363ae3d Back of the thigh
+§99a6d62 If you felt a twinge in the back of your thigh while sprinting
+§f36e133 A muscle injury felt as a sudden twinge in the back of the thigh while running fast. In distance runners it also often shows up not as a sudden injury but as a tendon problem, a gradual ache just below the buttock.
+§5b5d1a9 A sudden twinge or pull in the back of the thigh during strides or intervals.
+§f672fed The back of the thigh pulls and hurts when you reach the leg forward or bend at the waist.
+§9ea4060 A deep ache below the buttock when sitting long or running fast may be a tendon problem.
+§576497a More likely when you run fast without warming up.
+§56593f9 Speed work while fatigued is a common trigger.
+§fbff717 A hamstring injured once is easy to injure again.
+§6ade835 On the day you feel a twinge, stop fast running immediately.
+§ee94e8c For the first few days walk within a pain-free range, and avoid hard stretching through pain.
+§e7022de Once the pain settles, start light strengthening such as bridges and build up the intensity.
+§9cf622c Hold off on strides and intervals until easy running is pain-free.
+§d1b13b9 You felt a "pop" or have wide bruising on the back of your thigh
+§e219a66 It's hard to walk or your leg feels weak
+§40ecd2d Pain below the buttock lasts more than a month
+§a210761 Ankle sprain
+§61e9124 Rolled ankle
+§6c50dce Ankle
+§78f43ad Outside of the ankle
+§e4eacbb If you rolled your ankle on a run
+§f9a5f7f An injury to the outer ligaments when the ankle rolls inward on uneven ground or a curb. Brushing it off as common often leads to an ankle that keeps rolling, so balance training after the pain settles matters.
+§df8f4ab Right after the sprain, the front and bottom of the outer ankle bone swell and hurt.
+§0bc7cd6 Bruising may appear within a day or two.
+§b9c307e It hurts to bear weight and the ankle feels unstable.
+§9266471 It happens when you misstep on trails, curbs or dark paths.
+§4ceb113 A previously sprained ankle has poorer balance and rolls again more easily.
+§355d783 It often happens late in a run when fatigue has built up.
+§f2f5c69 Take it easy for the first few days; if swelling is bad, compress it and keep the leg raised.
+§1492d65 Moving the ankle and bearing weight early, as pain allows, helps recovery.
+§e0cf716 Keep up balance training like single-leg standing for several weeks after the pain settles. It reduces repeat sprains.
+§3f8aeeb When single-leg tiptoe standing and hopping in place are pain-free, start running on flat ground.
+§8aabac9 You can't take four steps, right after the injury or later
+§e502fd7 Pressing the back edge of the ankle bone or the middle bone on the outer foot hurts (a fracture needs to be ruled out)
+§8e1f1a2 Swelling and instability remain after several weeks
+§958ce6f Full · half · 10km · 6km
+§26f6a42 Imjingak Nuri Peace Park, Paju, Gyeonggi
+§4d32e7a Entries closed
+§6463ed6 Official site
+§2781589 Half · 10km
+§6d5ab2c Gwanghwamun Square → Jamsil Sports Complex, Seoul
+§7338776 Full · 10km · fun run
+§4bfd446 Start and finish at Gukchae Bosang Memorial Park, Daegu (city-center course from 2027)
+§b0af3db Entries ran Oct 12–18, 2026 for the full and Oct 26–Nov 1 for the 10K and fun run. Check the official site for additional entries.
+§27617ef Full · 10km
+§5e78f75 Gwanghwamun Square → Jamsil Sports Complex, Seoul (10K at Jamsil)
+§4908dbb General entry for domestic runners closed June 1–2, 2026. Full-course entrants had to submit a qualifying time first, between Apr 28 and May 11.
+§a47315f Late March
+§50e535f Half · 10km · 5km
+§8cf69a0 Munhak Stadium, Incheon
+§34d4826 Last year, entries were first-come, first-served from Jan 5 to Feb 13.
+§de41d13 Find the official site
+§4c62d67 Around the first Saturday of April
+§86d86fa Bomun Tourist Complex, Gyeongju, Gyeongbuk
+§2fb835d Last year, entries opened at 10 a.m. on Dec 18, 2025 (half and 5K) and Dec 19 (10K) and sold out fast.
+§c521cea Early April
+§e905e00 Full · 10km · 5km
+§e443297 Wolmyeong Sports Complex, Gunsan, Jeonbuk
+§a31bb2f Last year, first-come, first-served entries opened at 10 a.m. on Jan 5.
+§b676054 Last Sunday of April every year
+§1cc7404 Gwanghwamun Square → Sangam World Cup Park, Seoul (10K at Yeouido Park)
+§3cdf860 Last year, entries opened at 2 p.m. on Dec 16, 2025 (half) and Dec 18 (10K).
+§7ae17bf Late September
+§35dc59d Full · 32km · half · 10km · 5km
+§3421706 Gongju, Chungnam
+§99d4af6 Last year, entries ran May 14–21. Dong-A Marathon series races take entries through Dongma Club.
+§690f24f Entries via Dongma Club
+§4cec61a Around the second Sunday of October
+§783ddea Central Seoul
+§3f525c8 Dong-A Marathon series races take entries through Dongma Club.
+§e2c4f40 Every October
+§d6896c4 Full · half · 10km
+§34ca4c7 Start and finish at Gyeongju Civic Stadium, Gyeongbuk
+§9756f2c Last year, general entry opened at 7 p.m. on May 26 through Dongma Club.
+§265686a Usually the fourth Sunday of October
+§995acda Gongjicheon · Uiamho Lake loop, Chuncheon, Gangwon
+§3b7bbf9 Last year, first-come, first-served entries opened on Jul 14 (full) and Jul 16 (10K). Entries only through the official site.
+§c9315d9 Usually the first Sunday of November
+§d253c1c Sangam World Cup Park → Olympic Park, Seoul (10K at Yeouido Park)
+§b9e525f Last year, general entry took applications Apr 13–15 and drew winners by lottery. Not first-come, first-served.
+§0cad285 December
+§d20e595 January
+§949b07e April
+§9df5abb April–June
+§731229a May
+§ad9060d July
+§bd81c06 October
+§e0cee61 Gyeonggi
+§e7e69e5 Gangwon
+§36aff43 Chungbuk
+§6a824df Chungnam
+§146e132 Jeonbuk
+§e9425c0 Jeonnam
+§4fdb2a5 Gyeongbuk
+§7aeadd5 Gyeongnam
+§fa3226c Couples run
+§66fa11b Team event
+§2d9a757 Trail 42km
+§19d4c6c Trail 20km
+§924dd8a Gym-run race
+§8b21c0d Easy gym run
+§2e2426e Relay 16km
+§6371e61 Track
+§da798dc Trail 23km
+§365c8dc Walk
+§f35788a Trail 28km
+§6c3b12f Trail 8km
+§f062c3d Full (4 days in a row)
+§0b0ba82 Trail 15km
+§a98bfcc Mixed relay
+§b2c8359 Trail full
+§25f551e Trail half

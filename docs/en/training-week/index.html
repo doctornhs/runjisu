@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weekly running plan builder | Runjisu</title>
+<meta name="description" content="Choose your weekly distance, running days and goal, and get a day-by-day plan set to your paces: easy runs, threshold, intervals and long-run volume.">
+<link rel="canonical" href="https://runjisu.com/en/training-week/">
+<meta property="og:url" content="https://runjisu.com/en/training-week/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://runjisu.com/training-week/">
+<link rel="alternate" hreflang="en" href="https://runjisu.com/en/training-week/">
+<link rel="alternate" hreflang="ja" href="https://runjisu.com/ja/training-week/">
+<link rel="alternate" hreflang="x-default" href="https://runjisu.com/training-week/">
+<meta property="og:title" content="Weekly running plan builder | Runjisu">
+<meta property="og:description" content="Choose your weekly distance, running days and goal, and get a day-by-day plan set to your paces: easy runs, threshold, intervals and long-run volume.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Runjisu">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.en.webmanifest">
+<link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Runjisu">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Weekly running plan builder","description":"Choose your weekly distance, running days and goal, and get a day-by-day plan set to your paces: easy runs, threshold, intervals and long-run volume.","inLanguage":"en","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"url":"https://runjisu.com/en/training-week/"}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../assets/site.css?v=22dcab62da">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../../en/" aria-label="Runjisu home"><b>Runjisu</b><span>RUNJISU</span></a>
+    <span class="top-tag">A running calculator made by an orthopedic surgeon</span>
+    <nav class="langs" aria-label="Language"><a href="../../training-week/" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../../en/training-week/" hreflang="en" lang="en" aria-current="true" title="English">EN</a><a href="../../ja/training-week/" hreflang="ja" lang="ja" title="日本語">JA</a></nav>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="Tools">
+      <a href="../../en/" data-nav="home">Home</a>
+      <a href="../../en/pace-chart/" data-nav="goals">Goal paces</a>
+      <a href="../../en/marathon-schedule/" data-nav="calendar">Races</a>
+      <a href="../../en/training-week/" data-nav="plan" aria-current="page">Weekly plan</a>
+      <a href="../../en/running-injuries/" data-nav="injury">Running injuries</a>
+      <a href="../../en/running-terms/" data-nav="terms">Glossary</a>
+      <a href="../../en/tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about">All tools</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="plan">
+  <div class="view-head">
+    <h1>Build this week's<br>training plan</h1>
+    <p>Choose your weekly distance, running days and goal, and we fill in daily sessions with your paces. Quality volume stays within Daniels' per-session limits.</p>
+  </div>
+  <p class="basis" data-basis></p>
+  <div class="two">
+    <div class="stack">
+      <form class="panel form" id="f-plan" novalidate>
+        <div class="field">
+          <label for="pl-km">Distance to run this week</label>
+          <div class="row"><input type="text" class="short" id="pl-km" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">km</span></div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-days">Running days</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-days">
+            <input type="radio" name="pdays" id="pd-3" value="3"><label for="pd-3">3 days</label>
+            <input type="radio" name="pdays" id="pd-4" value="4"><label for="pd-4">4 days</label>
+            <input type="radio" name="pdays" id="pd-5" value="5"><label for="pd-5">5 days</label>
+            <input type="radio" name="pdays" id="pd-6" value="6"><label for="pd-6">6 days</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-pgoal">Goal</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-pgoal">
+            <input type="radio" name="pgoal" id="pg-base" value="base"><label for="pg-base">Base fitness</label>
+            <input type="radio" name="pgoal" id="pg-10k" value="10k"><label for="pg-10k">5K·10K</label>
+            <input type="radio" name="pgoal" id="pg-half" value="half"><label for="pg-half">Half</label>
+            <input type="radio" name="pgoal" id="pg-full" value="full"><label for="pg-full">Full</label>
+          </div>
+        </div>
+        <p class="err" id="plan-err" role="alert" hidden></p>
+        <p class="note">Enter the distance you've actually been running over the past few weeks. A plan built on a sudden jump in distance becomes a plan for injury.</p>
+      </form>
+
+      <section class="panel" aria-labelledby="plan-rule-h">
+        <h2 id="plan-rule-h">How the plan is built</h2>
+        <ul class="prose">
+          <li>Hard days (quality sessions and long runs) are separated by rest days or easy runs.</li>
+          <li>Quality volume per session stays within 10% of weekly distance for T, 8% for I and 20% for M.</li>
+          <li>Long runs stay under 150 minutes. Running only 3–4 days a week makes the long run a bigger share, so judge it by time rather than distance.</li>
+          <li>Below 20 km a week, build distance with easy runs before adding quality sessions.</li>
+          <li>The plan is a sample week. On days you feel heavy or sore, swapping a quality session for an easy run is following the plan.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="stack">
+      <section class="panel" id="plan-res" aria-live="polite">
+        <h2>Weekly plan <span class="tag" id="pl-ex">Example</span></h2>
+        <div class="peer-grid three">
+          <div class="stat"><span class="big" id="pl-total">30<small>km</small></span><span class="cap" id="pl-days-cap">4 days a week</span></div>
+          <div class="stat"><span class="big" id="pl-easy">92<small>%</small></span><span class="cap">Share run at an easy pace</span></div>
+          <div class="stat"><span class="big" id="pl-long">10<small>km</small></span><span class="cap" id="pl-long-cap">Long run</span></div>
+        </div>
+        <ol class="week" id="plan-week"></ol>
+        <p class="note" id="plan-notes"></p>
+        <div class="acts"><button type="button" class="btn ghost small" id="plan-copy">Copy plan</button></div>
+      </section>
+      <div class="cta"><span>If this week is a big jump from last week</span><a href="../../en/long-run-check/">Distance spike check →</a></div>
+    </div>
+  </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Runjisu</b> · A running calculator made by an orthopedic surgeon</p>
+    <p>The text and calculation tools on this site are copyrighted by Runjisu. Unauthorized copying and redistribution are prohibited. When quoting, please cite the source (Runjisu, runjisu.com).</p>
+    <p>Results are general information and do not replace medical diagnosis or treatment.</p>
+    <p class="foot-links"><a href="../../en/about/">Method · FAQ</a><a href="../../en/privacy/">Privacy</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>Add to home screen</button></p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Quick links">
+    <a href="../../en/" data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>Home</span></a>
+    <a href="../../en/marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Race</span></a>
+    <a href="../../en/pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>Pace</span></a>
+    <a href="../../en/running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>Injury</span></a>
+    <a href="../../en/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>All</span></a>
+</nav>
+<script>window.SITE={"mode":"site","lang":"en","brand":"Runjisu","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../../en/","race":"../../en/race-pace/","goals":"../../en/pace-chart/","calendar":"../../en/marathon-schedule/","plan":"../../en/training-week/","log":"../../en/log/","spike":"../../en/long-run-check/","shoes":"../../en/shoe-mileage/","heart":"../../en/heart-rate-zones/","pace":"../../en/pace-converter/","fitage":"../../en/fitness-age/","injury":"../../en/running-injuries/","terms":"../../en/running-terms/","gear":"../../en/gear/","tools":"../../en/tools/","about":"../../en/about/","privacy":"../../en/privacy/"},"pwa":true,"sw":"../../sw.js"};</script>
+<script src="../../assets/core.en.js?v=22dcab62da" defer></script>
+<script src="../../assets/app.en.js?v=22dcab62da" defer></script>
+</body>
+</html>

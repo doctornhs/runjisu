@@ -259,8 +259,8 @@ const Core = (() => {
     half: [180, 150, 135, 120, 110, 100, 90, 80, 75],
     full: [360, 330, 300, 270, 240, 225, 210, 200, 190, 180, 170, 160, 150],
   };
-  const gateLabel = (id, m) => (id === '5k' || id === '10k') ? '서브' + m
-    : '서브' + (m % 60 ? ' ' + Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0') : Math.floor(m / 60));
+  const gateLabel = (id, m) => (id === '5k' || id === '10k') ? '서브{t}'.replace('{t}', m)
+    : (m % 60 ? '서브 {t}' : '서브{t}').replace('{t}', m % 60 ? Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0') : Math.floor(m / 60));
   /** 기록이 지난 관문과 다음 관문. 서브4는 4:00:00 "미만"이므로 다음 관문까지는 1초를 더 줄여야 한다 */
   function gate(id, minutes) {
     const list = GATES[id], sec = Math.round(minutes * 60);

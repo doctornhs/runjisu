@@ -1,0 +1,43 @@
+{
+  "name": "ランジス ランニング計算機",
+  "short_name": "ランジス",
+  "description": "5K、10K、ハーフ、フルの記録を一つ入れると、ランジスとE・M・T・I・Rのトレーニングペース、距離別の予想タイムを計算します。今日のランニング天気と微小粒子状物質、近日開催の大会も同じ画面で確認できます。整形外科専門医が作った無料のランニング計算機。",
+  "lang": "ja",
+  "start_url": "ja/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf0f4",
+  "theme_color": "#1f47e6",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "大会日程",
+      "url": "ja/marathon-schedule/"
+    },
+    {
+      "name": "週間メニュー",
+      "url": "ja/training-week/"
+    },
+    {
+      "name": "ランニング記録",
+      "url": "ja/log/"
+    }
+  ]
+}

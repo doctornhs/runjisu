@@ -517,3 +517,13 @@ body{background:radial-gradient(1100px 420px at 50% -220px,color-mix(in srgb,var
 }
 @media print{.tabbar{display:none!important}}
 .rc-go.find{color:var(--ink-2)}
+
+/* 언어 바꾸기 KO · EN · JA */
+.langs{display:flex;gap:2px;padding:3px;border-radius:10px;background:color-mix(in srgb,var(--line) 55%,transparent);flex:none;margin-left:10px}
+.langs a{font:700 12px/1 var(--font-num);letter-spacing:.06em;padding:6px 8px;border-radius:7px;color:var(--ink-2);text-decoration:none}
+.langs a:hover{color:var(--ink)}
+.langs a[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(16,26,43,.18)}
+html[lang="en"] .mark span{display:none}
+/* 일본어는 띄어쓰기가 없어 낱말 단위로 끊으면 줄이 넘친다 */
+html[lang="ja"] body{word-break:normal;line-break:strict}
+html[lang="en"] body{word-break:normal}

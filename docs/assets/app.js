@@ -3,7 +3,7 @@
   'use strict';
 
   /* 사이트 설정은 site.config.json에서 빌드할 때 window.SITE로 들어온다 */
-  const SITE = Object.assign({ mode: 'artifact', brand: '런지수', siteUrl: '', partnerLinks: {}, paths: null, pwa: false }, window.SITE || {});
+  const SITE = Object.assign({ mode: 'artifact', lang: 'ko', brand: '런지수', siteUrl: '', partnerLinks: {}, paths: null, pwa: false }, window.SITE || {});
   const BRAND = SITE.brand;
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -24,6 +24,7 @@
   /** 이름 뒤 조사 고르기: J('런지수', '는') → 런지수는 */
   const JOSA = { '는': ['는', '은'], '가': ['가', '이'], '를': ['를', '을'], '와': ['와', '과'], '로': ['로', '으로'] };
   function J(word, key) {
+    if (SITE.lang && SITE.lang !== 'ko') return word;   // 영어·일본어판에는 조사가 없다
     const c = word.charCodeAt(word.length - 1), pair = JOSA[key];
     if (c < 0xAC00 || c > 0xD7A3) return word + pair[0];
     const jong = (c - 0xAC00) % 28;
@@ -99,7 +100,7 @@
     if (lower) return '상위 약 ' + Math.round(top) + '% 이내';
     return top <= 50 ? '상위 약 ' + Math.round(top) + '%' : '하위 약 ' + Math.round(pp.pct) + '%';
   }
-  const ageText = (fa, lower) => fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 ' + Math.round(fa.age) + '세' + (lower ? ' 이하' : '');
+  const ageText = (fa, lower) => fa.edge === 'young' ? '20대 평균 이상' : fa.edge === 'old' ? '70대 평균 이하' : '약 {n}세'.replace('{n}', Math.round(fa.age)) + (lower ? ' 이하' : '');
   const LOWER_NOTE = '달리기 기록으로 구한 값은 실험실에서 잰 VO2max보다 낮게 나오는 편이라, 실제 체력 나이는 이보다 젊고 순위는 이보다 높을 가능성이 큽니다.';
   const LONG_NOTE = ' 특히 하프·풀코스 기록에는 지구력과 보급까지 섞여 있어 5K·10K 기록으로 구한 값보다 더 낮게 나오기 쉽습니다. 5K나 10K를 힘껏 달린 기록이 있으면 그 기록으로 다시 계산해 보세요.';
 
@@ -447,7 +448,7 @@
       showErr($('#plan-err'), p ? '' : '주간 거리는 10km에서 160km 사이로 입력해 주세요.');
       if (!p) return;
       $('#pl-total').innerHTML = km1(p.total) + '<small>km</small>';
-      $('#pl-days-cap').textContent = '주 ' + p.runDays + '일';
+      $('#pl-days-cap').textContent = '주 {n}일'.replace('{n}', p.runDays);
       $('#pl-easy').innerHTML = Math.round(p.easyShare * 100) + '<small>%</small>';
       $('#pl-long').innerHTML = km1(p.longKm) + '<small>km</small>';
       $('#pl-long-cap').textContent = `장거리 · 약 ${Math.round(p.longMin)}분`;
@@ -644,7 +645,7 @@
     const form = $('#f-shoe'); if (!form) return;
     const SHOE_PILL = ['여유 있음', '점검 시작', '교체 구간', '교체 권장'];
     function shoeMsg(s, st) {
-      const weeks = d => (s.wk > 0 && d > 0) ? ` 주 ${km1(s.wk)}km 기준으로 약 ${Math.ceil(d / s.wk)}주 뒤입니다.` : '';
+      const weeks = d => (s.wk > 0 && d > 0) ? ` 주당 ${km1(s.wk)}km 기준으로 약 ${Math.ceil(d / s.wk)}주 뒤입니다.` : '';
       if (st.level === 0) return `${Math.round(st.toLo)}km를 더 달리면 교체 구간(${st.lo}~${st.hi}km)에 들어갑니다.` + weeks(st.toLo);
       if (st.level === 1) return `교체 구간까지 ${Math.round(st.toLo)}km 남았습니다. 지금부터 밑창과 중창을 살펴보세요.` + weeks(st.toLo);
       if (st.level === 2) return `교체 구간입니다. 아래 점검 항목에 하나라도 해당하면 바꾸세요. 상한 ${st.hi}km까지 ${Math.round(st.toHi)}km 남았습니다.` + weeks(st.toHi);
@@ -909,7 +910,7 @@
     }
     const chip = (kind, v) => { const g = Core.pmGrade(kind, v); return g ? `<span class="pmc" data-g="${g.level}"><b>${g.value}</b><i>${g.label}</i></span>` : '<span class="pmc"><b>–</b><i>없음</i></span>'; };
     const nowTxt = (kind, v, name) => { const g = Core.pmGrade(kind, v); return g ? `<span>${name} <b>${g.value}</b><em data-g="${g.level}">${g.label}</em></span>` : ''; };
-    const dayHead = d => { const dt = new Date(d + 'T00:00:00'), wd = '<small>' + '일월화수목금토'[dt.getDay()] + '요일</small>'; return (d === today() ? '오늘' : (dt.getMonth() + 1) + '/' + dt.getDate()) + wd; };
+    const dayHead = d => { const dt = new Date(d + 'T00:00:00'), wd = '<small>' + '일,월,화,수,목,금,토'.split(',')[dt.getDay()] + '요일</small>'; return (d === today() ? '오늘' : (dt.getMonth() + 1) + '/' + dt.getDate()) + wd; };
     function paint(data, at, stale) {
       const n = data.now, a = data.air && data.air.d10 && data.air.d10.length ? data.air : null;
       $('#wx-t').textContent = n ? n.t.toFixed(1) + '°' : '–';

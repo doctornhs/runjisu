@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fitness age calculator: VO2max from running and walking | Runjisu</title>
+<meta name="description" content="Estimate your aerobic fitness (VO2max) from a race result, a 12-minute run or a brisk 1.6 km walk, and see where you stand among your peers and how old your fitness is.">
+<link rel="canonical" href="https://runjisu.com/en/fitness-age/">
+<meta property="og:url" content="https://runjisu.com/en/fitness-age/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://runjisu.com/fitness-age/">
+<link rel="alternate" hreflang="en" href="https://runjisu.com/en/fitness-age/">
+<link rel="alternate" hreflang="ja" href="https://runjisu.com/ja/fitness-age/">
+<link rel="alternate" hreflang="x-default" href="https://runjisu.com/fitness-age/">
+<meta property="og:title" content="Fitness age calculator: VO2max from running and walking | Runjisu">
+<meta property="og:description" content="Estimate your aerobic fitness (VO2max) from a race result, a 12-minute run or a brisk 1.6 km walk, and see where you stand among your peers and how old your fitness is.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Runjisu">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.en.webmanifest">
+<link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Runjisu">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fitness age calculator: VO2max from running and walking","description":"Estimate your aerobic fitness (VO2max) from a race result, a 12-minute run or a brisk 1.6 km walk, and see where you stand among your peers and how old your fitness is.","inLanguage":"en","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"url":"https://runjisu.com/en/fitness-age/"}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../assets/site.css?v=22dcab62da">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../../en/" aria-label="Runjisu home"><b>Runjisu</b><span>RUNJISU</span></a>
+    <span class="top-tag">A running calculator made by an orthopedic surgeon</span>
+    <nav class="langs" aria-label="Language"><a href="../../fitness-age/" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../../en/fitness-age/" hreflang="en" lang="en" aria-current="true" title="English">EN</a><a href="../../ja/fitness-age/" hreflang="ja" lang="ja" title="日本語">JA</a></nav>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="Tools">
+      <a href="../../en/" data-nav="home">Home</a>
+      <a href="../../en/pace-chart/" data-nav="goals">Goal paces</a>
+      <a href="../../en/marathon-schedule/" data-nav="calendar">Races</a>
+      <a href="../../en/training-week/" data-nav="plan">Weekly plan</a>
+      <a href="../../en/running-injuries/" data-nav="injury">Running injuries</a>
+      <a href="../../en/running-terms/" data-nav="terms">Glossary</a>
+      <a href="../../en/tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about" aria-current="page">All tools</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="fitage">
+  <div class="view-head">
+    <h1>How old is<br>your fitness?</h1>
+    <p>Aerobic fitness is the measure most closely tied to staying healthy and active for life. Even without a race result, you can estimate it from a 12-minute run or a brisk 1.6 km walk.</p>
+  </div>
+  <div class="two">
+    <form class="panel form" id="f-fit" novalidate>
+      <div class="field">
+        <span class="lab" id="lab-fm">How do you want to measure?</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lab-fm">
+          <input type="radio" name="fmethod" id="fm-index" value="index"><label for="fm-index">Race result (Runjisu)</label>
+          <input type="radio" name="fmethod" id="fm-cooper" value="cooper"><label for="fm-cooper">12-minute run</label>
+          <input type="radio" name="fmethod" id="fm-walk" value="walk"><label for="fm-walk">1.6 km brisk walk</label>
+        </div>
+      </div>
+      <div class="row">
+        <label class="sr" for="ft-age">Age</label>
+        <input type="text" class="short" id="ft-age" inputmode="numeric" autocomplete="off" placeholder="Age" maxlength="2"><span class="unit">yrs</span>
+        <div class="seg" role="radiogroup" aria-label="Sex">
+          <input type="radio" name="fsex" id="fs-m" value="M"><label for="fs-m">Male</label>
+          <input type="radio" name="fsex" id="fs-f" value="F"><label for="fs-f">Female</label>
+        </div>
+      </div>
+      <div data-method="index">
+        <p class="basis" data-basis></p>
+      </div>
+      <div class="field" data-method="cooper" hidden>
+        <label for="ft-cm">Distance covered in 12 minutes</label>
+        <div class="row"><input type="text" class="short mid" id="ft-cm" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="2000"><span class="unit">m</span></div>
+        <p class="note">Run as far as you can in 12 minutes on a track or flat ground. Don't burn everything in the first 2 minutes; keep it even. On a 400 m track, count laps.</p>
+      </div>
+      <div data-method="walk" hidden class="stack" style="gap:18px">
+        <div class="field">
+          <span class="lab" id="lab-wt">Time to walk 1.6 km</span>
+          <div class="row time" role="group" aria-labelledby="lab-wt">
+            <label class="sr" for="ft-wm"> min</label><input type="text" class="short" id="ft-wm" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit"> min</span>
+            <label class="sr" for="ft-ws">sec</label><input type="text" class="short" id="ft-ws" inputmode="numeric" autocomplete="off" maxlength="2"><span class="unit">sec</span>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label for="ft-hr">Heart rate at finish</label><div class="row"><input type="text" class="short" id="ft-hr" inputmode="numeric" autocomplete="off" maxlength="3"><span class="unit">bpm</span></div></div>
+          <div class="field"><label for="ft-kg">Weight</label><div class="row"><input type="text" class="short" id="ft-kg" inputmode="decimal" autocomplete="off" maxlength="5"><span class="unit">kg</span></div></div>
+        </div>
+        <p class="note">Walk four laps of a 400 m track (1.6 km) as fast as you can without running. At the finish, count your pulse for 15 seconds and multiply by 4, or read your watch.</p>
+      </div>
+      <p class="err" id="fit-err" role="alert" hidden></p>
+    </form>
+
+    <section class="panel result" id="fit-res" aria-live="polite">
+      <div class="verdict"><span class="big" id="ft-agebig">–</span><span class="pill" id="ft-pill"></span><span class="tag" id="ft-ex">Example</span></div>
+      <div class="facts"><span><span id="ft-vlab">Estimated VO2max</span><b id="ft-v"></b></span><span>Among peers<b id="ft-pct"></b></span></div>
+      <div class="pscale" id="ft-scale" hidden>
+        <div class="pscale-track"><div class="pscale-line"></div><div class="pscale-me" id="ft-me"><b></b><i></i></div></div>
+        <div class="pscale-ticks" id="ft-ticks"></div>
+        <p class="note" id="ft-scale-cap"></p>
+      </div>
+      <p id="ft-msg"></p>
+      <p class="note" id="ft-note"></p>
+    </section>
+  </div>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="why-h">
+      <h2 id="why-h">Why fitness age matters</h2>
+      <div class="prose">
+        <p>A Cleveland Clinic study that followed 122,007 adults after treadmill stress tests found that the fitter the group, the lower the risk of death, with no upper limit to the benefit. The fittest group had an 80% lower risk of death than the least fit (bottom 25%).</p>
+        <p>It's an observational study, so it doesn't mean raising your fitness adds that many years. But unlike age or family history, aerobic fitness is something training can change.</p>
+        <p>Keeping a body that walks and moves well for a long time is the goal, and running is one of the easiest ways to get there.</p>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="up-h">
+      <h2 id="up-h">To lower your fitness age</h2>
+      <ul class="prose">
+        <li>Frequency first. Three or more times a week, 30 minutes at a conversational pace is the starting point. Mixing walking and running is fine.</li>
+        <li>After a few months, add a weekly session with a few 3–5 minute efforts that leave you breathing hard. It's the most efficient zone for raising aerobic capacity.</li>
+        <li>Retest the same way every 8–12 weeks to see the change.</li>
+      </ul>
+      <div class="cta"><span>A week planned around your pace</span><a href="../../en/training-week/">Weekly plan →</a></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="fit-caveat-h">
+    <h2 id="fit-caveat-h">Before you read the results</h2>
+    <ul class="prose">
+      <li>The comparison uses treadmill stress-test data from 7,783 US adults (FRIEND, 2015). Values for other populations may differ.</li>
+      <li>Values from race results tend to come out lower than lab VO2max. A study comparing 5 km results with measured values found both collegiate and recreational runners came out lower, with a bigger gap in recreational runners. So read fitness age and ranking from race results as "at least this good", especially from half or full marathon results.</li>
+      <li>Race results and the 12-minute run only work when you give it everything. An easy-effort time will make your fitness age look older than it is.</li>
+      <li>The 1.6 km walk equation was built for adults aged 30–69 and has an error of about 4–6. Experienced runners may score low on the walk test, so use a race result instead.</li>
+      <li>If you have chest pain, severe shortness of breath or dizziness, or a heart condition, talk to a medical professional before doing an all-out test.</li>
+    </ul>
+  </section>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Runjisu</b> · A running calculator made by an orthopedic surgeon</p>
+    <p>The text and calculation tools on this site are copyrighted by Runjisu. Unauthorized copying and redistribution are prohibited. When quoting, please cite the source (Runjisu, runjisu.com).</p>
+    <p>Results are general information and do not replace medical diagnosis or treatment.</p>
+    <p class="foot-links"><a href="../../en/about/">Method · FAQ</a><a href="../../en/privacy/">Privacy</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>Add to home screen</button></p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Quick links">
+    <a href="../../en/" data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>Home</span></a>
+    <a href="../../en/marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Race</span></a>
+    <a href="../../en/pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>Pace</span></a>
+    <a href="../../en/running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>Injury</span></a>
+    <a href="../../en/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>All</span></a>
+</nav>
+<script>window.SITE={"mode":"site","lang":"en","brand":"Runjisu","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../../en/","race":"../../en/race-pace/","goals":"../../en/pace-chart/","calendar":"../../en/marathon-schedule/","plan":"../../en/training-week/","log":"../../en/log/","spike":"../../en/long-run-check/","shoes":"../../en/shoe-mileage/","heart":"../../en/heart-rate-zones/","pace":"../../en/pace-converter/","fitage":"../../en/fitness-age/","injury":"../../en/running-injuries/","terms":"../../en/running-terms/","gear":"../../en/gear/","tools":"../../en/tools/","about":"../../en/about/","privacy":"../../en/privacy/"},"pwa":true,"sw":"../../sw.js"};</script>
+<script src="../../assets/core.en.js?v=22dcab62da" defer></script>
+<script src="../../assets/app.en.js?v=22dcab62da" defer></script>
+</body>
+</html>

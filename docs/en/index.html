@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Runjisu running calculator: training paces and race predictions from one result</title>
+<meta name="description" content="Enter one 5K, 10K, half or full marathon result to get your Runjisu, E·M·T·I·R training paces and predicted times at other distances. Check today&#x27;s running weather, air quality and upcoming races on the same screen. A free running calculator made by an orthopedic surgeon.">
+<link rel="canonical" href="https://runjisu.com/en/">
+<meta property="og:url" content="https://runjisu.com/en/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://runjisu.com/">
+<link rel="alternate" hreflang="en" href="https://runjisu.com/en/">
+<link rel="alternate" hreflang="ja" href="https://runjisu.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://runjisu.com/">
+<meta property="og:title" content="Runjisu running calculator: training paces and race predictions from one result">
+<meta property="og:description" content="Enter one 5K, 10K, half or full marathon result to get your Runjisu, E·M·T·I·R training paces and predicted times at other distances. Check today&#x27;s running weather, air quality and upcoming races on the same screen. A free running calculator made by an orthopedic surgeon.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Runjisu">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../manifest.en.webmanifest">
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Runjisu">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Runjisu","description":"Enter one 5K, 10K, half or full marathon result to get your Runjisu, E·M·T·I·R training paces and predicted times at other distances. Check today's running weather, air quality and upcoming races on the same screen. A free running calculator made by an orthopedic surgeon.","inLanguage":"en","url":"https://runjisu.com/en/"}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=22dcab62da">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../en/" aria-label="Runjisu home"><b>Runjisu</b><span>RUNJISU</span></a>
+    <span class="top-tag">A running calculator made by an orthopedic surgeon</span>
+    <nav class="langs" aria-label="Language"><a href="../" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../en/" hreflang="en" lang="en" aria-current="true" title="English">EN</a><a href="../ja/" hreflang="ja" lang="ja" title="日本語">JA</a></nav>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="Tools">
+      <a href="../en/" data-nav="home" aria-current="page">Home</a>
+      <a href="../en/pace-chart/" data-nav="goals">Goal paces</a>
+      <a href="../en/marathon-schedule/" data-nav="calendar">Races</a>
+      <a href="../en/training-week/" data-nav="plan">Weekly plan</a>
+      <a href="../en/running-injuries/" data-nav="injury">Running injuries</a>
+      <a href="../en/running-terms/" data-nav="terms">Glossary</a>
+      <a href="../en/tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about">All tools</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="home">
+  <section class="panel wx" id="wx" aria-labelledby="wx-h">
+    <div class="wx-head">
+      <h2 id="wx-h">Today's running weather</h2>
+      <div class="wx-pick">
+        <label class="sr" for="wx-city">Region</label>
+        <select id="wx-city"></select>
+        <button type="button" class="btn ghost small" id="wx-here">My location</button>
+      </div>
+    </div>
+    <div class="wx-now" aria-live="polite">
+      <div class="wx-temp"><span class="wx-t" id="wx-t">–</span><span class="wx-sky" id="wx-sky"></span></div>
+      <ul class="wx-facts" id="wx-facts"><li>Loading…</li></ul>
+    </div>
+    <p class="wx-tip" id="wx-tip" hidden></p>
+    <div id="wx-air"></div>
+    <p class="note" id="wx-note"></p>
+  </section>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="view-head">
+        <h1>One race result,<br>your Runjisu</h1>
+        <p>Enter a race or all-out result and get your Runjisu, five training paces and predicted times at other distances instantly. Calculated with the Daniels formula, with an orthopedic surgeon's view on injury added.</p>
+      </div>
+      <form class="panel form" id="f-home" novalidate>
+        <div class="field">
+          <span class="lab" id="lab-dist">Distance</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-dist">
+            <input type="radio" name="dist" id="d-3k" value="3000"><label for="d-3k">3K</label>
+            <input type="radio" name="dist" id="d-5k" value="5000"><label for="d-5k">5K</label>
+            <input type="radio" name="dist" id="d-10k" value="10000"><label for="d-10k">10K</label>
+            <input type="radio" name="dist" id="d-half" value="21097.5"><label for="d-half">Half</label>
+            <input type="radio" name="dist" id="d-full" value="42195"><label for="d-full">Full</label>
+            <input type="radio" name="dist" id="d-custom" value="custom"><label for="d-custom">Custom</label>
+          </div>
+          <div class="row" id="custom-row" hidden>
+            <label class="sr" for="d-km">Distance (km)</label>
+            <input type="text" class="short" id="d-km" inputmode="decimal" autocomplete="off" placeholder="8"><span class="unit">km</span>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-time">Time</span>
+          <div class="row time" role="group" aria-labelledby="lab-time">
+            <label class="sr" for="t-h">Time</label><input type="text" class="short" id="t-h" inputmode="numeric" autocomplete="off" placeholder="0" maxlength="2"><span class="unit">Time</span>
+            <label class="sr" for="t-m"> min</label><input type="text" class="short" id="t-m" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="3"><span class="unit"> min</span>
+            <label class="sr" for="t-s">sec</label><input type="text" class="short" id="t-s" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="2"><span class="unit">sec</span>
+          </div>
+        </div>
+        <p class="err" id="home-err" role="alert" hidden></p>
+        <p class="note">Results update as soon as you change a number. Recent results on flat courses in cool weather are the most accurate.</p>
+      </form>
+    </div>
+
+    <div class="bib-col">
+      <article class="bib" id="bib" aria-live="polite">
+        <span class="pin a"></span><span class="pin b"></span><span class="pin c"></span><span class="pin d"></span>
+        <div class="bib-top"><span>RUNJISU</span><span id="bib-basis">Based on 10K 55:00</span></div>
+        <div class="bib-num" id="bib-num">35.8</div>
+        <div class="bib-label"><span>Runjisu</span><span class="tag" id="bib-ex">Example</span></div>
+        <div class="bib-cap">Predicted times with equal preparation</div>
+        <div class="bib-tags">
+          <div><span class="k">5K</span><span class="v" id="pr-5k">26:29</span></div>
+          <div><span class="k">10K</span><span class="v" id="pr-10k">55:00</span></div>
+          <div><span class="k">Half</span><span class="v" id="pr-half">2:01:56</span></div>
+          <div><span class="k">Full</span><span class="v" id="pr-full">4:11:36</span></div>
+        </div>
+      </article>
+      <div class="bib-actions">
+        <button type="button" class="btn" id="copy-result">Copy results</button>
+        <button type="button" class="btn ghost" id="share-img">Make a share image</button>
+        <p class="note" id="range-note">Runjisu is an aerobic fitness index worked backward from a race result.</p>
+      </div>
+      <figure class="share" id="share-out" hidden>
+        <img id="share-pic" class="savable" alt="" width="1080" height="1350">
+        <figcaption>
+          <button type="button" class="btn small" id="share-send" hidden>Share</button>
+          <a class="btn small ghost" id="share-save">Save image</a>
+          <span class="note">You can also save the image by long-pressing it or right-clicking.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="lanes" aria-labelledby="lanes-h">
+    <div class="lanes-head">
+      <h2 id="lanes-h">Today's paces, five lanes</h2>
+      <p class="note">Lane 1 is the slowest and lane 5 the fastest. The length of each color bar is proportional to speed.</p>
+    </div>
+    <ol>
+      <li class="lane" style="--zc:var(--e)" id="lane-e">
+        <span class="lane-no" aria-hidden="true">1</span>
+        <div class="lane-name"><span class="z">E</span>Easy</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">A pace where you can talk with the person next to you. Most of your weekly running happens here.</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span></div>
+      </li>
+      <li class="lane" style="--zc:var(--m)" id="lane-m">
+        <span class="lane-no" aria-hidden="true">2</span>
+        <div class="lane-name"><span class="z">M</span>Marathon</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">The target pace to hold for a full marathon. Mix it into the second half of long runs to get used to it.</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span></div>
+      </li>
+      <li class="lane" style="--zc:var(--t)" id="lane-t">
+        <span class="lane-no" aria-hidden="true">3</span>
+        <div class="lane-name"><span class="z">T</span>Threshold</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">Comfortably hard. Run it as a 20-minute tempo, or as 5 minutes on, 1 minute rest repeats.</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 10% of weekly distance per session</span></div>
+      </li>
+      <li class="lane" style="--zc:var(--i)" id="lane-i">
+        <span class="lane-no" aria-hidden="true">4</span>
+        <div class="lane-name"><span class="z">I</span>Interval</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">Run 3–5 minutes, rest about as long. Raises aerobic capacity.</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 8% of weekly distance per session</span></div>
+      </li>
+      <li class="lane" style="--zc:var(--r)" id="lane-r">
+        <span class="lane-no" aria-hidden="true">5</span>
+        <div class="lane-name"><span class="z">R</span>Repetition</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">Short and fast, under 2 minutes, with 2–3 times as much rest. Sharpens speed and running economy.</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>Treadmill<b class="kmh"></b></span><span>Up to 5% of weekly distance per session</span></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="panel" aria-labelledby="hr-h">
+    <h2 id="hr-h">Upcoming races</h2>
+    <ul class="hraces" id="home-races">
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b lang="ko">손기정평화마라톤</b><span>Sun, Nov 15, 2026 · Full · half · 10km · 6km · Imjingak Nuri Peace Park, Paju, Gyeonggi</span></div></li>
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b lang="ko">MBN 서울마라톤</b><span>Sun, Nov 15, 2026 · Half · 10km · Gwanghwamun Square → Jamsil Sports Complex, Seoul</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 세정 가을바람 유러닝페스타</b><span>Sat, Nov 21, 2026 · 10K · 5K · Gyeonggi</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">GIVE RUN 2026 부산</b><span>Sat, Nov 21, 2026 · 10K · 5K · Busan</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 아식스 서울신문 고프리런</b><span>Sat, Nov 21, 2026 · Half · 10K · Seoul</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 전마협 보성녹차 Autumn 마라톤</b><span>Sat, Nov 21, 2026 · Full · Half · 10K · 5K · Jeonnam</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">런텐 JUST RUN10 대구</b><span>Sat, Nov 21, 2026 · 10K · 5K · Daegu</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 김대중마라톤대회</b><span>Sun, Nov 22, 2026 · Half · 10K · 5K · Jeonnam</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">자이스 스마일 레이스</b><span>Sun, Nov 22, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 평화의숲 마라톤</b><span>Sun, Nov 22, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 서울 억새풀 마라톤대회</b><span>Sun, Nov 22, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 인천마라톤</b><span>Sun, Nov 22, 2026 · Full · 10K · 5K · Incheon</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 무주반딧불평화마라톤</b><span>Sun, Nov 22, 2026 · Half · 10K · 5K · Jeonbuk</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">제6회 고용노동부장관배 직장인마라톤대회</b><span>Sun, Nov 22, 2026 · 10K · 5K · Gyeonggi</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">제19회 대구광역시장기 생활체육 육상대회</b><span>Sun, Nov 22, 2026 · 10K · Daegu</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 남원 춘향 전국 마라톤대회</b><span>Sat, Nov 28, 2026 · Full · Half · 10K · 5K · Jeonbuk</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">목욕런 2026</b><span>Sat, Nov 28, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 평화런</b><span>Sat, Nov 28, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 착한서구 공부방 기부앤런</b><span>Sat, Nov 28, 2026 · 10K · 5K · Gwangju</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">제2회 천안독립기념관 마라톤대회</b><span>Sun, Nov 29, 2026 · 10K · 5K · Chungnam</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">가야왕도 김해 전국어울림 마라톤대회</b><span>Sun, Nov 29, 2026 · Half · 10K · 5K · Gyeongnam</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 새한미디어 마라톤</b><span>Sun, Nov 29, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 정읍공동체 프리마켓 마라톤</b><span>Sun, Nov 29, 2026 · 10K · 5K · Jeonbuk</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 원주 치악마라톤</b><span>Sun, Nov 29, 2026 · Half · 10K · 5K · Gangwon</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 서울사랑마라톤</b><span>Sun, Nov 29, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">제23회 한강시민마라톤</b><span>Sat, Dec 5, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">2026 하남 미사 호수 에너지런</b><span>Sat, Dec 5, 2026 · 10K · 5K · Gyeonggi</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">제4회 가든파이브 라이프 레이스</b><span>Sat, Dec 5, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">2026 허그런</b><span>Sat, Dec 5, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 부산브릿지 마라톤</b><span>Sun, Dec 6, 2026 · Full · 10K · Busan</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 황영조 로드레이스</b><span>Sun, Dec 6, 2026 · Half · 10K · Incheon</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">제20회 양산전국하프마라톤대회</b><span>Sun, Dec 6, 2026 · Half · 10K · 5K · Gyeongnam</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 청춘런</b><span>Sun, Dec 6, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">제1회 정읍 고향사랑기부마라톤</b><span>Sun, Dec 6, 2026 · 10K · 5K · Jeonbuk</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 소년소녀 가장 돕기 기부런</b><span>Sat, Dec 12, 2026 · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">제3회 긍정의힘 마라톤</b><span>Sat, Dec 12, 2026 · Half · 10K · 5K · Seoul</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 ONE MORE RUN</b><span>Sat, Dec 12, 2026 · Half · 10K · 5K · Incheon</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 성남 헤리티지 런</b><span>Sat, Dec 12, 2026 · 10K · 5K · Gyeonggi</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">화성레이스</b><span>Sat, Dec 12, 2026 · 10K · 5K · Gyeonggi</span></div></li>
+      <li data-date="2026-12-13"><span class="dday" data-dday></span><div><b lang="ko">제36회 진주마라톤</b><span>Sun, Dec 13, 2026 · Full · Half · 10K · 5K · Gyeongnam</span></div></li>
+    </ul>
+    <p class="note" id="home-races-none" hidden>No races with confirmed dates right now. Check entry periods on the race calendar.</p>
+    <div class="cta"><span>Korean races by distance and region</span><a href="../en/marathon-schedule/">Full race calendar →</a></div>
+  </section>
+
+  <section class="panel" aria-labelledby="gates-h">
+    <h2 id="gates-h">Runner milestones: how far have you come?</h2>
+    <div class="gates">
+      <div class="stat gate" id="gate-5k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-10k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-half"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-full"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+    </div>
+    <p class="note">Common target times like sub-4. Each bar fills by how far you've come from the last milestone to the next. Distances you didn't enter are predictions, so read them as what you'd run with proper preparation for that distance.</p>
+    <div class="cta"><span>Pace per km and split times for goals like sub-4 or a 2-hour half</span><a href="../en/pace-chart/">Goal pace chart →</a></div>
+  </section>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="peer-h">
+      <h2 id="peer-h">Compare with your peers</h2>
+      <div class="row">
+        <label class="sr" for="age">Age</label>
+        <input type="text" class="short" id="age" inputmode="numeric" autocomplete="off" placeholder="Age" maxlength="2"><span class="unit">yrs</span>
+        <div class="seg" role="radiogroup" aria-label="Sex">
+          <input type="radio" name="sex" id="sex-m" value="M"><label for="sex-m">Male</label>
+          <input type="radio" name="sex" id="sex-f" value="F"><label for="sex-f">Female</label>
+        </div>
+      </div>
+      <div class="peer-grid">
+        <div class="stat"><span class="big" id="peer-age">–</span><span class="cap">Aerobic fitness age · conservative estimate</span></div>
+        <div class="stat"><span class="big" id="peer-pct">–</span><span class="cap" id="peer-group">Your age group</span></div>
+      </div>
+      <p class="note" id="peer-note"></p>
+      <div class="cta"><span>Peer scale and the distance to the next level</span><a href="../en/fitness-age/">Fitness age in detail →</a></div>
+    </section>
+
+    <section class="panel" aria-labelledby="read-h">
+      <h2 id="read-h">How to read the results</h2>
+      <ul class="prose">
+        <li>Runjisu shares its units with maximal oxygen uptake (VO2max) but also reflects running economy. Recreational runners often score lower than lab measurements, and lower still when it's calculated from half or full marathon results.</li>
+        <li>Predicted times assume equal preparation for that distance. A marathon prediction from a 10K result alone comes out faster than reality if your long runs fall short.</li>
+        <li>Training paces reflect your current fitness. Enter a recent result, not your goal time.</li>
+      </ul>
+    </section>
+  </div>
+
+  
+  <section class="hub" aria-label="Tools">
+    <h2 class="sr">Tools</h2>
+    <div class="hub-group">
+      <h3>Turn your record into training</h3>
+      <nav class="next" aria-label="Training tools">
+        <a href="../en/training-week/"><b>Build this week's training plan</b><span>Set daily workouts and paces to match your weekly distance and running days.</span><i>Weekly plan →</i></a> <a href="../en/pace-chart/"><b>What pace is a sub-4?</b><span>Paces and treadmill speeds for full, half, 10K and 5K goal times in one table.</span><i>Goal pace chart →</i></a> <a href="../en/race-pace/"><b>When should you pass each split?</b><span>Get passing times every 5 km and check whether your goal fits your current fitness.</span><i>Race plan →</i></a> <a href="../en/marathon-schedule/"><b>Where to race this weekend</b><span>Browse Korean races by distance and region, and check when Seoul, Chuncheon and JTBC open entries.</span><i>Race calendar →</i></a>
+      </nav>
+    </div>
+    <div class="hub-group">
+      <h3>Run long, run injury-free</h3>
+      <nav class="next" aria-label="Injury prevention tools">
+        <a href="../en/running-injuries/"><b>If it hurts here when you run</b><span>Knee, shin, foot, thigh: symptoms, what to do, and when to see a doctor for common running injuries.</span><i>Running injuries →</i></a> <a href="../en/long-run-check/"><b>How far can this long run go?</b><span>Compares it with your longest run of the last 30 days and flags the range where injuries rise.</span><i>Distance spike check →</i></a> <a href="../en/shoe-mileage/"><b>How many km on your shoes?</b><span>Track mileage per pair and see when to replace them.</span><i>Shoe mileage →</i></a> <a href="../en/log/"><b>Log your runs</b><span>Weekly distance, 30-day longest run and shoe mileage are worked out for you.</span><i>Run log →</i></a>
+      </nav>
+    </div>
+    <div class="hub-group">
+      <h3>Beyond running</h3>
+      <nav class="next three" aria-label="Other tools">
+        <a href="../en/heart-rate-zones/"><b>Which zone is that heart rate?</b><span>Heart-rate ranges by intensity from your age or max heart rate.</span><i>Heart rate zones →</i></a> <a href="../en/fitness-age/"><b>How old is your fitness?</b><span>No race result needed: a 12-minute run or a 1.6 km walk will do.</span><i>Fitness age →</i></a> <a href="../en/pace-converter/"><b>What pace is 10 km/h on a treadmill?</b><span>Convert between speed, pace and finish times by distance.</span><i>Pace converter →</i></a> <a href="../en/running-terms/"><b>LSD, build-up, negative split</b><span>The unfamiliar words you meet as a new runner, in plain language.</span><i>Running glossary →</i></a> <a href="../en/gear/"><b>Pick the type before the product</b><span>Which shoes and tools suit which runner.</span><i>Gear guide →</i></a> <a href="../en/about/"><b>Where do these numbers come from?</b><span>Formulas, the research behind them, and FAQs.</span><i>Method &amp; FAQ →</i></a>
+      </nav>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Runjisu</b> · A running calculator made by an orthopedic surgeon</p>
+    <p>The text and calculation tools on this site are copyrighted by Runjisu. Unauthorized copying and redistribution are prohibited. When quoting, please cite the source (Runjisu, runjisu.com).</p>
+    <p>Results are general information and do not replace medical diagnosis or treatment.</p>
+    <p class="foot-links"><a href="../en/about/">Method · FAQ</a><a href="../en/privacy/">Privacy</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>Add to home screen</button></p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Quick links">
+    <a href="../en/" data-nav="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>Home</span></a>
+    <a href="../en/marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Race</span></a>
+    <a href="../en/pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>Pace</span></a>
+    <a href="../en/running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>Injury</span></a>
+    <a href="../en/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>All</span></a>
+</nav>
+<script>window.SITE={"mode":"site","lang":"en","brand":"Runjisu","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../en/","race":"../en/race-pace/","goals":"../en/pace-chart/","calendar":"../en/marathon-schedule/","plan":"../en/training-week/","log":"../en/log/","spike":"../en/long-run-check/","shoes":"../en/shoe-mileage/","heart":"../en/heart-rate-zones/","pace":"../en/pace-converter/","fitage":"../en/fitness-age/","injury":"../en/running-injuries/","terms":"../en/running-terms/","gear":"../en/gear/","tools":"../en/tools/","about":"../en/about/","privacy":"../en/privacy/"},"pwa":true,"sw":"../sw.js"};</script>
+<script src="../assets/core.en.js?v=22dcab62da" defer></script>
+<script src="../assets/app.en.js?v=22dcab62da" defer></script>
+</body>
+</html>

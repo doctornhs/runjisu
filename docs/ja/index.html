@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ランジス ランニング計算機：記録一つでトレーニングペースと予想タイム</title>
+<meta name="description" content="5K、10K、ハーフ、フルの記録を一つ入れると、ランジスとE・M・T・I・Rのトレーニングペース、距離別の予想タイムを計算します。今日のランニング天気と微小粒子状物質、近日開催の大会も同じ画面で確認できます。整形外科専門医が作った無料のランニング計算機。">
+<link rel="canonical" href="https://runjisu.com/ja/">
+<meta property="og:url" content="https://runjisu.com/ja/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://runjisu.com/">
+<link rel="alternate" hreflang="en" href="https://runjisu.com/en/">
+<link rel="alternate" hreflang="ja" href="https://runjisu.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://runjisu.com/">
+<meta property="og:title" content="ランジス ランニング計算機：記録一つでトレーニングペースと予想タイム">
+<meta property="og:description" content="5K、10K、ハーフ、フルの記録を一つ入れると、ランジスとE・M・T・I・Rのトレーニングペース、距離別の予想タイムを計算します。今日のランニング天気と微小粒子状物質、近日開催の大会も同じ画面で確認できます。整形外科専門医が作った無料のランニング計算機。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ランジス">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../manifest.ja.webmanifest">
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ランジス">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ランジス","description":"5K、10K、ハーフ、フルの記録を一つ入れると、ランジスとE・M・T・I・Rのトレーニングペース、距離別の予想タイムを計算します。今日のランニング天気と微小粒子状物質、近日開催の大会も同じ画面で確認できます。整形外科専門医が作った無料のランニング計算機。","inLanguage":"ja","url":"https://runjisu.com/ja/"}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=22dcab62da">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../ja/" aria-label="ランジス トップ"><b>ランジス</b><span>RUNJISU</span></a>
+    <span class="top-tag">整形外科専門医が作ったランニング計算機</span>
+    <nav class="langs" aria-label="Language"><a href="../" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../en/" hreflang="en" lang="en" title="English">EN</a><a href="../ja/" hreflang="ja" lang="ja" aria-current="true" title="日本語">JA</a></nav>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="ツール">
+      <a href="../ja/" data-nav="home" aria-current="page">ホーム</a>
+      <a href="../ja/pace-chart/" data-nav="goals">目標ペース</a>
+      <a href="../ja/marathon-schedule/" data-nav="calendar">大会日程</a>
+      <a href="../ja/training-week/" data-nav="plan">週間メニュー</a>
+      <a href="../ja/running-injuries/" data-nav="injury">ランニング障害</a>
+      <a href="../ja/running-terms/" data-nav="terms">ランニング用語</a>
+      <a href="../ja/tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about">すべてのツール</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="home">
+  <section class="panel wx" id="wx" aria-labelledby="wx-h">
+    <div class="wx-head">
+      <h2 id="wx-h">今日のランニング天気</h2>
+      <div class="wx-pick">
+        <label class="sr" for="wx-city">地域</label>
+        <select id="wx-city"></select>
+        <button type="button" class="btn ghost small" id="wx-here">現在地</button>
+      </div>
+    </div>
+    <div class="wx-now" aria-live="polite">
+      <div class="wx-temp"><span class="wx-t" id="wx-t">–</span><span class="wx-sky" id="wx-sky"></span></div>
+      <ul class="wx-facts" id="wx-facts"><li>読み込み中…</li></ul>
+    </div>
+    <p class="wx-tip" id="wx-tip" hidden></p>
+    <div id="wx-air"></div>
+    <p class="note" id="wx-note"></p>
+  </section>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="view-head">
+        <h1>記録一つでわかる<br>あなたのランジス</h1>
+        <p>レースや全力走の記録を入れると、ランジスと5つのトレーニングペース、距離別の予想タイムがすぐに出ます。ダニエルズの公式で計算し、整形外科専門医がケガの観点を加えました。</p>
+      </div>
+      <form class="panel form" id="f-home" novalidate>
+        <div class="field">
+          <span class="lab" id="lab-dist">走った距離</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-dist">
+            <input type="radio" name="dist" id="d-3k" value="3000"><label for="d-3k">3K</label>
+            <input type="radio" name="dist" id="d-5k" value="5000"><label for="d-5k">5K</label>
+            <input type="radio" name="dist" id="d-10k" value="10000"><label for="d-10k">10K</label>
+            <input type="radio" name="dist" id="d-half" value="21097.5"><label for="d-half">ハーフ</label>
+            <input type="radio" name="dist" id="d-full" value="42195"><label for="d-full">フル</label>
+            <input type="radio" name="dist" id="d-custom" value="custom"><label for="d-custom">直接入力</label>
+          </div>
+          <div class="row" id="custom-row" hidden>
+            <label class="sr" for="d-km">距離（km）</label>
+            <input type="text" class="short" id="d-km" inputmode="decimal" autocomplete="off" placeholder="8"><span class="unit">km</span>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab" id="lab-time">タイム</span>
+          <div class="row time" role="group" aria-labelledby="lab-time">
+            <label class="sr" for="t-h">タイム</label><input type="text" class="short" id="t-h" inputmode="numeric" autocomplete="off" placeholder="0" maxlength="2"><span class="unit">タイム</span>
+            <label class="sr" for="t-m">分</label><input type="text" class="short" id="t-m" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="3"><span class="unit">分</span>
+            <label class="sr" for="t-s">秒</label><input type="text" class="short" id="t-s" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="2"><span class="unit">秒</span>
+          </div>
+        </div>
+        <p class="err" id="home-err" role="alert" hidden></p>
+        <p class="note">数字を変えるとすぐに再計算します。平坦なコースで涼しい日に走った最近の記録ほど正確です。</p>
+      </form>
+    </div>
+
+    <div class="bib-col">
+      <article class="bib" id="bib" aria-live="polite">
+        <span class="pin a"></span><span class="pin b"></span><span class="pin c"></span><span class="pin d"></span>
+        <div class="bib-top"><span>RUNJISU</span><span id="bib-basis">10K 55:00 基準</span></div>
+        <div class="bib-num" id="bib-num">35.8</div>
+        <div class="bib-label"><span>ランジス</span><span class="tag" id="bib-ex">例</span></div>
+        <div class="bib-cap">同じレベルで準備した場合の予想タイム</div>
+        <div class="bib-tags">
+          <div><span class="k">5K</span><span class="v" id="pr-5k">26:29</span></div>
+          <div><span class="k">10K</span><span class="v" id="pr-10k">55:00</span></div>
+          <div><span class="k">ハーフ</span><span class="v" id="pr-half">2:01:56</span></div>
+          <div><span class="k">フル</span><span class="v" id="pr-full">4:11:36</span></div>
+        </div>
+      </article>
+      <div class="bib-actions">
+        <button type="button" class="btn" id="copy-result">結果をコピー</button>
+        <button type="button" class="btn ghost" id="share-img">シェア画像をつくる</button>
+        <p class="note" id="range-note">ランジスは、レース記録から逆算した有酸素能力の指数です。</p>
+      </div>
+      <figure class="share" id="share-out" hidden>
+        <img id="share-pic" class="savable" alt="" width="1080" height="1350">
+        <figcaption>
+          <button type="button" class="btn small" id="share-send" hidden>シェアする</button>
+          <a class="btn small ghost" id="share-save">画像を保存</a>
+          <span class="note">画像を長押しするか右クリックしても保存できます。</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="lanes" aria-labelledby="lanes-h">
+    <div class="lanes-head">
+      <h2 id="lanes-h">今日走るペース、5つのレーン</h2>
+      <p class="note">1レーンが最も遅く、5レーンが最も速いペースです。下の色帯の長さは速さに比例します。</p>
+    </div>
+    <ol>
+      <li class="lane" style="--zc:var(--e)" id="lane-e">
+        <span class="lane-no" aria-hidden="true">1</span>
+        <div class="lane-name"><span class="z">E</span>イージー</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">隣の人と会話できる速さ。1週間のランニングの大部分をここで走ります。</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>トレッドミル<b class="kmh"></b></span></div>
+      </li>
+      <li class="lane" style="--zc:var(--m)" id="lane-m">
+        <span class="lane-no" aria-hidden="true">2</span>
+        <div class="lane-name"><span class="z">M</span>マラソン</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">フルマラソンを最後まで維持する目標ペース。ロング走の後半に混ぜて体に覚えさせます。</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>トレッドミル<b class="kmh"></b></span></div>
+      </li>
+      <li class="lane" style="--zc:var(--t)" id="lane-t">
+        <span class="lane-no" aria-hidden="true">3</span>
+        <div class="lane-name"><span class="z">T</span>閾値</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">「楽にきつい」速さ。20分のペース走か、5分走って1分休むを繰り返します。</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>トレッドミル<b class="kmh"></b></span><span>1回あたり週間距離の10%以内</span></div>
+      </li>
+      <li class="lane" style="--zc:var(--i)" id="lane-i">
+        <span class="lane-no" aria-hidden="true">4</span>
+        <div class="lane-name"><span class="z">I</span>インターバル</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">3〜5分走って同じくらい休む。有酸素能力を引き上げます。</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>トレッドミル<b class="kmh"></b></span><span>1回あたり週間距離の8%以内</span></div>
+      </li>
+      <li class="lane" style="--zc:var(--r)" id="lane-r">
+        <span class="lane-no" aria-hidden="true">5</span>
+        <div class="lane-name"><span class="z">R</span>レペティション</div>
+        <div class="lane-pace"><span class="pace"></span><span class="per">/km</span></div>
+        <p class="lane-desc">2分以内で短く速く、走った時間の2〜3倍休みます。スピードとランニングエコノミーを磨きます。</p>
+        <div class="lane-sub"><span>400m<b class="lap"></b></span><span>トレッドミル<b class="kmh"></b></span><span>1回あたり週間距離の5%以内</span></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="panel" aria-labelledby="hr-h">
+    <h2 id="hr-h">近日開催の大会</h2>
+    <ul class="hraces" id="home-races">
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b lang="ko">손기정평화마라톤</b><span>2026年11月15日(日) · フル・ハーフ・10km・6km · 京畿道坡州・臨津閣平和ヌリ公園</span></div></li>
+      <li data-date="2026-11-15"><span class="dday" data-dday></span><div><b lang="ko">MBN 서울마라톤</b><span>2026年11月15日(日) · ハーフ・10km · ソウル・光化門広場 → 蚕室総合運動場</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 세정 가을바람 유러닝페스타</b><span>2026年11月21日(土) · 10K · 5K · 京畿</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">GIVE RUN 2026 부산</b><span>2026年11月21日(土) · 10K · 5K · 釜山</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 아식스 서울신문 고프리런</b><span>2026年11月21日(土) · ハーフ · 10K · ソウル</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">2026 전마협 보성녹차 Autumn 마라톤</b><span>2026年11月21日(土) · フル · ハーフ · 10K · 5K · 全南</span></div></li>
+      <li data-date="2026-11-21"><span class="dday" data-dday></span><div><b lang="ko">런텐 JUST RUN10 대구</b><span>2026年11月21日(土) · 10K · 5K · 大邱</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 김대중마라톤대회</b><span>2026年11月22日(日) · ハーフ · 10K · 5K · 全南</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">자이스 스마일 레이스</b><span>2026年11月22日(日) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 평화의숲 마라톤</b><span>2026年11月22日(日) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 서울 억새풀 마라톤대회</b><span>2026年11月22日(日) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 인천마라톤</b><span>2026年11月22日(日) · フル · 10K · 5K · 仁川</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">2026 무주반딧불평화마라톤</b><span>2026年11月22日(日) · ハーフ · 10K · 5K · 全北</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">제6회 고용노동부장관배 직장인마라톤대회</b><span>2026年11月22日(日) · 10K · 5K · 京畿</span></div></li>
+      <li data-date="2026-11-22"><span class="dday" data-dday></span><div><b lang="ko">제19회 대구광역시장기 생활체육 육상대회</b><span>2026年11月22日(日) · 10K · 大邱</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 남원 춘향 전국 마라톤대회</b><span>2026年11月28日(土) · フル · ハーフ · 10K · 5K · 全北</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">목욕런 2026</b><span>2026年11月28日(土) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 평화런</b><span>2026年11月28日(土) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-28"><span class="dday" data-dday></span><div><b lang="ko">2026 착한서구 공부방 기부앤런</b><span>2026年11月28日(土) · 10K · 5K · 光州</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">제2회 천안독립기념관 마라톤대회</b><span>2026年11月29日(日) · 10K · 5K · 忠南</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">가야왕도 김해 전국어울림 마라톤대회</b><span>2026年11月29日(日) · ハーフ · 10K · 5K · 慶南</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 새한미디어 마라톤</b><span>2026年11月29日(日) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 정읍공동체 프리마켓 마라톤</b><span>2026年11月29日(日) · 10K · 5K · 全北</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 원주 치악마라톤</b><span>2026年11月29日(日) · ハーフ · 10K · 5K · 江原</span></div></li>
+      <li data-date="2026-11-29"><span class="dday" data-dday></span><div><b lang="ko">2026 서울사랑마라톤</b><span>2026年11月29日(日) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">제23회 한강시민마라톤</b><span>2026年12月5日(土) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">2026 하남 미사 호수 에너지런</b><span>2026年12月5日(土) · 10K · 5K · 京畿</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">제4회 가든파이브 라이프 레이스</b><span>2026年12月5日(土) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-05"><span class="dday" data-dday></span><div><b lang="ko">2026 허그런</b><span>2026年12月5日(土) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 부산브릿지 마라톤</b><span>2026年12月6日(日) · フル · 10K · 釜山</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 황영조 로드레이스</b><span>2026年12月6日(日) · ハーフ · 10K · 仁川</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">제20회 양산전국하프마라톤대회</b><span>2026年12月6日(日) · ハーフ · 10K · 5K · 慶南</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">2026 청춘런</b><span>2026年12月6日(日) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-06"><span class="dday" data-dday></span><div><b lang="ko">제1회 정읍 고향사랑기부마라톤</b><span>2026年12月6日(日) · 10K · 5K · 全北</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 소년소녀 가장 돕기 기부런</b><span>2026年12月12日(土) · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">제3회 긍정의힘 마라톤</b><span>2026年12月12日(土) · ハーフ · 10K · 5K · ソウル</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 ONE MORE RUN</b><span>2026年12月12日(土) · ハーフ · 10K · 5K · 仁川</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">2026 성남 헤리티지 런</b><span>2026年12月12日(土) · 10K · 5K · 京畿</span></div></li>
+      <li data-date="2026-12-12"><span class="dday" data-dday></span><div><b lang="ko">화성레이스</b><span>2026年12月12日(土) · 10K · 5K · 京畿</span></div></li>
+      <li data-date="2026-12-13"><span class="dday" data-dday></span><div><b lang="ko">제36회 진주마라톤</b><span>2026年12月13日(日) · フル · ハーフ · 10K · 5K · 慶南</span></div></li>
+    </ul>
+    <p class="note" id="home-races-none" hidden>現在、日程が確定した大会はありません。エントリー時期は大会日程で確認してください。</p>
+    <div class="cta"><span>韓国の大会を種目・地域別に</span><a href="../ja/marathon-schedule/">大会日程をすべて見る →</a></div>
+  </section>
+
+  <section class="panel" aria-labelledby="gates-h">
+    <h2 id="gates-h">ランナーの関門、どこまで来た？</h2>
+    <div class="gates">
+      <div class="stat gate" id="gate-5k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-10k"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-half"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+      <div class="stat gate" id="gate-full"><span class="k"></span><span class="big">–</span><span class="cap"></span><span class="gbar" aria-hidden="true"><i></i></span></div>
+    </div>
+    <p class="note">サブ4のように、ランナーがよく目標にするタイムの基準線です。バーは前の関門から次の関門までどれだけ進んだかを示します。入力した距離以外の種目は予想タイムなので、その距離をしっかり準備した場合の値として見てください。</p>
+    <div class="cta"><span>サブ4、ハーフ2時間などの目標別キロペースと区間通過タイム</span><a href="../ja/pace-chart/">目標ペース表 →</a></div>
+  </section>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="peer-h">
+      <h2 id="peer-h">同年代と比べる</h2>
+      <div class="row">
+        <label class="sr" for="age">年齢</label>
+        <input type="text" class="short" id="age" inputmode="numeric" autocomplete="off" placeholder="年齢" maxlength="2"><span class="unit">歳</span>
+        <div class="seg" role="radiogroup" aria-label="性別">
+          <input type="radio" name="sex" id="sex-m" value="M"><label for="sex-m">男性</label>
+          <input type="radio" name="sex" id="sex-f" value="F"><label for="sex-f">女性</label>
+        </div>
+      </div>
+      <div class="peer-grid">
+        <div class="stat"><span class="big" id="peer-age">–</span><span class="cap">有酸素体力年齢・控えめな推定</span></div>
+        <div class="stat"><span class="big" id="peer-pct">–</span><span class="cap" id="peer-group">同じ年代が基準</span></div>
+      </div>
+      <p class="note" id="peer-note"></p>
+      <div class="cta"><span>同年代の目盛りと次の段階までの距離</span><a href="../ja/fitness-age/">体力年齢を詳しく →</a></div>
+    </section>
+
+    <section class="panel" aria-labelledby="read-h">
+      <h2 id="read-h">結果の読み方</h2>
+      <ul class="prose">
+        <li>ランジスは最大酸素摂取量（VO2max）と単位は同じですが、ランニングエコノミーも含んだ値です。市民ランナーは実験室の測定値より低く出ることが多く、ハーフやフルの記録から求めるとさらに低くなります。</li>
+        <li>予想タイムは、その距離を同じレベルで準備した場合の値です。10Kの記録だけから見たフルの予想は、ロング走が不足していると実際より速く出ます。</li>
+        <li>トレーニングペースは今の実力が基準です。目標タイムではなく最近の記録を入れてください。</li>
+      </ul>
+    </section>
+  </div>
+
+  
+  <section class="hub" aria-label="ツール一覧">
+    <h2 class="sr">ツール一覧</h2>
+    <div class="hub-group">
+      <h3>記録をトレーニングへ</h3>
+      <nav class="next" aria-label="トレーニングツール">
+        <a href="../ja/training-week/"><b>今週の練習メニューをつくる</b><span>週間走行距離と走る日数に合わせて、曜日ごとの練習とペースを決めます。</span><i>週間メニュー →</i></a> <a href="../ja/pace-chart/"><b>サブ4はキロ何分？</b><span>フル、ハーフ、10km、5kmの目標タイム別ペースとトレッドミル速度を一つの表にまとめました。</span><i>目標ペース表 →</i></a> <a href="../ja/race-pace/"><b>目標タイム、各区間を何分で通過する？</b><span>5kmごとの通過タイムを出し、目標が今の実力に合っているか確かめます。</span><i>レース計画 →</i></a> <a href="../ja/marathon-schedule/"><b>今週末はどこで走る？</b><span>韓国の大会を種目と地域で探し、ソウル・春川・JTBCのエントリー時期も確認できます。</span><i>大会日程 →</i></a>
+      </nav>
+    </div>
+    <div class="hub-group">
+      <h3>ケガなく長く</h3>
+      <nav class="next" aria-label="ケガ予防ツール">
+        <a href="../ja/running-injuries/"><b>走ると痛いのはここ？</b><span>ひざ、すね、足、太もも。よくあるランニング障害の症状と対処、受診が必要なサインをまとめました。</span><i>ランニング障害 →</i></a> <a href="../ja/long-run-check/"><b>今回のロング走、どこまで延ばせる？</b><span>直近30日の最長距離と比べ、ケガが増える範囲をお知らせします。</span><i>距離急増チェック →</i></a> <a href="../ja/shoe-mileage/"><b>そのシューズ、何km走った？</b><span>シューズごとに累積距離を記録し、交換時期を確認します。</span><i>シューズ交換 →</i></a> <a href="../ja/log/"><b>走った日を記録すれば</b><span>週間距離、30日最長距離、シューズの累積距離が自動で計算されます。</span><i>ランニング記録 →</i></a>
+      </nav>
+    </div>
+    <div class="hub-group">
+      <h3>ランニングの先へ</h3>
+      <nav class="next three" aria-label="その他のツール">
+        <a href="../ja/heart-rate-zones/"><b>時計の心拍はどの強度？</b><span>年齢または最大心拍から、強度別の心拍範囲を計算します。</span><i>心拍ゾーン →</i></a> <a href="../ja/fitness-age/"><b>あなたの体力は何歳？</b><span>レース記録がなくても、12分間走か1.6kmウォークでわかります。</span><i>体力年齢 →</i></a> <a href="../ja/pace-converter/"><b>トレッドミル時速10kmはキロ何分？</b><span>速度、ペース、距離別の完走タイムを相互に換算します。</span><i>ペース換算 →</i></a> <a href="../ja/running-terms/"><b>LSD、ビルドアップ、ネガティブスプリット</b><span>走り始めると出会う聞き慣れない言葉を、やさしく解説しました。</span><i>ランニング用語 →</i></a> <a href="../ja/gear/"><b>製品より先にタイプを</b><span>どんなランナーにどんなシューズや道具が合うかをまとめました。</span><i>ギアガイド →</i></a> <a href="../ja/about/"><b>この数字の根拠は？</b><span>計算式、参考にした研究、よくある質問をまとめました。</span><i>根拠・FAQ →</i></a>
+      </nav>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>ランジス</b> · 整形外科専門医が作ったランニング計算機</p>
+    <p>このサイトの文章と計算ツールの著作権はランジスにあり、無断複製と再配布を禁じます。引用する際は出典（ランジス, runjisu.com）を明記してください。</p>
+    <p>計算結果は一般的な情報であり、医学的な診断や治療に代わるものではありません。</p>
+    <p class="foot-links"><a href="../ja/about/">計算の根拠・FAQ</a><a href="../ja/privacy/">プライバシーポリシー</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>ホーム画面にアプリとして追加</button></p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="クイック移動">
+    <a href="../ja/" data-nav="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>ホーム</span></a>
+    <a href="../ja/marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>大会</span></a>
+    <a href="../ja/pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>ペース</span></a>
+    <a href="../ja/running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>障害</span></a>
+    <a href="../ja/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>すべて</span></a>
+</nav>
+<script>window.SITE={"mode":"site","lang":"ja","brand":"ランジス","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../ja/","race":"../ja/race-pace/","goals":"../ja/pace-chart/","calendar":"../ja/marathon-schedule/","plan":"../ja/training-week/","log":"../ja/log/","spike":"../ja/long-run-check/","shoes":"../ja/shoe-mileage/","heart":"../ja/heart-rate-zones/","pace":"../ja/pace-converter/","fitage":"../ja/fitness-age/","injury":"../ja/running-injuries/","terms":"../ja/running-terms/","gear":"../ja/gear/","tools":"../ja/tools/","about":"../ja/about/","privacy":"../ja/privacy/"},"pwa":true,"sw":"../sw.js"};</script>
+<script src="../assets/core.ja.js?v=22dcab62da" defer></script>
+<script src="../assets/app.ja.js?v=22dcab62da" defer></script>
+</body>
+</html>

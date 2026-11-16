@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ランニングシューズ交換時期計算機 | ランジス</title>
+<meta name="description" content="ランニングシューズごとに累積距離を記録し、交換時期を確認します。クッション、レーシング、トレイルシューズ別の交換範囲と、目で確かめる点検項目。">
+<link rel="canonical" href="https://runjisu.com/ja/shoe-mileage/">
+<meta property="og:url" content="https://runjisu.com/ja/shoe-mileage/">
+<meta property="og:image" content="https://runjisu.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://runjisu.com/shoe-mileage/">
+<link rel="alternate" hreflang="en" href="https://runjisu.com/en/shoe-mileage/">
+<link rel="alternate" hreflang="ja" href="https://runjisu.com/ja/shoe-mileage/">
+<link rel="alternate" hreflang="x-default" href="https://runjisu.com/shoe-mileage/">
+<meta property="og:title" content="ランニングシューズ交換時期計算機 | ランジス">
+<meta property="og:description" content="ランニングシューズごとに累積距離を記録し、交換時期を確認します。クッション、レーシング、トレイルシューズ別の交換範囲と、目で確かめる点検項目。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ランジス">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#edf0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a111e" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.ja.webmanifest">
+<link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ランジス">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ランニングシューズ交換時期計算機","description":"ランニングシューズごとに累積距離を記録し、交換時期を確認します。クッション、レーシング、トレイルシューズ別の交換範囲と、目で確かめる点検項目。","inLanguage":"ja","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"url":"https://runjisu.com/ja/shoe-mileage/"}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KVJYM39WHC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KVJYM39WHC');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../assets/site.css?v=22dcab62da">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="mark" href="../../ja/" aria-label="ランジス トップ"><b>ランジス</b><span>RUNJISU</span></a>
+    <span class="top-tag">整形外科専門医が作ったランニング計算機</span>
+    <nav class="langs" aria-label="Language"><a href="../../shoe-mileage/" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../../en/shoe-mileage/" hreflang="en" lang="en" title="English">EN</a><a href="../../ja/shoe-mileage/" hreflang="ja" lang="ja" aria-current="true" title="日本語">JA</a></nav>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="ツール">
+      <a href="../../ja/" data-nav="home">ホーム</a>
+      <a href="../../ja/pace-chart/" data-nav="goals">目標ペース</a>
+      <a href="../../ja/marathon-schedule/" data-nav="calendar">大会日程</a>
+      <a href="../../ja/training-week/" data-nav="plan">週間メニュー</a>
+      <a href="../../ja/running-injuries/" data-nav="injury">ランニング障害</a>
+      <a href="../../ja/running-terms/" data-nav="terms">ランニング用語</a>
+      <a href="../../ja/tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about" aria-current="page">すべてのツール</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view" data-view="shoes">
+  <div class="view-head">
+    <h1>そのシューズ、<br>何km走った？</h1>
+    <p>ランナーが実際に履いたシューズを測った研究では、480km走った後にかかとのクッションが16〜33%減っていましたが、経験豊富なランナーは640km走った後もその変化を感じ取れませんでした。感覚より距離の記録が必要な理由です。</p>
+  </div>
+  <div class="two">
+    <section class="panel" aria-labelledby="closet-h">
+      <h2 id="closet-h">マイシューズ棚</h2>
+      <p class="note" id="shoe-ex-note"><span class="tag">例</span> 下は例のシューズです。自分のシューズを追加するとこの端末に保存され、例は消えます。</p>
+      <ul class="shoe-list" id="shoe-list"></ul>
+      <div class="cta" id="shoe-cta" hidden><span>新しいシューズを選ぶ番なら</span><a href="../../ja/gear/">タイプ別の選び方 →</a></div>
+    </section>
+    <form class="panel form" id="f-shoe" novalidate>
+      <h2>シューズを追加</h2>
+      <div class="field"><label for="sh-name">名前</label><input type="text" id="sh-name" autocomplete="off" maxlength="30" placeholder="例：週末のロング走用"></div>
+      <div class="field"><label for="sh-type">種類</label>
+        <select id="sh-type">
+          <option value="daily">デイリークッション・安定性（500〜800km）</option>
+          <option value="light">軽量・レーシング（400〜600km）</option>
+          <option value="trail">トレイル（500〜800km）</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label for="sh-km">これまでに走った距離</label><div class="row"><input type="text" class="short" id="sh-km" inputmode="decimal" autocomplete="off" maxlength="5" placeholder="0"><span class="unit">km</span></div></div>
+        <div class="field"><label for="sh-wk">このシューズで週に（任意）</label><div class="row"><input type="text" class="short" id="sh-wk" inputmode="decimal" autocomplete="off" maxlength="4" placeholder="30"><span class="unit">km</span></div></div>
+      </div>
+      <p class="err" id="shoe-err" role="alert" hidden></p>
+      <div class="acts"><button type="submit" class="btn">シューズ棚に追加</button></div>
+      <p class="note">ランニング記録でシューズを選んで書くと、累積距離が自動で増えます。</p>
+    </form>
+  </div>
+
+  <div class="two">
+    <section class="panel" aria-labelledby="chk-h">
+      <h2 id="chk-h">距離と一緒に目で確かめること</h2>
+      <ul class="prose">
+        <li>ミッドソールの側面に深いしわができて戻らない</li>
+        <li>アウトソールのゴムがすり減ってミッドソールが見えている</li>
+        <li>平らな場所に置いて後ろから見ると片側に傾いている</li>
+        <li>いつものコースなのに、今までなかった足裏やひざの痛みが出た</li>
+      </ul>
+    </section>
+    <section class="panel" aria-labelledby="shoe-ev-h">
+      <h2 id="shoe-ev-h">交換の目安、どこまで根拠がある？</h2>
+      <div class="prose">
+        <p>500〜800kmはメーカーや販売店が広く使う目安です。クッションが距離とともに減ることは研究で確認されていますが、古いシューズがケガを増やすという直接の根拠はまだ不十分です。</p>
+        <p>そのため、このツールは距離を交換の命令ではなく点検を始める目安として使います。体重が重い方や荒れた路面を主に走る方は、範囲の手前で点検しましょう。カーボンプレートのレーシングシューズは寿命の研究がほとんどないため、軽量・レーシングの範囲を当てはめています。</p>
+      </div>
+    </section>
+  </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>ランジス</b> · 整形外科専門医が作ったランニング計算機</p>
+    <p>このサイトの文章と計算ツールの著作権はランジスにあり、無断複製と再配布を禁じます。引用する際は出典（ランジス, runjisu.com）を明記してください。</p>
+    <p>計算結果は一般的な情報であり、医学的な診断や治療に代わるものではありません。</p>
+    <p class="foot-links"><a href="../../ja/about/">計算の根拠・FAQ</a><a href="../../ja/privacy/">プライバシーポリシー</a></p>
+    <p><button type="button" class="btn ghost small" id="install" hidden>ホーム画面にアプリとして追加</button></p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="クイック移動">
+    <a href="../../ja/" data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg><span>ホーム</span></a>
+    <a href="../../ja/marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>大会</span></a>
+    <a href="../../ja/pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>ペース</span></a>
+    <a href="../../ja/running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>障害</span></a>
+    <a href="../../ja/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>すべて</span></a>
+</nav>
+<script>window.SITE={"mode":"site","lang":"ja","brand":"ランジス","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"../../ja/","race":"../../ja/race-pace/","goals":"../../ja/pace-chart/","calendar":"../../ja/marathon-schedule/","plan":"../../ja/training-week/","log":"../../ja/log/","spike":"../../ja/long-run-check/","shoes":"../../ja/shoe-mileage/","heart":"../../ja/heart-rate-zones/","pace":"../../ja/pace-converter/","fitage":"../../ja/fitness-age/","injury":"../../ja/running-injuries/","terms":"../../ja/running-terms/","gear":"../../ja/gear/","tools":"../../ja/tools/","about":"../../ja/about/","privacy":"../../ja/privacy/"},"pwa":true,"sw":"../../sw.js"};</script>
+<script src="../../assets/core.ja.js?v=22dcab62da" defer></script>
+<script src="../../assets/app.ja.js?v=22dcab62da" defer></script>
+</body>
+</html>

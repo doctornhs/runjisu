@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{{lang}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,6 +19,9 @@
   <div class="wrap top-row">
     <a class="mark" href="#home" aria-label="{{brand}} 첫 화면"><b>{{brand}}</b><span>{{brandLatin}}</span></a>
     <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+<!--if:site-->
+    <nav class="langs" aria-label="Language">{{langs}}</nav>
+<!--endif:site-->
   </div>
 </header>
 <div class="nav-bar">

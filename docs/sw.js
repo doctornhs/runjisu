@@ -1,6 +1,6 @@
 /* 설치형 웹앱용 서비스 워커. 한 번 연 뒤에는 인터넷 없이도 계산된다. */
-const CACHE = 'run-1c8a79a324';
-const PRECACHE = ["./", "race-pace/", "pace-chart/", "marathon-schedule/", "training-week/", "log/", "long-run-check/", "shoe-mileage/", "heart-rate-zones/", "pace-converter/", "fitness-age/", "running-injuries/", "running-terms/", "gear/", "tools/", "about/", "privacy/", "assets/site.css?v=1c8a79a324", "assets/core.js?v=1c8a79a324", "assets/app.js?v=1c8a79a324", "manifest.webmanifest", "icons/icon-192.png"];
+const CACHE = 'run-22dcab62da';
+const PRECACHE = ["./", "race-pace/", "pace-chart/", "marathon-schedule/", "training-week/", "log/", "long-run-check/", "shoe-mileage/", "heart-rate-zones/", "pace-converter/", "fitness-age/", "running-injuries/", "running-terms/", "gear/", "tools/", "about/", "privacy/", "assets/site.css?v=22dcab62da", "assets/core.js?v=22dcab62da", "assets/app.js?v=22dcab62da", "manifest.webmanifest", "icons/icon-192.png"];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
