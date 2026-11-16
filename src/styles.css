@@ -516,3 +516,4 @@ body{background:radial-gradient(1100px 420px at 50% -220px,color-mix(in srgb,var
   .tabbar a:active{background:var(--paper)}
 }
 @media print{.tabbar{display:none!important}}
+.rc-go.find{color:var(--ink-2)}

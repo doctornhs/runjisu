@@ -4,6 +4,7 @@
   out/artifact/index.html  한 장짜리 미리보기(화면을 # 주소로 전환). 저장소에는 올리지 않는다
 설정은 site.config.json 한 곳에서 바꾼다.  실행: python3 build.py
 """
+import urllib.parse
 import datetime, hashlib, html, json, math, os, re, shutil, subprocess, sys
 from urllib.parse import urlparse
 
@@ -124,10 +125,14 @@ def rc_item(r, i):
     tags = ''.join(f'<i data-t="{f}">{EV_LABEL[f]}</i>' for f in r['f']) or '<i>기타</i>'
     q = re.sub(r'\s+', '', (r['n'] + r['rg'] + r['ev']).lower())
     common = f'data-ev="{" ".join(r["f"]) or "etc"}" data-region="{e(r["rg"])}" data-q="{e(q)}" data-m="{m}"'
-    link = f'<a class="rc-go" href="{e(r["u"])}" target="_blank" rel="noopener" aria-label="{e(r["n"])} 대회 정보(새 창)">정보 ↗</a>'
+    if r['u']:
+        link = f'<a class="rc-go" href="{e(r["u"])}" target="_blank" rel="noopener" aria-label="{e(r["n"])} 공식 사이트(새 창)">공식 ↗</a>'
+    else:
+        nq = urllib.parse.quote(r['n'])
+        link = f'<a class="rc-go find" href="https://search.naver.com/search.naver?query={nq}" target="_blank" rel="noopener" aria-label="{e(r["n"])} 네이버 검색(새 창)">검색 ↗</a>'
     if r['k'] == 'up':
         dist = max([EV_DIST[f] for f in r['f'] if f in EV_DIST] or [0])
-        goal = f'<button type="button" class="rc-goal" data-goal data-on="★ 목표" data-off="☆ 목표" aria-label="{e(r["n"])}을 목표 대회로">☆ 목표</button>' if dist else ''
+        goal = f'<button type="button" class="rc-goal" data-goal data-on="★ 목표" data-off="☆ 목표" aria-label="목표 대회로 정하기: {e(r["n"])}">☆ 목표</button>' if dist else ''
         return (f'      <li class="rc race" data-id="l{i}" data-name="{e(r["n"])}" data-dist="{dist}" data-date="{r["d"]}" {common}>'
                 f'<div class="rc-d"><b>{m}.{d}</b><span>{wd}</span></div>'
                 f'<div class="rc-b"><h3>{e(r["n"])}</h3><p><span class="rc-t">{tags}</span><span class="rc-rg">{e(r["rg"])}</span><span class="rc-ev">{e(r["ev"])}</span></p></div>'
