@@ -87,6 +87,81 @@
     return c;
   }
 
+  /* ── 주소로 받은 기록: ?dist=10&time=3300(km·초), ?d=10000&t=3300(m·초), 나이·성별, 대회 계획 ?rd=42195&goal=14400, 훈련표 ?pg=full ── */
+  (function readParams() {
+    let q;
+    try { q = new URLSearchParams(location.search); } catch (e) { return; }
+    if (!location.search) return;
+    let used = false;
+    const dm = num(q.get('d')), dk = num(q.get('dist')), t = num(q.get('t') || q.get('time'));
+    const meters = dm > 0 ? dm : dk > 0 ? dk * 1000 : NaN;
+    if (meters > 0 && t > 0) {
+      const h = loadHome(), known = Object.keys(DIST_LABEL).find(k => Math.abs(parseFloat(k) - meters) < 1), sec = Math.round(t);
+      Object.assign(h, { dist: known || 'custom', km: known ? '' : String(Math.round(meters / 10) / 100), h: String(Math.floor(sec / 3600)), m: pad(Math.floor(sec % 3600 / 60)), s: pad(sec % 60), example: false });
+      if (!evalHome(h).msg) { store.set('home', h); used = true; }
+    }
+    const age = parseInt(q.get('age'), 10), sex = q.get('sex');
+    if ((age >= 10 && age <= 99) || sex === 'M' || sex === 'F') {
+      const h = loadHome();
+      if (age >= 10 && age <= 99) h.age = String(age);
+      if (sex === 'M' || sex === 'F') h.sex = sex;
+      store.set('home', h); used = true;
+    }
+    const rd = q.get('rd'), goal = num(q.get('goal'));
+    if (['5000', '10000', '21097.5', '42195'].includes(rd) && goal > 0) {
+      const r = Object.assign({ mode: 'even' }, store.get('race', null) || {}), sec = Math.round(goal);
+      Object.assign(r, { dist: rd, h: String(Math.floor(sec / 3600)), m: pad(Math.floor(sec % 3600 / 60)), s: pad(sec % 60), auto: false });
+      store.set('race', r); used = true;
+    }
+    const pg = q.get('pg');
+    if (['base', '10k', 'half', 'full'].includes(pg)) {
+      store.set('plan', Object.assign({}, store.get('plan', null) || {}, { goal: pg, example: false })); used = true;
+    }
+    if (used && history.replaceState) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) { /* 그대로 둔다 */ } }
+  })();
+  /** 지금 기록을 주소 뒤에 붙일 값으로: dist=km, time=초 */
+  function recordQuery() {
+    const h = loadHome(), r = evalHome(h);
+    if (r.msg || h.example) return '';
+    let q = 'dist=' + (Math.round(r.meters) / 1000) + '&time=' + Math.round(r.minutes * 60);
+    if (num(h.age) > 0) q += '&age=' + num(h.age);
+    if (h.sex === 'M' || h.sex === 'F') q += '&sex=' + h.sex;
+    return q;
+  }
+
+  /* ── 캘린더 파일(.ics): 대회일은 7일 전·전날 알림, 접수 알림은 전날 알림 ── */
+  function icsFile(kind, date, title, url) {
+    const d = date.replace(/-/g, ''), next = new Date(date + 'T00:00:00'); next.setDate(next.getDate() + 1);
+    const d2 = next.getFullYear() + pad(next.getMonth() + 1) + pad(next.getDate());
+    const now = new Date(), stamp = now.getUTCFullYear() + pad(now.getUTCMonth() + 1) + pad(now.getUTCDate()) + 'T' + pad(now.getUTCHours()) + pad(now.getUTCMinutes()) + '00Z';
+    const clean = x => String(x).replace(/\\/g, '\\\\').replace(/[,;]/g, m => '\\' + m).replace(/\n/g, '\\n');
+    const summary = kind === 'reg' ? title + ' — ' + 'check entry dates' : title;
+    const desc = (kind === 'reg' ? 'This reminder is based on last year\'s entry period. Check the official site for the exact entry dates. ' : '') + url + '\n' + sourceLine();
+    const alarm = t => ['BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + clean(summary), 'TRIGGER:' + t, 'END:VALARM'];
+    const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//' + clean(BRAND) + '//race//KO', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      'UID:' + d + '-' + kind + '-' + Math.abs([...title].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7)) + '@' + (SITE.siteUrl || 'runjisu').replace(/^https?:\/\//, ''),
+      'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + d, 'DTEND;VALUE=DATE:' + d2, 'SUMMARY:' + clean(summary), 'DESCRIPTION:' + clean(desc), 'URL:' + url]
+      .concat(kind === 'reg' ? alarm('-P1D') : alarm('-P7D').concat(alarm('-P1D')), ['END:VEVENT', 'END:VCALENDAR']);
+    const fold = l => {            // 한 줄 75바이트 넘으면 접는다(달력 파일 규칙)
+      let out = '', n = 0;
+      for (const ch of l) { const w = ch.charCodeAt(0) < 128 ? 1 : ch.codePointAt(0) < 2048 ? 2 : ch.codePointAt(0) < 65536 ? 3 : 4; if (n + w > 74) { out += '\r\n '; n = 1; } out += ch; n += w; }
+      return out;
+    };
+    return lines.map(fold).join('\r\n') + '\r\n';
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-ics]');
+    if (!b) return;
+    const text = icsFile(b.dataset.ics, b.dataset.icsDate, b.dataset.icsTitle, b.dataset.icsUrl || '');
+    try {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' }));
+      a.download = (b.dataset.ics === 'reg' ? 'entry-' : 'race-') + b.dataset.icsDate + '.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch (err) { /* 내려받기를 막은 환경 */ }
+  });
+
   const refreshers = {};      // 화면 이름 → 다시 그리기 (한 장짜리에서 화면을 옮길 때 쓴다)
 
   /* ── 제휴 링크 ── */
@@ -269,6 +344,19 @@
     function onPeer() { read(); store.set('home', home); renderPeer(lastIndex); }
     ['age', 'sex-m', 'sex-f'].forEach(id => { const el = $('#' + id); el.addEventListener('input', onPeer); el.addEventListener('change', onPeer); });
     $('#copy-result').addEventListener('click', e => copyText(e.currentTarget, lastSummary));
+    function carryLinks() {
+      const q = recordQuery();
+      if (SITE.mode === 'site') $$('[data-carry]').forEach(a => { a.href = a.href.split('?')[0].split('#')[0] + (q ? '?' + q : ''); });
+      const cl = $('#copy-link'); if (cl) cl.hidden = !q || SITE.mode !== 'site';
+    }
+    const linkBtn = $('#copy-link');
+    if (linkBtn) linkBtn.addEventListener('click', e => {
+      const q = recordQuery(); if (!q) return;
+      copyText(e.currentTarget, location.origin + location.pathname + '?' + q);
+    });
+    form.addEventListener('input', () => setTimeout(carryLinks, 0));
+    form.addEventListener('change', () => setTimeout(carryLinks, 0));
+    carryLinks();
     const shareBtn = $('#share-img');
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
@@ -325,7 +413,7 @@
         if (btn) { btn.hidden = n < 0; btn.textContent = isGoal ? (btn.dataset.on || 'Remove goal race') : (btn.dataset.off || 'Set as goal race'); btn.setAttribute('aria-pressed', isGoal ? 'true' : 'false'); }
       });
       box.innerHTML = g
-        ? `My goal race <b>${ddayText(daysTo(g.date))}</b><span>${esc(g.name)}</span><a href="${href('race')}" id="goal-plan">Make splits →</a>`
+        ? `My goal race <b>${ddayText(daysTo(g.date))}</b><span>${esc(g.name)}</span><a href="${href('race')}" id="goal-plan">Make splits →</a><button type="button" class="linkish" data-ics="race" data-ics-date="${esc(g.date)}" data-ics-title="${esc(g.name)}" data-ics-url="">Add to calendar</button>`
         : '<span>Tap ☆ Goal next to a race to start a countdown and carry it over to the race plan.</span>';
     }
     document.addEventListener('click', e => {

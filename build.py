@@ -128,7 +128,27 @@ def ev_txt(ev):
 # ───────── 대회 일정: src/data/races.json 을 화면으로 ─────────
 RACE_DATA = json.loads(read(SRC, 'data', 'races.json'))
 
-def race_card(r):
+def reg_reminder(r):
+    """접수 달이 알려진 날짜 미발표 대회: 다음 접수 달 1일. 지난 달이면 내년"""
+    m = re.match(r'(\d+)', r.get('regMonth') or '')
+    if r.get('date') or not m: return None
+    month, today = int(m.group(1)), datetime.date.fromisoformat(RACE_DATA['checked'])
+    y = today.year if month > today.month else today.year + 1
+    return f'{y}-{month:02d}-01'
+
+def ics_button(r, small=True):
+    e = html.escape
+    cls = 'btn ghost small ics' if small else 'btn ghost ics'
+    if r.get('date'):
+        return (f'<button type="button" class="{cls}" data-ics="race" data-ics-date="{r["date"]}" data-ics-title="{e(r["name"])}" '
+                f'data-ics-url="{e(r["url"])}">{e(T("캘린더에 추가"))}</button>')
+    rem = reg_reminder(r)
+    if rem:
+        return (f'<button type="button" class="{cls}" data-ics="reg" data-ics-date="{rem}" data-ics-title="{e(r["name"])}" '
+                f'data-ics-url="{e(r["url"])}">{e(T("접수 시기 알림 받기"))}</button>')
+    return ''
+
+def race_card(r, site=False):
     e = html.escape
     if r.get('date'):
         head = f'<div class="race-date"><b>{kdate(r["date"])}</b><span class="pill" data-dday hidden></span></div>'
@@ -143,7 +163,9 @@ def race_card(r):
             f'        <h3 lang="ko">{e(r["name"])}</h3>\n'
             f'        <p class="race-meta">{e(T(r["events"]))} · {e(T(r["place"]))}</p>\n'
             f'        <p class="race-reg"><b>{e(T("접수"))}</b> {e(T(r["reg"]))}</p>\n'
-            f'        <div class="acts"><a class="out" href="{e(r["url"])}" target="_blank" rel="noopener">{e(T(r["link"]))} ↗</a>{goal}</div>\n'
+            f'        <div class="acts"><a class="out" href="{e(r["url"])}" target="_blank" rel="noopener">{e(T(r["link"]))} ↗</a>{goal}{ics_button(r)}</div>\n'
+            + (f'        <a class="race-more" href="{e(r["id"])}/">{e(T("코스·부상 주의점·5km 페이스표"))} →</a>\n' if site else '')
+            + 
             f'      </li>')
 
 RACE_LIST = json.loads(read(SRC, 'data', 'race_list.json'))
@@ -172,10 +194,12 @@ def rc_item(r, i):
         on, off = T('★ 목표'), T('☆ 목표')
         goal = (f'<button type="button" class="rc-goal" data-goal data-on="{e(on)}" data-off="{e(off)}" '
                 f'aria-label="{e(T("목표 대회로 정하기: {name}", name=r["n"]))}">{e(off)}</button>') if dist else ''
+        cal = (f'<button type="button" class="rc-ics" data-ics="race" data-ics-date="{r["d"]}" data-ics-title="{e(r["n"])}" data-ics-url="{e(r["u"])}" '
+               f'aria-label="{e(T("캘린더에 추가"))}: {e(r["n"])}" title="{e(T("캘린더에 추가"))}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg></button>')
         return (f'      <li class="rc race" data-id="l{i}" data-name="{e(r["n"])}" data-dist="{dist}" data-date="{r["d"]}" {common}>'
                 f'<div class="rc-d"><b>{m}.{d}</b><span>{wd}</span></div>'
                 f'<div class="rc-b">{name}<p><span class="rc-t">{tags}</span><span class="rc-rg">{e(rg)}</span><span class="rc-ev">{e(ev)}</span></p></div>'
-                f'<div class="rc-r"><span class="pill" data-dday hidden></span>{link}{goal}</div></li>')
+                f'<div class="rc-r"><span class="pill" data-dday hidden></span><span class="rc-lk">{link}{cal}</span>{goal}</div></li>')
     return (f'      <li class="rc" {common}>'
             f'<div class="rc-d last"><b>{m}.{d}</b><span>{wd}</span></div>'
             f'<div class="rc-b">{name}<p><span class="rc-t">{tags}</span><span class="rc-rg">{e(rg)}</span><span class="rc-ev">{e(ymd(y, m, d))} · {e(ev)}</span></p></div>'
@@ -195,7 +219,7 @@ def rc_list(kind):
 
 REG_ORDER = ['12월', '1월', '4월', '4~6월', '5월', '7월', '10월']
 
-def race_blocks():
+def race_blocks(site=False):
     races = RACE_DATA['races']
     fixed = sorted([r for r in races if r.get('date')], key=lambda r: r['date'])
     tba = sorted([r for r in races if not r.get('date')], key=lambda r: r.get('sort') or r['last'][5:])
@@ -206,7 +230,7 @@ def race_blocks():
         if names:
             rows.append(f'            <tr><td>{html.escape(T(m))}</td><td>{", ".join(names)}</td></tr>')
     regions = [g for g in REGIONS if any(r['rg'] == g for r in RACE_LIST['races'])]
-    return {'race_fixed': '\n'.join(race_card(r) for r in fixed), 'race_tba': '\n'.join(race_card(r) for r in tba),
+    return {'race_fixed': '\n'.join(race_card(r, site) for r in fixed), 'race_tba': '\n'.join(race_card(r, site) for r in tba),
             'race_reg_rows': '\n'.join(rows), 'racesChecked': kdate(RACE_DATA['checked']),
             'rl_up': rc_list('up'), 'rl_last': rc_list('last'), 'rlChecked': kdate(RACE_LIST['checked']),
             'rl_regions': '\n'.join(f'          <option value="{g}">{html.escape(T(g))}</option>' for g in regions),
@@ -542,6 +566,100 @@ def injury_page(x, others):
     return {'path': path, 'body': body, 'lds': lds, 'title': f'{name}: {T(x["tail"])}',
             'desc': T(x['lead']) + ' ' + T('증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.')}
 
+RACE_GOALS = {42195: [180, 210, 240, 270, 300], 21097.5: [90, 105, 120, 135, 150]}
+RACE_MARKS = {42195: [5, 10, 15, 20, 21.0975, 25, 30, 35, 40, 42.195], 21097.5: [5, 10, 15, 20, 21.0975]}
+
+def race_name(r):
+    return r['name'] if L() == 'ko' else r.get(L(), r['name'])
+
+def race_page(r, others):
+    e = html.escape
+    dist = r['dist']; full = dist > 30000; total = dist / 1000
+    name = race_name(r)
+    year = r['date'][:4] if r.get('date') else '2027'
+    when = kdate(r['date']) if r.get('date') else T(r['season']) + ' · ' + T('2027년 날짜 미발표') + (' · ' + T('2026년은 {date}', date=kdate(r['last'], False)) if r.get('last') else '')
+    sub = f'<p class="race-ko" lang="ko">{e(r["name"])}</p>' if L() != 'ko' else ''
+    goals = RACE_GOALS[dist]
+    head = ''.join(f'<th scope="col"><a href="#race?rd={dist:g}&goal={g * 60}">{f_time(g * 60)}</a></th>' for g in goals)
+    rows = []
+    for k in RACE_MARKS[dist]:
+        last = abs(k - total) < 0.01
+        label = T('완주') if last else (T('하프') if abs(k - 21.0975) < 0.01 else f'{k:g}km')
+        rows.append(f'          <tr><th scope="row">{e(label)}</th>' + ''.join(f'<td>{f_time(g * 60 * k / total)}</td>' for g in goals) + '</tr>')
+    course = r.get('course')
+    if course:
+        course_html = '\n'.join(f'        <li>{e(T(t))}</li>' for t in course)
+        course_html = f'      <ul class="prose">\n{course_html}\n      </ul>\n      <p class="note">{e(T("코스 설명은 대회 공지와 언론 보도, 공개된 코스 분석을 바탕으로 정리했습니다. 코스는 해마다 바뀔 수 있으니 공식 사이트의 코스도와 고도표를 확인하세요."))}</p>'
+    else:
+        course_html = f'      <p>{e(T(r["place"]))}</p>\n      <p class="note">{e(T("이 대회의 코스 고도 자료는 아직 정리하지 못했습니다. 공식 사이트의 코스 안내를 확인하세요."))}</p>'
+    care = [T(t) for t in r.get('care', [])] + [T(t) for t in CARE['full' if full else 'half']]
+    care_html = '\n'.join(f'        <li>{e(t)}</li>' for t in care)
+    pg = 'full' if full else 'half'
+    near = ''.join(f'<a href="../{o["id"]}/"><b{" lang=ko" if L() == "ko" else ""}>{e(race_name(o))}</b><span>{e(kdate(o["date"]) if o.get("date") else T(o["season"]))}</span><i>{e(T("대회 안내"))} →</i></a>' for o in others)
+    goal_btn = f'<button type="button" class="btn ghost" data-goal>{e(T("목표 대회로 정하기"))}</button>' if r.get('date') else ''
+    attrs = f' data-id="{e(r["id"])}" data-name="{e(r["name"])}" data-dist="{dist}"' + (f' data-date="{r["date"]}"' if r.get('date') else '')
+    body = f"""<section class="view" data-view="race-page">
+  <nav class="crumb" aria-label="{e(T('현재 위치'))}"><a href="#home">{e(brand())}</a> › <a href="#calendar">{e(T('대회 일정'))}</a> › <span>{e(name)}</span></nav>
+  <div class="view-head">
+    <h1>{e(name)} {year}</h1>
+    {sub}
+    <p class="race-when"><b>{e(when)}</b> · {e(T(r["events"]))}</p>
+    <p>{e(T(r["place"]))}</p>
+  </div>
+  <section class="panel race-facts" aria-labelledby="rp-reg">
+    <div class="races"><div class="race"{attrs}>
+      <div class="race-date"><h2 id="rp-reg">{e(T('접수'))}</h2><span class="pill" data-dday hidden></span></div>
+      <p>{e(T(r["reg"]))}</p>
+      <div class="acts"><a class="btn" href="{e(r["url"])}" target="_blank" rel="noopener">{e(T(r["link"]))} ↗</a>{ics_button(r, False)}{goal_btn}</div>
+    </div></div>
+    {'<p class="basis" id="goal-box"></p>' if r.get('date') else ''}
+  </section>
+  <div class="two">
+    <section class="panel" aria-labelledby="rp-course">
+      <h2 id="rp-course">{e(T('코스'))}</h2>
+{course_html}
+    </section>
+    <section class="panel warn" aria-labelledby="rp-care">
+      <h2 id="rp-care">{e(T('정형외과 전문의의 부상 주의점'))}</h2>
+      <ul class="prose">
+{care_html}
+      </ul>
+      <div class="cta"><span>{e(T('이번 장거리, 얼마까지 늘려도 될까'))}</span><a href="#spike">{e(T('거리 급증 체크'))} →</a></div>
+    </section>
+  </div>
+  <section class="panel" aria-labelledby="rp-split">
+    <h2 id="rp-split">{e(T('목표 기록별 5km 통과 시각'))}</h2>
+    <p class="note">{e(T('고르게 달렸을 때의 통과 시각입니다. 목표 기록을 누르면 그 목표로 구간표를 만들어 드립니다.'))}</p>
+    <div class="tbl-wrap">
+      <table class="goal-table race-split">
+        <thead><tr><th scope="col">{e(T('지점'))}</th>{head}</tr></thead>
+        <tbody>
+{chr(10).join(rows)}
+        </tbody>
+      </table>
+    </div>
+    <div class="cta"><span>{e(T('이 대회를 준비하는 한 주 훈련표'))}</span><a href="#plan?pg={pg}">{e(T('주간 훈련표 만들기'))} →</a></div>
+  </section>
+  <nav class="next three" aria-label="{e(T('다른 주요 대회'))}">
+    {near}
+  </nav>
+</section>
+"""
+    path = 'marathon-schedule/' + r['id']
+    lds = []
+    if r.get('date'):
+        lds.append({'@context': 'https://schema.org', '@type': 'SportsEvent', 'name': name, 'startDate': r['date'], 'eventStatus': 'https://schema.org/EventScheduled',
+                    'location': {'@type': 'Place', 'name': T(r['place']), 'address': {'@type': 'PostalAddress', 'addressCountry': 'KR'}}, 'url': r['url']})
+    if cfg['siteUrl']:
+        base = cfg['siteUrl'] + '/' + META[L()]['prefix'].lstrip('/')
+        lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': brand(), 'item': base},
+            {'@type': 'ListItem', 'position': 2, 'name': T('대회 일정'), 'item': base + 'marathon-schedule/'},
+            {'@type': 'ListItem', 'position': 3, 'name': name, 'item': base + path + '/'}]})
+    title = T('{name} {year}: 코스, 부상 주의점, 목표 기록별 5km 페이스표', name=name, year=year)
+    desc = T('{name} {year} 일정과 접수, 코스 특징, 정형외과 전문의가 짚은 부상 주의점, 목표 기록별 5km 통과 시각을 정리했습니다.', name=name, year=year)
+    return {'path': path, 'body': body, 'lds': lds, 'title': title, 'desc': desc}
+
 def race_next():
     e = html.escape
     fixed = [{'date': r['date'], 'name': r['name'], 'events': T(r['events']), 'place': T(r['place'])} for r in RACE_DATA['races'] if r.get('date')]
@@ -571,7 +689,7 @@ def render(text, flags, extra=None):
 
 def view_html(vid, flags):
     extra = None
-    if vid == 'calendar': extra = race_blocks()
+    if vid == 'calendar': extra = race_blocks(flags.get('site'))
     elif vid == 'goals': extra = {'goal_tables': goal_tables(flags.get('site'))}
     elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next()}
     elif vid == 'tools': extra = {'hub': hub_html(flags)}
@@ -632,6 +750,7 @@ def i18n_catalog():
         keys += [('injury', t) for k in ('feel', 'why', 'do', 'see') for t in x[k]]
     for r in RACE_DATA['races']:
         keys += [('races', r[k]) for k in ('season', 'events', 'place', 'reg', 'link') if r.get(k)]
+        keys += [('races', t) for k in ('course', 'care') for t in r.get(k, [])]
     keys += [('races', m) for m in REG_ORDER] + [('races', g) for g in REGIONS] + [('races', l) for l in EV_LABEL.values()]
     for r in RACE_LIST['races']:
         keys += [('races', r['rg'])] + [('races', tok) for tok in r['ev'].split(' · ')]
@@ -774,7 +893,7 @@ def build_site():
             'nav': nav_html(nav or vid), 'tabbar': tabbar_html(nav or vid), 'langs': langs, 'views': body,
             'scripts': f'<script>window.SITE={site_json(site)};</script>\n<script src="{root}assets/core{sfx}.js?v={ver}" defer></script>\n<script src="{root}assets/app{sfx}.js?v={ver}" defer></script>',
         })
-        page = re.sub(r'href="#(' + '|'.join(IDS) + r')"', lambda m: f'href="{paths[m.group(1)]}"', page)
+        page = re.sub(r'href="#(' + '|'.join(IDS) + r')(\?[^"#]*)?"', lambda m: f'href="{paths[m.group(1)]}{(m.group(2) or "").replace("&", "&amp;")}"', page)
         if lang != 'ko':
             left = [s for s in i18n.leftover(page) if i18n.HANGUL.search(s)]
             if left:
@@ -791,6 +910,10 @@ def build_site():
             for i, g in enumerate(group):
                 gp = goal_page(g, group[i + 1] if i + 1 < len(group) else None, group[i - 1] if i else None)
                 emit(lang, 'goal', gp['path'], gp['title'], gp['desc'], body=gp['body'], lds=gp['lds'], nav='goals')
+        majors = sorted(RACE_DATA['races'], key=lambda r: r.get('date') or ('9' + (r.get('last') or '')))
+        for i, r in enumerate(majors):               # 주요 대회별 쪽
+            rp = race_page(r, [majors[(i + k) % len(majors)] for k in (1, 2, 3)])
+            emit(lang, 'race-page', rp['path'], rp['title'], rp['desc'], body=rp['body'], lds=rp['lds'], nav='calendar')
         for i, x in enumerate(INJURIES):             # 부상별 쪽
             ip = injury_page(x, [INJURIES[(i + k) % len(INJURIES)] for k in (1, 2)])
             emit(lang, 'injury-page', ip['path'], ip['title'], ip['desc'], body=ip['body'], lds=ip['lds'], nav='injury')

@@ -69,8 +69,14 @@
       <div class="bib-actions">
         <button type="button" class="btn" id="copy-result">결과 복사</button>
         <button type="button" class="btn ghost" id="share-img">공유 이미지 만들기</button>
+        <button type="button" class="btn ghost" id="copy-link">기록 링크 복사</button>
         <p class="note" id="range-note">{{brand:는}} 레이스 기록에서 거꾸로 계산한 유산소 능력 지수입니다.</p>
       </div>
+      <nav class="carry" aria-label="이 기록으로 이어서">
+        <a href="#plan" data-carry><b>주간 훈련표</b><span>이 기록의 페이스로 한 주 짜기</span><i>→</i></a>
+        <a href="#race" data-carry><b>대회 구간표</b><span>예상 기록으로 5km 통과 시각</span><i>→</i></a>
+        <a href="#fitage" data-carry><b>체력 나이</b><span>또래 가운데 내 자리</span><i>→</i></a>
+      </nav>
       <figure class="share" id="share-out" hidden>
         <img id="share-pic" class="savable" alt="" width="1080" height="1350">
         <figcaption>

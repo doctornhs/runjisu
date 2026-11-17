@@ -1154,3 +1154,50 @@
 §a98bfcc Mixed relay
 §b2c8359 Trail full
 §25f551e Trail half
+§d68d037 Copy record link
+§d310142 <a href="#plan" data-carry><b>Weekly plan</b><span>Build a week at this record's paces</span><i>→</i></a> <a href="#race" data-carry><b>Race splits</b><span>5 km split times from your predicted finish</span><i>→</i></a> <a href="#fitage" data-carry><b>Fitness age</b><span>Where you stand among your age group</span><i>→</i></a>
+§7471d5b Continue with this record
+§710fc6a check entry dates
+§d38ddf0 This reminder is based on last year's entry period. Check the official site for the exact entry dates.
+§943a64e " id="goal-plan">Make splits →</a><button type="button" class="linkish" data-ics="race" data-ics-date="
+§3465cbb " data-ics-url="">Add to calendar</button>
+§c91eb0e Add to calendar
+§adddacd Remind me when entry opens
+§2c95a10 Course, injury notes, 5 km pace table
+§22259a6 Course notes are compiled from race announcements, news reports and published course analyses. Courses can change from year to year, so check the course map and elevation profile on the official site.
+§406761a We have not compiled elevation data for this course yet. Check the course guide on the official site.
+§27e2760 Race guide
+§7dd729e Course
+§e0ba0a7 Injury notes from an orthopedic surgeon
+§71a9e99 5 km split times by goal
+§0eef812 Split times at an even pace. Tap a goal time to build splits for that goal.
+§1a85d82 A training week for this race
+§0823aff Build a weekly plan
+§b92d8a0 Other major races
+§629ce84 {name} {year}: course, injury notes and 5 km pace table by goal
+§f2a2c50 {name} {year}: date and entry, course features, injury notes from an orthopedic surgeon, and 5 km split times for each goal.
+§a869590 From 2027 the race starts and finishes at Gukchae Bosang Memorial Park instead of Daegu Stadium, on a new route through downtown landmarks centered on Dalgubeol-daero.
+§1ac8494 Daegu City describes the new route as a relatively flat city course. It differs from the old course with its late climb, so check the new course map and elevation profile on the official site.
+§101f67d Held in late February, it is the coldest of Korea's major races. Bring a layer to stay warm while waiting at the start and warm up longer than usual. Cold muscles are more prone to calf and hamstring strains.
+§c277a3a Don't rush to add mileage right before race day. Distance spikes are easy to slip into on long runs in January and February.
+§f2721ff On a flat city course, going out too fast is the most common mistake.
+§de03b42 A one-way city course that starts at Gwanghwamun Square, runs east past Jongno and Dongdaemun, and finishes at Jamsil Sports Complex.
+§d828c41 Known as a flat course with little elevation change. There is a gentle rise and fall onto Jamsil Bridge late in the race.
+§d7a008e With a very large field, early congestion is known to affect finish times.
+§0f5a31a Mid-March mornings are chilly, so you cool down quickly while waiting to start. Wait in a throwaway layer. Starting with stiff muscles can raise the risk of calf and hamstring strains.
+§3b2728f The flatter the course, the easier it is to get swept up in the pace around you early on. Running the first 5 km faster than your splits makes late calf cramps and muscle damage more common.
+§dbd049f On bridge climbs, shorten your stride and keep your effort steady.
+§7bd537b A loop course that starts at Gyeongju Civic Stadium, passes historic sites such as Cheomseongdae, and returns to the stadium.
+§0186223 According to published course analyses, total elevation gain is about 146 m, with a gentle climb (about 30 m) on the Bukcheon stretch from 16 to 24 km.
+§5da92c4 A gentle mid-race climb costs more effort than it feels. Don't try to hold your pace uphill; keep your effort steady.
+§373aa1c On the downhill after the turn, shorten your stride to ease the load on your quads and knees.
+§2f7981a A loop course that starts at Gongjicheon and circles Uiam Lake. It turns near Sinmae Bridge at about 21 km, then passes Seosang Bridge and Chuncheon Dam on the way back to Gongjicheon.
+§a6a657e There is a gentle climb right after the start, and the lakeside stretch from 5 to 15 km is mostly flat. Climbs cluster around Seosang Bridge and Chuncheon Dam at 25–30 km, the course's biggest test.
+§d44113f The deciding stretch is the 25–30 km climb, so if you push the pace on the flat lakeside early, your legs won't hold up late. Run the first half slightly slower than your splits.
+§f3e2529 Starting about four weeks out, add hill repeats to prepare the calf and glute muscles used on climbs. Uphill, shorten your stride and stay upright.
+§6f3a05e Late-October mornings in Chuncheon are chilly, so your muscles cool quickly while waiting to start.
+§b41c3ad A one-way course that starts at Sangam World Cup Park, crosses downtown Seoul and Han River bridges, and finishes at Olympic Park (the 10K finishes at Yeouido Park).
+§286e588 It is known as a flat race, but its elevation range is on the larger side among Seoul's majors. Known tough spots: gentle ups and downs on the early bridges, a climb toward Chungjeongno and Gwanghwamun around 12 km, the Konkuk Univ. station stretch near 26 km, and rolling terrain toward Suseo after 34 km.
+§a70b327 The climbs come late, so adding a few hill repeats from about four weeks out helps your calves and Achilles adapt to uphill load. Ramping up hill work too fast also strains the Achilles.
+§83d1138 Bounding down a descent with long strides after a climb concentrates impact on your quads and knees. Downhill, shorten your stride and quicken your cadence.
+§f30a6fb Early-November mornings have wide temperature swings, so staying warm before the start matters.
