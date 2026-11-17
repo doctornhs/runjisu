@@ -1201,3 +1201,7 @@
 §a70b327 The climbs come late, so adding a few hill repeats from about four weeks out helps your calves and Achilles adapt to uphill load. Ramping up hill work too fast also strains the Achilles.
 §83d1138 Bounding down a descent with long strides after a climb concentrates impact on your quads and knees. Downhill, shorten your stride and quicken your cadence.
 §f30a6fb Early-November mornings have wide temperature swings, so staying warm before the start matters.
+§20bf4e1 No MET data
+§4205c36 · Temperature as of
+§166a7b9 (refreshing)
+§b7868dd This temperature is a forecast from <a href="https://api.met.no/" target="_blank" rel="noopener">the Norwegian Meteorological Institute (MET Norway)</a>; sunrise and sunset are calculated.

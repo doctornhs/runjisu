@@ -311,6 +311,35 @@ const Core = (() => {
     if (c >= 95 && c <= 99) return '뇌우';
     return '';
   }
+  /** 해 뜨고 지는 시각(현지 'HH:MM'). NOAA 근사식, 오차 1~2분 */
+  function sunTimes(ymd, lat, lon, tzHours) {
+    const [y, m, d] = ymd.split('-').map(Number);
+    const n = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 1)) / 864e5) + 1;
+    const g = 2 * Math.PI / ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0 ? 366 : 365) * (n - 1 + 0.5), rad = Math.PI / 180;
+    const eq = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
+    const dec = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g);
+    const c = Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(dec)) - Math.tan(lat * rad) * Math.tan(dec);
+    if (c < -1 || c > 1) return null;                       // 백야·극야
+    const ha = Math.acos(c) / rad;
+    const at = mins => { const t = ((Math.round(mins + tzHours * 60) % 1440) + 1440) % 1440; return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); };
+    return { rise: at(720 - 4 * (lon + ha) - eq), set: at(720 - 4 * (lon - ha) - eq) };
+  }
+  /** 노르웨이 기상청(MET Norway) 예보를 Open-Meteo 응답 모양으로 바꾼다. 기온 예비 자료 */
+  function metNow(j, lat, lon, ymd) {
+    const ts = j && j.properties && j.properties.timeseries, x = ts && ts[0] && ts[0].data;
+    const det = x && x.instant && x.instant.details;
+    if (!det || !Number.isFinite(det.air_temperature)) return null;
+    const t = det.air_temperature, rh = det.relative_humidity, ws = det.wind_speed;
+    // 체감 온도: Open-Meteo와 같은 호주 기상청 식(햇볕 제외)
+    const feels = Number.isFinite(rh) && Number.isFinite(ws) ? t + 0.33 * (rh / 100 * 6.105 * Math.exp(17.27 * t / (237.7 + t))) - 0.70 * ws - 4.00 : t;
+    const sym = String((x.next_1_hours || x.next_6_hours || {}).summary ? (x.next_1_hours || x.next_6_hours).summary.symbol_code : '');
+    const code = /thunder/.test(sym) ? 95 : /sleet/.test(sym) ? 66 : /snowshowers/.test(sym) ? 85 : /snow/.test(sym) ? (/heavy/.test(sym) ? 75 : /light/.test(sym) ? 71 : 73)
+      : /rainshowers/.test(sym) ? 80 : /rain/.test(sym) ? (/heavy/.test(sym) ? 65 : /light/.test(sym) ? 61 : 63) : /fog/.test(sym) ? 45
+      : /partlycloudy/.test(sym) ? 2 : /cloudy/.test(sym) ? 3 : /fair/.test(sym) ? 1 : /clearsky/.test(sym) ? 0 : NaN;
+    const sun = sunTimes(ymd, lat, lon, 9);
+    return { current: { temperature_2m: t, apparent_temperature: Math.round(feels * 10) / 10, relative_humidity_2m: rh, wind_speed_10m: ws, weather_code: code },
+      current_units: { wind_speed_10m: 'm/s' }, daily: sun ? { sunrise: [ymd + 'T' + sun.rise], sunset: [ymd + 'T' + sun.set] } : null };
+  }
   /** 오늘 달리기 한 줄. level 0 무난, 1 조심, 2 미루기. 날씨도 없고 공기도 괜찮으면 null */
   function runTip(w) {
     const lv = k => { const g = pmGrade(k, w[k]); return g ? g.level : -1; };
@@ -337,7 +366,7 @@ const Core = (() => {
   }
 
   return {
-    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate, pmGrade, dailyMeans, skyText, runTip,
+    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate, pmGrade, dailyMeans, skyText, runTip, sunTimes, metNow,
     splits, goalCheck, weekPlan,
     dayNum, weekIdx, dayLabel, logStats,
     FRIEND, peerRow, peerPercentile, fitnessAge, nextTier, cooper, rockport,

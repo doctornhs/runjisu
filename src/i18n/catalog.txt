@@ -683,6 +683,7 @@
 §73e0668 [app.js] 날씨 자료 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · 대기질 CAMS 예보. 미세먼지는 측정소 값이 아니라 예보 모델이 계산한 값이어서 <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">에어코리아</a> 실측과 다를 수 있습니다. 등급은 환경부 예보 기준이고, 예보 칸은 그날 평균(㎍/㎥)입니다.
 §9d12f5a [app.js] <option value="@">내 위치</option>
 §7bb991b [app.js] 응답 시간 초과
+§20bf4e1 [app.js] MET 자료 없음
 §fd7fdcc [app.js] <span class="pmc"><b>–</b><i>없음</i></span>
 §8cf82cc [app.js] 일,월,화,수,목,금,토
 §077364a [app.js] 요일</small>
@@ -701,7 +702,10 @@
 §171859c [app.js] <tr><th scope="row">초미세<small>PM2.5</small></th>
 §3c36898 [app.js] <p class="note">미세먼지 예보를 불러오지 못했습니다.</p>
 §7838870 [app.js] · 새로 불러오지 못해 저장해 둔 값입니다
+§4205c36 [app.js] · 기온은
+§166a7b9 [app.js] 값입니다(다시 불러오는 중)
 §8568ba1 [app.js] · 기온 오류:
+§b7868dd [app.js] 이번 기온은 <a href="https://api.met.no/" target="_blank" rel="noopener">노르웨이 기상청(MET Norway)</a> 예보이고, 일출·일몰은 계산값입니다.
 §5321ad0 [app.js] 날씨를 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button>
 §3768c36 [app.js] 미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.
 §af2dd61 [app.js] 오류:

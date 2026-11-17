@@ -946,7 +946,8 @@
     const box = $('#wx'); if (!box) return;
     const CITIES = [['ソウル', 37.57, 126.98], ['仁川', 37.46, 126.71], ['水原', 37.26, 127.03], ['春川', 37.88, 127.73], ['江陵', 37.75, 128.88], ['清州', 36.64, 127.49], ['大田', 36.35, 127.38], ['世宗', 36.48, 127.29],
       ['全州', 35.82, 127.15], ['光州', 35.16, 126.85], ['大邱', 35.87, 128.6], ['浦項', 36.02, 129.34], ['蔚山', 35.54, 129.31], ['釜山', 35.18, 129.08], ['昌原', 35.23, 128.68], ['済州', 33.5, 126.53]];
-    const WX = 'https://api.open-meteo.com/v1/forecast?', AQ = 'https://air-quality-api.open-meteo.com/v1/air-quality?';
+    const WX = 'https://api.open-meteo.com/v1/forecast?', AQ = 'https://air-quality-api.open-meteo.com/v1/air-quality?', MET = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?';
+    const LIVE = SITE.mode === 'site';     // 미리보기(한 장짜리)는 바깥 주소를 막는 곳이 많아 한 번만 묻는다
     const SRC_NOTE = '天気データ <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>・大気質はCAMS予報。微小粒子状物質は観測所の値ではなく予報モデルの計算値のため、<a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">エアコリア</a>の実測とは異なることがあります。等級は韓国環境部の予報基準で、予報欄はその日の平均（㎍/㎥）です。';
     const sel = $('#wx-city'), hereBtn = $('#wx-here'), note = $('#wx-note');
     const st = Object.assign({ city: 'ソウル', here: false }, store.get('wx', null) || {});
@@ -963,9 +964,9 @@
     const hm = iso => (typeof iso === 'string' && iso.length >= 16) ? iso.slice(11, 16) : '–';
     const one = v => Number.isFinite(v) ? v.toFixed(1) : '–';
     const clock = at => { const d = new Date(at); return pad(d.getHours()) + ':' + pad(d.getMinutes()); };
-    function getJson(url) {
+    function getJson(url, ms) {
       const ac = typeof AbortController === 'function' ? new AbortController() : null;
-      const timer = setTimeout(() => { if (ac) ac.abort(); }, 12000);
+      const timer = setTimeout(() => { if (ac) ac.abort(); }, ms || 9000);
       const done = x => { clearTimeout(timer); return x; };
       return fetch(url, ac ? { signal: ac.signal } : {})
         .then(r => r.ok ? r.json() : r.json().catch(() => ({})).then(j => { throw new Error('HTTP ' + r.status + (j && j.reason ? ' · ' + j.reason : '')); }))
@@ -973,19 +974,24 @@
     }
     const wait = ms => new Promise(res => setTimeout(res, ms));
     const why = e => (e && e.name === 'AbortError') ? '応答タイムアウト' : String((e && e.message) || e).slice(0, 140);
-    let wxErr = '';
-    /* 기온: 실패하면 잠깐 뒤 한 번 더, 그래도 안 되면 일출·일몰을 뺀 가장 단순한 요청으로 */
-    function getWeather(q) {
+    let wxErr = '', wxSrc = 'om';
+    /* 기온: Open-Meteo → 안 되면 노르웨이 기상청(MET Norway) → 그래도 안 되면 잠깐 쉬고 Open-Meteo 가장 단순한 요청 */
+    function getWeather(q, p) {
       const cur = '&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code';
       const full = WX + q + cur + '&daily=sunrise,sunset&wind_speed_unit=ms&forecast_days=1', lite = WX + q + cur;
-      wxErr = '';
+      const met = () => getJson(MET + 'lat=' + p.lat.toFixed(2) + '&lon=' + p.lon.toFixed(2)).then(j => {
+        const w = Core.metNow(j, p.lat, p.lon, today()); if (!w) throw new Error('METデータなし'); wxSrc = 'met'; return w;
+      });
+      wxErr = ''; wxSrc = 'om';
+      if (!LIVE) return getJson(full).catch(e => { wxErr = why(e); return null; });
       return getJson(full)
-        .catch(e => /^HTTP 4/.test(e.message) ? getJson(lite) : wait(1200).then(() => getJson(full)).catch(() => getJson(lite)))
-        .catch(e => { wxErr = why(e); return null; });
+        .catch(e => { wxErr = why(e); return met(); })
+        .catch(() => wait(1500).then(() => getJson(lite)))
+        .then(w => { if (w) wxErr = ''; return w; }, () => null);
     }
     function getAir(q) {
       const u = AQ + q + '&current=pm10,pm2_5&hourly=pm10,pm2_5&forecast_days=5';
-      return getJson(u).catch(() => wait(1200).then(() => getJson(u))).catch(() => null);
+      return (LIVE ? getJson(u).catch(() => wait(1500).then(() => getJson(u))) : getJson(u)).catch(() => null);
     }
     function pack(w, a) {
       const c = w && w.current, d = w && w.daily, ac = a && a.current, h = a && a.hourly;
@@ -1019,34 +1025,53 @@
           `<tr><th scope="row">粒子状物質<small>PM10</small></th>${days.map(x => `<td>${chip('pm10', x.mean)}</td>`).join('')}</tr>` +
           `<tr><th scope="row">微小粒子<small>PM2.5</small></th>${days.map(x => `<td>${chip('pm25', m25[x.date])}</td>`).join('')}</tr></tbody></table></div>`;
       } else $('#wx-air').innerHTML = '<p class="note">微小粒子状物質の予報を読み込めませんでした。</p>';
-      note.innerHTML = clock(at) + '基準' + (stale ? '・更新できなかったため保存した値です' : '') + (!n && wxErr ? '・気温エラー：' + esc(wxErr) : '') + ' · ' + SRC_NOTE;
+      note.innerHTML = clock(at) + '基準' + (stale ? '・更新できなかったため保存した値です' : '') + (n && data.old ? '・気温は' + clock(data.nowAt) + 'の値です（再読み込み中）' : '')
+        + (!n && wxErr ? '・気温エラー：' + esc(wxErr) : '') + ' · ' + SRC_NOTE
+        + (n && data.src === 'met' ? '今回の気温は<a href="https://api.met.no/" target="_blank" rel="noopener">ノルウェー気象研究所（MET Norway）</a>の予報で、日の出・日の入りは計算値です。' : '');
     }
     function fail() {
       $('#wx-t').textContent = '–'; $('#wx-sky').textContent = ''; $('#wx-tip').hidden = true; $('#wx-air').innerHTML = '';
       $('#wx-facts').innerHTML = '<li>' + (SITE.mode === 'site' ? '天気を読み込めませんでした。<button type="button" class="linkish" data-wx-retry>再読み込み</button>' : 'プレビューでは天気を読み込めません。公開サイトで表示されます。') + '</li>';
       note.innerHTML = (wxErr ? 'エラー：' + esc(wxErr) + ' · ' : '') + SRC_NOTE;
+      later();
+    }
+    /* 못 받은 쪽이 있으면 조용히 다시: 15초, 45초, 2분 뒤. 창으로 돌아오거나 인터넷이 다시 붙어도 */
+    let retryTimer = 0, retries = 0;
+    function later() {
+      if (!LIVE || retries >= 3) return;
+      clearTimeout(retryTimer);
+      retryTimer = setTimeout(() => { retries++; load(true, true); }, [15000, 45000, 120000][retries]);
     }
     let seq = 0;
-    function load(force) {
+    function load(force, quiet) {
       const p = place(), key = p.lat.toFixed(2) + ',' + p.lon.toFixed(2), hit = store.get('wxc', null), mine = ++seq;
       const cached = hit && hit.key === key && hit.data ? hit : null;
-      const fresh = !!cached && Date.now() - cached.at < 20 * 60000;
-      // 기온과 대기질을 둘 다 받아 둔 경우에만 20분 동안 다시 묻지 않는다. 한쪽이 비었으면 열 때마다 다시 받는다
-      if (!force && fresh && cached.data.now && cached.data.air) { paint(cached.data, cached.at, false); return; }
+      const fresh = !!cached && Date.now() - cached.at < 20 * 60000, recent = !!cached && Date.now() - cached.at < 3 * 3600000;
+      // 기온과 대기질을 둘 다 새로 받아 둔 경우에만 20분 동안 다시 묻지 않는다
+      if (!force && fresh && cached.data.now && cached.data.air && !cached.data.old && !cached.data.airOld) { paint(cached.data, cached.at, false); return; }
       if (typeof fetch !== 'function') { fail(); return; }
-      if (cached) paint(cached.data, cached.at, false);
-      if (force || !cached) $('#wx-facts').innerHTML = '<li>読み込み中…</li>';
+      if (cached && recent) paint(cached.data, cached.at, false);
+      if (!quiet && (force || !cached || !recent)) $('#wx-facts').innerHTML = '<li>読み込み中…</li>';
       const q = 'latitude=' + p.lat + '&longitude=' + p.lon + '&timezone=Asia%2FSeoul';
-      Promise.all([getWeather(q), getAir(q)]).then(r => {
+      Promise.all([getWeather(q, p), getAir(q)]).then(r => {
         if (mine !== seq) return;
-        const got = pack(r[0], r[1]), old = fresh ? cached.data : null;
-        const data = { now: got.now || (old && old.now) || null, air: got.air || (old && old.air) || null };
-        if (!data.now && !data.air) { if (cached) paint(cached.data, cached.at, true); else fail(); return; }
-        const at = Date.now();
+        const got = pack(r[0], r[1]), at = Date.now();
+        const data = { now: got.now, air: got.air, src: got.now ? wxSrc : '', nowAt: got.now ? at : 0 };
+        // 이번에 못 받은 쪽은 세 시간 안에 받아 둔 값으로 채우고, 몇 시 값인지 밝힌다
+        if (!data.now && recent && cached.data.now) Object.assign(data, { now: cached.data.now, src: cached.data.src || '', nowAt: cached.data.nowAt || cached.at, old: true });
+        if (!data.air && recent && cached.data.air) Object.assign(data, { air: cached.data.air, airOld: true });
+        if (!data.now && !data.air) { if (cached) paint(cached.data, cached.at, true); else fail(); later(); return; }
         store.set('wxc', { key, at, data });
         paint(data, at, false);
-      }).catch(fail);
+        if (got.now && got.air) { retries = 0; clearTimeout(retryTimer); } else later();
+      }).catch(() => { fail(); });
     }
+    let wasHidden = false;      // 다른 창에 갔다가 돌아왔을 때만
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') { wasHidden = true; return; }
+      if (wasHidden && LIVE) { wasHidden = false; retries = 0; load(false, true); }
+    });
+    window.addEventListener('online', () => { if (LIVE) { retries = 0; load(true, true); } });
     box.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-wx-retry]')) load(true); });
     sel.addEventListener('change', () => {
       if (sel.value === '@') return;

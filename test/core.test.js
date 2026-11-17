@@ -115,6 +115,11 @@ ok('40세 최대심박 추정 180', Core.estMaxHr(40) === 180);
   ok('매우 나쁨이면 실내로', Core.runTip({ feels: 10, code: 0, pm10: 160, pm25: 20 }).level === 2);
   ok('서늘하고 공기 좋으면 좋은 날씨', Core.runTip({ feels: 10, code: 1, pm10: 20, pm25: 10 }).level === 0);
   ok('날씨가 없고 공기가 괜찮으면 한 줄을 내지 않는다', Core.runTip({ feels: NaN, code: NaN, pm10: 20, pm25: 10 }) === null);
+  const sun = Core.sunTimes('2026-11-17', 37.57, 126.98, 9), hmm = x => +x.slice(0, 2) * 60 + +x.slice(3);
+  ok('서울 11월 17일 일출 07:13·일몰 17:20 (±3분)', Math.abs(hmm(sun.rise) - 433) <= 3 && Math.abs(hmm(sun.set) - 1040) <= 3);
+  const met = Core.metNow({ properties: { timeseries: [{ data: { instant: { details: { air_temperature: 11.7, relative_humidity: 89, wind_speed: 0.5 } }, next_1_hours: { summary: { symbol_code: 'lightrainshowers_day' } } } }] } }, 37.57, 126.98, '2026-11-17');
+  ok('MET Norway 자료를 같은 모양으로', met.current.temperature_2m === 11.7 && met.current.weather_code === 80 && Math.abs(met.current.apparent_temperature - 11.4) < 1 && met.daily.sunrise[0].startsWith('2026-11-17T07:'));
+  ok('MET 자료가 비면 null', Core.metNow({}, 37, 127, '2026-11-17') === null && Core.metNow({ properties: { timeseries: [] } }, 37, 127, '2026-11-17') === null);
   ok('날씨가 없어도 공기가 나쁘면 알린다', Core.runTip({ feels: NaN, code: NaN, pm10: null, pm25: 50 }).level === 1);
 }
 
