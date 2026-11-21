@@ -311,6 +311,71 @@ const Core = (() => {
     if (c >= 95 && c <= 99) return '雷雨';
     return '';
   }
+  /* ── 러닝 크루: 한 줄에 한 사람 "이름 거리 기록" ── */
+  const CREW_DIST = [[/^(5k|5km|5키로|5킬로|5キロ)$/i, 5000], [/^(10k|10km|10키로|10킬로|10キロ)$/i, 10000],
+    [/^(하프|half|hm|ハーフ|21k|21km|21\.1k|21\.1km)$/i, 21097.5], [/^(풀|풀코스|full|fm|marathon|마라톤|フル|マラソン|42k|42km|42\.195k|42\.195km)$/i, 42195]];
+  function crewTime(tok, meters) {
+    let m = tok.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+    if (m) {
+      const a = +m[1], b = +m[2], c = m[3] === undefined ? null : +m[3];
+      if (b > 59 || (c !== null && c > 59)) return NaN;
+      if (c !== null) return a * 60 + b + c / 60;
+      return meters >= 21000 && a < 10 ? a * 60 + b : a + b / 60;     // 하프·풀의 1:58 은 시:분
+    }
+    m = tok.match(/^(?:(\d+)(?:시간|時間|h))?(?:(\d+)(?:분|分|m))?(?:(\d+)(?:초|秒|s))?$/i);
+    if (m && (m[1] || m[2] || m[3])) return (+m[1] || 0) * 60 + (+m[2] || 0) + (+m[3] || 0) / 60;
+    return NaN;
+  }
+  /** 명단 글 → { members:[{name, meters, minutes, idx}], errors:[{line, text}] } */
+  function parseCrew(text, defMeters) {
+    const members = [], errors = [];
+    String(text || '').split(/\r?\n/).forEach((raw, n) => {
+      const line = raw.replace(/(\d+(?:\.\d+)?)\s+(km|k|키로|킬로|キロ)(?![a-z가-힣])/gi, '$1$2').replace(/(\d)\s+(시간|분|초|時間|分|秒)/g, '$1$2').replace(/(시간|분|時間|分)\s+(\d)/g, '$1$2').trim();
+      if (!line) return;
+      const toks = line.split(/[\s,\t·|]+/).filter(Boolean);
+      let meters = 0, time = '', name = [];
+      toks.forEach(t => {
+        const d = CREW_DIST.find(x => x[0].test(t));
+        if (d && !meters) meters = d[1];
+        else if (!time && /\d/.test(t) && /^(\d{1,2}:\d{2}(:\d{2})?|(\d+(시간|時間|h))?(\d+(분|分|m))?(\d+(초|秒|s))?)$/i.test(t)) time = t;
+        else name.push(t);
+      });
+      meters = meters || defMeters;
+      const minutes = time ? crewTime(time, meters) : NaN;
+      const idx = minutes > 0 ? runIndex(meters, minutes) : NaN;
+      if (!(idx >= 15 && idx <= 90)) { errors.push({ line: n + 1, text: raw.trim() }); return; }
+      members.push({ name: name.join(' ') || ('メンバー' + (members.length + 1)), meters, minutes, idx: Math.round(idx * 10) / 10 });
+    });
+    return { members, errors };
+  }
+  /** 실력순으로 이어 붙인 그룹. k=0 이면 런지수 4점 넘게 벌어질 때 새 그룹, k≥2 면 그룹 안 차이가 가장 작게 k개로 */
+  function crewGroups(members, k) {
+    const a = members.slice().sort((x, y) => y.idx - x.idx), n = a.length;
+    if (!n) return [];
+    const cuts = [];
+    if (!k) {
+      let start = 0;
+      for (let i = 1; i < n; i++) if (a[start].idx - a[i].idx > 4) { cuts.push(i); start = i; }
+    } else {
+      k = Math.min(k, n);
+      const cost = (i, j) => { const r = a[i].idx - a[j].idx; return r * r; };     // i..j 한 그룹
+      const dp = [], from = [];
+      for (let g = 0; g <= k; g++) { dp.push(new Array(n + 1).fill(Infinity)); from.push(new Array(n + 1).fill(0)); }
+      dp[0][0] = 0;
+      for (let g = 1; g <= k; g++) for (let j = g; j <= n; j++) for (let i = g - 1; i < j; i++) {
+        const v = dp[g - 1][i] + cost(i, j - 1);
+        if (v < dp[g][j] - 1e-9) { dp[g][j] = v; from[g][j] = i; }
+      }
+      for (let g = k, j = n; g > 1; g--) { j = from[g][j]; cuts.unshift(j); }
+    }
+    const bounds = [0].concat(cuts, [n]), out = [];
+    for (let g = 0; g < bounds.length - 1; g++) {
+      const m = a.slice(bounds[g], bounds[g + 1]), slow = m[m.length - 1], p = paces(slow.idx);
+      out.push({ members: m, top: m[0].idx, low: slow.idx, spread: Math.round((m[0].idx - slow.idx) * 10) / 10, easy: [p.eFast, p.eSlow] });
+    }
+    return out;
+  }
+
   /** 해 뜨고 지는 시각(현지 'HH:MM'). NOAA 근사식, 오차 1~2분 */
   function sunTimes(ymd, lat, lon, tzHours) {
     const [y, m, d] = ymd.split('-').map(Number);
@@ -366,7 +431,7 @@ const Core = (() => {
   }
 
   return {
-    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate, pmGrade, dailyMeans, skyText, runTip, sunTimes, metNow,
+    runIndex, raceMinutes, paces, predictions, RACES, kmh, GATES, gate, pmGrade, dailyMeans, skyText, runTip, sunTimes, metNow, parseCrew, crewGroups,
     splits, goalCheck, weekPlan,
     dayNum, weekIdx, dayLabel, logStats,
     FRIEND, peerRow, peerPercentile, fitnessAge, nextTier, cooper, rockport,

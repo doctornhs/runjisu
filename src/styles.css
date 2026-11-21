@@ -554,3 +554,26 @@ html[lang="en"] body{word-break:normal}
 .race-split th[scope="row"]{position:sticky;left:0;background:var(--card);z-index:1;font-size:14px}
 .race-facts a.btn{text-decoration:none}
 @media (max-width:480px){.race-split th,.race-split td{padding:8px 5px}.race-split td{font-size:13.5px}.race-split thead a{font-size:13.5px}}
+
+/* ── 크루 페이스 · 지역별 대회 · 쇼핑 줄 · 애드핏 ── */
+#cr-list{font:500 15px/1.65 var(--font-num, ui-monospace),"Apple SD Gothic Neo","Malgun Gothic",sans-serif;min-height:210px}
+.crew-out{display:grid;gap:12px}
+.crew-g{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--card)}
+.crew-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.crew-h b{font-size:17px}
+.crew-h span{font-size:13px;color:var(--ink-2);font-family:var(--font-num)}
+.crew-p{margin:6px 0 8px;font-size:15px}
+.crew-p b{font-family:var(--font-num);font-size:22px;color:var(--accent);margin:0 2px}
+.crew-p small{color:var(--ink-2)}
+.crew-g ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.crew-g li{display:flex;justify-content:space-between;gap:10px;font-size:15px;border-top:1px dashed var(--line);padding-top:4px}
+.crew-g li small{color:var(--ink-2);font-family:var(--font-num);white-space:nowrap}
+.crew-warn{margin:8px 0 0;font-size:13px;color:var(--warn, #b4541a)}
+.shop-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.shop-row .shop{margin-top:0}
+.shop-box{margin-top:12px}
+.hub-links{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.hub-links a{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+.hub-links a:hover,.hub-links a[aria-current]{border-color:var(--accent);color:var(--accent)}
+.view-head h1 small{font-size:.55em;color:var(--ink-2);font-weight:700}
+.ad-fit{display:flex;justify-content:center;align-items:center;min-height:100px;margin:18px 0;overflow:hidden}

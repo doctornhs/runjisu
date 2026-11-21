@@ -26,7 +26,7 @@ def write(path, text):
 
 cfg = {
     'brand': '런지수', 'brandLatin': 'RUNJISU', 'siteUrl': '', 'contactEmail': '',
-    'ga4Id': '', 'adsenseClient': '', 'adSlots': {}, 'partnerLinks': {}, 'privacyDate': '2026-11-12',
+    'ga4Id': '', 'adsenseClient': '', 'adSlots': {}, 'partnerLinks': {}, 'privacyDate': '2026-11-12', 'adfit': {}, 'termsDate': '2026-11-21',
     'googleVerification': '', 'naverVerification': '',
 }
 cfg.update(json.loads(read(ROOT, 'site.config.json')))
@@ -58,6 +58,8 @@ VIEWS = [
      '러닝머신 속도(km/h)를 km당 페이스로, 페이스를 5K·10K·하프·풀코스 완주 기록으로 바꿉니다.'),
     ('fitage', 'fitness-age', '체력 나이', '체력 나이 계산기: 달리기와 걷기로 보는 VO2max',
      '달리기 기록, 12분 달리기, 1.6km 빨리 걷기로 유산소 체력(VO2max)을 추정하고 또래 가운데 어디쯤인지, 체력 나이가 몇 살인지 보여 드립니다.'),
+    ('crew', 'crew-pace-groups', '크루 페이스', '러닝 크루 페이스 그룹 나누기: 멤버 기록으로 그룹런 페이스 정하기',
+     '멤버 기록을 한 줄에 한 사람씩 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고, 그룹마다 모두가 따라올 수 있는 이지 페이스를 정해 드립니다.'),
     ('injury', 'running-injuries', '러닝 부상', '러닝 부상 가이드: 무릎·정강이·발 통증, 부위별 원인과 대처',
      '달릴 때 무릎 바깥쪽이 아픈 장경인대 증후군부터 정강이 통증, 족저근막염, 아킬레스건, 피로골절까지. 러너에게 흔한 부상의 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.'),
     ('terms', 'running-terms', '러닝 용어', '러닝 용어 사전: LSD, 빌드업, 서브4, 케이던스 뜻 정리',
@@ -69,6 +71,7 @@ VIEWS = [
     ('about', 'about', '근거·FAQ', '계산 근거와 자주 묻는 질문',
      '{brand}의 계산식과 참고한 연구, 자주 묻는 질문을 정리했습니다.'),
     ('privacy', 'privacy', None, '개인정보처리방침', '{brand}가 저장하는 정보와 쿠키, 광고, 제휴 링크 안내.'),
+    ('tos', 'terms-of-use', None, '이용약관', '{brand} 이용약관: 계산 결과의 한계, 대회 정보, 광고와 제휴 링크, 저작권 안내.'),
 ]
 IDS = [v[0] for v in VIEWS]
 
@@ -84,7 +87,8 @@ host = urlparse(cfg['siteUrl']).netloc if cfg['siteUrl'] else ''
 partners = bool(cfg['partnerLinks'])
 FLAGS = {
     'partners': partners, 'contact': bool(cfg['contactEmail']), 'ga4': bool(cfg['ga4Id']), 'adsense': bool(cfg['adsenseClient']),
-    'none': not (partners or cfg['ga4Id'] or cfg['adsenseClient']),
+    'adfit': bool((cfg.get('adfit') or {}).get('mobile') or (cfg.get('adfit') or {}).get('desktop')),
+    'none': not (partners or cfg['ga4Id'] or cfg['adsenseClient'] or (cfg.get('adfit') or {}).get('mobile') or (cfg.get('adfit') or {}).get('desktop')),
 }
 VARS = {
     'brand': BRAND, 'brandLatin': cfg['brandLatin'], 'contactEmail': cfg['contactEmail'], 'privacyDate': cfg['privacyDate'],
@@ -127,6 +131,12 @@ def ev_txt(ev):
 
 # ───────── 대회 일정: src/data/races.json 을 화면으로 ─────────
 RACE_DATA = json.loads(read(SRC, 'data', 'races.json'))
+
+SHOP = {'cushion': ('쿠팡에서 쿠션 러닝화 보기', '쿠션 러닝화'), 'racing': ('쿠팡에서 경량 레이싱화 보기', '경량 레이싱화'),
+        'race': ('쿠팡에서 배번 벨트 보기', '러닝 배번 벨트'), 'watch': ('쿠팡에서 러닝 워치 보기', '러닝 워치')}
+def shop_link(key):
+    label, q = SHOP[key]
+    return f'<a class="shop" data-shop="{key}" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q={urllib.parse.quote(q)}">{html.escape(T(label))}</a>'
 
 def reg_reminder(r):
     """접수 달이 알려진 날짜 미발표 대회: 다음 접수 달 1일. 지난 달이면 내년"""
@@ -219,6 +229,96 @@ def rc_list(kind):
 
 REG_ORDER = ['12월', '1월', '4월', '4~6월', '5월', '7월', '10월']
 
+REGION_SLUG = {'서울': 'seoul', '경기': 'gyeonggi', '인천': 'incheon', '강원': 'gangwon', '충북': 'chungbuk', '충남': 'chungnam', '대전': 'daejeon',
+               '세종': 'sejong', '전북': 'jeonbuk', '전남': 'jeonnam', '광주': 'gwangju', '경북': 'gyeongbuk', '경남': 'gyeongnam', '대구': 'daegu',
+               '울산': 'ulsan', '부산': 'busan', '제주': 'jeju'}
+DIST_HUB = [('full', '풀코스', '풀코스 마라톤', 42195), ('half', '하프', '하프 마라톤', 21097.5), ('10k', '10km', '10km 마라톤', 10000), ('trail', '트레일', '트레일 러닝', 0)]
+
+def hub_regions():
+    from collections import Counter
+    n = Counter(r['rg'] for r in RACE_LIST['races'])
+    return [g for g in REGIONS if g in REGION_SLUG and n[g] >= 3]
+
+def rl_hubs():
+    """대회 일정 쪽 아래: 지역별·종목별 쪽으로 가는 길(한국어판만)"""
+    if L() != 'ko':
+        return ''
+    reg = ''.join(f'<a href="region/{REGION_SLUG[g]}/">{html.escape(g)}</a>' for g in hub_regions())
+    dist = ''.join(f'<a href="distance/{k}/">{html.escape(lab)}</a>' for k, _s, lab, _m in DIST_HUB)
+    return (f'  <section class="panel hubs" aria-labelledby="rl-hubs-h">\n    <h2 id="rl-hubs-h">지역별·종목별로 보기</h2>\n'
+            f'    <p class="hub-links" aria-label="지역">{reg}</p>\n    <p class="hub-links" aria-label="종목">{dist}</p>\n  </section>\n')
+
+def list_page(kind, key):
+    """지역별(kind='region') 또는 종목별(kind='distance') 대회 쪽. 한국어판만 만든다"""
+    e = html.escape
+    rows = [(r, i) for i, r in enumerate(RACE_LIST['races'])]
+    if kind == 'region':
+        g = key; slug = REGION_SLUG[g]; pick = [(r, i) for r, i in rows if r['rg'] == g]
+        label = g; h1 = f'{g} 마라톤 대회 일정'; what = f'{g}에서 열리는'
+    else:
+        slug, short, label, meters = next(x for x in DIST_HUB if x[0] == key)
+        pick = [(r, i) for r, i in rows if key in r['f']]
+        h1 = f'{label} 대회 일정'; what = f'{short} 종목이 있는'
+    up = sorted([x for x in pick if x[0]['k'] == 'up'], key=lambda x: x[0]['d'])
+    last = sorted([x for x in pick if x[0]['k'] == 'last'], key=lambda x: x[0]['d'])
+    majors = [r for r in RACE_DATA['races'] if (kind == 'region' and r['place'].startswith(key)) or
+              (kind == 'distance' and ((key == 'full' and r['dist'] > 30000) or (key == 'half' and 20000 < r['dist'] < 30000)))]
+    def lst(items):
+        out, cur = [], None
+        for r, i in items:
+            mk = r['d'][:7]
+            if mk != cur:
+                cur = mk; y, m = map(int, mk.split('-'))
+                out.append(f'      <li class="rc-m" aria-hidden="true">{month_label(m, y) if r["k"] == "up" else month_label(m) + " <small>2026년 개최</small>"}</li>')
+            out.append(rc_item(r, i))
+        return '\n'.join(out)
+    maj = ''.join(f'<a href="../../{r["id"]}/"><b lang="ko">{e(r["name"])}</b><span>{e(kdate(r["date"]) if r.get("date") else r["season"])}</span><i>코스·페이스표 →</i></a>' for r in majors[:6])
+    if kind == 'region':
+        others = ''.join(f'<a href="../{REGION_SLUG[x]}/"{" aria-current=page" if x == key else ""}>{e(x)}</a>' for x in hub_regions())
+        cross = ''.join(f'<a href="../../distance/{k}/">{e(lab)}</a>' for k, _s, lab, _m in DIST_HUB)
+    else:
+        others = ''.join(f'<a href="../{k}/"{" aria-current=page" if k == key else ""}>{e(lab)}</a>' for k, _s, lab, _m in DIST_HUB)
+        cross = ''.join(f'<a href="../../region/{REGION_SLUG[x]}/">{e(x)}</a>' for x in hub_regions())
+    tool = ''
+    if kind == 'distance' and DIST_HUB[[x[0] for x in DIST_HUB].index(key)][3]:
+        tool = f'<div class="cta"><span>{e(label)} 목표 기록, 구간마다 몇 분에 지나야 할까</span><a href="#race?rd={DIST_HUB[[x[0] for x in DIST_HUB].index(key)][3]:g}&goal={14400 if key == "full" else 7200 if key == "half" else 3300}">구간표 만들기 →</a></div>'
+    else:
+        tool = '<div class="cta"><span>목표 기록, 구간마다 몇 분에 지나야 할까</span><a href="#race">구간표 만들기 →</a></div>'
+    body = f"""<section class="view" data-view="race-hub">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <a href="#calendar">대회 일정</a> › <span>{e(label)}</span></nav>
+  <div class="view-head">
+    <h1>{e(h1)}<br><small>2026·2027</small></h1>
+    <p>{e(what)} 대회 {len(pick)}개를 날짜순으로 모았습니다. 다가오는 대회 {len(up)}개, 2027년 날짜가 아직 나오지 않아 2026년 개최일로 적은 대회 {len(last)}개입니다. 종목과 날짜는 바뀔 수 있으니 접수 전에 공식 사이트에서 확인하세요.</p>
+  </div>
+  <p class="basis" id="goal-box"></p>
+  <p class="hub-links" aria-label="같은 종류의 다른 목록">{others}</p>
+  {('<section class="panel"><h2>주요 대회 안내</h2><nav class="next three" aria-label="주요 대회">' + maj + '</nav></section>') if maj else ''}
+  <section class="panel rl" aria-labelledby="hub-up">
+    <h2 id="hub-up">다가오는 대회 <small>{len(up)}개</small></h2>
+    {('<ul class="rl-list">' + chr(10) + lst(up) + chr(10) + '    </ul>') if up else '<p class="note">지금은 일정이 잡힌 다가오는 대회가 없습니다. 아래 2026년 개최일을 보고 내년 시기를 가늠해 보세요.</p>'}
+  </section>
+  {tool}
+  <section class="panel rl" aria-labelledby="hub-last">
+    <h2 id="hub-last">2027 예상 <small>2026년 개최일 기준</small></h2>
+    <p class="note">대부분 해마다 비슷한 시기에 열립니다. 2027년 날짜가 발표되면 대회 일정에 반영합니다.</p>
+    {('<ul class="rl-list">' + chr(10) + lst(last) + chr(10) + '    </ul>') if last else '<p class="note">목록에 없습니다.</p>'}
+  </section>
+  <aside class="ad" data-ad="racehub-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+  <section class="panel hubs"><h2>다른 목록</h2><p class="hub-links">{cross}</p></section>
+</section>
+"""
+    path = f'marathon-schedule/{kind}/{slug}'
+    lds = []
+    if cfg['siteUrl']:
+        base = cfg['siteUrl'] + '/'
+        lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': brand(), 'item': base},
+            {'@type': 'ListItem', 'position': 2, 'name': '대회 일정', 'item': base + 'marathon-schedule/'},
+            {'@type': 'ListItem', 'position': 3, 'name': label, 'item': base + path + '/'}]})
+    title = f'{h1} 2026·2027: {len(pick)}개 대회 날짜와 종목 모음'
+    desc = f'{what} 마라톤 대회 {len(pick)}개의 날짜, 종목, 공식 사이트를 날짜순으로 정리했습니다. 2027년 날짜가 나오지 않은 대회는 2026년 개최일로 시기를 가늠할 수 있습니다.'
+    return {'path': path, 'body': body, 'lds': lds, 'title': title, 'desc': desc}
+
 def race_blocks(site=False):
     races = RACE_DATA['races']
     fixed = sorted([r for r in races if r.get('date')], key=lambda r: r['date'])
@@ -232,7 +332,7 @@ def race_blocks(site=False):
     regions = [g for g in REGIONS if any(r['rg'] == g for r in RACE_LIST['races'])]
     return {'race_fixed': '\n'.join(race_card(r, site) for r in fixed), 'race_tba': '\n'.join(race_card(r, site) for r in tba),
             'race_reg_rows': '\n'.join(rows), 'racesChecked': kdate(RACE_DATA['checked']),
-            'rl_up': rc_list('up'), 'rl_last': rc_list('last'), 'rlChecked': kdate(RACE_LIST['checked']),
+            'rl_up': rc_list('up'), 'rl_last': rc_list('last'), 'rlChecked': kdate(RACE_LIST['checked']), 'rl_hubs': rl_hubs() if site else '',
             'rl_regions': '\n'.join(f'          <option value="{g}">{html.escape(T(g))}</option>' for g in regions),
             'rlTotal': str(len(RACE_LIST['races']) + len(RACE_DATA['races']))}
 
@@ -457,6 +557,7 @@ def goal_page(g, prev, nxt):
 {faq_html}
     </div>
   </section>
+  <aside class="ad" data-ad="goalpage-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
   <nav class="next three" aria-label="{e(T('다른 목표'))}">
     {near(nxt, T('한 단계 위 목표'))}{near(prev, T('한 단계 아래 목표'))}<a href="#goals"><b>{e(T('목표 기록별 페이스표'))}</b><span>{e(T('풀코스, 하프, 10km, 5km 목표를 한 표에서 봅니다.'))}</span><i>{e(T('전체 표'))} →</i></a>
   </nav>
@@ -550,6 +651,7 @@ def injury_page(x, others):
     </section>
   </div>
   <p class="note">{e(T('이 안내는 일반 정보이며 진단을 대신하지 않습니다. 같은 자리의 통증도 원인이 다를 수 있으니, 증상이 뚜렷하거나 오래가면 진료를 받으세요.'))}</p>
+  <aside class="ad" data-ad="injurypage-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
   <nav class="next three" aria-label="{e(T('다른 부상'))}">
     {near}<a href="#injury"><b>{e(T('러닝 부상 전체'))}</b><span>{e(T('무릎, 정강이, 발, 허벅지 부상을 한눈에 봅니다.'))}</span><i>{e(T('전체 보기'))} →</i></a>
   </nav>
@@ -640,6 +742,13 @@ def race_page(r, others):
     </div>
     <div class="cta"><span>{e(T('이 대회를 준비하는 한 주 훈련표'))}</span><a href="#plan?pg={pg}">{e(T('주간 훈련표 만들기'))} →</a></div>
   </section>
+  <section class="panel" aria-labelledby="rp-kit">
+    <h2 id="rp-kit">{e(T('대회 날 챙길 것'))}</h2>
+    <p class="note">{e(T('대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.'))}</p>
+    <p class="shop-row">{shop_link('race')}{shop_link('racing')}<a class="btn ghost small" href="#gear">{e(T('유형별로 고르는 법'))} →</a></p>
+    {('<p class="note">' + e(T('이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.')) + '</p>') if cfg['partnerLinks'] else ''}
+  </section>
+  <aside class="ad" data-ad="racepage-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
   <nav class="next three" aria-label="{e(T('다른 주요 대회'))}">
     {near}
   </nav>
@@ -671,11 +780,11 @@ def race_next():
 def hub_html(flags):
     return render(i18n.tr_html(read(SRC, 'views', '_hub.html'), L()), flags).rstrip()
 
-RAW_KEYS = ('rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
+RAW_KEYS = ('rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def page_vars():
     b = brand()
-    return {'brand': b, 'brandLatin': cfg['brandLatin'], 'contactEmail': cfg['contactEmail'], 'privacyDate': cfg['privacyDate'],
+    return {'brand': b, 'brandLatin': cfg['brandLatin'], 'contactEmail': cfg['contactEmail'], 'privacyDate': cfg['privacyDate'], 'termsDate': kdate(cfg['termsDate']),
             'sourceName': f'{b}, {host}' if host else b, 'lang': L()}
 
 def render(text, flags, extra=None):
@@ -802,7 +911,10 @@ def faq_items(about):
 
 def ad_block(m):
     slot = cfg['adSlots'].get(m.group(1))
+    fit = cfg.get('adfit') or {}
     if not (cfg['adsenseClient'] and slot):
+        if fit.get('mobile') or fit.get('desktop'):     # 카카오 애드핏: 화면 폭에 맞는 단위는 app.js 가 고른다
+            return f'<div class="ad-live ad-fit" data-m="{html.escape(fit.get("mobile", ""))}" data-d="{html.escape(fit.get("desktop", ""))}"></div>\n'
         return ''
     return (f'<div class="ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="{html.escape(cfg["adsenseClient"])}" '
             f'data-ad-slot="{html.escape(str(slot))}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
@@ -828,7 +940,7 @@ def build_site():
 
     pages = []
     leftovers = {}
-    def emit(lang, vid, path, title, desc, body=None, lds=(), nav=None):
+    def emit(lang, vid, path, title, desc, body=None, lds=(), nav=None, ko_only=False):
         full = full_path(lang, path)
         root = '../' * (full.count('/') + 1) if full else ''
         lroot = root + META[lang]['prefix']
@@ -843,7 +955,7 @@ def build_site():
             url = page_url(full)
             head += [f'<link rel="canonical" href="{url}">', f'<meta property="og:url" content="{url}">',
                      f'<meta property="og:image" content="{cfg["siteUrl"]}/og.png">', '<meta name="twitter:card" content="summary_large_image">']
-            head += [f'<link rel="alternate" hreflang="{lx}" href="{page_url(full_path(lx, path))}">' for lx in LANGS]
+            head += [f'<link rel="alternate" hreflang="{lx}" href="{page_url(full_path(lx, path))}">' for lx in (('ko',) if ko_only else LANGS)]
             head.append(f'<link rel="alternate" hreflang="x-default" href="{page_url(full_path("ko", path))}">')
         head += [
             f'<meta property="og:title" content="{html.escape(full_title)}">',
@@ -867,7 +979,7 @@ def build_site():
         elif vid == 'about':
             ld = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
                 {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faq_items(body)]}
-        elif vid in ('race', 'plan', 'log', 'spike', 'shoes', 'heart', 'pace', 'fitage'):
+        elif vid in ('race', 'plan', 'log', 'spike', 'shoes', 'heart', 'pace', 'fitage', 'crew'):
             ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': title, 'description': desc, 'inLanguage': lang,
                   'applicationCategory': 'HealthApplication', 'operatingSystem': 'All',
                   'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}}
@@ -883,8 +995,9 @@ def build_site():
                         f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{gid}');</script>")
         if cfg['adsenseClient']:
             head.append(f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={html.escape(cfg["adsenseClient"])}" crossorigin="anonymous"></script>')
+        lpath = lambda lx: full_path(lx, 'marathon-schedule' if ko_only and lx != 'ko' else path)
         langs = ''.join(
-            f'<a href="{(root + full_path(lx, path) + "/") if full_path(lx, path) else (root or "./")}" hreflang="{lx}" lang="{lx}"'
+            f'<a href="{(root + lpath(lx) + "/") if lpath(lx) else (root or "./")}" hreflang="{lx}" lang="{lx}"'
             f'{" aria-current=" + chr(34) + "true" + chr(34) if lx == lang else ""} title="{META[lx]["label"]}">{META[lx]["short"]}</a>' for lx in LANGS)
         site = {'mode': 'site', 'lang': lang, 'brand': brand(), 'siteUrl': cfg['siteUrl'], 'partnerLinks': cfg['partnerLinks'], 'paths': paths, 'pwa': True, 'sw': root + 'sw.js'}
         page = render(i18n.tr_html(shell, lang), flags, {
@@ -911,6 +1024,13 @@ def build_site():
                 gp = goal_page(g, group[i + 1] if i + 1 < len(group) else None, group[i - 1] if i else None)
                 emit(lang, 'goal', gp['path'], gp['title'], gp['desc'], body=gp['body'], lds=gp['lds'], nav='goals')
         majors = sorted(RACE_DATA['races'], key=lambda r: r.get('date') or ('9' + (r.get('last') or '')))
+        if lang == 'ko':                             # 지역별·종목별 대회 쪽(한국어만)
+            for g in hub_regions():
+                hp = list_page('region', g)
+                emit(lang, 'race-hub', hp['path'], hp['title'], hp['desc'], body=hp['body'], lds=hp['lds'], nav='calendar', ko_only=True)
+            for k, *_x in DIST_HUB:
+                hp = list_page('distance', k)
+                emit(lang, 'race-hub', hp['path'], hp['title'], hp['desc'], body=hp['body'], lds=hp['lds'], nav='calendar', ko_only=True)
         for i, r in enumerate(majors):               # 주요 대회별 쪽
             rp = race_page(r, [majors[(i + k) % len(majors)] for k in (1, 2, 3)])
             emit(lang, 'race-page', rp['path'], rp['title'], rp['desc'], body=rp['body'], lds=rp['lds'], nav='calendar')

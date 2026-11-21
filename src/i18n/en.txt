@@ -1205,3 +1205,76 @@
 §4205c36 · Temperature as of
 §166a7b9 (refreshing)
 §b7868dd This temperature is a forecast from <a href="https://api.met.no/" target="_blank" rel="noopener">the Norwegian Meteorological Institute (MET Norway)</a>; sunrise and sunset are calculated.
+§f540df5 <a href="#plan"><b>Build this week's training plan</b><span>Set daily workouts and paces to match your weekly distance and running days.</span><i>Weekly plan →</i></a> <a href="#goals"><b>What pace is a sub-4?</b><span>Paces and treadmill speeds for full, half, 10K and 5K goal times in one table.</span><i>Goal pace chart →</i></a> <a href="#race"><b>When should you pass each split?</b><span>Get passing times every 5 km and check whether your goal fits your current fitness.</span><i>Race plan →</i></a> <a href="#calendar"><b>Where to race this weekend</b><span>Browse Korean races by distance and region, and check when Seoul, Chuncheon and JTBC open entries.</span><i>Race calendar →</i></a> <a href="#crew"><b>How to split a crew run by pace</b><span>Paste your members' times to group runners of similar fitness and set an easy pace for each group.</span><i>Crew pace groups →</i></a> <a href="#log"><b>Log your runs</b><span>Weekly distance, 30-day longest run and shoe mileage are worked out for you.</span><i>Run log →</i></a>
+§6289ec8 <a href="#injury"><b>If it hurts here when you run</b><span>Knee, shin, foot, thigh: symptoms, what to do, and when to see a doctor for common running injuries.</span><i>Running injuries →</i></a> <a href="#spike"><b>How far can this long run go?</b><span>Compares it with your longest run of the last 30 days and flags the range where injuries rise.</span><i>Distance spike check →</i></a> <a href="#shoes"><b>How many km on your shoes?</b><span>Track mileage per pair and see when to replace them.</span><i>Shoe mileage →</i></a>
+§4f66260 Crew runs,<br>split by pace
+§dc3397c Paste your members' times, one person per line, and runners of similar fitness are grouped together, each group with an easy pace everyone can hold. Names and times are stored only on this device.
+§b3d88fc Members' times
+§8b93fc1 <span class="tag">Example</span> This is a sample list. Clear it and paste your crew's.
+§5c30c24 One person per line: name, distance, time
+§62706b8 Lines without a distance
+§b528278 Number of groups
+§b09fd89 Auto
+§a56fd06 2
+§64ac128 3
+§cd70943 4
+§93c1265 5
+§d212b87 Write the distance as 5k, 10k, half or full, and the time like 55:00 or 1:58:30. In auto mode, runners whose Runjisu differs by more than 4 go into different groups.
+§fdb8cb0 Groups and easy pace
+§5de246a Copy text for the group chat
+§65c3b66 A group's pace is the easy range of its slowest runner. It is for conversational runs; do intervals and tempo runs at your own pace.
+§0e2ae6b <span>Need a training week from your own time?</span><a href="#plan">Weekly plan →</a>
+§3f7f2e8 Ad slots show Kakao AdFit ads. Kakao may use cookies and other device identifiers to choose ads and measure their performance. See the <a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">Kakao privacy policy</a> for details.
+§9d4e4a4 <a class="shop" data-shop="cushion" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q=%EC%BF%A0%EC%85%98%20%EB%9F%AC%EB%8B%9D%ED%99%94">See cushioned running shoes on Coupang</a><a class="shop" data-shop="racing" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q=%EA%B2%BD%EB%9F%89%20%EB%A0%88%EC%9D%B4%EC%8B%B1%ED%99%94">See lightweight racing shoes on Coupang</a>
+§3b9e30d Terms of use
+§e62e9ab {{brand}} is a free information site offering running calculators, race calendars and injury guides. By using the site you agree to the terms below.
+§3b01b66 1. Nature of the information
+§6b2614b Calculations and injury guides are general information for everyone. They do not replace a personal diagnosis or treatment, and the site does not give individual medical advice. If you have pain or a medical condition, talk to a clinician before running.
+§246255e 2. Limits of the calculations
+§b5f146e Runjisu, predicted times, training paces and fitness age are estimates from published research formulas. They may differ from reality depending on weather, course and condition. The site is not responsible for injuries or losses from training based on them.
+§f6a4f67 3. Race information
+§b8c8596 Race dates and entry details are compiled from official announcements and public sources and may change or be wrong. Always check the official race website before entering or racing. Entry reminder dates in calendar files are estimates based on last year's entry period.
+§730828e 4. Weather information
+§448e302 Temperature and air quality are shown as provided by external forecasts and may differ from station measurements.
+§2a786f4 5. Ads and affiliate links
+§f868d48 The site may show ads. Some product links are affiliate links such as Coupang Partners, and the site may earn a commission on purchases made through them. Places with affiliate links say so. Product links lead to search results by type and do not vouch for the efficacy or safety of any product.
+§0fa6d33 6. Copyright
+§bc3fb18 Copyright in the text, tables, figures and calculators on this site belongs to {{brand}}. Copying or redistributing without permission is prohibited. Please credit the source ({{sourceName}}) when quoting.
+§b55867b 7. Personal information
+§9cc999e What you enter is stored only on your device (browser) and is never sent to a server. See the <a href="#privacy">privacy policy</a> for details.
+§8beccda 8. External sites
+§a723fa2 Content and transactions on external sites, such as official race websites, shops and weather providers, are governed by their own policies, and {{brand}} is not responsible for them.
+§f8706dc 9. Changes to these terms
+§983e77f If these terms change, we will post the changes on this page with the effective date.
+§6bd484e 10. Contact
+§d6af450 Send questions and error reports about the site to <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>.
+§042bfed Effective date: {{termsDate}}
+§fceddfb <a href="#about">Method · FAQ</a><a href="#privacy">Privacy</a><a href="#tos">Terms</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
+§d04f1bf Member
+§b8a3e57 Temperature from <a href="https://www.met.no/en/free-meteorological-data/Licensing-and-crediting" target="_blank" rel="noopener">the Norwegian Meteorological Institute (MET Norway)</a> forecasts (CC BY 4.0); sunrise and sunset are calculated · Air quality from CAMS forecasts (<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>). Particulate values are model forecasts, not station readings, so they may differ from <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">AirKorea</a> measurements. Grades follow Korea's Ministry of Environment forecast standard; forecast cells show the daily average (㎍/㎥).
+§47203c5 Alex 10k 55:00
+§29769bc Sam half 1:58:30
+§51840a4 Mia 5k 27:40
+§3270108 Leo full 3:50:00
+§9e6d675 Noah 10k 1:02:10
+§3ff8f12 Emma 10k 48:30
+§f916a10 Olivia half 2:15:00
+§a2416df Ben 5k 24:50
+§e79e3e6 Couldn't read line
+§61e04ca <p class="note">Enter one name and time per line.</p>
+§35d8c61 <div class="crew-g"> <div class="crew-h"><b>Group
+§a46802f ␣runners ·
+§dd4b9be </span></div> <p class="crew-p">Easy <b>
+§58e36db <p class="crew-warn">Fitness varies a lot within this group. Faster runners should wait, or try more groups.</p>
+§5ab8c55 Crew run paces
+§3228056 Group
+§ffe0279 · easy
+§ead9b39 What to bring on race day
+§2611b57 Use nothing new on race day. Try your shoes and belt on at least one long run first.
+§e2031b1 How to choose by type
+§8b9cf6d Crew pace
+§e3c617a Running crew pace groups: set group-run paces from members' times
+§f6461aa Paste your members' times, one person per line, and runners of similar fitness are grouped together, each with an easy pace everyone can hold.
+§06423b1 {brand} terms of use: limits of the calculations, race information, ads and affiliate links, and copyright.
+§5305c7e {{brand}} is a free information site offering running calculators, race calendars and injury guides. By using the site you agree to the terms below.
+§321f919 Content and transactions on external sites, such as official race websites, shops and weather providers, are governed by their own policies, and {{brand}} is not responsible for them.

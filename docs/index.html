@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=249634989d">
+<link rel="stylesheet" href="assets/site.css?v=dc59947e1b">
 </head>
 <body>
 
@@ -54,7 +54,7 @@
       <a href="training-week/" data-nav="plan">주간 훈련표</a>
       <a href="running-injuries/" data-nav="injury">러닝 부상</a>
       <a href="running-terms/" data-nav="terms">러닝 용어</a>
-      <a href="tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage gear about">전체 도구</a>
+      <a href="tools/" data-nav="tools" data-also="race log spike shoes heart pace fitage crew gear about">전체 도구</a>
     </nav>
   </div>
 </div>
@@ -288,20 +288,21 @@
     <h2 class="sr">도구 모음</h2>
     <div class="hub-group">
       <h3>기록을 훈련으로</h3>
-      <nav class="next" aria-label="훈련 도구">
+      <nav class="next three" aria-label="훈련 도구">
         <a href="training-week/"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a>
         <a href="pace-chart/"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a>
         <a href="race-pace/"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a>
         <a href="marathon-schedule/"><b>이번 주말엔 어디서 달릴까</b><span>전국 대회를 종목과 지역으로 골라 보고, 서울·춘천·JTBC 접수 시기도 확인합니다.</span><i>대회 일정 →</i></a>
+        <a href="crew-pace-groups/"><b>크루 그룹런, 페이스를 어떻게 나눌까</b><span>멤버 기록을 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고 그룹마다 이지 페이스를 정합니다.</span><i>크루 페이스 →</i></a>
+        <a href="log/"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
       </nav>
     </div>
     <div class="hub-group">
       <h3>다치지 않고 오래</h3>
-      <nav class="next" aria-label="부상 예방 도구">
+      <nav class="next three" aria-label="부상 예방 도구">
         <a href="running-injuries/"><b>달릴 때 여기가 아프다면</b><span>무릎, 정강이, 발, 허벅지. 흔한 러닝 부상의 증상과 대처, 진료가 필요한 신호를 정리했습니다.</span><i>러닝 부상 →</i></a>
         <a href="long-run-check/"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a>
         <a href="shoe-mileage/"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a>
-        <a href="log/"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
       </nav>
     </div>
     <div class="hub-group">
@@ -325,7 +326,7 @@
     <p><b>런지수</b> · 정형외과 전문의가 만든 러닝 계산기</p>
     <p>이 사이트의 글과 계산 도구의 저작권은 런지수에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처(런지수, runjisu.com)를 밝혀 주세요.</p>
     <p>계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.</p>
-    <p class="foot-links"><a href="about/">계산 근거·FAQ</a><a href="privacy/">개인정보처리방침</a></p>
+    <p class="foot-links"><a href="about/">계산 근거·FAQ</a><a href="privacy/">개인정보처리방침</a><a href="terms-of-use/">이용약관</a></p>
     <p><button type="button" class="btn ghost small" id="install" hidden>홈 화면에 앱으로 추가</button></p>
   </div>
 </footer>
@@ -334,10 +335,10 @@
     <a href="marathon-schedule/" data-nav="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>대회</span></a>
     <a href="pace-chart/" data-nav="goals"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/></svg><span>페이스</span></a>
     <a href="running-injuries/" data-nav="injury"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>부상</span></a>
-    <a href="tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>전체</span></a>
+    <a href="tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage crew terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>전체</span></a>
 </nav>
-<script>window.SITE={"mode":"site","lang":"ko","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","injury":"running-injuries/","terms":"running-terms/","gear":"gear/","tools":"tools/","about":"about/","privacy":"privacy/"},"pwa":true,"sw":"sw.js"};</script>
-<script src="assets/core.js?v=249634989d" defer></script>
-<script src="assets/app.js?v=249634989d" defer></script>
+<script>window.SITE={"mode":"site","lang":"ko","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","crew":"crew-pace-groups/","injury":"running-injuries/","terms":"running-terms/","gear":"gear/","tools":"tools/","about":"about/","privacy":"privacy/","tos":"terms-of-use/"},"pwa":true,"sw":"sw.js"};</script>
+<script src="assets/core.js?v=dc59947e1b" defer></script>
+<script src="assets/app.js?v=dc59947e1b" defer></script>
 </body>
 </html>

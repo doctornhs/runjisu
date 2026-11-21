@@ -87,3 +87,12 @@
 - 어느 쪽이든 주소 뒤에 `?dist=10&time=3300`(km, 초)을 붙이면 그 기록이 첫 화면 기록으로 저장되고, 주간 훈련표·대회 계획·체력 나이가 그 기록으로 열린다. `d=10000&t=3300`(m, 초), `age=39`, `sex=M|F`, 대회 계획용 `rd=42195&goal=14400`, 훈련표용 `pg=full|half|10k|base`도 받는다. 읽은 뒤 주소에서 값은 지운다.
 - 주요 대회 13개는 `marathon-schedule/<id>/` 쪽이 따로 생긴다. 코스 설명(`course`)과 코스별 부상 주의점(`care`)은 `src/data/races.json`에 확인된 내용만 넣는다. 없으면 "자료 없음"으로 나온다.
 - 대회 카드와 목록의 캘린더 버튼은 .ics 파일을 브라우저에서 바로 만든다. 날짜 미발표 대회는 지난해 접수 달 1일에 "접수 시기 확인" 알림을 만든다(추정임을 파일 안에 적는다).
+
+## 수익 설정 (site.config.json)
+
+- `contactEmail`: 사이트 전용 문의 메일. 넣으면 바닥글과 이용약관에 문의처가 나온다(애드센스 심사용).
+- `partnerLinks`: 쿠팡 파트너스 링크. 키는 `cushion`, `stability`, `racing`, `watch`, `roller`, `race`. 넣으면 해당 버튼이 제휴 링크(rel="sponsored")로 바뀌고 대가성 문구가 자동으로 붙는다.
+- `adfit`: 카카오 애드핏 광고 단위 ID. `mobile`은 320×100, `desktop`은 728×90으로 만든다. 애드센스 단위(`adSlots`)가 없는 자리에 나온다.
+- `adsenseClient`, `adSlots`: 애드센스 승인 뒤. `adsenseClient`를 넣으면 ads.txt도 만들어진다.
+- 지역별(`marathon-schedule/region/<지역>/`)·종목별(`marathon-schedule/distance/<종목>/`) 대회 쪽은 한국어판만 만든다.
+- GA4 이벤트: `calc_record`, `carry_click`, `shop_click`, `ics_download`, `goal_race`, `share`, `race_link`, `crew_groups`.

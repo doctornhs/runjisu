@@ -1,0 +1,30 @@
+<section class="view" data-view="crew" hidden>
+  <div class="view-head">
+    <h1>크루 그룹런,<br>페이스 나누기</h1>
+    <p>멤버 기록을 한 줄에 한 사람씩 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고, 그룹마다 모두가 따라올 수 있는 이지 페이스를 정해 드립니다. 이름과 기록은 이 기기에만 저장됩니다.</p>
+  </div>
+  <div class="two">
+    <form class="panel form" id="f-crew" novalidate>
+      <h2>멤버 기록</h2>
+      <p class="note" id="crew-ex"><span class="tag">예시</span> 아래는 예시 명단입니다. 지우고 크루 명단을 붙여 넣으세요.</p>
+      <div class="field"><label for="cr-list">한 줄에 한 사람: 이름, 거리, 기록</label>
+        <textarea id="cr-list" rows="9" spellcheck="false" autocomplete="off"></textarea></div>
+      <div class="grid-2">
+        <div class="field"><label for="cr-dist">거리를 안 적은 줄은</label>
+          <select id="cr-dist"><option value="5000">5K</option><option value="10000" selected>10K</option><option value="21097.5">하프</option><option value="42195">풀코스</option></select></div>
+        <div class="field"><label for="cr-k">그룹 수</label>
+          <select id="cr-k"><option value="0" selected>자동</option><option value="2">2개</option><option value="3">3개</option><option value="4">4개</option><option value="5">5개</option></select></div>
+      </div>
+      <p class="err" id="crew-err" role="alert" hidden></p>
+      <p class="note">거리는 5k, 10k, 하프, 풀로, 기록은 55:00이나 1:58:30처럼 적습니다. 자동으로 나누면 런지수가 4 넘게 차이 나는 사람은 다른 그룹이 됩니다.</p>
+    </form>
+    <section class="panel" aria-labelledby="crew-out-h">
+      <h2 id="crew-out-h">그룹과 이지 페이스</h2>
+      <div class="crew-out" id="crew-out" aria-live="polite"></div>
+      <div class="acts"><button type="button" class="btn" id="crew-copy">단톡방에 붙일 글 복사</button></div>
+      <p class="note">그룹 페이스는 그룹에서 가장 느린 사람의 이지 페이스 범위입니다. 대화하며 달리는 날을 위한 페이스이고, 인터벌이나 템포 런은 각자 페이스로 따로 달리세요.</p>
+    </section>
+  </div>
+  <div class="cta"><span>내 기록으로 한 주 훈련표가 필요하다면</span><a href="#plan">주간 훈련표 →</a></div>
+  <aside class="ad" data-ad="crew-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+</section>

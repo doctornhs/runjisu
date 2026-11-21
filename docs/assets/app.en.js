@@ -87,6 +87,36 @@
     return c;
   }
 
+  /* ── 방문 분석(GA4를 켰을 때만): 어떤 도구와 링크가 쓰이는지 ── */
+  function track(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, Object.assign({ page_lang: SITE.lang }, params || {})); } catch (e) { /* 분석 실패는 무시 */ }
+  }
+  document.addEventListener('click', e => {
+    const t = e.target.closest && e.target.closest('a,button');
+    if (!t) return;
+    if (t.matches('.shop')) track('shop_click', { item: t.dataset.shop || '', partner: SITE.partnerLinks[t.dataset.shop] ? 1 : 0 });
+    else if (t.matches('[data-ics]')) track('ics_download', { kind: t.dataset.ics });
+    else if (t.matches('[data-carry]')) track('carry_click', { to: (t.getAttribute('href') || '').split('?')[0] });
+    else if (t.matches('[data-goal]')) { const r = t.closest('[data-name]'); track('goal_race', { race: r ? r.dataset.name : '' }); }
+    else if (['copy-result', 'copy-link', 'crew-copy', 'share-img'].includes(t.id)) track('share', { what: t.id });
+    else if (t.tagName === 'A' && /^https?:/.test(t.href) && t.closest('.race, .rc, .race-facts')) track('race_link', { host: t.hostname });
+  }, true);
+  /* 카카오 애드핏: 좁은 화면은 320×100, 넓은 화면은 728×90 단위 */
+  (function adfit() {
+    const slots = $$('.ad-fit');
+    if (!slots.length) return;
+    const wide = !!(window.matchMedia && window.matchMedia('(min-width: 760px)').matches);
+    let any = false;
+    slots.forEach(el => {
+      const useD = wide && el.dataset.d, unit = useD ? el.dataset.d : (el.dataset.m || el.dataset.d);
+      if (!unit) return;
+      const big = useD || (!el.dataset.m && el.dataset.d);
+      el.innerHTML = `<ins class="kakao_ad_area" style="display:none" data-ad-unit="${esc(unit)}" data-ad-width="${big ? 728 : 320}" data-ad-height="${big ? 90 : 100}"></ins>`;
+      any = true;
+    });
+    if (any) { const sc = document.createElement('script'); sc.async = true; sc.src = 'https://t1.daumcdn.net/kas/static/ba.min.js'; document.body.appendChild(sc); }
+  })();
+
   /* ── 주소로 받은 기록: ?dist=10&time=3300(km·초), ?d=10000&t=3300(m·초), 나이·성별, 대회 계획 ?rd=42195&goal=14400, 훈련표 ?pg=full ── */
   (function readParams() {
     let q;
@@ -337,7 +367,11 @@
         sourceLine(),
       ].join('\n');
     }
-    function onInput() { read(); home.example = false; store.set('home', home); render(); }
+    let tracked = false;
+    function onInput() {
+      read(); home.example = false; store.set('home', home); render();
+      if (!tracked && lastData) { tracked = true; setTimeout(() => track('calc_record', { dist: home.dist }), 1500); }
+    }
     form.addEventListener('input', onInput);
     form.addEventListener('change', onInput);
     form.addEventListener('submit', e => e.preventDefault());
@@ -756,6 +790,7 @@
         </li>`;
       }).join('');
       $('#shoe-cta').hidden = isEx || worst < 2;
+      const shop = $('#shoe-shop'); if (shop) shop.hidden = isEx || worst < 2;
     }
     $('#shoe-list').addEventListener('click', e => {
       const b = e.target.closest('button[data-act]'); if (!b) return;
@@ -948,6 +983,7 @@
       ['Jeonju', 35.82, 127.15], ['Gwangju', 35.16, 126.85], ['Daegu', 35.87, 128.6], ['Pohang', 36.02, 129.34], ['Ulsan', 35.54, 129.31], ['Busan', 35.18, 129.08], ['Changwon', 35.23, 128.68], ['Jeju', 33.5, 126.53]];
     const WX = 'https://api.open-meteo.com/v1/forecast?', AQ = 'https://air-quality-api.open-meteo.com/v1/air-quality?', MET = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?';
     const LIVE = SITE.mode === 'site';     // 미리보기(한 장짜리)는 바깥 주소를 막는 곳이 많아 한 번만 묻는다
+    const SRC_MET = 'Temperature from <a href="https://www.met.no/en/free-meteorological-data/Licensing-and-crediting" target="_blank" rel="noopener">the Norwegian Meteorological Institute (MET Norway)</a> forecasts (CC BY 4.0); sunrise and sunset are calculated · Air quality from CAMS forecasts (<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>). Particulate values are model forecasts, not station readings, so they may differ from <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">AirKorea</a> measurements. Grades follow Korea\'s Ministry of Environment forecast standard; forecast cells show the daily average (㎍/㎥).';
     const SRC_NOTE = 'Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · Air quality from CAMS forecasts. Particulate values are model forecasts, not station readings, so they may differ from <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">AirKorea</a> measurements. Grades follow Korea\'s Ministry of Environment forecast standard; forecast cells show the daily average (㎍/㎥).';
     const sel = $('#wx-city'), hereBtn = $('#wx-here'), note = $('#wx-note');
     const st = Object.assign({ city: 'Seoul', here: false }, store.get('wx', null) || {});
@@ -984,8 +1020,8 @@
       });
       wxErr = ''; wxSrc = 'om';
       if (!LIVE) return getJson(full).catch(e => { wxErr = why(e); return null; });
-      return getJson(full)
-        .catch(e => { wxErr = why(e); return met(); })
+      return met()
+        .catch(e => { wxErr = why(e); wxSrc = 'om'; return getJson(full); })
         .catch(() => wait(1500).then(() => getJson(lite)))
         .then(w => { if (w) wxErr = ''; return w; }, () => null);
     }
@@ -1026,8 +1062,7 @@
           `<tr><th scope="row">Ultrafine<small>PM2.5</small></th>${days.map(x => `<td>${chip('pm25', m25[x.date])}</td>`).join('')}</tr></tbody></table></div>`;
       } else $('#wx-air').innerHTML = '<p class="note">Couldn\'t load the particulate forecast.</p>';
       note.innerHTML = clock(at) + ' ' + (stale ? ' · Couldn\'t refresh; showing saved values' : '') + (n && data.old ? ' · Temperature as of ' + clock(data.nowAt) + ' (refreshing)' : '')
-        + (!n && wxErr ? ' · Temperature error: ' + esc(wxErr) : '') + ' · ' + SRC_NOTE
-        + (n && data.src === 'met' ? ' This temperature is a forecast from <a href="https://api.met.no/" target="_blank" rel="noopener">the Norwegian Meteorological Institute (MET Norway)</a>; sunrise and sunset are calculated.' : '');
+        + (!n && wxErr ? ' · Temperature error: ' + esc(wxErr) : '') + ' · ' + (n && data.src === 'met' ? SRC_MET : SRC_NOTE);
     }
     function fail() {
       $('#wx-t').textContent = '–'; $('#wx-sky').textContent = ''; $('#wx-tip').hidden = true; $('#wx-air').innerHTML = '';
@@ -1160,6 +1195,35 @@
       groups.forEach(g => { g.hidden = !$$('[data-term]', g).some(el => !el.hidden); });
       $('#term-none').hidden = any;
     });
+  })();
+
+  /* ───────── 크루 페이스 그룹 ───────── */
+  (function initCrew() {
+    const form = $('#f-crew'); if (!form) return;
+    const EX = ['Alex 10k 55:00', 'Sam half 1:58:30', 'Mia 5k 27:40', 'Leo full 3:50:00', 'Noah 10k 1:02:10', 'Emma 10k 48:30', 'Olivia half 2:15:00', 'Ben 5k 24:50'].join('\n');
+    const st = Object.assign({ text: '', dist: '10000', k: '0' }, store.get('crew', null) || {});
+    const ta = $('#cr-list'), ds = $('#cr-dist'), ks = $('#cr-k'), out = $('#crew-out');
+    ta.value = st.text || EX; ds.value = st.dist; ks.value = st.k;
+    let text = '';
+    const label = m => (DIST_LABEL[String(m)] || (m / 1000) + 'km');
+    function render() {
+      const isEx = !st.text;
+      $('#crew-ex').hidden = !isEx;
+      const r = Core.parseCrew(ta.value, num(ds.value)), groups = Core.crewGroups(r.members, parseInt(ks.value, 10) || 0);
+      showErr($('#crew-err'), r.errors.length ? r.errors.slice(0, 3).map(x => 'Couldn\'t read line ' + x.line + ': ' + x.text).join(' / ') + (r.errors.length > 3 ? ' (+' + (r.errors.length - 3) + ')' : '') : '');
+      if (!groups.length) { out.innerHTML = '<p class="note">Enter one name and time per line.</p>'; text = ''; return; }
+      out.innerHTML = groups.map((g, i) => `<div class="crew-g"> <div class="crew-h"><b>Group ${i + 1}</b><span>${g.members.length} runners · ${esc(BRAND)} ${g.low.toFixed(1)}~${g.top.toFixed(1)}</span></div> <p class="crew-p">Easy <b>${Core.fmtPace(g.easy[0])}~${Core.fmtPace(g.easy[1])}</b><small>/km</small></p>
+          <ul>${g.members.map(m => `<li><span>${esc(m.name)}</span><small>${label(m.meters)} ${Core.fmtTime(m.minutes)} · ${m.idx.toFixed(1)}</small></li>`).join('')}</ul>
+          ${g.spread > 6 ? '<p class="crew-warn">Fitness varies a lot within this group. Faster runners should wait, or try more groups.</p>' : ''}
+        </div>`).join('');
+      text = ['Crew run paces'].concat(groups.map((g, i) => `Group ${i + 1} · easy ${Core.fmtPace(g.easy[0])}~${Core.fmtPace(g.easy[1])}/km: ${g.members.map(m => m.name).join(', ')}`), [sourceLine()]).join('\n');
+    }
+    function save() { st.text = ta.value.trim() === EX.trim() ? '' : ta.value; st.dist = ds.value; st.k = ks.value; store.set('crew', st); render(); }
+    form.addEventListener('input', save); form.addEventListener('change', save); form.addEventListener('submit', e => e.preventDefault());
+    $('#crew-copy').addEventListener('click', e => copyText(e.currentTarget, text));
+    render();
+    let sent = false;
+    ta.addEventListener('change', () => { if (!sent && st.text) { sent = true; track('crew_groups', { n: Core.parseCrew(ta.value, num(ds.value)).members.length }); } });
   })();
 
   /* ───────── 화면 전환: 한 장에 여러 화면이 들어 있을 때만 ───────── */

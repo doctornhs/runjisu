@@ -120,6 +120,16 @@ ok('40세 최대심박 추정 180', Core.estMaxHr(40) === 180);
   const met = Core.metNow({ properties: { timeseries: [{ data: { instant: { details: { air_temperature: 11.7, relative_humidity: 89, wind_speed: 0.5 } }, next_1_hours: { summary: { symbol_code: 'lightrainshowers_day' } } } }] } }, 37.57, 126.98, '2026-11-17');
   ok('MET Norway 자료를 같은 모양으로', met.current.temperature_2m === 11.7 && met.current.weather_code === 80 && Math.abs(met.current.apparent_temperature - 11.4) < 1 && met.daily.sunrise[0].startsWith('2026-11-17T07:'));
   ok('MET 자료가 비면 null', Core.metNow({}, 37, 127, '2026-11-17') === null && Core.metNow({ properties: { timeseries: [] } }, 37, 127, '2026-11-17') === null);
+  const crew = Core.parseCrew('지수 10k 55:00\n민호 하프 1:58:30\n수아 27:40 5 km\n현우 풀 3:50:00\n이상한 줄\n정 10k 1:58', 10000);
+  ok('크루 명단: 4명 읽고 이상한 줄 2개는 따로', crew.members.length === 4 && crew.errors.length === 2 && crew.errors[0].line === 5);
+  ok('크루 명단: 하프 1:58:30 은 118.5분, 5 km 띄어 써도 5K', Math.abs(crew.members[1].minutes - 118.5) < 0.01 && crew.members[2].meters === 5000);
+  ok('크루 명단: 하프의 1:58 은 시:분', Math.abs(Core.parseCrew('a 하프 1:58', 10000).members[0].minutes - 118) < 0.01);
+  ok('크루 명단: 이름 없으면 멤버 번호, 한글 시간', Core.parseCrew('10k 55분 30초', 10000).members[0].name === '멤버 1' && Math.abs(Core.parseCrew('10k 55분30초', 10000).members[0].minutes - 55.5) < 0.01);
+  const gs2 = Core.crewGroups(crew.members, 2), gsa = Core.crewGroups(crew.members, 0);
+  ok('그룹 2개: 모두 들어가고 빠른 그룹이 먼저', gs2.length === 2 && gs2[0].members.length + gs2[1].members.length === 4 && gs2[0].low >= gs2[1].top);
+  ok('자동 그룹: 그룹 안 차이 4 이하', gsa.every(g => g.spread <= 4) && gsa.reduce((n, g) => n + g.members.length, 0) === 4);
+  ok('그룹 페이스: 가장 느린 사람의 이지 범위', gsa.every(g => Math.abs(g.easy[1] - Core.paces(g.low).eSlow) < 1e-6));
+  ok('그룹 수가 사람보다 많으면 사람 수만큼', Core.crewGroups(crew.members.slice(0, 2), 5).length === 2);
   ok('날씨가 없어도 공기가 나쁘면 알린다', Core.runTip({ feels: NaN, code: NaN, pm10: null, pm25: 50 }).level === 1);
 }
 

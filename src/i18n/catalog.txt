@@ -1,8 +1,8 @@
 §587204e [view:_hub] 도구 모음
 §7803642 [view:_hub] 기록을 훈련으로
-§56e0806 [view:_hub] <a href="#plan"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a> <a href="#goals"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a> <a href="#race"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a> <a href="#calendar"><b>이번 주말엔 어디서 달릴까</b><span>전국 대회를 종목과 지역으로 골라 보고, 서울·춘천·JTBC 접수 시기도 확인합니다.</span><i>대회 일정 →</i></a>
+§f540df5 [view:_hub] <a href="#plan"><b>이번 주 훈련표 짜기</b><span>주간 거리와 달리는 날 수에 맞춰 요일별 훈련과 페이스를 정합니다.</span><i>주간 훈련표 →</i></a> <a href="#goals"><b>서브4는 km당 몇 분?</b><span>풀코스, 하프, 10km, 5km 목표 기록별 페이스와 러닝머신 속도를 한 표에 모았습니다.</span><i>목표 페이스표 →</i></a> <a href="#race"><b>목표 기록, 구간마다 몇 분에 지나야 할까</b><span>5km마다 통과 시각을 뽑고, 목표가 지금 실력에 맞는지 확인합니다.</span><i>대회 계획 →</i></a> <a href="#calendar"><b>이번 주말엔 어디서 달릴까</b><span>전국 대회를 종목과 지역으로 골라 보고, 서울·춘천·JTBC 접수 시기도 확인합니다.</span><i>대회 일정 →</i></a> <a href="#crew"><b>크루 그룹런, 페이스를 어떻게 나눌까</b><span>멤버 기록을 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고 그룹마다 이지 페이스를 정합니다.</span><i>크루 페이스 →</i></a> <a href="#log"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
 §49eefc8 [view:_hub] 다치지 않고 오래
-§3290a23 [view:_hub] <a href="#injury"><b>달릴 때 여기가 아프다면</b><span>무릎, 정강이, 발, 허벅지. 흔한 러닝 부상의 증상과 대처, 진료가 필요한 신호를 정리했습니다.</span><i>러닝 부상 →</i></a> <a href="#spike"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a> <a href="#shoes"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a> <a href="#log"><b>달린 날을 적어 두면</b><span>주간 거리, 30일 최장 거리, 신발 누적 거리가 알아서 계산됩니다.</span><i>달리기 기록 →</i></a>
+§6289ec8 [view:_hub] <a href="#injury"><b>달릴 때 여기가 아프다면</b><span>무릎, 정강이, 발, 허벅지. 흔한 러닝 부상의 증상과 대처, 진료가 필요한 신호를 정리했습니다.</span><i>러닝 부상 →</i></a> <a href="#spike"><b>이번 장거리, 얼마까지 늘려도 될까</b><span>최근 30일 최장 거리와 비교해 부상이 늘어나는 구간을 알려 드립니다.</span><i>거리 급증 체크 →</i></a> <a href="#shoes"><b>러닝화, 몇 km 탔나요</b><span>신발마다 누적 거리를 쌓고 교체 시기를 확인합니다.</span><i>신발 교체 →</i></a>
 §0e4f2e7 [view:_hub] 달리기 너머
 §60dfb75 [view:_hub] <a href="#heart"><b>시계에 뜬 심박은 어느 강도일까</b><span>나이나 최대심박으로 강도별 심박 범위를 계산합니다.</span><i>심박 존 →</i></a> <a href="#fitage"><b>내 체력은 몇 살일까</b><span>달리기 기록이 없어도 12분 달리기나 1.6km 걷기로 알 수 있습니다.</span><i>체력 나이 →</i></a> <a href="#pace"><b>러닝머신 10km/h는 km당 몇 분?</b><span>속도와 페이스, 거리별 완주 기록을 서로 바꿉니다.</span><i>페이스 변환 →</i></a> <a href="#terms"><b>LSD, 빌드업, 네거티브 스플릿</b><span>달리기를 시작하면 만나는 낯선 말을 쉬운 말로 풀었습니다.</span><i>러닝 용어 →</i></a> <a href="#gear"><b>장비는 제품보다 유형부터</b><span>어떤 러너에게 어떤 신발과 도구가 맞는지 정리했습니다.</span><i>장비 가이드 →</i></a> <a href="#about"><b>이 숫자는 어디서 나왔나</b><span>계산식과 참고한 연구, 자주 묻는 질문을 모았습니다.</span><i>근거·FAQ →</i></a>
 §f48f6bf [view:_hub] 훈련 도구
@@ -95,6 +95,24 @@
 §f923aaf [view:calendar] 일정 종류
 §dfa8d7c [view:calendar] 종목
 §d92c9fd [view:calendar] 대회 이름, 지역
+§4f66260 [view:crew] 크루 그룹런,<br>페이스 나누기
+§dc3397c [view:crew] 멤버 기록을 한 줄에 한 사람씩 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고, 그룹마다 모두가 따라올 수 있는 이지 페이스를 정해 드립니다. 이름과 기록은 이 기기에만 저장됩니다.
+§b3d88fc [view:crew] 멤버 기록
+§8b93fc1 [view:crew] <span class="tag">예시</span> 아래는 예시 명단입니다. 지우고 크루 명단을 붙여 넣으세요.
+§5c30c24 [view:crew] 한 줄에 한 사람: 이름, 거리, 기록
+§62706b8 [view:crew] 거리를 안 적은 줄은
+§c16f421 [view:crew] 풀코스
+§b528278 [view:crew] 그룹 수
+§b09fd89 [view:crew] 자동
+§a56fd06 [view:crew] 2개
+§64ac128 [view:crew] 3개
+§cd70943 [view:crew] 4개
+§93c1265 [view:crew] 5개
+§d212b87 [view:crew] 거리는 5k, 10k, 하프, 풀로, 기록은 55:00이나 1:58:30처럼 적습니다. 자동으로 나누면 런지수가 4 넘게 차이 나는 사람은 다른 그룹이 됩니다.
+§fdb8cb0 [view:crew] 그룹과 이지 페이스
+§5de246a [view:crew] 단톡방에 붙일 글 복사
+§65c3b66 [view:crew] 그룹 페이스는 그룹에서 가장 느린 사람의 이지 페이스 범위입니다. 대화하며 달리는 날을 위한 페이스이고, 인터벌이나 템포 런은 각자 페이스로 따로 달리세요.
+§0e2ae6b [view:crew] <span>내 기록으로 한 주 훈련표가 필요하다면</span><a href="#plan">주간 훈련표 →</a>
 §565fe8f [view:fitage] 내 체력은<br>몇 살일까
 §2fe7125 [view:fitage] 유산소 체력은 오래 건강하게 움직이는 힘과 가장 가깝게 이어진 지표입니다. 달리기 기록이 없어도 12분 달리기나 1.6km 빨리 걷기로 추정할 수 있습니다.
 §298e196 [view:fitage] 달리기 기록({{brand}})
@@ -321,6 +339,7 @@
 §4e4f732 [view:privacy] <b>방문 통계</b> Google Analytics로 방문 수와 많이 쓰는 화면을 집계합니다. 이 과정에서 Google이 쿠키와 기기 정보를 수집합니다. 도구에 입력한 값은 보내지 않습니다. 브라우저에서 쿠키를 차단하거나 Google 애널리틱스 차단 부가 기능으로 거부할 수 있습니다.
 §01ecf75 [view:privacy] <b>날씨와 미세먼지</b> 첫 화면의 날씨는 고른 지역의 좌표를 Open-Meteo에 보내 받아 옵니다. '내 위치'를 누른 경우에만 기기의 위치를 쓰며, 약 10km 단위로 뭉뚱그린 좌표만 보냅니다. 이 과정에서 접속 IP가 Open-Meteo 서버에 전달됩니다. 고른 지역과 받아 온 날씨는 내 기기에만 저장합니다.
 §dcd2420 [view:privacy] <b>광고</b> Google AdSense 광고를 싣습니다. Google과 협력사는 쿠키를 써서 이 사이트와 다른 사이트의 방문 기록을 바탕으로 광고를 보여 줄 수 있습니다. 맞춤 광고는 Google 광고 설정(adssettings.google.com)에서 끌 수 있습니다.
+§3f7f2e8 [view:privacy] 광고 영역에는 카카오 애드핏 광고가 표시됩니다. 카카오는 광고를 고르고 성과를 재기 위해 쿠키 등 기기 식별 정보를 쓸 수 있습니다. 자세한 내용은 <a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">카카오 개인정보처리방침</a>을 확인하세요.
 §84ec35d [view:privacy] <b>제휴 링크</b> 장비 가이드의 구매 버튼은 쿠팡 파트너스 링크입니다. 버튼을 눌러 쿠팡으로 이동하면 쿠팡이 쿠키로 구매 여부를 확인하고, 구매가 이루어지면 운영자가 수수료를 받습니다. 구매 가격은 달라지지 않습니다.
 §ba2ba31 [view:privacy] 제3자 제공과 문의
 §a756653 [view:privacy] 운영자는 개인정보를 수집하지 않으므로 제3자에게 제공하는 정보도 없습니다.
@@ -363,6 +382,8 @@
 §22bfed2 [view:shoes] 내 신발장
 §c0a479d [view:shoes] <span class="tag">예시</span> 아래는 예시 신발입니다. 내 신발을 추가하면 이 기기에 저장되고 예시는 사라집니다.
 §260c0e4 [view:shoes] <span>새 신발을 고를 차례라면</span><a href="#gear">유형별로 고르는 법 →</a>
+§9d4e4a4 [view:shoes] <a class="shop" data-shop="cushion" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q=%EC%BF%A0%EC%85%98%20%EB%9F%AC%EB%8B%9D%ED%99%94">쿠팡에서 쿠션 러닝화 보기</a><a class="shop" data-shop="racing" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q=%EA%B2%BD%EB%9F%89%20%EB%A0%88%EC%9D%B4%EC%8B%B1%ED%99%94">쿠팡에서 경량 레이싱화 보기</a>
+§ed735a4 [view:shoes] 이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
 §f67cc02 [view:shoes] 신발 추가
 §9aa18e5 [view:shoes] 이름
 §e850d71 [view:shoes] 데일리 쿠션화·안정화 (500~800km)
@@ -407,11 +428,33 @@
 §1231cb2 [view:terms] 예: LSD, 빌드업, 서브4
 §8be43c4 [view:tools] 전체 도구
 §66fce1a [view:tools] {{brand}}의 계산기와 안내를 한곳에 모았습니다. 가입 없이 쓰고, 입력한 값은 내 기기에만 저장됩니다.
+§3b9e30d [view:tos] 이용약관
+§5305c7e [view:tos] {{brand:는}} 러닝 계산기와 대회 일정, 부상 안내를 무료로 제공하는 정보 사이트입니다. 사이트를 이용하면 아래 내용에 동의한 것으로 봅니다.
+§3b01b66 [view:tos] 1. 제공하는 정보의 성격
+§6b2614b [view:tos] 계산 결과와 부상 안내는 누구에게나 해당하는 일반 정보입니다. 개인의 진단이나 치료를 대신하지 않으며, 사이트는 개별 증상 상담을 하지 않습니다. 통증이 있거나 지병이 있다면 달리기 전에 의료진과 상의하세요.
+§246255e [view:tos] 2. 계산 결과의 한계
+§b5f146e [view:tos] 런지수, 예상 기록, 훈련 페이스, 체력 나이는 공개된 연구의 식으로 계산한 추정치입니다. 날씨, 코스, 컨디션에 따라 실제와 다를 수 있습니다. 결과를 따라 훈련하다 생긴 부상이나 손해에 대해 사이트는 책임지지 않습니다.
+§f6a4f67 [view:tos] 3. 대회 정보
+§b8c8596 [view:tos] 대회 일정과 접수 정보는 공식 발표와 공개 자료를 모아 정리한 것으로, 바뀌거나 틀릴 수 있습니다. 접수와 참가 전에는 반드시 대회 공식 사이트에서 확인하세요. 캘린더 파일의 접수 알림 날짜는 지난해 접수 시기를 기준으로 잡은 추정입니다.
+§730828e [view:tos] 4. 날씨 정보
+§448e302 [view:tos] 기온과 미세먼지는 외부 예보 자료를 그대로 보여 주며, 측정소 실측값과 다를 수 있습니다.
+§2a786f4 [view:tos] 5. 광고와 제휴 링크
+§f868d48 [view:tos] 사이트에는 광고가 실릴 수 있습니다. 일부 상품 링크는 쿠팡 파트너스 같은 제휴 링크로, 그 링크를 거쳐 구매하면 사이트가 수수료를 받을 수 있습니다. 제휴 링크가 있는 곳에는 그 사실을 표시합니다. 상품 링크는 유형별 검색 결과로 이어지며, 특정 제품의 효능이나 안전성을 보증하지 않습니다.
+§0fa6d33 [view:tos] 6. 저작권
+§bc3fb18 [view:tos] 이 사이트의 글, 표, 그림과 계산 도구의 저작권은 {{brand}}에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처({{sourceName}})를 밝혀 주세요.
+§b55867b [view:tos] 7. 개인정보
+§9cc999e [view:tos] 입력한 기록은 이용자의 기기(브라우저)에만 저장되고 서버로 보내지 않습니다. 자세한 내용은 <a href="#privacy">개인정보처리방침</a>을 확인하세요.
+§8beccda [view:tos] 8. 외부 사이트
+§321f919 [view:tos] 대회 공식 사이트, 쇼핑몰, 날씨 제공처 등 외부 사이트의 내용과 거래에 대해서는 각 사이트의 정책이 적용되며, {{brand:는}} 책임지지 않습니다.
+§f8706dc [view:tos] 9. 약관의 변경
+§983e77f [view:tos] 약관을 바꾸면 이 페이지에 시행일과 함께 알립니다.
+§6bd484e [view:tos] 10. 문의
+§d6af450 [view:tos] 사이트에 관한 문의와 오류 제보는 <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>로 보내 주세요.
+§042bfed [view:tos] 시행일: {{termsDate}}
 §2e71e1b [shell] <b>{{brand}}</b> · 정형외과 전문의가 만든 러닝 계산기
 §531a04a [shell] 이 사이트의 글과 계산 도구의 저작권은 {{brand}}에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처({{sourceName}})를 밝혀 주세요.
 §10fe4f2 [shell] 계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.
-§ed735a4 [shell] 이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-§a388e7b [shell] <a href="#about">계산 근거·FAQ</a><a href="#privacy">개인정보처리방침</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
+§fceddfb [shell] <a href="#about">계산 근거·FAQ</a><a href="#privacy">개인정보처리방침</a><a href="#tos">이용약관</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
 §be4ee98 [shell] 홈 화면에 앱으로 추가
 §a7aeb87 [shell] 정형외과 전문의가 만든 러닝 계산기
 §9d8ec3b [shell] {{brand}} 첫 화면
@@ -435,6 +478,7 @@
 §374a498 [core.js] 눈
 §5ed2015 [core.js] 소나기
 §d60d02b [core.js] 뇌우
+§d04f1bf [core.js] 멤버
 §a1a321f [core.js] 천둥·번개가 치는 날씨입니다. 야외 달리기는 그친 뒤로 미루세요.
 §b1865e8 [core.js] 미세먼지가 매우 나쁩니다. 오늘 달리기는 실내로 옮기거나 쉬는 편이 좋습니다.
 §4e0a5e0 [core.js] 미세먼지가 나쁩니다. 인터벌 같은 강한 훈련은 미루고, 달린다면 짧고 가볍게 하세요.
@@ -503,7 +547,6 @@
 §943a64e [app.js] " id="goal-plan">구간표 만들기 →</a><button type="button" class="linkish" data-ics="race" data-ics-date="
 §3465cbb [app.js] " data-ics-url="">캘린더에 추가</button>
 §fac93e1 [app.js] <span>대회 옆 ☆ 목표를 누르면 남은 날을 세어 드리고, 대회 계획 화면에 이어서 보여 드립니다.</span>
-§c16f421 [app.js] 풀코스
 §46cec0a [app.js] 지금 실력 안쪽
 §3097d32 [app.js] 도전적인 목표
 §2ca7236 [app.js] 지금은 빠른 목표
@@ -680,6 +723,7 @@
 §25f016f [app.js] 부산
 §d517715 [app.js] 창원
 §b6966f6 [app.js] 제주
+§b8a3e57 [app.js] 기온 자료 <a href="https://www.met.no/en/free-meteorological-data/Licensing-and-crediting" target="_blank" rel="noopener">노르웨이 기상청(MET Norway)</a> 예보(CC BY 4.0), 일출·일몰은 계산값 · 대기질 CAMS 예보(<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>). 미세먼지는 측정소 값이 아니라 예보 모델이 계산한 값이어서 <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">에어코리아</a> 실측과 다를 수 있습니다. 등급은 환경부 예보 기준이고, 예보 칸은 그날 평균(㎍/㎥)입니다.
 §73e0668 [app.js] 날씨 자료 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> · 대기질 CAMS 예보. 미세먼지는 측정소 값이 아니라 예보 모델이 계산한 값이어서 <a href="https://www.airkorea.or.kr/" target="_blank" rel="noopener">에어코리아</a> 실측과 다를 수 있습니다. 등급은 환경부 예보 기준이고, 예보 칸은 그날 평균(㎍/㎥)입니다.
 §9d12f5a [app.js] <option value="@">내 위치</option>
 §7bb991b [app.js] 응답 시간 초과
@@ -705,7 +749,6 @@
 §4205c36 [app.js] · 기온은
 §166a7b9 [app.js] 값입니다(다시 불러오는 중)
 §8568ba1 [app.js] · 기온 오류:
-§b7868dd [app.js] 이번 기온은 <a href="https://api.met.no/" target="_blank" rel="noopener">노르웨이 기상청(MET Norway)</a> 예보이고, 일출·일몰은 계산값입니다.
 §5321ad0 [app.js] 날씨를 불러오지 못했습니다. <button type="button" class="linkish" data-wx-retry>다시 불러오기</button>
 §3768c36 [app.js] 미리보기에서는 날씨를 불러올 수 없습니다. 배포한 사이트에서 표시됩니다.
 §af2dd61 [app.js] 오류:
@@ -713,6 +756,23 @@
 §7635d93 [app.js] 위치를 가져오지 못했습니다
 §0bb5626 [app.js] 개 대회
 §7a6d68f [app.js] · 2026년 개최일 기준
+§47203c5 [app.js] 지수 10k 55:00
+§29769bc [app.js] 민호 하프 1:58:30
+§51840a4 [app.js] 수아 5k 27:40
+§3270108 [app.js] 현우 풀 3:50:00
+§9e6d675 [app.js] 다은 10k 1:02:10
+§3ff8f12 [app.js] 태오 10k 48:30
+§f916a10 [app.js] 서연 하프 2:15:00
+§a2416df [app.js] 준 5k 24:50
+§e79e3e6 [app.js] 읽지 못한 줄
+§61e04ca [app.js] <p class="note">이름과 기록을 한 줄에 한 사람씩 적어 주세요.</p>
+§35d8c61 [app.js] <div class="crew-g"> <div class="crew-h"><b>그룹
+§a46802f [app.js] 명 ·
+§dd4b9be [app.js] </span></div> <p class="crew-p">이지 <b>
+§58e36db [app.js] <p class="crew-warn">그룹 안 실력 차가 큰 편입니다. 빠른 사람이 기다려 주거나 그룹 수를 늘려 보세요.</p>
+§5ab8c55 [app.js] 러닝 크루 그룹런 페이스
+§3228056 [app.js] 그룹
+§ffe0279 [app.js] · 이지
 §c969ad0 [app.js] \n\n출처:
 §c91eb0e [build] 캘린더에 추가
 §adddacd [build] 접수 시기 알림 받기
@@ -806,6 +866,9 @@
 §0eef812 [build] 고르게 달렸을 때의 통과 시각입니다. 목표 기록을 누르면 그 목표로 구간표를 만들어 드립니다.
 §1a85d82 [build] 이 대회를 준비하는 한 주 훈련표
 §0823aff [build] 주간 훈련표 만들기
+§ead9b39 [build] 대회 날 챙길 것
+§2611b57 [build] 대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.
+§e2031b1 [build] 유형별로 고르는 법
 §b92d8a0 [build] 다른 주요 대회
 §629ce84 [build] {name} {year}: 코스, 부상 주의점, 목표 기록별 5km 페이스표
 §f2a2c50 [build] {name} {year} 일정과 접수, 코스 특징, 정형외과 전문의가 짚은 부상 주의점, 목표 기록별 5km 통과 시각을 정리했습니다.
@@ -842,6 +905,9 @@
 §bfb7192 [views] 체력 나이
 §35e15eb [views] 체력 나이 계산기: 달리기와 걷기로 보는 VO2max
 §b67c4f3 [views] 달리기 기록, 12분 달리기, 1.6km 빨리 걷기로 유산소 체력(VO2max)을 추정하고 또래 가운데 어디쯤인지, 체력 나이가 몇 살인지 보여 드립니다.
+§8b9cf6d [views] 크루 페이스
+§e3c617a [views] 러닝 크루 페이스 그룹 나누기: 멤버 기록으로 그룹런 페이스 정하기
+§f6461aa [views] 멤버 기록을 한 줄에 한 사람씩 붙여 넣으면 실력이 비슷한 사람끼리 그룹을 나누고, 그룹마다 모두가 따라올 수 있는 이지 페이스를 정해 드립니다.
 §3311960 [views] 러닝 부상 가이드: 무릎·정강이·발 통증, 부위별 원인과 대처
 §384bcd0 [views] 달릴 때 무릎 바깥쪽이 아픈 장경인대 증후군부터 정강이 통증, 족저근막염, 아킬레스건, 피로골절까지. 러너에게 흔한 부상의 증상과 원인, 스스로 할 수 있는 대처, 진료가 필요한 신호를 정리했습니다.
 §a211a31 [views] 러닝 용어
@@ -856,6 +922,7 @@
 §f10b305 [views] 계산 근거와 자주 묻는 질문
 §79127a1 [views] {brand}의 계산식과 참고한 연구, 자주 묻는 질문을 정리했습니다.
 §c44c243 [views] {brand}가 저장하는 정보와 쿠키, 광고, 제휴 링크 안내.
+§06423b1 [views] {brand} 이용약관: 계산 결과의 한계, 대회 정보, 광고와 제휴 링크, 저작권 안내.
 §d38d01a [tabs] 페이스
 §501fb80 [tabs] 부상
 §344528d [care] 풀코스 준비에서 부상은 대회 날보다 훈련 중에 생깁니다. 한 번에 달리는 거리를 최근 30일 최장 거리보다 10% 넘게 늘리면 과사용 부상이 늘어난다는 추적 연구가 있어, 장거리주는 조금씩 늘리는 편이 안전합니다.
