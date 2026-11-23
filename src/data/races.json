@@ -1,33 +1,35 @@
 {
- "checked": "2026-11-12",
+ "checked": "2026-11-23",
  "races": [
   {
    "id": "sonkeechung",
    "name": "손기정평화마라톤",
    "host": "손기정기념재단",
-   "date": "2026-11-15",
    "events": "풀 · 하프 · 10km · 6km",
    "place": "경기 파주 임진각 평화누리공원",
    "dist": 42195,
-   "reg": "접수 마감",
+   "reg": "2026년 대회는 끝났고, 2027년 일정은 아직 발표되지 않았습니다.",
    "url": "https://son.raceplan.co.kr/",
    "link": "공식 사이트",
    "en": "Son Kee-chung Peace Marathon",
-   "ja": "孫基禎平和マラソン"
+   "ja": "孫基禎平和マラソン",
+   "last": "2026-11-15",
+   "season": "예년 11월 중순"
   },
   {
    "id": "mbn-seoul",
    "name": "MBN 서울마라톤",
    "host": "MBN · 매일경제",
-   "date": "2026-11-15",
    "events": "하프 · 10km",
    "place": "서울 광화문광장 → 잠실종합운동장",
    "dist": 21097.5,
-   "reg": "접수 마감",
+   "reg": "2026년 대회는 끝났고, 2027년 일정은 아직 발표되지 않았습니다.",
    "url": "https://www.mbn-seoulmarathon.com/",
    "link": "공식 사이트",
    "en": "MBN Seoul Marathon",
-   "ja": "MBNソウルマラソン"
+   "ja": "MBNソウルマラソン",
+   "last": "2026-11-15",
+   "season": "예년 11월 중순"
   },
   {
    "id": "daegu",

@@ -1283,3 +1283,5 @@
 §8b30818 Running training plan builder: a marathon week matched to your mileage and goal race
 §988c919 Running shoe replacement calculator: mileage and lifespan per pair
 §c5e4e90 Running heart rate zone calculator: zones by age or max heart rate
+§415413e Usually mid-November
+§7ce20ef The 2026 race is over, and the 2027 date has not been announced yet.

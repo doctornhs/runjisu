@@ -215,9 +215,11 @@ def rc_item(r, i):
             f'<div class="rc-b">{name}<p><span class="rc-t">{tags}</span><span class="rc-rg">{e(rg)}</span><span class="rc-ev">{e(ymd(y, m, d))} · {e(ev)}</span></p></div>'
             f'<div class="rc-r">{link}</div></li>')
 
+TODAY = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+
 def rc_list(kind):
     rows, cur = [], None
-    items = sorted([(r, i) for i, r in enumerate(RACE_LIST['races']) if r['k'] == kind], key=lambda x: x[0]['d'])
+    items = sorted([(r, i) for i, r in enumerate(RACE_LIST['races']) if r['k'] == kind and not (kind == 'up' and r['d'] < TODAY)], key=lambda x: x[0]['d'])
     for r, i in items:
         mk = r['d'][:7]
         if mk != cur:
@@ -266,7 +268,8 @@ def list_page(kind, key):
         slug, short, label, meters = next(x for x in DIST_HUB if x[0] == key)
         pick = [(r, i) for r, i in rows if key in r['f']]
         h1 = f'{label} 대회 일정'; what = f'{short} 종목이 있는'
-    up = sorted([x for x in pick if x[0]['k'] == 'up'], key=lambda x: x[0]['d'])
+    pick = [x for x in pick if not (x[0]['k'] == 'up' and x[0]['d'] < TODAY)]     # 끝난 대회는 뺀다
+    up = sorted([x for x in pick if x[0]['k'] == 'up' and x[0]['d'] >= TODAY], key=lambda x: x[0]['d'])
     last = sorted([x for x in pick if x[0]['k'] == 'last'], key=lambda x: x[0]['d'])
     majors = [r for r in RACE_DATA['races'] if (kind == 'region' and r['place'].startswith(key)) or
               (kind == 'distance' and ((key == 'full' and r['dist'] > 30000) or (key == 'half' and 20000 < r['dist'] < 30000)))]
@@ -781,7 +784,7 @@ def race_next():
     fixed = [{'date': r['date'], 'name': r['name'], 'events': T(r['events']), 'place': T(r['place'])} for r in RACE_DATA['races'] if r.get('date')]
     fixed += [{'date': r['d'], 'name': r['n'], 'events': ' · '.join(T(EV_LABEL[f]) for f in r['f']) or ev_txt(r['ev']), 'place': T(r['rg'])}
               for r in RACE_LIST['races'] if r['k'] == 'up' and set(r['f']) & {'full', 'half', '10k'}]
-    fixed = sorted(fixed, key=lambda r: r['date'])[:40]
+    fixed = sorted((r for r in fixed if r['date'] >= TODAY), key=lambda r: r['date'])[:40]
     return '\n'.join(f'      <li data-date="{r["date"]}"><span class="dday" data-dday></span><div><b lang="ko">{e(r["name"])}</b><span>{kdate(r["date"])} · {e(r["events"])} · {e(r["place"])}</span></div></li>' for r in fixed)
 
 def hub_html(flags):
