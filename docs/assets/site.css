@@ -577,3 +577,45 @@ html[lang="en"] body{word-break:normal}
 .hub-links a:hover,.hub-links a[aria-current]{border-color:var(--accent);color:var(--accent)}
 .view-head h1 small{font-size:.55em;color:var(--ink-2);font-weight:700}
 .ad-fit{display:flex;justify-content:center;align-items:center;min-height:100px;margin:18px 0;overflow:hidden}
+
+/* ── 쉽게 쓰기: 빠른 선택, 결과로 가기, 본문 바로가기, 글자 크게, 앱처럼 쓰기 ── */
+.quick{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:4px 0 2px}
+.quick > span{font-size:13px;color:var(--ink-2);margin-right:2px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.see-result{display:none;width:100%;margin-top:6px}
+@media (max-width:759px){.see-result{display:block}}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
+.skip:focus{left:12px}
+main:focus{outline:none}
+.size-tg{margin-left:auto;margin-right:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;height:34px;min-width:44px;padding:0 9px;font:700 15px/1 inherit;font-family:inherit;cursor:pointer}
+.size-tg span{font-size:12px;margin-left:1px;vertical-align:super}
+.size-tg[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.top-row .langs{margin-left:0}
+html.big body{zoom:1.15}
+html.big{--ink-2:#2f3b50}
+@media (prefers-color-scheme:dark){html.big{--ink-2:#c9d3e2}}
+@media (prefers-contrast:more){:root{--ink-2:#2f3b50}}
+@media (prefers-contrast:more) and (prefers-color-scheme:dark){:root{--ink-2:#c9d3e2}}
+.install-bar{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:40;display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;
+  padding:14px 14px 14px 16px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 40px rgba(16,26,43,.18)}
+.install-bar b{display:block;font-size:15px}
+.install-bar span{display:block;font-size:13px;color:var(--ink-2);line-height:1.5;margin-top:2px}
+.ib-x{border:0;background:transparent;color:var(--ink-2);font-size:22px;line-height:1;width:32px;height:32px;cursor:pointer;border-radius:8px}
+@media (min-width:760px){.install-bar{left:auto;right:24px;bottom:24px;max-width:420px}}
+@media print{.install-bar,.size-tg,.skip{display:none!important}}
+/* 러닝 과학 */
+.sci .kicker{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin:0 0 4px}
+.sci .lead{font-size:17px;line-height:1.75}
+.sci-body h2{font-size:19px;margin:22px 0 8px}
+.sci-body h2:first-child{margin-top:0}
+.sci-body p{line-height:1.85;margin:0 0 12px}
+.sci-tools{display:flex;flex-wrap:wrap;gap:8px}
+.sci-tools a{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:15px}
+.sci-tools a:hover{border-color:var(--accent);color:var(--accent)}
+.sci-tools i{font-style:normal;color:var(--accent);font-weight:700}
+.sci-refs ol{margin:0 0 10px;padding-left:20px;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+.sci-refs li{margin-bottom:4px;word-break:break-word}
+.sci-list b small{color:var(--accent);font-family:var(--font-num);margin-right:4px}
+.sci-cta{margin-top:14px}
+@media (max-width:520px){.top-row{gap:8px;align-items:center}.size-tg{margin-right:0;min-width:38px;height:32px;padding:0 7px}}

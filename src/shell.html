@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
+<script>try{if(localStorage.getItem('rj:big')==='true')document.documentElement.classList.add('big')}catch(e){}</script>
 {{head_extra}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +15,13 @@
 {{styles}}
 </head>
 <body>
+<a class="skip" href="#main">본문 바로가기</a>
 
 <header class="top">
   <div class="wrap top-row">
     <a class="mark" href="#home" aria-label="{{brand}} 첫 화면"><b>{{brand}}</b><span>{{brandLatin}}</span></a>
     <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+    <button type="button" class="size-tg" id="size-tg" aria-pressed="false" aria-label="글자 크게 보기" title="글자 크게 보기">가<span aria-hidden="true">+</span></button>
 <!--if:site-->
     <nav class="langs" aria-label="Language">{{langs}}</nav>
 <!--endif:site-->
@@ -32,9 +35,15 @@
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 {{views}}
 </main>
+
+<div class="install-bar" id="install-bar" role="dialog" aria-labelledby="ib-h" hidden>
+  <div><b id="ib-h">{{brand:를}} 앱처럼 쓰기</b><span id="ib-text">홈 화면에 추가하면 앱처럼 바로 열리고, 인터넷이 없어도 계산할 수 있습니다.</span></div>
+  <button type="button" class="btn small" id="ib-add">추가</button>
+  <button type="button" class="ib-x" id="ib-close" aria-label="닫기">×</button>
+</div>
 
 <footer>
   <div class="wrap">

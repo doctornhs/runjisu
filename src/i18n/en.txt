@@ -1285,3 +1285,17 @@
 §c5e4e90 Running heart rate zone calculator: zones by age or max heart rate
 §415413e Usually mid-November
 §7ce20ef The 2026 race is over, and the 2027 date has not been announced yet.
+§ea4bd96 5K in 30 min
+§f719d8f 10K in 1 hr
+§deb0f6e Half in 2 hr
+§b82970b Full in 4:30
+§134e76e See my result ↓
+§85f334e No recent race?
+§aa0b52a Quick picks
+§3b49654 A<span aria-hidden="true">+</span>
+§88fec77 <b id="ib-h">Use {{brand}} like an app</b><span id="ib-text">Add it to your home screen to open it like an app and calculate even offline.</span>
+§5794299 Add
+§a20da4b Skip to content
+§7e57750 Larger text
+§94b7dba Close
+§0c0c821 Tap the Share button at the bottom of Safari, then choose ‘Add to Home Screen’. It opens like an app and calculates even offline.

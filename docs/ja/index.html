@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ランニングペース計算：マラソン予想タイムと練習ペース | ランジス</title>
 <meta name="description" content="5K、10K、ハーフ、フルの記録を一つ入れると、ランジスとE・M・T・I・Rのトレーニングペース、距離別の予想タイムを計算します。今日のランニング天気と微小粒子状物質、近日開催の大会も同じ画面で確認できます。整形外科専門医が作った無料のランニング計算機。">
+<script>try{if(localStorage.getItem('rj:big')==='true')document.documentElement.classList.add('big')}catch(e){}</script>
 <link rel="canonical" href="https://runjisu.com/ja/">
 <meta property="og:url" content="https://runjisu.com/ja/">
 <meta property="og:image" content="https://runjisu.com/og.png">
@@ -33,14 +34,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=0f9107926b">
+<link rel="stylesheet" href="../assets/site.css?v=bf673729f9">
 </head>
 <body>
+<a class="skip" href="#main">本文へスキップ</a>
 
 <header class="top">
   <div class="wrap top-row">
     <a class="mark" href="../ja/" aria-label="ランジス トップ"><b>ランジス</b><span>RUNJISU</span></a>
     <span class="top-tag">整形外科専門医が作ったランニング計算機</span>
+    <button type="button" class="size-tg" id="size-tg" aria-pressed="false" aria-label="文字を大きく表示" title="文字を大きく表示">あ<span aria-hidden="true">+</span></button>
     <nav class="langs" aria-label="Language"><a href="../" hreflang="ko" lang="ko" title="한국어">KO</a><a href="../en/" hreflang="en" lang="en" title="English">EN</a><a href="../ja/" hreflang="ja" lang="ja" aria-current="true" title="日本語">JA</a></nav>
   </div>
 </header>
@@ -58,7 +61,7 @@
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 <section class="view" data-view="home">
   <section class="panel wx" id="wx" aria-labelledby="wx-h">
     <div class="wx-head">
@@ -108,7 +111,15 @@
             <label class="sr" for="t-s">秒</label><input type="text" class="short" id="t-s" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="2"><span class="unit">秒</span>
           </div>
         </div>
+        <div class="quick" role="group" aria-label="クイック選択">
+          <span>記録がなければ</span>
+          <button type="button" class="chip" data-q="5000 0 30 00">5km 30分</button>
+          <button type="button" class="chip" data-q="10000 1 00 00">10km 1時間</button>
+          <button type="button" class="chip" data-q="21097.5 2 00 00">ハーフ 2時間</button>
+          <button type="button" class="chip" data-q="42195 4 30 00">フル 4時間30分</button>
+        </div>
         <p class="err" id="home-err" role="alert" hidden></p>
+        <button type="button" class="btn see-result" id="see-result">結果を見る ↓</button>
         <p class="note">数字を変えるとすぐに再計算します。平坦なコースで涼しい日に走った最近の記録ほど正確です。</p>
       </form>
     </div>
@@ -275,6 +286,7 @@
   </div>
 
   
+
   <section class="hub" aria-label="ツール一覧">
     <h2 class="sr">ツール一覧</h2>
     <div class="hub-group">
@@ -300,6 +312,12 @@
 
 </main>
 
+<div class="install-bar" id="install-bar" role="dialog" aria-labelledby="ib-h" hidden>
+  <div><b id="ib-h">ランジスをアプリのように</b><span id="ib-text">ホーム画面に追加すると、アプリのようにすぐ開き、オフラインでも計算できます。</span></div>
+  <button type="button" class="btn small" id="ib-add">追加</button>
+  <button type="button" class="ib-x" id="ib-close" aria-label="閉じる">×</button>
+</div>
+
 <footer>
   <div class="wrap">
     <p><b>ランジス</b> · 整形外科専門医が作ったランニング計算機</p>
@@ -318,7 +336,7 @@
     <a href="../ja/tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage crew terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>すべて</span></a>
 </nav>
 <script>window.SITE={"mode":"site","lang":"ja","brand":"ランジス","siteUrl":"https://runjisu.com","partnerLinks":{"cushion":"https://link.coupang.com/a/iT2yegc7YO","stability":"https://link.coupang.com/a/iT2Ai7Oz8K","racing":"https://link.coupang.com/a/iT2BBMJvLo","watch":"https://link.coupang.com/a/iT2DPhuQ3w","roller":"https://link.coupang.com/a/iT2Fc04y0i","race":"https://link.coupang.com/a/iT2F5Gg54C"},"paths":{"home":"../ja/","race":"../ja/race-pace/","goals":"../ja/pace-chart/","calendar":"../ja/marathon-schedule/","plan":"../ja/training-week/","log":"../ja/log/","spike":"../ja/long-run-check/","shoes":"../ja/shoe-mileage/","heart":"../ja/heart-rate-zones/","pace":"../ja/pace-converter/","fitage":"../ja/fitness-age/","crew":"../ja/crew-pace-groups/","injury":"../ja/running-injuries/","terms":"../ja/running-terms/","gear":"../ja/gear/","tools":"../ja/tools/","about":"../ja/about/","privacy":"../ja/privacy/","tos":"../ja/terms-of-use/"},"pwa":true,"sw":"../sw.js"};</script>
-<script src="../assets/core.ja.js?v=0f9107926b" defer></script>
-<script src="../assets/app.ja.js?v=0f9107926b" defer></script>
+<script src="../assets/core.ja.js?v=bf673729f9" defer></script>
+<script src="../assets/app.ja.js?v=bf673729f9" defer></script>
 </body>
 </html>

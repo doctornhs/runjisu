@@ -209,6 +209,11 @@
 §8ee38cf [view:home] 직접 입력
 §3b0ec8f [view:home] 거리(km)
 §6c35133 [view:home] 시간
+§ea4bd96 [view:home] 5K 30분
+§f719d8f [view:home] 10K 1시간
+§deb0f6e [view:home] 하프 2시간
+§b82970b [view:home] 풀 4시간 30분
+§134e76e [view:home] 내 결과 보기 ↓
 §4ea05ae [view:home] 숫자를 바꾸면 바로 다시 계산합니다. 평지에서 선선한 날 달린 최근 기록일수록 정확합니다.
 §2e1d696 [view:home] <span>{{brandLatin}}</span><span id="bib-basis">10K 55:00 기준</span>
 §af7dfe1 [view:home] <span>{{brand}}</span><span class="tag" id="bib-ex">예시</span>
@@ -253,8 +258,10 @@
 §eaf3319 [view:home] 훈련 페이스는 지금 실력 기준입니다. 목표 기록이 아니라 최근 기록을 넣으세요.
 §984916a [view:home] 달린 거리
 §d84b6f4 [view:home] 기록
+§85f334e [view:home] 기록이 없다면
 §94ab6d0 [view:home] 이미지 저장
 §d219bc9 [view:home] 이미지를 길게 누르거나 마우스 오른쪽 버튼으로도 저장할 수 있습니다.
+§aa0b52a [view:home] 빠른 선택
 §7471d5b [view:home] 이 기록으로 이어서
 §16ddd5e [view:injury] 러닝 부상 가이드
 §4b4c43f [view:injury] 러너의 부상은 대부분 넘어져서가 아니라 반복된 부하가 쌓여서 생깁니다. 아픈 자리로 흔한 부상을 찾아보고, 스스로 조절할 수 있는 것과 진료가 필요한 신호를 구분하세요.
@@ -451,14 +458,20 @@
 §6bd484e [view:tos] 10. 문의
 §d6af450 [view:tos] 사이트에 관한 문의와 오류 제보는 <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>로 보내 주세요.
 §042bfed [view:tos] 시행일: {{termsDate}}
+§3b49654 [shell] 가<span aria-hidden="true">+</span>
+§88fec77 [shell] <b id="ib-h">{{brand:를}} 앱처럼 쓰기</b><span id="ib-text">홈 화면에 추가하면 앱처럼 바로 열리고, 인터넷이 없어도 계산할 수 있습니다.</span>
+§5794299 [shell] 추가
 §2e71e1b [shell] <b>{{brand}}</b> · 정형외과 전문의가 만든 러닝 계산기
 §531a04a [shell] 이 사이트의 글과 계산 도구의 저작권은 {{brand}}에 있으며, 무단 복제와 재배포를 금합니다. 인용할 때는 출처({{sourceName}})를 밝혀 주세요.
 §10fe4f2 [shell] 계산 결과는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다.
 §fceddfb [shell] <a href="#about">계산 근거·FAQ</a><a href="#privacy">개인정보처리방침</a><a href="#tos">이용약관</a><!--if:contact--><a href="mailto:{{contactEmail}}">{{contactEmail}}</a><!--endif:contact-->
 §be4ee98 [shell] 홈 화면에 앱으로 추가
+§a20da4b [shell] 본문 바로가기
 §a7aeb87 [shell] 정형외과 전문의가 만든 러닝 계산기
 §9d8ec3b [shell] {{brand}} 첫 화면
+§7e57750 [shell] 글자 크게 보기
 §b80ec21 [shell] 도구
+§94b7dba [shell] 닫기
 §479926d [shell] 빠른 이동
 §1401b44 [core.js] 데일리 쿠션화·안정화
 §b98934b [core.js] 트레일화
@@ -756,6 +769,7 @@
 §7635d93 [app.js] 위치를 가져오지 못했습니다
 §0bb5626 [app.js] 개 대회
 §7a6d68f [app.js] · 2026년 개최일 기준
+§0c0c821 [app.js] Safari 아래쪽 공유 버튼을 누른 뒤 ‘홈 화면에 추가’를 고르세요. 앱처럼 바로 열리고, 인터넷이 없어도 계산할 수 있습니다.
 §47203c5 [app.js] 지수 10k 55:00
 §29769bc [app.js] 민호 하프 1:58:30
 §51840a4 [app.js] 수아 5k 27:40

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>러닝 페이스 계산기: 마라톤 예상 기록과 훈련 페이스 | 런지수</title>
 <meta name="description" content="5K, 10K, 하프, 풀코스 기록 하나를 넣으면 런지수와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.">
+<script>try{if(localStorage.getItem('rj:big')==='true')document.documentElement.classList.add('big')}catch(e){}</script>
 <link rel="canonical" href="https://runjisu.com/">
 <meta property="og:url" content="https://runjisu.com/">
 <meta property="og:image" content="https://runjisu.com/og.png">
@@ -35,14 +36,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=0f9107926b">
+<link rel="stylesheet" href="assets/site.css?v=bf673729f9">
 </head>
 <body>
+<a class="skip" href="#main">본문 바로가기</a>
 
 <header class="top">
   <div class="wrap top-row">
     <a class="mark" href="./" aria-label="런지수 첫 화면"><b>런지수</b><span>RUNJISU</span></a>
     <span class="top-tag">정형외과 전문의가 만든 러닝 계산기</span>
+    <button type="button" class="size-tg" id="size-tg" aria-pressed="false" aria-label="글자 크게 보기" title="글자 크게 보기">가<span aria-hidden="true">+</span></button>
     <nav class="langs" aria-label="Language"><a href="./" hreflang="ko" lang="ko" aria-current="true" title="한국어">KO</a><a href="en/" hreflang="en" lang="en" title="English">EN</a><a href="ja/" hreflang="ja" lang="ja" title="日本語">JA</a></nav>
   </div>
 </header>
@@ -60,7 +63,7 @@
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 <section class="view" data-view="home">
   <section class="panel wx" id="wx" aria-labelledby="wx-h">
     <div class="wx-head">
@@ -110,7 +113,15 @@
             <label class="sr" for="t-s">초</label><input type="text" class="short" id="t-s" inputmode="numeric" autocomplete="off" placeholder="00" maxlength="2"><span class="unit">초</span>
           </div>
         </div>
+        <div class="quick" role="group" aria-label="빠른 선택">
+          <span>기록이 없다면</span>
+          <button type="button" class="chip" data-q="5000 0 30 00">5K 30분</button>
+          <button type="button" class="chip" data-q="10000 1 00 00">10K 1시간</button>
+          <button type="button" class="chip" data-q="21097.5 2 00 00">하프 2시간</button>
+          <button type="button" class="chip" data-q="42195 4 30 00">풀 4시간 30분</button>
+        </div>
         <p class="err" id="home-err" role="alert" hidden></p>
+        <button type="button" class="btn see-result" id="see-result">내 결과 보기 ↓</button>
         <p class="note">숫자를 바꾸면 바로 다시 계산합니다. 평지에서 선선한 날 달린 최근 기록일수록 정확합니다.</p>
       </form>
     </div>
@@ -280,7 +291,15 @@
     </section>
   </div>
 
+    <div class="cta sci-cta"><span>왜 그럴까: 훈련 강도 다섯 단계</span><a href="running-science/training-intensities/">러닝 과학 읽기 →</a></div>
   
+  <section class="panel" aria-labelledby="sci-h">
+    <h2 id="sci-h">러닝 과학</h2>
+    <p class="note">계산기 숫자 뒤에 있는 몸의 원리를 정형외과 전문의의 눈으로 풀었습니다.</p>
+    <nav class="next" aria-label="러닝 과학"><a href="running-science/vo2max/"><b>VO2max</b><span>최대산소섭취량(VO2max)이 무엇이고 무엇이 그 한계를 정하는지, 런지수와 어떻게 다른지, 인터벌 훈련이 왜 필요한지 정리했습니다.</span><i>읽기 →</i></a><a href="running-science/lactate-threshold/"><b>젖산 역치</b><span>젖산이 피로 물질이라는 오해, 역치가 무엇이고 왜 10km부터 마라톤까지의 기록을 가장 잘 설명하는지, 템포 런을 어떻게 하는지 정리했습니다.</span><i>읽기 →</i></a><a href="running-science/running-economy/"><b>러닝 이코노미</b><span>VO2max가 비슷해도 기록이 갈리는 이유인 러닝 이코노미, 그리고 빠른 반복 훈련·근력 운동·신발·케이던스가 여기에 어떻게 작용하는지 정리했습니다.</span><i>읽기 →</i></a><a href="running-science/training-intensities/"><b>훈련 강도 다섯 단계</b><span>다니엘스가 훈련 강도를 이지·마라톤·역치·인터벌·반복 다섯 단계로 나눈 이유와 각 단계의 목적, 한 주에 섞는 비율을 정리했습니다.</span><i>읽기 →</i></a></nav>
+    <div class="cta"><span>VO2max부터 테이퍼링까지 8편</span><a href="running-science/">연재 전체 보기 →</a></div>
+  </section>
+
   <section class="hub" aria-label="도구 모음">
     <h2 class="sr">도구 모음</h2>
     <div class="hub-group">
@@ -318,6 +337,12 @@
 
 </main>
 
+<div class="install-bar" id="install-bar" role="dialog" aria-labelledby="ib-h" hidden>
+  <div><b id="ib-h">런지수를 앱처럼 쓰기</b><span id="ib-text">홈 화면에 추가하면 앱처럼 바로 열리고, 인터넷이 없어도 계산할 수 있습니다.</span></div>
+  <button type="button" class="btn small" id="ib-add">추가</button>
+  <button type="button" class="ib-x" id="ib-close" aria-label="닫기">×</button>
+</div>
+
 <footer>
   <div class="wrap">
     <p><b>런지수</b> · 정형외과 전문의가 만든 러닝 계산기</p>
@@ -336,7 +361,7 @@
     <a href="tools/" data-nav="tools" data-also="race plan log spike shoes heart pace fitage crew terms gear about"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span>전체</span></a>
 </nav>
 <script>window.SITE={"mode":"site","lang":"ko","brand":"런지수","siteUrl":"https://runjisu.com","partnerLinks":{"cushion":"https://link.coupang.com/a/iT2yegc7YO","stability":"https://link.coupang.com/a/iT2Ai7Oz8K","racing":"https://link.coupang.com/a/iT2BBMJvLo","watch":"https://link.coupang.com/a/iT2DPhuQ3w","roller":"https://link.coupang.com/a/iT2Fc04y0i","race":"https://link.coupang.com/a/iT2F5Gg54C"},"paths":{"home":"./","race":"race-pace/","goals":"pace-chart/","calendar":"marathon-schedule/","plan":"training-week/","log":"log/","spike":"long-run-check/","shoes":"shoe-mileage/","heart":"heart-rate-zones/","pace":"pace-converter/","fitage":"fitness-age/","crew":"crew-pace-groups/","injury":"running-injuries/","terms":"running-terms/","gear":"gear/","tools":"tools/","about":"about/","privacy":"privacy/","tos":"terms-of-use/"},"pwa":true,"sw":"sw.js"};</script>
-<script src="assets/core.js?v=0f9107926b" defer></script>
-<script src="assets/app.js?v=0f9107926b" defer></script>
+<script src="assets/core.js?v=bf673729f9" defer></script>
+<script src="assets/app.js?v=bf673729f9" defer></script>
 </body>
 </html>

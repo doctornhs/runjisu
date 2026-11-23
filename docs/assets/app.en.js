@@ -375,6 +375,17 @@
     form.addEventListener('input', onInput);
     form.addEventListener('change', onInput);
     form.addEventListener('submit', e => e.preventDefault());
+    /* 빠른 선택: 기록이 없는 사람도 바로 결과를 본다 */
+    $$('.quick .chip', form).forEach(b => b.addEventListener('click', () => {
+      const [d, h, m, sec] = b.dataset.q.split(' ');
+      const r = form.querySelector(`input[name="dist"][value="${d}"]`); if (r) r.checked = true;
+      $('#custom-row').hidden = true;
+      $('#t-h').value = h; $('#t-m').value = m; $('#t-s').value = sec;
+      form.dispatchEvent(new Event('input', { bubbles: true }));
+      track('quick_pick', { value: b.dataset.q });
+    }));
+    const see = $('#see-result');
+    if (see) see.addEventListener('click', () => { const b = $('#bib'); if (b) b.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); });
     function onPeer() { read(); store.set('home', home); renderPeer(lastIndex); }
     ['age', 'sex-m', 'sex-f'].forEach(id => { const el = $('#' + id); el.addEventListener('input', onPeer); el.addEventListener('change', onPeer); });
     $('#copy-result').addEventListener('click', e => copyText(e.currentTarget, lastSummary));
@@ -1195,6 +1206,48 @@
       groups.forEach(g => { g.hidden = !$$('[data-term]', g).some(el => !el.hidden); });
       $('#term-none').hidden = any;
     });
+  })();
+
+  /* ───────── 글자 크게 보기 ───────── */
+  (function initSize() {
+    const b = $('#size-tg'); if (!b) return;
+    const sync = () => { const on = document.documentElement.classList.contains('big'); b.setAttribute('aria-pressed', on ? 'true' : 'false'); };
+    sync();
+    b.addEventListener('click', () => {
+      const on = !document.documentElement.classList.contains('big');
+      document.documentElement.classList.toggle('big', on); store.set('big', on); sync();
+      track('big_text', { on: on ? 1 : 0 });
+    });
+  })();
+
+  /* ───────── 앱처럼 쓰기: 두 번째 방문부터, 닫으면 30일 동안 안 보인다 ───────── */
+  (function initInstallBar() {
+    const bar = $('#install-bar'); if (!bar || SITE.mode !== 'site') return;
+    const standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+    if (standalone) return;
+    const visits = (store.get('visits', 0) || 0) + 1; store.set('visits', visits);
+    const off = store.get('ibOff', 0) || 0;
+    if (visits < 2 || Date.now() - off < 30 * 864e5) return;
+    const ua = navigator.userAgent || '';
+    const ios = /iphone|ipad|ipod/i.test(ua) && /safari/i.test(ua) && !/crios|fxios|edgios|kakaotalk|naver|instagram|fban|fbav|line\//i.test(ua);
+    let deferred = null;
+    const show = () => { bar.hidden = false; track('install_bar', { kind: ios ? 'ios' : 'prompt' }); };
+    const hide = () => { bar.hidden = true; store.set('ibOff', Date.now()); };
+    $('#ib-close').addEventListener('click', hide);
+    if (ios) {
+      $('#ib-text').textContent = 'Tap the Share button at the bottom of Safari, then choose ‘Add to Home Screen’. It opens like an app and calculates even offline.';
+      $('#ib-add').hidden = true;
+      setTimeout(show, 2500);
+      return;
+    }
+    window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; setTimeout(show, 1500); });
+    $('#ib-add').addEventListener('click', () => {
+      if (!deferred) return hide();
+      deferred.prompt();
+      deferred.userChoice.then(c => { track('install', { outcome: c && c.outcome }); }).catch(() => {});
+      deferred = null; bar.hidden = true;
+    });
+    window.addEventListener('appinstalled', () => { bar.hidden = true; });
   })();
 
   /* ───────── 크루 페이스 그룹 ───────── */

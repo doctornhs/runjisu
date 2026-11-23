@@ -28,6 +28,10 @@
   ],
   "shortcuts": [
     {
+      "name": "대회 계획",
+      "url": "race-pace/"
+    },
+    {
       "name": "대회 일정",
       "url": "marathon-schedule/"
     },

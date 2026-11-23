@@ -102,3 +102,15 @@
 - `docs/sitemap.xml`의 수정일은 페이지 내용이 실제로 바뀐 날이다. 지문과 날짜는 `src/data/lastmod.json`에 남는다(빌드할 때마다 갱신, 함께 커밋).
 - `docs/feed.xml`: 한국어 쪽 최근 80개 RSS. 네이버 서치어드바이저의 'RSS 제출'에 `https://runjisu.com/feed.xml`을 낸다.
 - IndexNow: 키 파일 `docs/<indexNowKey>.txt`. sitemap.xml이 바뀐 푸시마다 GitHub Actions(`IndexNow`)가 바뀐 주소를 네이버·빙에 알린다. Actions 탭에서 손으로 돌리면 전체를 보낸다.
+
+## 러닝 과학 연재
+
+- 글은 `src/data/science.json`(한국어만). 쪽은 `running-science/`와 `running-science/<id>/`.
+- 도구 쪽(한국어)마다 관련 글로 가는 줄이 붙는다: `build.py`의 `SCI_FOR`.
+- 『Daniels' Running Formula』 등 참고 문헌의 개념을 새로 쓴 글이다. 책의 문장·표는 옮기지 않는다.
+
+## 쉽게 쓰기
+
+- 첫 화면 '기록이 없다면' 빠른 선택, 휴대폰의 '내 결과 보기' 버튼
+- 머리글의 '가+' 버튼: 글자 크게·진하게(`html.big`, 저장 키 `rj:big`), 본문 바로가기 링크
+- 두 번째 방문부터 '앱처럼 쓰기' 안내(안드로이드는 설치 창, 아이폰 Safari는 방법 안내), 닫으면 30일 동안 숨김

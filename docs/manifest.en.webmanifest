@@ -28,6 +28,10 @@
   ],
   "shortcuts": [
     {
+      "name": "Race plan",
+      "url": "en/race-pace/"
+    },
+    {
       "name": "Races",
       "url": "en/marathon-schedule/"
     },

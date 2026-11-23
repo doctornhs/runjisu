@@ -589,6 +589,103 @@ def goal_page(g, prev, nxt):
 # ───────── 러닝 용어, 러닝 부상, 첫 화면의 다가오는 대회 ─────────
 TERMS = json.loads(read(SRC, 'data', 'terms.json'))
 INJURIES = json.loads(read(SRC, 'data', 'injuries.json'))
+SCIENCE = json.loads(read(SRC, 'data', 'science.json'))
+SCI_FOR = {'home': 'training-intensities', 'goals': 'training-intensities', 'race': 'taper', 'plan': 'training-intensities',
+           'spike': 'training-adaptation', 'heart': 'heart-rate', 'fitage': 'vo2max', 'injury': 'training-adaptation',
+           'shoes': 'running-economy', 'pace': 'running-economy', 'calendar': 'heat-and-cold', 'crew': 'training-intensities'}
+
+def sci_by_id(i):
+    return next(a for a in SCIENCE['articles'] if a['id'] == i)
+
+def sci_cta(vid):
+    """도구 쪽에서 관련 과학 글로 가는 줄(한국어 사이트만)"""
+    if vid not in SCI_FOR:
+        return ''
+    a = sci_by_id(SCI_FOR[vid])
+    return f'  <div class="cta sci-cta"><span>왜 그럴까: {html.escape(a["short"])}</span><a href="#science/{a["id"]}">러닝 과학 읽기 →</a></div>\n'
+
+def sci_home():
+    if L() != 'ko':
+        return ''
+    cards = ''.join(f'<a href="#science/{a["id"]}"><b>{html.escape(a["title"].split(":")[0])}</b><span>{html.escape(a["desc"])}</span><i>읽기 →</i></a>'
+                    for a in SCIENCE['articles'][:4])
+    return (f'  <section class="panel" aria-labelledby="sci-h">\n    <h2 id="sci-h">러닝 과학</h2>\n'
+            f'    <p class="note">계산기 숫자 뒤에 있는 몸의 원리를 정형외과 전문의의 눈으로 풀었습니다.</p>\n'
+            f'    <nav class="next" aria-label="러닝 과학">{cards}</nav>\n'
+            f'    <div class="cta"><span>VO2max부터 테이퍼링까지 8편</span><a href="#science">연재 전체 보기 →</a></div>\n  </section>\n')
+
+def sci_index():
+    e = html.escape
+    cards = ''.join(f'<a href="{a["id"]}/"><b><small>{n:02d}</small> {e(a["title"])}</b><span>{e(a["desc"])}</span><i>읽기 →</i></a>'
+                    for n, a in enumerate(SCIENCE['articles'], 1))
+    body = f"""<section class="view" data-view="science">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <span>러닝 과학</span></nav>
+  <div class="view-head">
+    <h1>러닝 과학<br><small>숫자 뒤에 있는 몸의 원리</small></h1>
+    <p>{e(SCIENCE['intro'])}</p>
+  </div>
+  <nav class="next sci-list" aria-label="러닝 과학 글">{cards}</nav>
+  <aside class="ad" data-ad="science-0">광고 자리 · 애드센스 승인 뒤 표시</aside>
+  <p class="note">이 연재는 일반적인 건강 정보이며 개인의 진단이나 치료를 대신하지 않습니다.</p>
+</section>
+"""
+    title = '러닝 과학: VO2max, 젖산 역치, 러닝 이코노미, 훈련 강도와 테이퍼링'
+    desc = '잭 다니엘스의 훈련 원리를 생리학으로 풀고 정형외과 전문의의 부상 이야기를 덧붙인 8편 연재. VO2max, 젖산 역치, 러닝 이코노미, 훈련 강도, 적응과 회복, 심박수, 더위와 추위, 테이퍼링.'
+    lds = []
+    if cfg['siteUrl']:
+        lds.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': '러닝 과학', 'itemListElement': [
+            {'@type': 'ListItem', 'position': n, 'url': cfg['siteUrl'] + '/running-science/' + a['id'] + '/', 'name': a['title']} for n, a in enumerate(SCIENCE['articles'], 1)]})
+    return {'path': 'running-science', 'body': body, 'lds': lds, 'title': title, 'desc': desc}
+
+def sci_page(n, a):
+    e = html.escape
+    arts = SCIENCE['articles']
+    secs = '\n'.join(f'    <h2>{e(x["h"])}</h2>\n' + ''.join(f'    <p>{e(p)}</p>\n' for p in x['p']) for x in a['sections'])
+    tools = ''.join(f'<a href="#{v}"><b>{e(t)}</b><i>→</i></a>' for v, t in a['tools'])
+    refs = ''.join(f'<li>{e(r)}</li>' for r in a['refs'])
+    near = [arts[(n - 2) % len(arts)], arts[n % len(arts)]]
+    nav = ''.join(f'<a href="../{x["id"]}/"><b>{e(x["title"])}</b><span>{e(x["desc"])}</span><i>{lab} →</i></a>' for x, lab in zip(near, ('이전 글', '다음 글')))
+    body = f"""<section class="view" data-view="science">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <a href="#science">러닝 과학</a> › <span>{e(a["short"])}</span></nav>
+  <article class="sci">
+    <div class="view-head">
+      <p class="kicker">러닝 과학 {n:02d} / {len(arts):02d}</p>
+      <h1>{e(a["title"])}</h1>
+      <p class="lead">{e(a["lead"])}</p>
+    </div>
+    <section class="panel prose sci-body">
+{secs}    </section>
+    <section class="panel warn" aria-labelledby="sci-ortho-h">
+      <h2 id="sci-ortho-h">정형외과 전문의의 한마디</h2>
+      <p>{e(a["ortho"])}</p>
+    </section>
+    <section class="panel" aria-labelledby="sci-try-h">
+      <h2 id="sci-try-h">{e(brand())}에서 해 보기</h2>
+      <nav class="sci-tools" aria-label="관련 도구">{tools}</nav>
+    </section>
+    <aside class="ad" data-ad="science-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+    <section class="panel sci-refs" aria-labelledby="sci-ref-h">
+      <h2 id="sci-ref-h">참고 문헌</h2>
+      <ol>{refs}</ol>
+      <p class="note">이 글은 『Daniels' Running Formula』를 비롯한 위 자료의 개념을 바탕으로 {e(brand())}가 새로 쓴 글이며, 책의 문장과 표를 옮기지 않았습니다. 일반적인 건강 정보로, 개인의 진단과 치료를 대신하지 않습니다.</p>
+    </section>
+    <nav class="next" aria-label="다른 글">{nav}</nav>
+  </article>
+</section>
+"""
+    path = 'running-science/' + a['id']
+    lds = []
+    if cfg['siteUrl']:
+        url = cfg['siteUrl'] + '/' + path + '/'
+        lds.append({'@context': 'https://schema.org', '@type': 'Article', 'headline': a['title'], 'description': a['desc'], 'inLanguage': 'ko',
+                    'mainEntityOfPage': url, 'author': {'@type': 'Organization', 'name': brand(), 'url': cfg['siteUrl'] + '/'},
+                    'publisher': {'@type': 'Organization', 'name': brand(), 'url': cfg['siteUrl'] + '/'}, 'datePublished': '2026-11-23',
+                    'citation': a['refs']})
+        lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': brand(), 'item': cfg['siteUrl'] + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': '러닝 과학', 'item': cfg['siteUrl'] + '/running-science/'},
+            {'@type': 'ListItem', 'position': 3, 'name': a['short'], 'item': url}]})
+    return {'path': path, 'body': body, 'lds': lds, 'title': a['title'], 'desc': a['desc']}
 
 def terms_html():
     e = html.escape; out = []
@@ -790,7 +887,7 @@ def race_next():
 def hub_html(flags):
     return render(i18n.tr_html(read(SRC, 'views', '_hub.html'), L()), flags).rstrip()
 
-RAW_KEYS = ('home_hubs', 'rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
+RAW_KEYS = ('sci_home', 'sci_hub', 'home_hubs', 'rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def page_vars():
     b = brand()
@@ -810,8 +907,8 @@ def view_html(vid, flags):
     extra = None
     if vid == 'calendar': extra = race_blocks(flags.get('site'))
     elif vid == 'goals': extra = {'goal_tables': goal_tables(flags.get('site'))}
-    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next(), 'home_hubs': home_hubs() if flags.get('site') else ''}
-    elif vid == 'tools': extra = {'hub': hub_html(flags)}
+    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next(), 'home_hubs': home_hubs() if flags.get('site') else '', 'sci_home': sci_home() if flags.get('site') else ''}
+    elif vid == 'tools': extra = {'hub': hub_html(flags), 'sci_hub': sci_home() if flags.get('site') else ''}
     elif vid == 'terms': extra = {'terms_html': terms_html()}
     elif vid == 'injury': extra = {'injury_cards': injury_cards(flags.get('site'))}
     return render(i18n.tr_html(read(SRC, 'views', vid + '.html'), L()), flags, extra).rstrip() + '\n'
@@ -957,6 +1054,14 @@ def build_site():
         paths = {v[0]: (lroot + v[1] + '/' if v[1] else (lroot or './')) for v in VIEWS}
         if body is None:
             body = view_html(vid, flags).replace(f'data-view="{vid}" hidden', f'data-view="{vid}"')
+            if lang == 'ko' and vid in SCI_FOR:
+                if '<aside class="ad"' in body:
+                    body = body.replace('<aside class="ad"', sci_cta(vid) + '  <aside class="ad"', 1)
+                else:
+                    k = body.rfind('</section>'); body = body[:k] + sci_cta(vid) + body[k:]
+        if lang == 'ko':
+            sroot = lroot + 'running-science/'
+            body = re.sub(r'href="#science(?:/([\w-]+))?"', lambda m: f'href="{sroot}{m.group(1) + "/" if m.group(1) else ""}"', body)
         body = re.sub(r'<aside class="ad" data-ad="([\w-]+)">.*?</aside>\n?', ad_block, body, flags=re.S)
         full_title = title if vid == 'home' else f'{title} | {brand()}'
         sfx = '' if lang == 'ko' else '.' + lang
@@ -1007,7 +1112,7 @@ def build_site():
                         f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{gid}');</script>")
         if cfg['adsenseClient']:
             head.append(f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={html.escape(cfg["adsenseClient"])}" crossorigin="anonymous"></script>')
-        lpath = lambda lx: full_path(lx, 'marathon-schedule' if ko_only and lx != 'ko' else path)
+        lpath = lambda lx: full_path(lx, ('tools' if vid == 'science' else 'marathon-schedule') if ko_only and lx != 'ko' else path)
         langs = ''.join(
             f'<a href="{(root + lpath(lx) + "/") if lpath(lx) else (root or "./")}" hreflang="{lx}" lang="{lx}"'
             f'{" aria-current=" + chr(34) + "true" + chr(34) if lx == lang else ""} title="{META[lx]["label"]}">{META[lx]["short"]}</a>' for lx in LANGS)
@@ -1038,6 +1143,12 @@ def build_site():
                 gp = goal_page(g, group[i + 1] if i + 1 < len(group) else None, group[i - 1] if i else None)
                 emit(lang, 'goal', gp['path'], gp['title'], gp['desc'], body=gp['body'], lds=gp['lds'], nav='goals')
         majors = sorted(RACE_DATA['races'], key=lambda r: r.get('date') or ('9' + (r.get('last') or '')))
+        if lang == 'ko':                             # 러닝 과학 연재(한국어만)
+            sp = sci_index()
+            emit(lang, 'science', sp['path'], sp['title'], sp['desc'], body=sp['body'], lds=sp['lds'], nav='tools', ko_only=True)
+            for n, a in enumerate(SCIENCE['articles'], 1):
+                sp = sci_page(n, a)
+                emit(lang, 'science', sp['path'], sp['title'], sp['desc'], body=sp['body'], lds=sp['lds'], nav='tools', ko_only=True)
         if lang == 'ko':                             # 지역별·종목별 대회 쪽(한국어만)
             for g in hub_regions():
                 hp = list_page('region', g)
@@ -1072,7 +1183,7 @@ def build_site():
                 {'src': 'icons/icon-512.png', 'sizes': '512x512', 'type': 'image/png'},
                 {'src': 'icons/maskable-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
             ],
-            'shortcuts': [{'name': T(v[2]), 'url': META[lang]['prefix'] + v[1] + '/'} for v in VIEWS if v[0] in ('log', 'plan', 'calendar')],
+            'shortcuts': [{'name': T(v[2]), 'url': META[lang]['prefix'] + v[1] + '/'} for v in VIEWS if v[0] in ('race', 'plan', 'calendar', 'log')],
         }
         write(os.path.join(site_dir, f'manifest{sfx}.webmanifest'), json.dumps(manifest, ensure_ascii=False, indent=2))
     CUR['lang'] = 'ko'

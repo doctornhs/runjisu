@@ -1,838 +1,874 @@
 {
 "": {
 "d": "2026-11-23",
-"h": "0331e8132e33088f"
+"h": "39c0cb710fe202ba"
 },
 "about": {
 "d": "2026-11-23",
-"h": "bd930c25fda60b26"
+"h": "6af800712d0a232c"
 },
 "crew-pace-groups": {
 "d": "2026-11-23",
-"h": "831ebc9d687e477c"
+"h": "446e13deb9e46f99"
 },
 "en": {
 "d": "2026-11-23",
-"h": "5482ea7a45c807f1"
+"h": "9561bd06cbcb8b19"
 },
 "en/about": {
 "d": "2026-11-23",
-"h": "2e1a001aa6f39aac"
+"h": "c729b1973f258627"
 },
 "en/crew-pace-groups": {
 "d": "2026-11-23",
-"h": "48fa6bbf25ad84aa"
+"h": "9f5cf00c24fa6f9a"
 },
 "en/fitness-age": {
 "d": "2026-11-23",
-"h": "cbd456ee0b64e941"
+"h": "0024fe68f4b81397"
 },
 "en/gear": {
 "d": "2026-11-23",
-"h": "266c0df339bf4ad0"
+"h": "ac3622efd36331eb"
 },
 "en/heart-rate-zones": {
 "d": "2026-11-23",
-"h": "b1d38359e0f19df0"
+"h": "48acd2cb0837cad9"
 },
 "en/log": {
 "d": "2026-11-23",
-"h": "c454d9808a5c8c84"
+"h": "b65387ec38af60dc"
 },
 "en/long-run-check": {
 "d": "2026-11-23",
-"h": "429b7ca7bd8808d1"
+"h": "3d95130e5b6c9afb"
 },
 "en/marathon-schedule": {
 "d": "2026-11-23",
-"h": "7e673a6cd08379aa"
+"h": "5dd5ee860fd4f347"
 },
 "en/marathon-schedule/chuncheon": {
 "d": "2026-11-23",
-"h": "b9cabad5ef2d4621"
+"h": "7f7bf2fb3e4b2e3e"
 },
 "en/marathon-schedule/daegu": {
 "d": "2026-11-23",
-"h": "eee1afa09734bbda"
+"h": "726725d82542c65b"
 },
 "en/marathon-schedule/gongju": {
 "d": "2026-11-23",
-"h": "bdb5675309c54ee0"
+"h": "277d0d1f156d06c5"
 },
 "en/marathon-schedule/gunsan": {
 "d": "2026-11-23",
-"h": "cce373697a7dadbe"
+"h": "523eab9f35defd41"
 },
 "en/marathon-schedule/gyeongju": {
 "d": "2026-11-23",
-"h": "59e4056105f7a18f"
+"h": "f3393e046cfdc869"
 },
 "en/marathon-schedule/gyeongju-cherry": {
 "d": "2026-11-23",
-"h": "eded6e9eb6e2ab28"
+"h": "e4ab1ff3d8ee2675"
 },
 "en/marathon-schedule/incheon-half": {
 "d": "2026-11-23",
-"h": "e2ae06782548bfdc"
+"h": "fdb53a884c774b2d"
 },
 "en/marathon-schedule/jtbc": {
 "d": "2026-11-23",
-"h": "f6a3c95015922325"
+"h": "701e950dfc32951f"
 },
 "en/marathon-schedule/mbn-seoul": {
 "d": "2026-11-23",
-"h": "0e88be94297ebf5f"
+"h": "720860bf971363c7"
 },
 "en/marathon-schedule/seoul": {
 "d": "2026-11-23",
-"h": "a985c3dc7ca89760"
+"h": "b1a0342f7bac0d90"
 },
 "en/marathon-schedule/seoul-half": {
 "d": "2026-11-23",
-"h": "e7af0af11359a35c"
+"h": "eb1a272416c6877f"
 },
 "en/marathon-schedule/seoul-race": {
 "d": "2026-11-23",
-"h": "6c27e242cf33316e"
+"h": "8d3d990f8d13cd95"
 },
 "en/marathon-schedule/sonkeechung": {
 "d": "2026-11-23",
-"h": "8614f3c410cb6808"
+"h": "7e1449ecc16bd5f4"
 },
 "en/pace-chart": {
 "d": "2026-11-23",
-"h": "b1edb33a3193e78b"
+"h": "d216291d09c2c7ae"
 },
 "en/pace-chart/10k-40-minutes": {
 "d": "2026-11-23",
-"h": "161042cb6953ec94"
+"h": "045b3296906a7340"
 },
 "en/pace-chart/10k-45-minutes": {
 "d": "2026-11-23",
-"h": "2404e840b0f444c5"
+"h": "34feb81ed85abe47"
 },
 "en/pace-chart/10k-50-minutes": {
 "d": "2026-11-23",
-"h": "7d9d4296ab855d2a"
+"h": "b0af7f2da4c6485b"
 },
 "en/pace-chart/10k-55-minutes": {
 "d": "2026-11-23",
-"h": "2d66f2e07e61be0a"
+"h": "01f89ec61caeebd3"
 },
 "en/pace-chart/10k-60-minutes": {
 "d": "2026-11-23",
-"h": "edcf15e4da8821a0"
+"h": "8f18708d93380c00"
 },
 "en/pace-chart/10k-70-minutes": {
 "d": "2026-11-23",
-"h": "afb9b9ba3d772a13"
+"h": "107c19d22910b446"
 },
 "en/pace-chart/5k-20-minutes": {
 "d": "2026-11-23",
-"h": "bd8c9e388b4a8075"
+"h": "07c969ef149b4b4c"
 },
 "en/pace-chart/5k-25-minutes": {
 "d": "2026-11-23",
-"h": "c4282609f4c40cd0"
+"h": "1cdae9474171680a"
 },
 "en/pace-chart/5k-30-minutes": {
 "d": "2026-11-23",
-"h": "75c9bf48f4225fa3"
+"h": "f71e3e7d5101deb9"
 },
 "en/pace-chart/5k-35-minutes": {
 "d": "2026-11-23",
-"h": "2f1501b38e8088e9"
+"h": "078b023c97b9ce1e"
 },
 "en/pace-chart/half-marathon-1-30": {
 "d": "2026-11-23",
-"h": "a285c52c2bf4b966"
+"h": "2bf9c66375b38272"
 },
 "en/pace-chart/half-marathon-1-45": {
 "d": "2026-11-23",
-"h": "b6fe056adb42f621"
+"h": "01845073d31b8d34"
 },
 "en/pace-chart/half-marathon-2-00": {
 "d": "2026-11-23",
-"h": "2851d44c165b369b"
+"h": "3a8a97e96084e483"
 },
 "en/pace-chart/half-marathon-2-15": {
 "d": "2026-11-23",
-"h": "bc5bc92a7e149798"
+"h": "df5e93d764ceb775"
 },
 "en/pace-chart/half-marathon-2-30": {
 "d": "2026-11-23",
-"h": "b22b40b7a4d19d0f"
+"h": "e0595e1fe21d86ff"
 },
 "en/pace-chart/sub-3-marathon": {
 "d": "2026-11-23",
-"h": "01b2d031c7fb9179"
+"h": "740e160e2e7459a3"
 },
 "en/pace-chart/sub-315-marathon": {
 "d": "2026-11-23",
-"h": "485a2a9d2fb5de14"
+"h": "68e6572aa1d95a0f"
 },
 "en/pace-chart/sub-330-marathon": {
 "d": "2026-11-23",
-"h": "8468f5a659f28672"
+"h": "191b2c93342a8047"
 },
 "en/pace-chart/sub-345-marathon": {
 "d": "2026-11-23",
-"h": "6068ae67e477e8fb"
+"h": "705b45be34df9db3"
 },
 "en/pace-chart/sub-4-marathon": {
 "d": "2026-11-23",
-"h": "334c2a5f00c7a328"
+"h": "a7562cd90e6319a6"
 },
 "en/pace-chart/sub-430-marathon": {
 "d": "2026-11-23",
-"h": "6dd370933ecfdcd4"
+"h": "8702587976f8a560"
 },
 "en/pace-chart/sub-5-marathon": {
 "d": "2026-11-23",
-"h": "b93b21d0303bd198"
+"h": "ce9e47d8b2993423"
 },
 "en/pace-chart/sub-530-marathon": {
 "d": "2026-11-23",
-"h": "3d4bef643d15e14b"
+"h": "9e7dcc549567898d"
 },
 "en/pace-converter": {
 "d": "2026-11-23",
-"h": "c45a8dcff45f9ad0"
+"h": "a2c60be8e95b8120"
 },
 "en/privacy": {
 "d": "2026-11-23",
-"h": "cda2d6d09fc165a1"
+"h": "057076c9acdea72c"
 },
 "en/race-pace": {
 "d": "2026-11-23",
-"h": "7c2aa5267f0c9d5a"
+"h": "fec163d218e07e3f"
 },
 "en/running-injuries": {
 "d": "2026-11-23",
-"h": "1cc8c030d2762f00"
+"h": "11c544034c7b4ab5"
 },
 "en/running-injuries/achilles-tendinopathy": {
 "d": "2026-11-23",
-"h": "e764104c31a69126"
+"h": "699a1552fbb6ac6a"
 },
 "en/running-injuries/ankle-sprain": {
 "d": "2026-11-23",
-"h": "8e67c9a5482c5521"
+"h": "ab2ebaad39d4e7a9"
 },
 "en/running-injuries/hamstring-strain": {
 "d": "2026-11-23",
-"h": "2e2b2ecacfc07aa8"
+"h": "a6a4c68005dce7d0"
 },
 "en/running-injuries/it-band-syndrome": {
 "d": "2026-11-23",
-"h": "395dd90b9c27f94d"
+"h": "3bb5ca1b67869999"
 },
 "en/running-injuries/plantar-fasciitis": {
 "d": "2026-11-23",
-"h": "fa299af2bcda93bf"
+"h": "4a25d9215d60e194"
 },
 "en/running-injuries/runners-knee": {
 "d": "2026-11-23",
-"h": "8f3dbe96cc2da8e2"
+"h": "991ed5a93f1a7dd2"
 },
 "en/running-injuries/shin-splints": {
 "d": "2026-11-23",
-"h": "daf32133a1fcb5a6"
+"h": "1490fbb13ef572b5"
 },
 "en/running-injuries/stress-fracture": {
 "d": "2026-11-23",
-"h": "5e1cd47b19beab6b"
+"h": "5d3b4ddc29f1ec7d"
 },
 "en/running-terms": {
 "d": "2026-11-23",
-"h": "d582cb44c4fcc51d"
+"h": "695df2a88b169abd"
 },
 "en/shoe-mileage": {
 "d": "2026-11-23",
-"h": "521e52b2c2f18e43"
+"h": "1134ee8cad752796"
 },
 "en/terms-of-use": {
 "d": "2026-11-23",
-"h": "257e52b654c6ecc6"
+"h": "d751bb817747f2d8"
 },
 "en/tools": {
 "d": "2026-11-23",
-"h": "5ecde35296322ec7"
+"h": "f6fee0e9de0a9bd7"
 },
 "en/training-week": {
 "d": "2026-11-23",
-"h": "fe7a06b39d6a41ed"
+"h": "80e2532dddc29f24"
 },
 "fitness-age": {
 "d": "2026-11-23",
-"h": "0504d09dd1bef296"
+"h": "f3c36958faf0ac5a"
 },
 "gear": {
 "d": "2026-11-23",
-"h": "dd1176adb696f2bb"
+"h": "2248ea433a124a2e"
 },
 "heart-rate-zones": {
 "d": "2026-11-23",
-"h": "12a13a29c4c90a56"
+"h": "afc8456513ab46f9"
 },
 "ja": {
 "d": "2026-11-23",
-"h": "398ddb068e96f324"
+"h": "3248f2c2b0b5438a"
 },
 "ja/about": {
 "d": "2026-11-23",
-"h": "4a1f449d8360210f"
+"h": "5648c55183923772"
 },
 "ja/crew-pace-groups": {
 "d": "2026-11-23",
-"h": "06f1ee7ad16a8f8a"
+"h": "03fb7d66c7a42644"
 },
 "ja/fitness-age": {
 "d": "2026-11-23",
-"h": "c552b71694394b5a"
+"h": "9f8a23ffba959af1"
 },
 "ja/gear": {
 "d": "2026-11-23",
-"h": "c105c19f33dd99fa"
+"h": "00a8dd15883ed57e"
 },
 "ja/heart-rate-zones": {
 "d": "2026-11-23",
-"h": "43f26bd951152f64"
+"h": "4ed4035b0009161f"
 },
 "ja/log": {
 "d": "2026-11-23",
-"h": "815a4e11514e9b7b"
+"h": "f948d8dd7bba230e"
 },
 "ja/long-run-check": {
 "d": "2026-11-23",
-"h": "4c1588170a1933e3"
+"h": "b894c78bd7660bb9"
 },
 "ja/marathon-schedule": {
 "d": "2026-11-23",
-"h": "c5c2c3153e8c46c6"
+"h": "fde17e8846d62790"
 },
 "ja/marathon-schedule/chuncheon": {
 "d": "2026-11-23",
-"h": "1e530988811fc494"
+"h": "410fc5973ba96fb9"
 },
 "ja/marathon-schedule/daegu": {
 "d": "2026-11-23",
-"h": "25d1ecade6472404"
+"h": "d27d6a2cb83aeb82"
 },
 "ja/marathon-schedule/gongju": {
 "d": "2026-11-23",
-"h": "152383e2754a6d30"
+"h": "b61ff47836736917"
 },
 "ja/marathon-schedule/gunsan": {
 "d": "2026-11-23",
-"h": "f628e05b89a54fff"
+"h": "1fa178f81b87c37a"
 },
 "ja/marathon-schedule/gyeongju": {
 "d": "2026-11-23",
-"h": "f080990b9048e1be"
+"h": "9a5bf37398d5d322"
 },
 "ja/marathon-schedule/gyeongju-cherry": {
 "d": "2026-11-23",
-"h": "0b519980fa6ca5fe"
+"h": "98dec3bdf17ad7dc"
 },
 "ja/marathon-schedule/incheon-half": {
 "d": "2026-11-23",
-"h": "7da95fb86900b6e1"
+"h": "5138dd55a2a5c9a3"
 },
 "ja/marathon-schedule/jtbc": {
 "d": "2026-11-23",
-"h": "e4c176694c91b380"
+"h": "9908fb2c982d5b32"
 },
 "ja/marathon-schedule/mbn-seoul": {
 "d": "2026-11-23",
-"h": "9d01ff93c0182faf"
+"h": "23f8e12f196e4fa8"
 },
 "ja/marathon-schedule/seoul": {
 "d": "2026-11-23",
-"h": "c1e315a8abe1640e"
+"h": "bddeaadc71deea2d"
 },
 "ja/marathon-schedule/seoul-half": {
 "d": "2026-11-23",
-"h": "a0def29f0227f7e9"
+"h": "974e25ce2c7a7679"
 },
 "ja/marathon-schedule/seoul-race": {
 "d": "2026-11-23",
-"h": "999fd4a12910d963"
+"h": "a39920e0950cc3a3"
 },
 "ja/marathon-schedule/sonkeechung": {
 "d": "2026-11-23",
-"h": "27a58c309484c5a4"
+"h": "60506a3aa6703342"
 },
 "ja/pace-chart": {
 "d": "2026-11-23",
-"h": "e164ba795172840b"
+"h": "217c7b7adf2087ba"
 },
 "ja/pace-chart/10k-40-minutes": {
 "d": "2026-11-23",
-"h": "2f4cb00a3e43914a"
+"h": "0c4403c43f676a9c"
 },
 "ja/pace-chart/10k-45-minutes": {
 "d": "2026-11-23",
-"h": "2c43206d1f8ecebd"
+"h": "5227d1bdb8d9911a"
 },
 "ja/pace-chart/10k-50-minutes": {
 "d": "2026-11-23",
-"h": "6f67088a9d4292db"
+"h": "abc15ec677c286af"
 },
 "ja/pace-chart/10k-55-minutes": {
 "d": "2026-11-23",
-"h": "781b33bf22101657"
+"h": "f89d328d30f43f2e"
 },
 "ja/pace-chart/10k-60-minutes": {
 "d": "2026-11-23",
-"h": "e1f0da0875682a32"
+"h": "a8592bb04ef00a73"
 },
 "ja/pace-chart/10k-70-minutes": {
 "d": "2026-11-23",
-"h": "1098c0e5a7f5a45f"
+"h": "d92573cf5d0261d9"
 },
 "ja/pace-chart/5k-20-minutes": {
 "d": "2026-11-23",
-"h": "b27f780537659489"
+"h": "139c2dcb464b75d0"
 },
 "ja/pace-chart/5k-25-minutes": {
 "d": "2026-11-23",
-"h": "c9773e8ad0201edd"
+"h": "46b7ad81edca3361"
 },
 "ja/pace-chart/5k-30-minutes": {
 "d": "2026-11-23",
-"h": "b8548f155749e6f6"
+"h": "020c134a7aed4aac"
 },
 "ja/pace-chart/5k-35-minutes": {
 "d": "2026-11-23",
-"h": "bd7d51cbdfab976a"
+"h": "b45a1f624ff2418e"
 },
 "ja/pace-chart/half-marathon-1-30": {
 "d": "2026-11-23",
-"h": "1031810428760ade"
+"h": "3f43c72e117890ed"
 },
 "ja/pace-chart/half-marathon-1-45": {
 "d": "2026-11-23",
-"h": "cced7aea0ddb411d"
+"h": "230a44387cb2e977"
 },
 "ja/pace-chart/half-marathon-2-00": {
 "d": "2026-11-23",
-"h": "a29d1531c3c4469e"
+"h": "d508bb038b7a1132"
 },
 "ja/pace-chart/half-marathon-2-15": {
 "d": "2026-11-23",
-"h": "1291997b0e1c3bd9"
+"h": "81b0582c606f0704"
 },
 "ja/pace-chart/half-marathon-2-30": {
 "d": "2026-11-23",
-"h": "f08923971c6b947a"
+"h": "1ae2a482515974dc"
 },
 "ja/pace-chart/sub-3-marathon": {
 "d": "2026-11-23",
-"h": "3264680d1b5a6d28"
+"h": "e231cf7b987ca1f0"
 },
 "ja/pace-chart/sub-315-marathon": {
 "d": "2026-11-23",
-"h": "857d639ee7e1a9c4"
+"h": "238dcfc031094d86"
 },
 "ja/pace-chart/sub-330-marathon": {
 "d": "2026-11-23",
-"h": "acd0bc9c9d79a37b"
+"h": "2cb77e8d7c8cbabc"
 },
 "ja/pace-chart/sub-345-marathon": {
 "d": "2026-11-23",
-"h": "0be84b32882bed35"
+"h": "91364d8f2ea2640e"
 },
 "ja/pace-chart/sub-4-marathon": {
 "d": "2026-11-23",
-"h": "3e66e644742c13f6"
+"h": "3012be791845ef07"
 },
 "ja/pace-chart/sub-430-marathon": {
 "d": "2026-11-23",
-"h": "8e59a9646382906c"
+"h": "477aceb646b35f65"
 },
 "ja/pace-chart/sub-5-marathon": {
 "d": "2026-11-23",
-"h": "224013f9f1cd2583"
+"h": "8e93ae73ebf39683"
 },
 "ja/pace-chart/sub-530-marathon": {
 "d": "2026-11-23",
-"h": "59203fac5bb01328"
+"h": "a9eecfe9cc78adea"
 },
 "ja/pace-converter": {
 "d": "2026-11-23",
-"h": "18f52ea017874a3e"
+"h": "41959bb8f5adefb1"
 },
 "ja/privacy": {
 "d": "2026-11-23",
-"h": "98b98a00f1e13aea"
+"h": "f5a59d7443343f9c"
 },
 "ja/race-pace": {
 "d": "2026-11-23",
-"h": "d7e23b1bf4c04856"
+"h": "df6e9249cc0fe16b"
 },
 "ja/running-injuries": {
 "d": "2026-11-23",
-"h": "fed946498c211376"
+"h": "11147190a8723e41"
 },
 "ja/running-injuries/achilles-tendinopathy": {
 "d": "2026-11-23",
-"h": "22e016e0bcc792f7"
+"h": "afa9164b283baed5"
 },
 "ja/running-injuries/ankle-sprain": {
 "d": "2026-11-23",
-"h": "4626a8522142242e"
+"h": "108b2ba9e4ff1fbb"
 },
 "ja/running-injuries/hamstring-strain": {
 "d": "2026-11-23",
-"h": "8cf642cfb102a2cb"
+"h": "9ddd1fdf6ea75574"
 },
 "ja/running-injuries/it-band-syndrome": {
 "d": "2026-11-23",
-"h": "fa55b4fa19ed3202"
+"h": "d294f432f4f5530d"
 },
 "ja/running-injuries/plantar-fasciitis": {
 "d": "2026-11-23",
-"h": "be344746b1147cf7"
+"h": "5e24f12312db6a4b"
 },
 "ja/running-injuries/runners-knee": {
 "d": "2026-11-23",
-"h": "66c97babd0967993"
+"h": "aa1be5dd5f22c8ad"
 },
 "ja/running-injuries/shin-splints": {
 "d": "2026-11-23",
-"h": "931378ddf8371838"
+"h": "2e80c9b30f7c84c3"
 },
 "ja/running-injuries/stress-fracture": {
 "d": "2026-11-23",
-"h": "27b8599c70c589c6"
+"h": "af28862b5e6f9734"
 },
 "ja/running-terms": {
 "d": "2026-11-23",
-"h": "dfa4141ad4174920"
+"h": "6bb3e8491daf7ec2"
 },
 "ja/shoe-mileage": {
 "d": "2026-11-23",
-"h": "b7f634a3592fa7d5"
+"h": "fe664e8c3b1a255b"
 },
 "ja/terms-of-use": {
 "d": "2026-11-23",
-"h": "a50c32cab28088cf"
+"h": "e9d1f0b60308a9fc"
 },
 "ja/tools": {
 "d": "2026-11-23",
-"h": "3892a9af39da0691"
+"h": "01344367454ec2f5"
 },
 "ja/training-week": {
 "d": "2026-11-23",
-"h": "b30c8d20487d5670"
+"h": "4ba2387f8e5355d6"
 },
 "log": {
 "d": "2026-11-23",
-"h": "cd7953786bd9de78"
+"h": "353f1fee1e7fbb15"
 },
 "long-run-check": {
 "d": "2026-11-23",
-"h": "1f2494b062cb1265"
+"h": "4a5aba8db10243d3"
 },
 "marathon-schedule": {
 "d": "2026-11-23",
-"h": "cb67ecc222d4f028"
+"h": "82d9cecb594261e4"
 },
 "marathon-schedule/chuncheon": {
 "d": "2026-11-23",
-"h": "d9d6b2664b209d77"
+"h": "1099569e5635b956"
 },
 "marathon-schedule/daegu": {
 "d": "2026-11-23",
-"h": "6a61acceefa64897"
+"h": "007251bae7acdbda"
 },
 "marathon-schedule/distance/10k": {
 "d": "2026-11-23",
-"h": "396767448bd779f2"
+"h": "ef0cbec43e7e6348"
 },
 "marathon-schedule/distance/full": {
 "d": "2026-11-23",
-"h": "cb7133b7d393ef9e"
+"h": "7c1aad3ab57c79f2"
 },
 "marathon-schedule/distance/half": {
 "d": "2026-11-23",
-"h": "98108b59bdda34fc"
+"h": "39a6df3617dd4a77"
 },
 "marathon-schedule/distance/trail": {
 "d": "2026-11-23",
-"h": "47b3603c16867c00"
+"h": "5671521edf570904"
 },
 "marathon-schedule/gongju": {
 "d": "2026-11-23",
-"h": "409b8922bfec67de"
+"h": "24ba420cd6c244dc"
 },
 "marathon-schedule/gunsan": {
 "d": "2026-11-23",
-"h": "5523a5989c8132de"
+"h": "c0ea7f6588c767ba"
 },
 "marathon-schedule/gyeongju": {
 "d": "2026-11-23",
-"h": "50db39453daaf0d0"
+"h": "57be62e1c9208d49"
 },
 "marathon-schedule/gyeongju-cherry": {
 "d": "2026-11-23",
-"h": "3e3e40c13f2d8d7b"
+"h": "968a36518af872af"
 },
 "marathon-schedule/incheon-half": {
 "d": "2026-11-23",
-"h": "8ac968f66f3c016c"
+"h": "193e9d6aa9248d95"
 },
 "marathon-schedule/jtbc": {
 "d": "2026-11-23",
-"h": "fd7a3c753cd7acaf"
+"h": "66510e808c97b2c4"
 },
 "marathon-schedule/mbn-seoul": {
 "d": "2026-11-23",
-"h": "824db6c06ad20389"
+"h": "e660ffe55f9ebc9e"
 },
 "marathon-schedule/region/busan": {
 "d": "2026-11-23",
-"h": "8dd20d93e31c1f52"
+"h": "07096f317b8fb240"
 },
 "marathon-schedule/region/chungbuk": {
 "d": "2026-11-23",
-"h": "0bc53c9a9c14ff64"
+"h": "e9ef874c81d8c335"
 },
 "marathon-schedule/region/chungnam": {
 "d": "2026-11-23",
-"h": "afa24d0fdb5b051c"
+"h": "2527d53ee6cf3d88"
 },
 "marathon-schedule/region/daegu": {
 "d": "2026-11-23",
-"h": "175717fde10bc695"
+"h": "c6ae21708f49808e"
 },
 "marathon-schedule/region/daejeon": {
 "d": "2026-11-23",
-"h": "13e4c9a8f35318c0"
+"h": "47c442c37ad6e0ff"
 },
 "marathon-schedule/region/gangwon": {
 "d": "2026-11-23",
-"h": "680c5462dce87ac4"
+"h": "67db728915317744"
 },
 "marathon-schedule/region/gwangju": {
 "d": "2026-11-23",
-"h": "1ef68f38fe139a31"
+"h": "88289bb6fe377d1b"
 },
 "marathon-schedule/region/gyeongbuk": {
 "d": "2026-11-23",
-"h": "d32349d991dfae6d"
+"h": "53c2d47c8564c5bc"
 },
 "marathon-schedule/region/gyeonggi": {
 "d": "2026-11-23",
-"h": "3488a0e2f48f1d90"
+"h": "58b598810b96080a"
 },
 "marathon-schedule/region/gyeongnam": {
 "d": "2026-11-23",
-"h": "1c38e9c128bf6d14"
+"h": "be09d12b3af691fc"
 },
 "marathon-schedule/region/incheon": {
 "d": "2026-11-23",
-"h": "93b1d1c939309bbd"
+"h": "698b55626cebeedc"
 },
 "marathon-schedule/region/jeju": {
 "d": "2026-11-23",
-"h": "05af1a7155d54256"
+"h": "2a49630ceb96c05a"
 },
 "marathon-schedule/region/jeonbuk": {
 "d": "2026-11-23",
-"h": "f38bb2fda373e276"
+"h": "a9f98e5d60f7ae2b"
 },
 "marathon-schedule/region/jeonnam": {
 "d": "2026-11-23",
-"h": "8107ea89c5f1d4ca"
+"h": "a8c5d9804e38aec7"
 },
 "marathon-schedule/region/seoul": {
 "d": "2026-11-23",
-"h": "ba412780825e3b0f"
+"h": "b1ee93f15c39aace"
 },
 "marathon-schedule/region/ulsan": {
 "d": "2026-11-23",
-"h": "685860ce27650cb8"
+"h": "5b5547f0c0aba438"
 },
 "marathon-schedule/seoul": {
 "d": "2026-11-23",
-"h": "2c68a51d722c0911"
+"h": "f9f597d00ece9981"
 },
 "marathon-schedule/seoul-half": {
 "d": "2026-11-23",
-"h": "ac10f5f9ef07d298"
+"h": "ece1d0714d82dad4"
 },
 "marathon-schedule/seoul-race": {
 "d": "2026-11-23",
-"h": "14f3af0c37ad202b"
+"h": "3ee1a941f5541a39"
 },
 "marathon-schedule/sonkeechung": {
 "d": "2026-11-23",
-"h": "73aad123a1d394bf"
+"h": "5cfbded09d12adbe"
 },
 "pace-chart": {
 "d": "2026-11-23",
-"h": "9da844fd0a852314"
+"h": "305a6464a0c57416"
 },
 "pace-chart/10k-40-minutes": {
 "d": "2026-11-23",
-"h": "5ea6045c30de4b14"
+"h": "5c119d51e4e9b9a7"
 },
 "pace-chart/10k-45-minutes": {
 "d": "2026-11-23",
-"h": "a29da05283cba123"
+"h": "d00ae90ed9eed17b"
 },
 "pace-chart/10k-50-minutes": {
 "d": "2026-11-23",
-"h": "849f0096e17f48db"
+"h": "1414d32c731e4a46"
 },
 "pace-chart/10k-55-minutes": {
 "d": "2026-11-23",
-"h": "5dd45c5a67a558b2"
+"h": "5e5e93bddd4e5f5e"
 },
 "pace-chart/10k-60-minutes": {
 "d": "2026-11-23",
-"h": "8cc03a84839e4f05"
+"h": "e60aaf53b77e3f0e"
 },
 "pace-chart/10k-70-minutes": {
 "d": "2026-11-23",
-"h": "feb5493652014e06"
+"h": "c3afdfcd38f8a249"
 },
 "pace-chart/5k-20-minutes": {
 "d": "2026-11-23",
-"h": "3f6043f456782b2e"
+"h": "048ab38467a18cfe"
 },
 "pace-chart/5k-25-minutes": {
 "d": "2026-11-23",
-"h": "023b4862db042b7c"
+"h": "33f89c14811bc2e8"
 },
 "pace-chart/5k-30-minutes": {
 "d": "2026-11-23",
-"h": "e4df57acc807418e"
+"h": "6a03bd3bf1f83818"
 },
 "pace-chart/5k-35-minutes": {
 "d": "2026-11-23",
-"h": "227b4c2db2767c1f"
+"h": "c1ee9c2e2718a4cd"
 },
 "pace-chart/half-marathon-1-30": {
 "d": "2026-11-23",
-"h": "58fa607fba013821"
+"h": "2b4645eb75b8cfcd"
 },
 "pace-chart/half-marathon-1-45": {
 "d": "2026-11-23",
-"h": "a779f4a015e6ea7c"
+"h": "769204746c049fcf"
 },
 "pace-chart/half-marathon-2-00": {
 "d": "2026-11-23",
-"h": "8bb24b36c3ce9c90"
+"h": "7b6831decb3cbaeb"
 },
 "pace-chart/half-marathon-2-15": {
 "d": "2026-11-23",
-"h": "47f48b686478c12e"
+"h": "08e2f4afe7727e93"
 },
 "pace-chart/half-marathon-2-30": {
 "d": "2026-11-23",
-"h": "d9ce56e780bda3d2"
+"h": "beb71fff92a8a251"
 },
 "pace-chart/sub-3-marathon": {
 "d": "2026-11-23",
-"h": "991eb1efcf209ba0"
+"h": "4a4d8eef7099a8fe"
 },
 "pace-chart/sub-315-marathon": {
 "d": "2026-11-23",
-"h": "f2f07a036e09b82a"
+"h": "d73a055982fe88e5"
 },
 "pace-chart/sub-330-marathon": {
 "d": "2026-11-23",
-"h": "7d2d0c3122f2a43c"
+"h": "7cadee377024fd67"
 },
 "pace-chart/sub-345-marathon": {
 "d": "2026-11-23",
-"h": "012dc981e0ff2c05"
+"h": "885d1b7be939a8dd"
 },
 "pace-chart/sub-4-marathon": {
 "d": "2026-11-23",
-"h": "0f0ed9963612cc37"
+"h": "16741a300c3f3ed6"
 },
 "pace-chart/sub-430-marathon": {
 "d": "2026-11-23",
-"h": "3915d9f7a934f872"
+"h": "e0f7a11e49527039"
 },
 "pace-chart/sub-5-marathon": {
 "d": "2026-11-23",
-"h": "732ee0c51c9bd25d"
+"h": "c11145d7ca0ba33f"
 },
 "pace-chart/sub-530-marathon": {
 "d": "2026-11-23",
-"h": "b44f903fa643add7"
+"h": "e6d148f142817e3f"
 },
 "pace-converter": {
 "d": "2026-11-23",
-"h": "cbe122a91d05e0fe"
+"h": "c9189e0c1b28a952"
 },
 "privacy": {
 "d": "2026-11-23",
-"h": "d711f3f7e0719ba7"
+"h": "5e5f6faab1708370"
 },
 "race-pace": {
 "d": "2026-11-23",
-"h": "8b2c331a42bb1d2e"
+"h": "84f0345ebfc5214c"
 },
 "running-injuries": {
 "d": "2026-11-23",
-"h": "d0cf9955240c1b6e"
+"h": "c5532f7de9999ccf"
 },
 "running-injuries/achilles-tendinopathy": {
 "d": "2026-11-23",
-"h": "00eaaef362ced41a"
+"h": "4f7f2e3d18bef83c"
 },
 "running-injuries/ankle-sprain": {
 "d": "2026-11-23",
-"h": "1aa7d861b93182a0"
+"h": "f533427781379a20"
 },
 "running-injuries/hamstring-strain": {
 "d": "2026-11-23",
-"h": "211e088208f3a727"
+"h": "5eae0c6f14383201"
 },
 "running-injuries/it-band-syndrome": {
 "d": "2026-11-23",
-"h": "3c3d7f80fea80d42"
+"h": "c19b2c3c29af0b8f"
 },
 "running-injuries/plantar-fasciitis": {
 "d": "2026-11-23",
-"h": "db691e52a242d048"
+"h": "9a4038c2d499207e"
 },
 "running-injuries/runners-knee": {
 "d": "2026-11-23",
-"h": "b39163381401e45e"
+"h": "2efb5a2c38e2a04e"
 },
 "running-injuries/shin-splints": {
 "d": "2026-11-23",
-"h": "6acfffb2eff03330"
+"h": "c3f244ac80198095"
 },
 "running-injuries/stress-fracture": {
 "d": "2026-11-23",
-"h": "35fe21dca209fa75"
+"h": "3cb7e4afb8b38a71"
+},
+"running-science": {
+"d": "2026-11-23",
+"h": "803ef3fd9b04a645"
+},
+"running-science/heart-rate": {
+"d": "2026-11-23",
+"h": "47fa2aaa77f3e366"
+},
+"running-science/heat-and-cold": {
+"d": "2026-11-23",
+"h": "c103f6ac933133d7"
+},
+"running-science/lactate-threshold": {
+"d": "2026-11-23",
+"h": "e1f2c4270135d6a5"
+},
+"running-science/running-economy": {
+"d": "2026-11-23",
+"h": "bd2c6475e9c8fa88"
+},
+"running-science/taper": {
+"d": "2026-11-23",
+"h": "1d7753b24329e41d"
+},
+"running-science/training-adaptation": {
+"d": "2026-11-23",
+"h": "8c0ba9d3c37a84a2"
+},
+"running-science/training-intensities": {
+"d": "2026-11-23",
+"h": "f7bb4cb44387483b"
+},
+"running-science/vo2max": {
+"d": "2026-11-23",
+"h": "f29408aef5b80349"
 },
 "running-terms": {
 "d": "2026-11-23",
-"h": "bb934f8717e798b9"
+"h": "1759abb3595c639a"
 },
 "shoe-mileage": {
 "d": "2026-11-23",
-"h": "7a08e7cbff350ecc"
+"h": "bdaa60a94fa9ac78"
 },
 "terms-of-use": {
 "d": "2026-11-23",
-"h": "3a0332cc6834032e"
+"h": "0294f174117399d3"
 },
 "tools": {
 "d": "2026-11-23",
-"h": "d28c017e92018e10"
+"h": "f2adb8fe497f5748"
 },
 "training-week": {
 "d": "2026-11-23",
-"h": "11adbc6a95aface1"
+"h": "55a682b29b6e54f0"
 }
 }
