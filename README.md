@@ -96,3 +96,9 @@
 - `adsenseClient`, `adSlots`: 애드센스 승인 뒤. `adsenseClient`를 넣으면 ads.txt도 만들어진다.
 - 지역별(`marathon-schedule/region/<지역>/`)·종목별(`marathon-schedule/distance/<종목>/`) 대회 쪽은 한국어판만 만든다.
 - GA4 이벤트: `calc_record`, `carry_click`, `shop_click`, `ics_download`, `goal_race`, `share`, `race_link`, `crew_groups`.
+
+## 검색 등록 보조
+
+- `docs/sitemap.xml`의 수정일은 페이지 내용이 실제로 바뀐 날이다. 지문과 날짜는 `src/data/lastmod.json`에 남는다(빌드할 때마다 갱신, 함께 커밋).
+- `docs/feed.xml`: 한국어 쪽 최근 80개 RSS. 네이버 서치어드바이저의 'RSS 제출'에 `https://runjisu.com/feed.xml`을 낸다.
+- IndexNow: 키 파일 `docs/<indexNowKey>.txt`. sitemap.xml이 바뀐 푸시마다 GitHub Actions(`IndexNow`)가 바뀐 주소를 네이버·빙에 알린다. Actions 탭에서 손으로 돌리면 전체를 보낸다.

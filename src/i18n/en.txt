@@ -1278,3 +1278,8 @@
 §06423b1 {brand} terms of use: limits of the calculations, race information, ads and affiliate links, and copyright.
 §5305c7e {{brand}} is a free information site offering running calculators, race calendars and injury guides. By using the site you agree to the terms below.
 §321f919 Content and transactions on external sites, such as official race websites, shops and weather providers, are governed by their own policies, and {{brand}} is not responsible for them.
+§6eea138 Running pace calculator: marathon time predictor and training paces | {brand}
+§7691cbf Marathon pace calculator: 5 km split times for your goal
+§8b30818 Running training plan builder: a marathon week matched to your mileage and goal race
+§988c919 Running shoe replacement calculator: mileage and lifespan per pair
+§c5e4e90 Running heart rate zone calculator: zones by age or max heart rate

@@ -1,0 +1,17 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['docs/sitemap.xml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: 바뀐 주소 알리기(네이버·빙)
+        run: python3 tools/indexnow.py ${{ github.event_name == 'workflow_dispatch' && '--all' || '' }}

@@ -26,7 +26,7 @@ def write(path, text):
 
 cfg = {
     'brand': '런지수', 'brandLatin': 'RUNJISU', 'siteUrl': '', 'contactEmail': '',
-    'ga4Id': '', 'adsenseClient': '', 'adSlots': {}, 'partnerLinks': {}, 'privacyDate': '2026-11-12', 'adfit': {}, 'termsDate': '2026-11-21',
+    'indexNowKey': '', 'ga4Id': '', 'adsenseClient': '', 'adSlots': {}, 'partnerLinks': {}, 'privacyDate': '2026-11-12', 'adfit': {}, 'termsDate': '2026-11-21',
     'googleVerification': '', 'naverVerification': '',
 }
 cfg.update(json.loads(read(ROOT, 'site.config.json')))
@@ -36,23 +36,23 @@ META['ko']['brand'] = BRAND
 
 # 화면 목록: id, 주소, 메뉴 이름(없으면 메뉴에 안 나옴), 제목, 설명
 VIEWS = [
-    ('home', '', '홈', '{brand} 러닝 계산기: 기록 하나로 훈련 페이스와 예상 기록',
+    ('home', '', '홈', '러닝 페이스 계산기: 마라톤 예상 기록과 훈련 페이스 | {brand}',
      '5K, 10K, 하프, 풀코스 기록 하나를 넣으면 {brand}와 E·M·T·I·R 훈련 페이스, 거리별 예상 기록을 계산합니다. 오늘 달리기 날씨와 미세먼지, 다가오는 대회도 한 화면에서 확인하세요. 정형외과 전문의가 만든 무료 러닝 계산기.'),
-    ('race', 'race-pace', '대회 계획', '마라톤 페이스 계산기: 목표 기록 구간표',
+    ('race', 'race-pace', '대회 계획', '마라톤 페이스 계산기: 목표 기록별 5km 구간 통과 시각',
      '목표 기록을 넣으면 km당 페이스와 5km 구간별 통과 시각을 계산합니다. 후반 가속 전략과, 목표가 지금 실력에 맞는지도 함께 확인하세요.'),
     ('goals', 'pace-chart', '목표 페이스', '마라톤 페이스표: 서브3·서브4, 하프 2시간, 10km 50분 목표별 km당 페이스',
      '풀코스 서브3·서브4, 하프 2시간, 10km 50분 등 목표 기록별로 km당 페이스와 400m 트랙 기록, 러닝머신 속도를 한 표에 정리했습니다. 목표마다 구간 통과 시각과 필요한 실력도 확인하세요.'),
     ('calendar', 'marathon-schedule', '대회 일정', '전국 마라톤 대회 일정 2026·2027: 이번 주 대회부터 서울·춘천·JTBC 접수까지',
      '이번 주말 열리는 대회부터 2027년 봄·가을 대회까지, 전국 마라톤 대회 일정을 종목과 지역으로 골라 봅니다. 서울마라톤, 춘천마라톤, JTBC, 대구마라톤 등 주요 대회의 접수 시기와 공식 사이트도 함께 정리했습니다.'),
-    ('plan', 'training-week', '주간 훈련표', '주간 러닝 훈련표 만들기',
+    ('plan', 'training-week', '주간 훈련표', '러닝 훈련표 만들기: 주간 거리와 목표 대회에 맞춘 마라톤 훈련 계획',
      '주간 거리와 달리는 날 수, 목표 대회를 고르면 내 페이스에 맞춘 요일별 훈련표를 짜 드립니다. 이지 런, 역치 훈련, 인터벌, 장거리 분량까지.'),
     ('log', 'log', '달리기 기록', '달리기 기록장: 주간 거리와 신발 누적 거리',
      '날짜와 거리만 적으면 주간 거리, 최근 30일 최장 거리, 신발 누적 거리를 계산합니다. 가입 없이 쓰고 기록은 내 기기에만 저장됩니다.'),
     ('spike', 'long-run-check', '거리 급증', '장거리 얼마까지 늘려도 될까: 러닝 부상 위험 체크',
      '최근 30일 최장 거리와 이번에 달릴 거리를 넣으면 과사용 부상이 늘어나는 구간인지 알려 드립니다. 러너 5,205명 추적 연구 기준.'),
-    ('shoes', 'shoe-mileage', '신발', '러닝화 교체 시기 계산기',
+    ('shoes', 'shoe-mileage', '신발', '러닝화 교체 시기 계산기: 신발별 누적 거리와 수명',
      '러닝화마다 누적 거리를 기록하고 교체 시기를 확인합니다. 쿠션화, 레이싱화, 트레일화별 교체 구간과 눈으로 확인할 점검 항목.'),
-    ('heart', 'heart-rate-zones', '심박 존', '러닝 심박 존 계산기',
+    ('heart', 'heart-rate-zones', '심박 존', '러닝 심박수 존 계산기: 나이·최대 심박으로 강도별 심박 구간',
      '나이나 실제 최대심박을 넣으면 이지, 마라톤, 역치, 인터벌 강도별 심박 범위를 계산합니다.'),
     ('pace', 'pace-converter', '페이스 변환', '페이스 계산기: 러닝머신 속도와 km 페이스 변환',
      '러닝머신 속도(km/h)를 km당 페이스로, 페이스를 5K·10K·하프·풀코스 완주 기록으로 바꿉니다.'),
@@ -238,6 +238,13 @@ def hub_regions():
     from collections import Counter
     n = Counter(r['rg'] for r in RACE_LIST['races'])
     return [g for g in REGIONS if g in REGION_SLUG and n[g] >= 3]
+
+def home_hubs():
+    if L() != 'ko':
+        return ''
+    reg = ''.join(f'<a href="marathon-schedule/region/{REGION_SLUG[g]}/">{html.escape(g)}</a>' for g in hub_regions())
+    dist = ''.join(f'<a href="marathon-schedule/distance/{k}/">{html.escape(lab)}</a>' for k, _s, lab, _m in DIST_HUB)
+    return f'    <p class="hub-links" aria-label="지역별 대회 일정">{reg}</p>\n    <p class="hub-links" aria-label="종목별 대회 일정">{dist}</p>\n'
 
 def rl_hubs():
     """대회 일정 쪽 아래: 지역별·종목별 쪽으로 가는 길(한국어판만)"""
@@ -780,7 +787,7 @@ def race_next():
 def hub_html(flags):
     return render(i18n.tr_html(read(SRC, 'views', '_hub.html'), L()), flags).rstrip()
 
-RAW_KEYS = ('rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
+RAW_KEYS = ('home_hubs', 'rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def page_vars():
     b = brand()
@@ -800,7 +807,7 @@ def view_html(vid, flags):
     extra = None
     if vid == 'calendar': extra = race_blocks(flags.get('site'))
     elif vid == 'goals': extra = {'goal_tables': goal_tables(flags.get('site'))}
-    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next()}
+    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next(), 'home_hubs': home_hubs() if flags.get('site') else ''}
     elif vid == 'tools': extra = {'hub': hub_html(flags)}
     elif vid == 'terms': extra = {'terms_html': terms_html()}
     elif vid == 'injury': extra = {'injury_cards': injury_cards(flags.get('site'))}
@@ -938,7 +945,7 @@ def build_site():
         write(os.path.join(site_dir, 'assets', f'core{sfx}.js'), cj)
         write(os.path.join(site_dir, 'assets', f'app{sfx}.js'), aj)
 
-    pages = []
+    pages, meta = [], {}
     leftovers = {}
     def emit(lang, vid, path, title, desc, body=None, lds=(), nav=None, ko_only=False):
         full = full_path(lang, path)
@@ -969,6 +976,8 @@ def build_site():
             f'<link rel="apple-touch-icon" href="{root}icons/apple-touch-icon.png">',
             '<meta name="apple-mobile-web-app-capable" content="yes">', f'<meta name="apple-mobile-web-app-title" content="{html.escape(brand())}">',
         ]
+        if lang == 'ko':
+            head.append(f'<link rel="alternate" type="application/rss+xml" title="{html.escape(BRAND)}" href="{root}feed.xml">')
         if lang == 'ko' and vid == 'home' and cfg['googleVerification']:
             head.append(f'<meta name="google-site-verification" content="{html.escape(cfg["googleVerification"])}">')
         if lang == 'ko' and vid == 'home' and cfg['naverVerification']:
@@ -1013,6 +1022,8 @@ def build_site():
                 leftovers.setdefault(lang, {}).update({s: full for s in left})
         write(os.path.join(site_dir, full, 'index.html'), page)
         pages.append(full)
+        stable = re.sub(r'\?v=[0-9a-f]+', '', page)
+        meta[full] = {'h': hashlib.sha1(stable.encode('utf-8')).hexdigest()[:16], 'title': full_title, 'desc': desc, 'lang': lang}
 
     for lang in LANGS:
         CUR['lang'] = lang
@@ -1084,7 +1095,26 @@ def build_site():
     robots = 'User-agent: *\nAllow: /\n'
     if cfg['siteUrl']:
         robots += f'Sitemap: {cfg["siteUrl"]}/sitemap.xml\n'
-        urls = ''.join(f'  <url><loc>{page_url(p)}</loc><lastmod>{cfg["privacyDate"]}</lastmod></url>\n' for p in pages)
+        # 내용이 바뀐 날만 새 날짜로(src/data/lastmod.json 에 지문과 날짜를 남긴다)
+        lm_path = os.path.join(ROOT, 'src', 'data', 'lastmod.json')
+        try: old = json.load(open(lm_path, encoding='utf-8'))
+        except (OSError, ValueError): old = {}
+        today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+        lm = {p: ({'h': meta[p]['h'], 'd': old[p]['d']} if p in old and old[p].get('h') == meta[p]['h'] else {'h': meta[p]['h'], 'd': today}) for p in pages}
+        with open(lm_path, 'w', encoding='utf-8') as f:
+            json.dump(lm, f, ensure_ascii=False, indent=0, sort_keys=True); f.write('\n')
+        urls = ''.join(f'  <url><loc>{page_url(p)}</loc><lastmod>{lm[p]["d"]}</lastmod></url>\n' for p in pages)
+        # 네이버 서치어드바이저에 내는 RSS: 한국어 쪽, 최근 바뀐 순
+        ko = sorted((p for p in pages if meta[p]['lang'] == 'ko'), key=lambda p: (lm[p]['d'], p), reverse=True)[:80]
+        def rfc(d):
+            return datetime.datetime.strptime(d, '%Y-%m-%d').strftime('%a, %d %b %Y 09:00:00 +0900')
+        items = ''.join(f'  <item><title>{html.escape(meta[p]["title"])}</title><link>{page_url(p)}</link><guid>{page_url(p)}</guid>'
+                        f'<description>{html.escape(meta[p]["desc"])}</description><pubDate>{rfc(lm[p]["d"])}</pubDate></item>\n' for p in ko)
+        write(os.path.join(site_dir, 'feed.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n'
+              f'  <title>{html.escape(BRAND)}</title><link>{cfg["siteUrl"]}/</link><description>{html.escape(BRAND)} 러닝 계산기와 마라톤 대회 일정, 부상 안내</description><language>ko</language>\n'
+              + items + '</channel></rss>\n')
+        if cfg.get('indexNowKey'):              # IndexNow(네이버·빙) 소유 확인 파일
+            write(os.path.join(site_dir, cfg['indexNowKey'] + '.txt'), cfg['indexNowKey'])
         write(os.path.join(site_dir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
         if host and not host.endswith('github.io'):
             write(os.path.join(site_dir, 'CNAME'), host + '\n')
