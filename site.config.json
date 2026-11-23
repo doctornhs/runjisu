@@ -6,7 +6,14 @@
   "ga4Id": "G-KVJYM39WHC",
   "adsenseClient": "",
   "adSlots": {},
-  "partnerLinks": {},
+  "partnerLinks": {
+    "cushion": "https://link.coupang.com/a/iT2yegc7YO",
+    "stability": "https://link.coupang.com/a/iT2Ai7Oz8K",
+    "racing": "https://link.coupang.com/a/iT2BBMJvLo",
+    "watch": "https://link.coupang.com/a/iT2DPhuQ3w",
+    "roller": "https://link.coupang.com/a/iT2Fc04y0i",
+    "race": "https://link.coupang.com/a/iT2F5Gg54C"
+  },
   "googleVerification": "",
   "naverVerification": "bebba5acfcb67d2b0028eb0a13eb01652db9eadd",
   "privacyDate": "2026-11-13",
