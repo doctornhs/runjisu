@@ -590,6 +590,93 @@ def goal_page(g, prev, nxt):
 TERMS = json.loads(read(SRC, 'data', 'terms.json'))
 INJURIES = json.loads(read(SRC, 'data', 'injuries.json'))
 SCIENCE = json.loads(read(SRC, 'data', 'science.json'))
+NEWS = json.loads(read(SRC, 'data', 'news.json'))
+NEWS['items'].sort(key=lambda x: x['date'], reverse=True)
+
+def news_card(x, href):
+    e = html.escape
+    return (f'<a href="{href}"><b>{e(x["title"])}</b><span><small class="news-meta">{e(kdate(x["date"]))} · {e(x["tag"])}</small> {e(x["dek"])}</span><i>읽기 →</i></a>')
+
+def news_home():
+    if L() != 'ko' or not NEWS['items']:
+        return ''
+    cards = ''.join(news_card(x, f'#news/{x["id"]}') for x in NEWS['items'][:3])
+    return (f'  <section class="panel" aria-labelledby="news-h">\n    <h2 id="news-h">마라톤 뉴스</h2>\n'
+            f'    <nav class="next news-list" aria-label="마라톤 뉴스">{cards}</nav>\n'
+            f'    <div class="cta"><span>러너가 알아야 할 소식</span><a href="#news">뉴스 전체 보기 →</a></div>\n  </section>\n')
+
+def news_index():
+    e = html.escape
+    cards = ''.join(news_card(x, f'{x["id"]}/') for x in NEWS['items'])
+    body = f"""<section class="view" data-view="news">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <span>마라톤 뉴스</span></nav>
+  <div class="view-head">
+    <h1>마라톤 뉴스<br><small>러너가 알아야 할 소식</small></h1>
+    <p>{e(NEWS['intro'])}</p>
+  </div>
+  <nav class="next news-list" aria-label="뉴스 목록">{cards}</nav>
+  <aside class="ad" data-ad="news-0">광고 자리 · 애드센스 승인 뒤 표시</aside>
+</section>
+"""
+    title = '마라톤 뉴스: 러너가 알아야 할 대회·훈련·안전 소식'
+    desc = '러너가 알아야 할 마라톤 대회, 훈련, 안전 소식을 런지수가 골라 요약하고 훈련과 안전에 어떻게 연결되는지 덧붙입니다.'
+    lds = []
+    if cfg['siteUrl']:
+        lds.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': '마라톤 뉴스', 'itemListElement': [
+            {'@type': 'ListItem', 'position': n, 'url': cfg['siteUrl'] + '/news/' + x['id'] + '/', 'name': x['title']} for n, x in enumerate(NEWS['items'], 1)]})
+    return {'path': 'news', 'body': body, 'lds': lds, 'title': title, 'desc': desc}
+
+def news_page(x):
+    e = html.escape
+    pts = ''.join(f'    <h2>{e(p["h"])}</h2>\n    <p>{e(p["p"])}</p>\n' for p in x['points'])
+    take = ''.join(f'<p>{e(t)}</p>' for t in x['take'])
+    links = ''.join(f'<a href="#{v}"><b>{e(t)}</b><i>→</i></a>' for v, t in x['links'])
+    rel = ''.join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(t)} ↗</a></li>' for t, u in x.get('related', []))
+    others = [y for y in NEWS['items'] if y['id'] != x['id']][:3]
+    more = ''.join(news_card(y, f'../{y["id"]}/') for y in others)
+    src = x['source']
+    body = f"""<section class="view" data-view="news">
+  <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <a href="#news">마라톤 뉴스</a> › <span>{e(x["short"])}</span></nav>
+  <article class="sci news">
+    <div class="view-head">
+      <p class="kicker">마라톤 뉴스 · {e(x["tag"])} · {e(kdate(x["date"]))} 정리</p>
+      <h1>{e(x["title"])}</h1>
+      <p class="lead">{e(x["dek"])}</p>
+      <p class="news-src">출처: {e(src["name"])} <a class="btn ghost small" href="{e(src["url"])}" target="_blank" rel="noopener">{e(src["label"])} ↗</a></p>
+    </div>
+    <section class="panel prose sci-body" aria-label="핵심 내용">
+{pts}    </section>
+    <section class="panel warn" aria-labelledby="news-take-h">
+      <h2 id="news-take-h">{e(brand())}가 덧붙이면</h2>
+      {take}
+    </section>
+    <section class="panel" aria-labelledby="news-try-h">
+      <h2 id="news-try-h">{e(brand())}에서 해 보기</h2>
+      <nav class="sci-tools" aria-label="관련 도구와 글">{links}</nav>
+    </section>
+    <aside class="ad" data-ad="news-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
+    <section class="panel sci-refs" aria-labelledby="news-ref-h">
+      <h2 id="news-ref-h">원문과 관련 보도</h2>
+      <ol><li><a href="{e(src["url"])}" target="_blank" rel="noopener">{e(src["name"])} ↗</a></li>{rel}</ol>
+      <p class="note">이 글은 원문의 내용을 {e(brand())}가 요약·정리한 것으로, 발언 내용은 출연자의 의견입니다. 정확한 내용은 원문에서 확인하세요. 일반적인 건강 정보이며 개인의 진단이나 치료를 대신하지 않습니다. 가슴 통증, 실신, 심한 어지럼이 있으면 바로 진료를 받으세요.</p>
+    </section>
+    {('<nav class="next news-list" aria-label="다른 뉴스">' + more + '</nav>') if more else ''}
+  </article>
+</section>
+"""
+    path = 'news/' + x['id']
+    lds = []
+    if cfg['siteUrl']:
+        url = cfg['siteUrl'] + '/' + path + '/'
+        lds.append({'@context': 'https://schema.org', '@type': 'NewsArticle', 'headline': x['title'], 'description': x['dek'], 'inLanguage': 'ko',
+                    'mainEntityOfPage': url, 'datePublished': x['date'], 'isBasedOn': src['url'],
+                    'author': {'@type': 'Organization', 'name': brand(), 'url': cfg['siteUrl'] + '/'},
+                    'publisher': {'@type': 'Organization', 'name': brand(), 'url': cfg['siteUrl'] + '/'}})
+        lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': brand(), 'item': cfg['siteUrl'] + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': '마라톤 뉴스', 'item': cfg['siteUrl'] + '/news/'},
+            {'@type': 'ListItem', 'position': 3, 'name': x['short'], 'item': url}]})
+    return {'path': path, 'body': body, 'lds': lds, 'title': x['title'], 'desc': x['dek']}
 SCI_FOR = {'home': 'training-intensities', 'goals': 'training-intensities', 'race': 'taper', 'plan': 'training-intensities',
            'spike': 'training-adaptation', 'heart': 'heart-rate', 'fitage': 'vo2max', 'injury': 'training-adaptation',
            'shoes': 'running-economy', 'pace': 'running-economy', 'calendar': 'heat-and-cold', 'crew': 'training-intensities'}
@@ -887,7 +974,7 @@ def race_next():
 def hub_html(flags):
     return render(i18n.tr_html(read(SRC, 'views', '_hub.html'), L()), flags).rstrip()
 
-RAW_KEYS = ('sci_home', 'sci_hub', 'home_hubs', 'rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
+RAW_KEYS = ('news_home', 'sci_home', 'sci_hub', 'home_hubs', 'rl_hubs', 'rl_up', 'rl_last', 'rl_regions', 'tabbar', 'langs', 'head_extra', 'styles', 'nav', 'views', 'scripts', 'race_fixed', 'race_tba', 'race_reg_rows', 'goal_tables', 'hub', 'race_next', 'terms_html', 'injury_cards')
 
 def page_vars():
     b = brand()
@@ -907,7 +994,7 @@ def view_html(vid, flags):
     extra = None
     if vid == 'calendar': extra = race_blocks(flags.get('site'))
     elif vid == 'goals': extra = {'goal_tables': goal_tables(flags.get('site'))}
-    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next(), 'home_hubs': home_hubs() if flags.get('site') else '', 'sci_home': sci_home() if flags.get('site') else ''}
+    elif vid == 'home': extra = {'hub': hub_html(flags), 'race_next': race_next(), 'home_hubs': home_hubs() if flags.get('site') else '', 'sci_home': sci_home() if flags.get('site') else '', 'news_home': news_home() if flags.get('site') else ''}
     elif vid == 'tools': extra = {'hub': hub_html(flags), 'sci_hub': sci_home() if flags.get('site') else ''}
     elif vid == 'terms': extra = {'terms_html': terms_html()}
     elif vid == 'injury': extra = {'injury_cards': injury_cards(flags.get('site'))}
@@ -939,6 +1026,9 @@ def nav_html(current=None):
         also = f' data-also="{" ".join(others)}"' if vid == 'tools' else ''
         on = ' aria-current="page"' if vid == cur else ''
         rows.append(f'      <a href="#{vid}" data-nav="{vid}"{also}{on}>{html.escape(T(label[vid]))}</a>')
+        if vid == 'calendar' and L() == 'ko' and CUR.get('site'):
+            on = ' aria-current="page"' if current == 'news' else ''
+            rows.append(f'      <a href="#news" data-nav="news"{on}>마라톤 뉴스</a>')
     return '\n'.join(rows)
 
 def i18n_catalog():
@@ -988,7 +1078,7 @@ def site_json(obj):
 
 # ───────── 1. 한 장짜리 미리보기(한국어) ─────────
 def build_artifact():
-    CUR['lang'] = 'ko'
+    CUR['lang'] = 'ko'; CUR['site'] = False
     flags = dict(FLAGS, site=False, artifact=True)
     site = {'mode': 'artifact', 'lang': 'ko', 'brand': brand(), 'siteUrl': cfg['siteUrl'], 'partnerLinks': cfg['partnerLinks'], 'paths': None, 'pwa': False}
     page = render(shell, flags, {
@@ -1036,7 +1126,7 @@ def build_site():
     flags = dict(FLAGS, site=True, artifact=False)
     scripts = {}
     for lang in LANGS:
-        CUR['lang'] = lang
+        CUR['lang'] = lang; CUR['site'] = True
         scripts[lang] = (i18n.tr_js(core_js, lang), i18n.tr_js(app_js, lang))
     ver = digest(css, *[a + b for a, b in scripts.values()], json.dumps(cfg, sort_keys=True))
     write(os.path.join(site_dir, 'assets', 'site.css'), css)
@@ -1062,6 +1152,8 @@ def build_site():
         if lang == 'ko':
             sroot = lroot + 'running-science/'
             body = re.sub(r'href="#science(?:/([\w-]+))?"', lambda m: f'href="{sroot}{m.group(1) + "/" if m.group(1) else ""}"', body)
+            nroot = lroot + 'news/'
+            body = re.sub(r'href="#news(?:/([\w-]+))?"', lambda m: f'href="{nroot}{m.group(1) + "/" if m.group(1) else ""}"', body)
         body = re.sub(r'<aside class="ad" data-ad="([\w-]+)">.*?</aside>\n?', ad_block, body, flags=re.S)
         full_title = title if vid == 'home' else f'{title} | {brand()}'
         sfx = '' if lang == 'ko' else '.' + lang
@@ -1112,7 +1204,7 @@ def build_site():
                         f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{gid}');</script>")
         if cfg['adsenseClient']:
             head.append(f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={html.escape(cfg["adsenseClient"])}" crossorigin="anonymous"></script>')
-        lpath = lambda lx: full_path(lx, ('tools' if vid == 'science' else 'marathon-schedule') if ko_only and lx != 'ko' else path)
+        lpath = lambda lx: full_path(lx, ('tools' if vid in ('science', 'news') else 'marathon-schedule') if ko_only and lx != 'ko' else path)
         langs = ''.join(
             f'<a href="{(root + lpath(lx) + "/") if lpath(lx) else (root or "./")}" hreflang="{lx}" lang="{lx}"'
             f'{" aria-current=" + chr(34) + "true" + chr(34) if lx == lang else ""} title="{META[lx]["label"]}">{META[lx]["short"]}</a>' for lx in LANGS)
@@ -1124,6 +1216,7 @@ def build_site():
             'scripts': f'<script>window.SITE={site_json(site)};</script>\n<script src="{root}assets/core{sfx}.js?v={ver}" defer></script>\n<script src="{root}assets/app{sfx}.js?v={ver}" defer></script>',
         })
         page = re.sub(r'href="#(' + '|'.join(IDS) + r')(\?[^"#]*)?"', lambda m: f'href="{paths[m.group(1)]}{(m.group(2) or "").replace("&", "&amp;")}"', page)
+        if lang == 'ko': page = page.replace('href="#news"', f'href="{lroot}news/"')
         if lang != 'ko':
             left = [s for s in i18n.leftover(page) if i18n.HANGUL.search(s)]
             if left:
@@ -1143,6 +1236,12 @@ def build_site():
                 gp = goal_page(g, group[i + 1] if i + 1 < len(group) else None, group[i - 1] if i else None)
                 emit(lang, 'goal', gp['path'], gp['title'], gp['desc'], body=gp['body'], lds=gp['lds'], nav='goals')
         majors = sorted(RACE_DATA['races'], key=lambda r: r.get('date') or ('9' + (r.get('last') or '')))
+        if lang == 'ko':                             # 마라톤 뉴스(한국어만)
+            npg = news_index()
+            emit(lang, 'news', npg['path'], npg['title'], npg['desc'], body=npg['body'], lds=npg['lds'], nav='news', ko_only=True)
+            for x in NEWS['items']:
+                npg = news_page(x)
+                emit(lang, 'news', npg['path'], npg['title'], npg['desc'], body=npg['body'], lds=npg['lds'], nav='news', ko_only=True)
         if lang == 'ko':                             # 러닝 과학 연재(한국어만)
             sp = sci_index()
             emit(lang, 'science', sp['path'], sp['title'], sp['desc'], body=sp['body'], lds=sp['lds'], nav='tools', ko_only=True)

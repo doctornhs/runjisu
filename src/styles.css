@@ -619,3 +619,8 @@ html.big{--ink-2:#2f3b50}
 .sci-list b small{color:var(--accent);font-family:var(--font-num);margin-right:4px}
 .sci-cta{margin-top:14px}
 @media (max-width:520px){.top-row{gap:8px;align-items:center}.size-tg{margin-right:0;min-width:38px;height:32px;padding:0 7px}}
+/* 마라톤 뉴스 */
+.news-meta{display:block;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:2px;font-style:normal}
+.news-src{font-size:13.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.news-src .btn{text-decoration:none}
+.news-list a b{line-height:1.45}
