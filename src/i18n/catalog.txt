@@ -884,6 +884,8 @@
 §2611b57 [build] 대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.
 §e2031b1 [build] 유형별로 고르는 법
 §b92d8a0 [build] 다른 주요 대회
+§c0f925d [build] {name} {year}: {events}. {place}. 접수: {reg}
+§78e6bab [build] {name} 참가 러너
 §629ce84 [build] {name} {year}: 코스, 부상 주의점, 목표 기록별 5km 페이스표
 §f2a2c50 [build] {name} {year} 일정과 접수, 코스 특징, 정형외과 전문의가 짚은 부상 주의점, 목표 기록별 5km 통과 시각을 정리했습니다.
 §323005f [build] {brand} 러닝 계산기

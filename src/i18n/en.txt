@@ -1299,3 +1299,5 @@
 §7e57750 Larger text
 §94b7dba Close
 §0c0c821 Tap the Share button at the bottom of Safari, then choose ‘Add to Home Screen’. It opens like an app and calculates even offline.
+§c0f925d {name} {year}: {events}. {place}. Entry: {reg}
+§78e6bab {name} runners

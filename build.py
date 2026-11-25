@@ -868,6 +868,41 @@ RACE_MARKS = {42195: [5, 10, 15, 20, 21.0975, 25, 30, 35, 40, 42.195], 21097.5: 
 def race_name(r):
     return r['name'] if L() == 'ko' else r.get(L(), r['name'])
 
+EVENT_SIZES = (('16x9', 1200, 675), ('4x3', 1200, 900), ('1x1', 1200, 1200))
+
+def event_svg(r, w, h):
+    e = html.escape
+    name = r['name']; fs = max(60, min(120, int(1000 / max(len(name), 1))))
+    when = (kdate(r['date']) if r.get('date') else f"2027년 일정 미발표 · {r['season']}")
+    top = max(110, int((h - 110 - (fs + 250)) / 2) + 34)     # 세로로 가운데쯤
+    y = lambda v: top + v - 120
+    place = r['place'] if len(r['place']) <= 34 else r['place'][:33] + '…'
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f1b3d"/><stop offset="1" stop-color="#1f47e6"/></linearGradient></defs>
+  <rect width="{w}" height="{h}" fill="url(#g)"/>
+  <text x="80" y="{y(120)}" font-family="Noto Sans CJK KR" font-weight="700" font-size="34" fill="#9fb4ff">{e(r['date'][:4] if r.get('date') else '2027')} 대회 안내</text>
+  <text x="76" y="{y(120) + fs + 30}" font-family="Noto Sans CJK KR" font-weight="900" font-size="{fs}" fill="#ffffff">{e(name)}</text>
+  <text x="80" y="{y(120) + fs + 110}" font-family="Noto Sans CJK KR" font-weight="700" font-size="48" fill="#ffffff">{e(when)}</text>
+  <text x="80" y="{y(120) + fs + 175}" font-family="Noto Sans CJK KR" font-weight="500" font-size="34" fill="#d6defa">{e(r['events'])}</text>
+  <text x="80" y="{y(120) + fs + 228}" font-family="Noto Sans CJK KR" font-weight="500" font-size="30" fill="#b8c6f5">{e(place)}</text>
+  <rect x="0" y="{h - 110}" width="{w}" height="110" fill="#0b1430" fill-opacity="0.55"/>
+  <text x="80" y="{h - 45}" font-family="Noto Sans CJK KR" font-weight="700" font-size="32" fill="#ffffff">코스 · 부상 주의점 · 목표 기록별 5km 페이스표</text>
+  <text x="{w - 80}" y="{h - 45}" text-anchor="end" font-family="DejaVu Sans Condensed" font-weight="700" font-size="30" fill="#9fb4ff">runjisu.com</text>
+</svg>"""
+
+def event_images(site_dir):
+    """주요 대회마다 이미지 세 장. rsvg-convert 가 없으면 건너뛴다"""
+    for r in RACE_DATA['races']:
+        d = os.path.join(site_dir, 'marathon-schedule', r['id']); os.makedirs(d, exist_ok=True)
+        for tag, w, h in EVENT_SIZES:
+            svg = os.path.join(OUT, f'ev-{r["id"]}-{tag}.svg')
+            write(svg, event_svg(r, w, h))
+            try:
+                subprocess.run(['rsvg-convert', '-w', str(w), '-h', str(h), svg, '-o', os.path.join(d, f'event-{tag}.png')], check=True)
+            except (OSError, subprocess.CalledProcessError) as err:
+                print('  대회 이미지를 만들지 못했습니다:', err, file=sys.stderr); os.remove(svg); return
+            os.remove(svg)
+
 def race_page(r, others):
     e = html.escape
     dist = r['dist']; full = dist > 30000; total = dist / 1000
@@ -951,8 +986,20 @@ def race_page(r, others):
     path = 'marathon-schedule/' + r['id']
     lds = []
     if r.get('date'):
-        lds.append({'@context': 'https://schema.org', '@type': 'SportsEvent', 'name': name, 'startDate': r['date'], 'eventStatus': 'https://schema.org/EventScheduled',
-                    'location': {'@type': 'Place', 'name': T(r['place']), 'address': {'@type': 'PostalAddress', 'addressCountry': 'KR'}}, 'url': r['url']})
+        imgs = [f"{cfg['siteUrl']}/marathon-schedule/{r['id']}/event-{tag}.png" for tag, _w, _h in EVENT_SIZES] if cfg['siteUrl'] else []
+        official = 'search.naver.com' not in r['url']
+        hosts = [x.strip() for x in r['host'].replace('·', ',').split(',') if x.strip()]
+        ev = {'@context': 'https://schema.org', '@type': 'SportsEvent', 'name': name,
+              'description': T('{name} {year}: {events}. {place}. 접수: {reg}', name=name, year=year, events=T(r['events']), place=T(r['place']), reg=T(r['reg'])),
+              'startDate': r['date'], 'endDate': r['date'], 'eventStatus': 'https://schema.org/EventScheduled',
+              'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode', 'sport': 'Marathon',
+              'location': {'@type': 'Place', 'name': T(r['place']), 'address': {'@type': 'PostalAddress', 'addressRegion': r['place'].split()[0], 'addressCountry': 'KR'}},
+              'organizer': [dict({'@type': 'Organization', 'name': hname}, **({'url': r['url']} if official and i == 0 else {})) for i, hname in enumerate(hosts)],
+              'performer': {'@type': 'PerformingGroup', 'name': T('{name} 참가 러너', name=name)},
+              'offers': {'@type': 'Offer', 'url': r['url'], 'priceCurrency': 'KRW'},
+              'url': r['url']}
+        if imgs: ev['image'] = imgs
+        lds.append(ev)
     if cfg['siteUrl']:
         base = cfg['siteUrl'] + '/' + META[L()]['prefix'].lstrip('/')
         lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
@@ -961,7 +1008,8 @@ def race_page(r, others):
             {'@type': 'ListItem', 'position': 3, 'name': name, 'item': base + path + '/'}]})
     title = T('{name} {year}: 코스, 부상 주의점, 목표 기록별 5km 페이스표', name=name, year=year)
     desc = T('{name} {year} 일정과 접수, 코스 특징, 정형외과 전문의가 짚은 부상 주의점, 목표 기록별 5km 통과 시각을 정리했습니다.', name=name, year=year)
-    return {'path': path, 'body': body, 'lds': lds, 'title': title, 'desc': desc}
+    og = f"{cfg['siteUrl']}/marathon-schedule/{r['id']}/event-16x9.png" if cfg['siteUrl'] else None
+    return {'path': path, 'body': body, 'lds': lds, 'title': title, 'desc': desc, 'og': og}
 
 def race_next():
     e = html.escape
@@ -1137,7 +1185,7 @@ def build_site():
 
     pages, meta = [], {}
     leftovers = {}
-    def emit(lang, vid, path, title, desc, body=None, lds=(), nav=None, ko_only=False):
+    def emit(lang, vid, path, title, desc, body=None, lds=(), nav=None, ko_only=False, og=None):
         full = full_path(lang, path)
         root = '../' * (full.count('/') + 1) if full else ''
         lroot = root + META[lang]['prefix']
@@ -1161,7 +1209,7 @@ def build_site():
         if cfg['siteUrl']:
             url = page_url(full)
             head += [f'<link rel="canonical" href="{url}">', f'<meta property="og:url" content="{url}">',
-                     f'<meta property="og:image" content="{cfg["siteUrl"]}/og.png">', '<meta name="twitter:card" content="summary_large_image">']
+                     f'<meta property="og:image" content="{og or (cfg["siteUrl"] + "/og.png")}">', '<meta name="twitter:card" content="summary_large_image">']
             head += [f'<link rel="alternate" hreflang="{lx}" href="{page_url(full_path(lx, path))}">' for lx in (('ko',) if ko_only else LANGS)]
             head.append(f'<link rel="alternate" hreflang="x-default" href="{page_url(full_path("ko", path))}">')
         head += [
@@ -1257,7 +1305,7 @@ def build_site():
                 emit(lang, 'race-hub', hp['path'], hp['title'], hp['desc'], body=hp['body'], lds=hp['lds'], nav='calendar', ko_only=True)
         for i, r in enumerate(majors):               # 주요 대회별 쪽
             rp = race_page(r, [majors[(i + k) % len(majors)] for k in (1, 2, 3)])
-            emit(lang, 'race-page', rp['path'], rp['title'], rp['desc'], body=rp['body'], lds=rp['lds'], nav='calendar')
+            emit(lang, 'race-page', rp['path'], rp['title'], rp['desc'], body=rp['body'], lds=rp['lds'], nav='calendar', og=rp['og'])
         for i, x in enumerate(INJURIES):             # 부상별 쪽
             ip = injury_page(x, [INJURIES[(i + k) % len(INJURIES)] for k in (1, 2)])
             emit(lang, 'injury-page', ip['path'], ip['title'], ip['desc'], body=ip['body'], lds=ip['lds'], nav='injury')
@@ -1303,6 +1351,8 @@ def build_site():
     except (OSError, subprocess.CalledProcessError) as e:
         print('  아이콘 PNG를 만들지 못했습니다(rsvg-convert 필요). 이전에 만든 PNG를 icons/에 넣어 주세요:', e, file=sys.stderr)
     os.remove(og_svg)
+    CUR['lang'] = 'ko'
+    event_images(site_dir)
 
     # 검색 엔진과 호스팅
     robots = 'User-agent: *\nAllow: /\n'
