@@ -593,37 +593,65 @@ SCIENCE = json.loads(read(SRC, 'data', 'science.json'))
 NEWS = json.loads(read(SRC, 'data', 'news.json'))
 NEWS['items'].sort(key=lambda x: x['date'], reverse=True)
 
-def news_card(x, href):
+NEWS_TAG = {'안전': ('❤️', '#d93a54', '#ff8a96'), '대회': ('🏁', '#1f47e6', '#6f8cff'), '기록': ('⏱️', '#087a5c', '#36cfa0'),
+            '정책': ('🏛️', '#5b3fd0', '#a38bff'), '이슈': ('📣', '#b85e0c', '#ffb35c'), '엘리트': ('🥇', '#8a6a00', '#f0c541')}
+
+def news_thumb(x):
+    ic, c1, c2 = NEWS_TAG.get(x['tag'], ('🏃', '#1f47e6', '#6f8cff'))
+    return f'<span class="nthumb" style="--c1:{c1};--c2:{c2}" aria-hidden="true"><i>{ic}</i><b>{html.escape(x["tag"])}</b></span>'
+
+def news_item(x):
+    """뉴스 카드 한 장. 런지수 정리 글은 그 쪽으로, 스크랩은 눌러서 요약과 원문 링크를 편다"""
     e = html.escape
-    return (f'<a href="{href}"><b>{e(x["title"])}</b><span><small class="news-meta">{e(kdate(x["date"]))} · {e(x["tag"])}</small> {e(x["dek"])}</span><i>읽기 →</i></a>')
+    src = '런지수 정리' if x['kind'] == 'brief' else x['source']
+    meta = f'<small class="nmeta">{e(src)} | {e(x["date"].replace("-", "."))}</small>'
+    text = e(' '.join([x['title'], x.get('orig', ''), src, x['tag'], x.get('sum', x.get('dek', ''))]))
+    head = f'{news_thumb(x)}<span class="nbody"><b class="ntitle"><em class="nbadge{"" if x["kind"] == "brief" else " ai"}">{"런지수 정리" if x["kind"] == "brief" else "요약"}</em> {e(x["title"])}</b>'
+    if x['kind'] == 'brief':
+        return f'<li class="nitem" data-tag="{e(x["tag"])}" data-text="{text}"><a class="ncard" href="#news/{x["id"]}">{head}<span class="norig">{e(x["dek"])}</span>{meta}</span></a></li>'
+    orig = f'<span class="norig">{e(x["orig"])}</span>' if x.get('orig') else ''
+    more = f'<a class="btn ghost small" href="#{x["link"][0]}">{e(x["link"][1])} →</a>' if x.get('link') else ''
+    return (f'<li class="nitem" data-tag="{e(x["tag"])}" data-id="{e(x["id"])}" data-text="{text}"><details class="ncard-d"><summary class="ncard">{head}{orig}{meta}</span></summary>'
+            f'<div class="nmore"><p>{e(x["sum"])}</p><p class="nacts"><a class="btn small" href="{e(x["url"])}" target="_blank" rel="noopener">원문 보기 · {e(x["source"])} ↗</a>{more}</p></div></details></li>')
+
+def news_list(items):
+    return '<ul class="nlist">' + ''.join(news_item(x) for x in items) + '</ul>'
 
 def news_home():
     if L() != 'ko' or not NEWS['items']:
         return ''
-    cards = ''.join(news_card(x, f'#news/{x["id"]}') for x in NEWS['items'][:3])
     return (f'  <section class="panel" aria-labelledby="news-h">\n    <h2 id="news-h">마라톤 뉴스</h2>\n'
-            f'    <nav class="next news-list" aria-label="마라톤 뉴스">{cards}</nav>\n'
-            f'    <div class="cta"><span>러너가 알아야 할 소식</span><a href="#news">뉴스 전체 보기 →</a></div>\n  </section>\n')
+            f'    {news_list(NEWS["items"][:4])}\n'
+            f'    <div class="cta"><span>러너가 알아야 할 소식 {len(NEWS["items"])}건</span><a href="#news">뉴스 전체 보기 →</a></div>\n  </section>\n')
 
 def news_index():
     e = html.escape
-    cards = ''.join(news_card(x, f'{x["id"]}/') for x in NEWS['items'])
+    tags = [t for t in NEWS_TAG if any(x['tag'] == t for x in NEWS['items'])]
+    chips = '<button type="button" class="chip on" data-ntag="">전체</button>' + ''.join(f'<button type="button" class="chip" data-ntag="{e(t)}">{NEWS_TAG[t][0]} {e(t)}</button>' for t in tags)
     body = f"""<section class="view" data-view="news">
   <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <span>마라톤 뉴스</span></nav>
   <div class="view-head">
     <h1>마라톤 뉴스<br><small>러너가 알아야 할 소식</small></h1>
     <p>{e(NEWS['intro'])}</p>
   </div>
-  <nav class="next news-list" aria-label="뉴스 목록">{cards}</nav>
+  <div class="nsearch" role="search">
+    <h2>뉴스 목록 <small>{e(NEWS.get('updated', NEWS['items'][0]['date']).replace('-', '.'))} 업데이트</small></h2>
+    <input type="search" id="news-q" placeholder="뉴스 검색" aria-label="뉴스 검색" autocomplete="off">
+  </div>
+  <p class="hub-links ntags" role="group" aria-label="분류">{chips}</p>
+  <div id="news-list">{news_list(NEWS['items'])}</div>
+  <p class="note" id="news-empty" hidden>찾는 뉴스가 없습니다. 다른 낱말로 찾아보세요.</p>
+  <p class="note">'요약'은 기사 내용을 {e(brand())}가 새로 요약한 것입니다. 정확한 내용과 사진은 원문에서 확인하세요.</p>
   <aside class="ad" data-ad="news-0">광고 자리 · 애드센스 승인 뒤 표시</aside>
 </section>
 """
-    title = '마라톤 뉴스: 러너가 알아야 할 대회·훈련·안전 소식'
-    desc = '러너가 알아야 할 마라톤 대회, 훈련, 안전 소식을 런지수가 골라 요약하고 훈련과 안전에 어떻게 연결되는지 덧붙입니다.'
+    title = '마라톤 뉴스: 러너가 알아야 할 대회·기록·안전 소식'
+    desc = '러너가 알아야 할 마라톤 대회, 기록, 안전, 정책 소식을 런지수가 골라 요약하고 원문 링크를 답니다. 뉴스 검색과 분류별 보기를 지원합니다.'
     lds = []
     if cfg['siteUrl']:
         lds.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': '마라톤 뉴스', 'itemListElement': [
-            {'@type': 'ListItem', 'position': n, 'url': cfg['siteUrl'] + '/news/' + x['id'] + '/', 'name': x['title']} for n, x in enumerate(NEWS['items'], 1)]})
+            {'@type': 'ListItem', 'position': n, 'name': x['title'],
+             'url': (cfg['siteUrl'] + '/news/' + x['id'] + '/') if x['kind'] == 'brief' else x['url']} for n, x in enumerate(NEWS['items'], 1)]})
     return {'path': 'news', 'body': body, 'lds': lds, 'title': title, 'desc': desc}
 
 def news_page(x):
@@ -632,8 +660,8 @@ def news_page(x):
     take = ''.join(f'<p>{e(t)}</p>' for t in x['take'])
     links = ''.join(f'<a href="#{v}"><b>{e(t)}</b><i>→</i></a>' for v, t in x['links'])
     rel = ''.join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(t)} ↗</a></li>' for t, u in x.get('related', []))
-    others = [y for y in NEWS['items'] if y['id'] != x['id']][:3]
-    more = ''.join(news_card(y, f'../{y["id"]}/') for y in others)
+    others = [y for y in NEWS['items'] if y['id'] != x['id']][:4]
+    more = news_list(others) if others else ''
     src = x['source']
     body = f"""<section class="view" data-view="news">
   <nav class="crumb" aria-label="현재 위치"><a href="#home">{e(brand())}</a> › <a href="#news">마라톤 뉴스</a> › <span>{e(x["short"])}</span></nav>
@@ -660,7 +688,7 @@ def news_page(x):
       <ol><li><a href="{e(src["url"])}" target="_blank" rel="noopener">{e(src["name"])} ↗</a></li>{rel}</ol>
       <p class="note">이 글은 원문의 내용을 {e(brand())}가 요약·정리한 것으로, 발언 내용은 출연자의 의견입니다. 정확한 내용은 원문에서 확인하세요. 일반적인 건강 정보이며 개인의 진단이나 치료를 대신하지 않습니다. 가슴 통증, 실신, 심한 어지럼이 있으면 바로 진료를 받으세요.</p>
     </section>
-    {('<nav class="next news-list" aria-label="다른 뉴스">' + more + '</nav>') if more else ''}
+    {('<section class="panel" aria-labelledby="news-more-h"><h2 id="news-more-h">다른 마라톤 뉴스</h2>' + more + '</section>') if more else ''}
   </article>
 </section>
 """
@@ -1287,7 +1315,7 @@ def build_site():
         if lang == 'ko':                             # 마라톤 뉴스(한국어만)
             npg = news_index()
             emit(lang, 'news', npg['path'], npg['title'], npg['desc'], body=npg['body'], lds=npg['lds'], nav='news', ko_only=True)
-            for x in NEWS['items']:
+            for x in (y for y in NEWS['items'] if y['kind'] == 'brief'):
                 npg = news_page(x)
                 emit(lang, 'news', npg['path'], npg['title'], npg['desc'], body=npg['body'], lds=npg['lds'], nav='news', ko_only=True)
         if lang == 'ko':                             # 러닝 과학 연재(한국어만)

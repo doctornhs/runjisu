@@ -1208,6 +1208,20 @@
     });
   })();
 
+  /* ───────── 마라톤 뉴스: 검색과 분류 ───────── */
+  (function initNews() {
+    const box = $('#news-list'); if (!box) return;
+    const q = $('#news-q'), items = $$('.nitem', box); let tag = '';
+    const apply = () => {
+      const t = (q.value || '').trim().toLowerCase(); let n = 0;
+      items.forEach(li => { const ok = (!tag || li.dataset.tag === tag) && (!t || li.dataset.text.toLowerCase().includes(t)); li.hidden = !ok; if (ok) n++; });
+      $('#news-empty').hidden = n > 0;
+    };
+    q.addEventListener('input', apply);
+    $$('[data-ntag]').forEach(b => b.addEventListener('click', () => { tag = b.dataset.ntag; $$('[data-ntag]').forEach(x => x.classList.toggle('on', x === b)); apply(); }));
+    box.addEventListener('toggle', e => { const li = e.target.closest && e.target.closest('.nitem'); if (e.target.open && li) track('news_open', { id: li.dataset.id || '' }); }, true);
+  })();
+
   /* ───────── 글자 크게 보기 ───────── */
   (function initSize() {
     const b = $('#size-tg'); if (!b) return;
