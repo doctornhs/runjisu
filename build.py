@@ -1083,15 +1083,20 @@ TABS = [('home', '홈', '<path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/>'),
         ('goals', '페이스', '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M9.5 2.8h5M18.5 6.5l1.5-1.5"/>'),
         ('injury', '부상', '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/>'),
         ('tools', '전체', '<rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/>')]
+NEWS_ICON = '<rect x="3.5" y="4.5" width="13" height="15.5" rx="2"/><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v8a2 2 0 0 1-2 2H6M7 8.5h6M7 12h6M7 15.5h4"/>'
 def tabbar_html(current=None):
     ids = [t[0] for t in TABS]
     others = [v[0] for v in VIEWS if v[2] and v[0] not in ids]
     cur = current if current in ids else 'tools' if current in others else None
     rows = []
-    for vid, label, icon in TABS:
+    tabs = list(TABS)
+    if L() == 'ko' and CUR.get('site'):
+        tabs.insert(2, ('news', '뉴스', NEWS_ICON)); ids.append('news')
+        if current == 'news': cur = 'news'
+    for vid, label, icon in tabs:
         also = f' data-also="{" ".join(others)}"' if vid == 'tools' else ''
         on = ' aria-current="page"' if vid == cur else ''
-        rows.append(f'    <a href="#{vid}" data-nav="{vid}"{also}{on}><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg><span>{html.escape(T(label))}</span></a>')
+        rows.append(f'    <a href="#{vid}" data-nav="{vid}"{also}{on}><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg><span>{html.escape(label if vid == "news" else T(label))}</span></a>')
     return '\n'.join(rows)
 def nav_html(current=None):
     label = {v[0]: v[2] for v in VIEWS}

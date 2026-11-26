@@ -507,7 +507,7 @@ body{background:radial-gradient(1100px 420px at 50% -220px,color-mix(in srgb,var
   .top-row{padding-top:calc(10px + env(safe-area-inset-top));padding-bottom:10px}
   .rc-m{top:52px}
   body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
-  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;padding:6px 6px calc(6px + env(safe-area-inset-bottom));
+  .tabbar{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;padding:6px 6px calc(6px + env(safe-area-inset-bottom));
     background:color-mix(in srgb,var(--card) 86%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);border-top:1px solid color-mix(in srgb,var(--line) 80%,transparent)}
   .tabbar a{display:grid;justify-items:center;gap:3px;padding:6px 0 4px;border-radius:12px;color:var(--ink-2);text-decoration:none;font-size:11px;font-weight:700;-webkit-tap-highlight-color:transparent}
   .tabbar svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
