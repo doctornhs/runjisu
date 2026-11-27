@@ -138,6 +138,36 @@ def shop_link(key):
     label, q = SHOP[key]
     return f'<a class="shop" data-shop="{key}" target="_blank" rel="noopener" href="https://www.coupang.com/np/search?q={urllib.parse.quote(q)}">{html.escape(T(label))}</a>'
 
+# 계산 결과 바로 아래에 놓는 맞춤 준비물 카드 (한국어 화면, 파트너스 링크가 있는 항목만)
+PICKS = {'cushion': ('👟', '쿠션 러닝화', '주 3회 이상 달리거나 장거리를 늘리는 시기에. 신었을 때 편한 것이 첫 기준입니다.'),
+         'stability': ('🦶', '안정화', '발이 안쪽으로 많이 무너지고 무릎 안쪽·정강이가 자주 아픈 러너에게.'),
+         'racing': ('⚡', '경량 레이싱화', '목표 기록에 도전하는 대회용. 장거리 훈련에서 한두 번 신어 본 뒤 대회에.'),
+         'watch': ('⌚', '러닝 워치', '구간표대로 달리려면 km당 페이스가 달리는 중에 보여야 합니다.'),
+         'roller': ('🧘', '폼롤러', '달린 뒤 종아리·허벅지를 부위당 1~2분. 아픈 자리를 세게 누르지는 마세요.'),
+         'race': ('🎽', '배번 벨트', '옷에 구멍 내지 않고 배번을 고정. 에너지젤 고리가 있으면 보급이 편합니다.')}
+PICK_SETS = {'race': ('대회 날 준비물', ['race', 'racing', 'watch'], ''),
+             'goals': ('목표 기록에 필요한 장비', ['watch', 'racing', 'race'], ''),
+             'plan': ('훈련을 꾸준히 이어 가게 돕는 장비', ['cushion', 'watch', 'roller'], ''),
+             'injury': ('회복과 예방에 쓰는 장비', ['roller', 'cushion', 'stability'], '통증이 뚜렷하거나 오래가면 장비보다 진료가 먼저입니다.'),
+             'spike': ('거리를 늘리는 시기에', ['cushion', 'roller'], ''),
+             'racepage': ('대회 날 챙길 것', ['race', 'racing', 'watch', 'roller'], '대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.')}
+def picks_html(ctx, hid=None):
+    if L() != 'ko' or not CUR.get('site'):
+        return ''
+    title, keys, note = PICK_SETS[ctx]
+    keys = [k for k in keys if cfg['partnerLinks'].get(k)]
+    if not keys:
+        return ''
+    e = html.escape; hid = hid or f'pk-{ctx}'
+    items = ''.join(f'<li><a class="shop pick" data-shop="{k}" data-from="{ctx}" href="{e(cfg["partnerLinks"][k])}" target="_blank" rel="noopener sponsored nofollow">'
+                    f'<span class="pick-ic" aria-hidden="true">{PICKS[k][0]}</span><b>{e(PICKS[k][1])}</b><small>{e(PICKS[k][2])}</small><i>쿠팡에서 보기 ›</i></a></li>' for k in keys)
+    return (f'  <section class="panel picks" aria-labelledby="{hid}">\n    <h2 id="{hid}">{e(title)}<small>정형외과 전문의가 정한 고르는 기준</small></h2>\n'
+            + (f'    <p class="note">{e(note)}</p>\n' if note else '')
+            + f'    <ul class="picks-list">{items}</ul>\n    <p class="note pick-disc">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. <a href="#gear">유형별로 고르는 법 →</a></p>\n  </section>\n')
+
+PICK_AT = {'race': '  <aside class="ad" data-ad="race-1">', 'plan': '  <aside class="ad" data-ad="plan-1">',
+           'injury': '  <p class="note">이 안내는 일반 정보', 'spike': '  <div class="cta"><span>달린 날을'}
+
 def reg_reminder(r):
     """접수 달이 알려진 날짜 미발표 대회: 다음 접수 달 1일. 지난 달이면 내년"""
     m = re.match(r'(\d+)', r.get('regMonth') or '')
@@ -999,12 +1029,12 @@ def race_page(r, others):
     </div>
     <div class="cta"><span>{e(T('이 대회를 준비하는 한 주 훈련표'))}</span><a href="#plan?pg={pg}">{e(T('주간 훈련표 만들기'))} →</a></div>
   </section>
-  <section class="panel" aria-labelledby="rp-kit">
+  {picks_html('racepage', 'rp-kit') or f'''<section class="panel" aria-labelledby="rp-kit">
     <h2 id="rp-kit">{e(T('대회 날 챙길 것'))}</h2>
     <p class="note">{e(T('대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.'))}</p>
     <p class="shop-row">{shop_link('race')}{shop_link('racing')}<a class="btn ghost small" href="#gear">{e(T('유형별로 고르는 법'))} →</a></p>
     {('<p class="note">' + e(T('이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.')) + '</p>') if cfg['partnerLinks'] else ''}
-  </section>
+  </section>'''}
   <aside class="ad" data-ad="racepage-1">광고 자리 · 애드센스 승인 뒤 표시</aside>
   <nav class="next three" aria-label="{e(T('다른 주요 대회'))}">
     {near}
@@ -1074,7 +1104,14 @@ def view_html(vid, flags):
     elif vid == 'tools': extra = {'hub': hub_html(flags), 'sci_hub': sci_home() if flags.get('site') else ''}
     elif vid == 'terms': extra = {'terms_html': terms_html()}
     elif vid == 'injury': extra = {'injury_cards': injury_cards(flags.get('site'))}
-    return render(i18n.tr_html(read(SRC, 'views', vid + '.html'), L()), flags, extra).rstrip() + '\n'
+    out = render(i18n.tr_html(read(SRC, 'views', vid + '.html'), L()), flags, extra).rstrip() + '\n'
+    if vid in PICK_SETS and flags.get('site') and L() == 'ko':
+        pk = picks_html(vid)
+        if vid in PICK_AT and PICK_AT[vid] in out:
+            out = out.replace(PICK_AT[vid], pk + PICK_AT[vid], 1)
+        elif out.endswith('</section>\n'):
+            out = out[:-len('</section>\n')] + pk + '</section>\n'
+    return out
 
 # 메뉴에는 자주 쓰는 화면만 두고, 나머지는 '전체 도구'에 모은다
 PRIMARY = ['home', 'goals', 'calendar', 'plan', 'injury', 'terms', 'tools']

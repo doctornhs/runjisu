@@ -656,3 +656,14 @@ summary.ncard::marker{content:''}
 .ncard-d[open] .ntitle{-webkit-line-clamp:unset;display:block}
 .ncard-d[open] .norig{white-space:normal}
 @media (max-width:600px){.nsearch input{max-width:none;flex-basis:100%}}
+/* 결과 아래 맞춤 준비물 카드 */
+.picks h2 small{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:4px}
+.picks-list{list-style:none;margin:10px 0 4px;padding:0;display:grid;gap:10px}
+@media (min-width:760px){.picks-list{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
+.picks .shop.pick{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:12px;row-gap:3px;align-items:start;margin:0;height:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);font-weight:400;line-height:1.4}
+.picks .shop.pick:hover{background:var(--card);color:var(--ink);border-color:var(--accent)}
+.pick-ic{grid-row:1 / span 3;width:46px;height:46px;border-radius:12px;background:var(--paper);display:grid;place-items:center;font-size:24px}
+.pick b{font-size:16px;font-weight:800}
+.pick small{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.pick i{font-style:normal;font-size:14px;font-weight:800;color:var(--accent)}
+.pick-disc{font-size:12.5px}

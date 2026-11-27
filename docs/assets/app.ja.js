@@ -94,7 +94,7 @@
   document.addEventListener('click', e => {
     const t = e.target.closest && e.target.closest('a,button');
     if (!t) return;
-    if (t.matches('.shop')) track('shop_click', { item: t.dataset.shop || '', partner: SITE.partnerLinks[t.dataset.shop] ? 1 : 0 });
+    if (t.matches('.shop')) track('shop_click', { item: t.dataset.shop || '', from: t.dataset.from || '', partner: SITE.partnerLinks[t.dataset.shop] ? 1 : 0 });
     else if (t.matches('[data-ics]')) track('ics_download', { kind: t.dataset.ics });
     else if (t.matches('[data-carry]')) track('carry_click', { to: (t.getAttribute('href') || '').split('?')[0] });
     else if (t.matches('[data-goal]')) { const r = t.closest('[data-name]'); track('goal_race', { race: r ? r.dataset.name : '' }); }
