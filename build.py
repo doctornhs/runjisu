@@ -144,13 +144,18 @@ PICKS = {'cushion': ('👟', '쿠션 러닝화', '주 3회 이상 달리거나 �
          'racing': ('⚡', '경량 레이싱화', '목표 기록에 도전하는 대회용. 장거리 훈련에서 한두 번 신어 본 뒤 대회에.'),
          'watch': ('⌚', '러닝 워치', '구간표대로 달리려면 km당 페이스가 달리는 중에 보여야 합니다.'),
          'roller': ('🧘', '폼롤러', '달린 뒤 종아리·허벅지를 부위당 1~2분. 아픈 자리를 세게 누르지는 마세요.'),
-         'race': ('🎽', '배번 벨트', '옷에 구멍 내지 않고 배번을 고정. 에너지젤 고리가 있으면 보급이 편합니다.')}
-PICK_SETS = {'race': ('대회 날 준비물', ['race', 'racing', 'watch'], ''),
-             'goals': ('목표 기록에 필요한 장비', ['watch', 'racing', 'race'], ''),
-             'plan': ('훈련을 꾸준히 이어 가게 돕는 장비', ['cushion', 'watch', 'roller'], ''),
-             'injury': ('회복과 예방에 쓰는 장비', ['roller', 'cushion', 'stability'], '통증이 뚜렷하거나 오래가면 장비보다 진료가 먼저입니다.'),
-             'spike': ('거리를 늘리는 시기에', ['cushion', 'roller'], ''),
-             'racepage': ('대회 날 챙길 것', ['race', 'racing', 'watch', 'roller'], '대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.')}
+         'race': ('🎽', '배번 벨트', '옷에 구멍 내지 않고 배번을 고정. 에너지젤 고리가 있으면 보급이 편합니다.'),
+         'gel': ('🍯', '에너지젤', '하프 이상이면 레이스 중 보급용. 대회 날 처음 먹지 말고 장거리 훈련에서 먼저 먹어 보세요.'),
+         'socks': ('🧦', '러닝 양말', '면 대신 땀이 빨리 마르는 소재로. 물집이 자주 생기면 발가락 양말도 방법입니다.'),
+         'belt': ('👝', '러닝 벨트', '휴대폰과 열쇠를 허리에 붙여 흔들림 없이. 손에 들고 달리면 팔 흔들기가 어색해집니다.'),
+         'cap': ('🧢', '러닝 모자', '햇볕과 비를 가리고 땀이 눈에 들어가는 것을 막습니다. 가볍고 통기성 좋은 것으로.')}
+PICK_SETS = {'race': ('대회 날 준비물', ['gel', 'race', 'socks', 'racing'], ''),
+             'goals': ('목표 기록에 필요한 장비', ['watch', 'gel', 'racing'], ''),
+             'plan': ('훈련을 꾸준히 이어 가게 돕는 장비', ['cushion', 'socks', 'belt', 'roller'], ''),
+             'injury': ('회복과 예방에 쓰는 장비', ['roller', 'cushion', 'stability', 'socks'], '통증이 뚜렷하거나 오래가면 장비보다 진료가 먼저입니다.'),
+             'spike': ('거리를 늘리는 시기에', ['cushion', 'roller', 'socks'], ''),
+             'gear': ('그 밖에 자주 찾는 준비물', ['gel', 'socks', 'belt', 'cap'], ''),
+             'racepage': ('대회 날 챙길 것', ['gel', 'race', 'racing', 'cap'], '대회 날 처음 쓰는 물건은 없어야 합니다. 신발과 벨트는 장거리 훈련에서 한 번 이상 써 보세요.')}
 def picks_html(ctx, hid=None):
     if L() != 'ko' or not CUR.get('site'):
         return ''
@@ -163,7 +168,7 @@ def picks_html(ctx, hid=None):
                     f'<span class="pick-ic" aria-hidden="true">{PICKS[k][0]}</span><b>{e(PICKS[k][1])}</b><small>{e(PICKS[k][2])}</small><i>쿠팡에서 보기 ›</i></a></li>' for k in keys)
     return (f'  <section class="panel picks" aria-labelledby="{hid}">\n    <h2 id="{hid}">{e(title)}<small>정형외과 전문의가 정한 고르는 기준</small></h2>\n'
             + (f'    <p class="note">{e(note)}</p>\n' if note else '')
-            + f'    <ul class="picks-list">{items}</ul>\n    <p class="note pick-disc">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. <a href="#gear">유형별로 고르는 법 →</a></p>\n  </section>\n')
+            + f'    <ul class="picks-list">{items}</ul>\n    <p class="note pick-disc">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.' + ('' if ctx == 'gear' else ' <a href="#gear">유형별로 고르는 법 →</a>') + '</p>\n  </section>\n')
 
 PICK_AT = {'race': '  <aside class="ad" data-ad="race-1">', 'plan': '  <aside class="ad" data-ad="plan-1">',
            'injury': '  <p class="note">이 안내는 일반 정보', 'spike': '  <div class="cta"><span>달린 날을'}
